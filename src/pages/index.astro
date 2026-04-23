@@ -36,6 +36,11 @@ function excerptOf(body: string, words = 20): string {
 	</head>
 	<body>
 		<Header />
+		<section class="home-hero">
+			<img src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/avatar_pio.png`} alt="pio" class="home-avatar" />
+			<h1 class="home-title">{SITE_TITLE}</h1>
+			<p class="home-subtitle">{SITE_DESCRIPTION}</p>
+		</section>
 		<main class="feed">
 			<ul class="posts-list">
 				{posts.map((post) => (
