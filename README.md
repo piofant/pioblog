@@ -1,63 +1,109 @@
-# Astro Starter Kit: Blog
+# pio blog
 
-```sh
-npm create astro@latest -- --template blog
+Astro static site deployed to GitHub Pages at **https://piofant.github.io/pioblog/**.
+
+## Стек
+
+- **Astro** (content collections, MDX) — `src/content/blog/*.md`
+- **GitHub Pages** деплой через GitHub Actions (`.github/workflows/deploy.yml`)
+- Шрифты Google: Lora (body), Open Sans (UI), Play (заголовки)
+- Палитра — кремовая (bg `#FCF8F0`, акцент `#FF4200`)
+
+## Структура
+
+```
+src/
+├── components/     # Header, Footer, BaseHead, FormattedDate
+├── content/blog/   # посты (markdown)
+├── layouts/        # BlogPost.astro
+├── pages/
+│   ├── index.astro      # главная (последние 15)
+│   ├── archive.astro    # /archive/ — все посты по годам
+│   ├── about.astro      # /about/
+│   ├── blog/[...slug]   # страница поста
+│   ├── tags/[tag]       # страница тега
+│   └── rss.xml.js       # /rss.xml
+└── styles/global.css    # все стили
+public/
+├── img/            # изображения постов (мигрированы из vedulix-blog)
+├── img/tg/         # картинки из TG-постов
+└── img/notion/     # картинки из Notion
+scripts/
+├── sync-telegram.js     # TG scrape → markdown
+├── sync-notion.js       # Notion DB → markdown
+├── migrate-posts.mjs    # одноразовая миграция из vedulix-blog/_posts/
+└── package.json
+.github/workflows/
+├── deploy.yml           # build + Pages deploy
+├── sync-telegram.yml    # cron каждые 30 мин
+└── sync-notion.yml      # cron каждые 15 мин (требует secrets)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Разработка
 
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```bash
+npm install
+npm run dev        # локально на http://localhost:4321/pioblog/
+npm run build      # билд в dist/
+npm run preview    # preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Посты — markdown в `src/content/blog/`. Frontmatter:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```yaml
+---
+title: 'Заголовок'
+subtitle: 'подзаголовок (опционально)'
+pubDate: '2026-04-24'
+tags: ['тег1', 'тег2']
+heroImage: '/pioblog/img/photo.jpg'
+---
+```
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Синк из Telegram
 
-Any static assets, like images, can be placed in the `public/` directory.
+Автоматически каждые 30 минут workflow `sync-telegram.yml` скачивает свежие посты с `t.me/s/pioblog` (публичный preview канала), парсит, пишет в `src/content/blog/tg-<msg_id>.md`. Дедупликация по id сообщения.
 
-## 🧞 Commands
+Ограничение: превью показывает только последние ~20 сообщений. Старые — один раз через `scripts/migrate-posts.mjs`.
 
-All commands are run from the root of the project, from a terminal:
+Ручной запуск:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+cd scripts && TG_CHANNEL=pioblog node sync-telegram.js
+```
 
-## 👀 Want to learn more?
+## Синк из Notion
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Нужно 2 repo secrets:
+- `NOTION_TOKEN` — Internal Integration Secret (https://www.notion.so/my-integrations)
+- `NOTION_DATABASE_ID` — id базы постов в Notion
 
-## Credit
+Поставить:
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+```bash
+gh secret set NOTION_TOKEN --repo piofant/pioblog
+gh secret set NOTION_DATABASE_ID --repo piofant/pioblog
+```
+
+Ожидаемая схема базы:
+
+| Поле        | Тип          | Описание                          |
+| ----------- | ------------ | --------------------------------- |
+| `Title`     | title        | заголовок                         |
+| `Subtitle`  | rich_text    | подзаголовок (опционально)        |
+| `Slug`      | rich_text    | URL-slug (опционально)            |
+| `Tags`      | multi_select | теги                              |
+| `PubDate`   | date         | дата публикации                   |
+| `Published` | checkbox     | синкаются только с `true`         |
+
+Подключить интеграцию к базе: `···` → **Add connections** → выбрать интеграцию.
+
+## Миграция старых постов
+
+Одноразово из `vedulix-blog/_posts/*.md`:
+
+```bash
+cd scripts && node migrate-posts.mjs
+```
+
+Подхватывает frontmatter-поля `title`, `subtitle`, `tags`, `thumbnail-img`/`cover-img`, конвертирует в новую схему, пишет в `src/content/blog/<slug>.md`.

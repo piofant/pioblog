@@ -1,0 +1,59 @@
+name: Sync Notion → blog
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-notion
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    # Требует, чтобы в Settings → Secrets были заданы:
+    #   NOTION_TOKEN         — Integration Secret
+    #   NOTION_DATABASE_ID   — id базы постов в Notion
+    # Если секреты не выставлены, job сам себя завершает без ошибок.
+    steps:
+      - name: Check secrets
+        id: check
+        run: |
+          if [ -z "${{ secrets.NOTION_TOKEN }}" ] || [ -z "${{ secrets.NOTION_DATABASE_ID }}" ]; then
+            echo "::notice::Notion secrets not configured; skipping"
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+      - if: steps.check.outputs.skip == 'false'
+        uses: actions/checkout@v4
+      - if: steps.check.outputs.skip == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: scripts/package.json
+      - if: steps.check.outputs.skip == 'false'
+        working-directory: scripts
+        run: npm install --no-audit --no-fund
+      - if: steps.check.outputs.skip == 'false'
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: cd scripts && node sync-notion.js
+      - if: steps.check.outputs.skip == 'false'
+        run: |
+          git config user.name "notion-sync-bot"
+          git config user.email "notion-sync-bot@users.noreply.github.com"
+          git add src/content/blog/ public/img/notion/ || true
+          if git diff --cached --quiet; then
+            echo "::notice::No Notion changes to commit"
+            exit 0
+          fi
+          git commit -m "sync: notion $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin main
+          git push

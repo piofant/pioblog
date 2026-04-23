@@ -1,0 +1,20 @@
+{
+	"name": "pioblog-scripts",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"sync:tg": "node sync-telegram.js",
+		"sync:tg:dry": "DRY_RUN=1 node sync-telegram.js",
+		"sync:notion": "node sync-notion.js",
+		"sync:notion:dry": "DRY_RUN=1 node sync-notion.js"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"dependencies": {
+		"@notionhq/client": "2.2.15",
+		"notion-to-md": "3.1.9",
+		"cheerio": "1.0.0"
+	}
+}
