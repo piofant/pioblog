@@ -1,0 +1,7 @@
+---
+title: 'Запись от 13 июля 2025'
+pubDate: '2025-07-13'
+heroImage: '/pioblog/img/posts/2025-07-13-zapis-ot-13-iiulia-2025-318/photo_181@13-07-2025_19-57-39.jpg'
+---
+
+![](/pioblog/img/posts/2025-07-13-zapis-ot-13-iiulia-2025-318/photo_181@13-07-2025_19-57-39.jpg)

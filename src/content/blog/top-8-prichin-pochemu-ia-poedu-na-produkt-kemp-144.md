@@ -1,0 +1,22 @@
+---
+title: 'Топ-8 причин почему я поеду на продукт кемп весна 2024'
+pubDate: '2024-04-03'
+heroImage: '/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg'
+---
+
+Топ-8 причин почему я поеду на [продукт кемп](https://productcamp.ru/?utm_source=telegram&utm_medium=referral&utm_campaign=pioblog&utm_content=pcamp-spring24&clckid=16bc5e64) весна 2024
+
+> утилизировать выходные с пользой
+> посмотреть на красивых людей
+> окунуться в трип бесконечного [контекста знакомства](/blog/2023-02-28-delaiu-prezu-pro-netvorking-tusy-i-to-chto-takoe-116/)
+> встретить старых знакомых
+> найти работу продактом (подробнее [здесь](/blog/2024-03-01-kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/))
+> залутать мерч компаний (не пробовал, кстати)
+> нытинг без фасилитации
+> это просто весело
+
+В этот раз я буду в команде волонтёров прикладных блоков — будем делать небезынтересный воркшоп по АБ, постараемся сделать больше фокус на реальные кейсы
+
+Если вы тоже едете на продукт кемп — пишите мне ([@piofant](https://t.me/piofant)), увидимся!
+
+![](/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg)

@@ -1,47 +1,61 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+function excerptOf(body: string, words = 20): string {
+	const text = body
+		.replace(/```[\s\S]*?```/g, '')
+		.replace(/`[^`]*`/g, '')
+		.replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+		.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+		.replace(/\*\*|\*|__|_/g, '')
+		.replace(/#+\s+/g, '')
+		.replace(/>\s*/g, '')
+		.replace(/\s+/g, ' ')
+		.trim();
+	const parts = text.split(/\s+/);
+	return parts.slice(0, words).join(' ') + (parts.length > words ? '…' : '');
+}
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
+		<main class="feed">
+			<ul class="posts-list">
+				{posts.map((post) => (
+					<li class="post-card">
+						<p class="card-date"><FormattedDate date={post.data.pubDate} short /></p>
+						<a class="card-link" href={`${base}/blog/${post.id}/`}>{post.data.title}</a>
+						{post.data.subtitle && <p class="card-sub">{post.data.subtitle}</p>}
+						{!post.data.subtitle && post.body && (
+							<p class="card-excerpt">{excerptOf(post.body)}</p>
+						)}
+						{post.data.heroImage && (
+							<a class="card-image" href={`${base}/blog/${post.id}/`} aria-label={post.data.title}>
+								<img src={post.data.heroImage} alt="" />
+							</a>
+						)}
+					</li>
+				))}
 			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
+
+			<p class="all-posts-link">
+				<a href={`${base}/archive/`}>Все посты &rarr;</a>
 			</p>
 		</main>
 		<Footer />
