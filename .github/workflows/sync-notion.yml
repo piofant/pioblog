@@ -15,16 +15,15 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    # Требует, чтобы в Settings → Secrets были заданы:
-    #   NOTION_TOKEN         — Integration Secret
-    #   NOTION_DATABASE_ID   — id базы постов в Notion
-    # Если секреты не выставлены, job сам себя завершает без ошибок.
+    # Требует в Settings → Secrets:
+    #   NOTION_TOKEN — Internal Integration Secret
+    # Если секрет не выставлен — job сам себя завершает без ошибок.
     steps:
-      - name: Check secrets
+      - name: Check secret
         id: check
         run: |
-          if [ -z "${{ secrets.NOTION_TOKEN }}" ] || [ -z "${{ secrets.NOTION_DATABASE_ID }}" ]; then
-            echo "::notice::Notion secrets not configured; skipping"
+          if [ -z "${{ secrets.NOTION_TOKEN }}" ]; then
+            echo "::notice::NOTION_TOKEN not configured; skipping"
             echo "skip=true" >> $GITHUB_OUTPUT
           else
             echo "skip=false" >> $GITHUB_OUTPUT
@@ -43,13 +42,12 @@ jobs:
       - if: steps.check.outputs.skip == 'false'
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: cd scripts && node sync-notion.js
       - if: steps.check.outputs.skip == 'false'
         run: |
           git config user.name "notion-sync-bot"
           git config user.email "notion-sync-bot@users.noreply.github.com"
-          git add src/content/blog/ public/img/notion/ || true
+          git add src/content/pages/ public/img/notion/ || true
           if git diff --cached --quiet; then
             echo "::notice::No Notion changes to commit"
             exit 0
