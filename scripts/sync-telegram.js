@@ -78,9 +78,43 @@ async function downloadTo(url, abs) {
 	});
 }
 
-/* TG entities используют UTF-16 code units как offset/length.
-   JS String уже UTF-16, но эмодзи могут занимать 2 code units (surrogate pair),
-   так что обычный `slice()` работает правильно. */
+/* TG хранит пользовательский текст с одиночными `\n` между визуально-
+   разделёнными строками. TG клиент рендерит их с визуальным зазором →
+   пользователь воспринимает как абзацы. Markdown же трактует single `\n`
+   как soft-break (тот же параграф). Превращаем каждый \n в \n\n вне code
+   fences, плюс заранее разбиваем многострочные bold/italic spans на
+   per-line чтобы `*`-маркеры не осиротели. */
+function splitMultilineEmphasis(body) {
+	// **text** first (to avoid consuming single `*`)
+	body = body.replace(/\*\*([^*][\s\S]*?[^*]|[^*])\*\*/g, (m, inner) => {
+		if (!inner.includes('\n')) return m;
+		return inner.split('\n')
+			.map((l) => l.trim() ? `**${l.trim()}**` : '')
+			.join('\n');
+	});
+	// Single *text*  (not preceded/followed by another *)
+	body = body.replace(/(?<!\*)\*([^*][\s\S]*?[^*]|[^*])\*(?!\*)/g, (m, inner) => {
+		if (!inner.includes('\n')) return m;
+		return inner.split('\n')
+			.map((l) => l.trim() ? `*${l.trim()}*` : '')
+			.join('\n');
+	});
+	return body;
+}
+
+function paragraphize(body) {
+	// Разбиваем по ```code fences``` — внутри них newlines не трогаем.
+	const parts = body.split(/(```[\s\S]*?```)/g);
+	return parts.map((part, i) => {
+		if (i % 2 === 1) return part; // code fence — as is
+		return part.replace(/\n+/g, '\n\n');
+	}).join('');
+}
+
+function fixParagraphs(body) {
+	return paragraphize(splitMultilineEmphasis(body));
+}
+
 function entitiesToMarkdown(text, entities) {
 	if (!entities || !entities.length) return text;
 	// Применяем с конца — чтобы offsets не смещались.
@@ -153,7 +187,7 @@ async function processPost(msg, existing) {
 	}
 	const text = msg.text || msg.caption || '';
 	const entities = msg.entities || msg.caption_entities || [];
-	const body = entitiesToMarkdown(text, entities);
+	const body = fixParagraphs(entitiesToMarkdown(text, entities));
 
 	// Photo: собираем либо из msg._photos (media_group merged), либо из msg.photo (одиночный)
 	const imgRefs = [];

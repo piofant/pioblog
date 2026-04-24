@@ -5,12 +5,15 @@ pubDate: '2025-11-03'
 heroImage: '/pioblog/img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/photo_229@03-11-2025_12-36-43.jpg'
 ---
 
+
 набираюсь юзкейсов, в том числе из внешнего рынка, чтоб потом имплиментиовать их в продукте коммуникационной платформы
 
 👋️️ если вы маркетолог / продакт / сейлз, и
 
 - уже собрали воркфлоу ИИ-пушей на n8n
+
 - видели / пользуетесь внешним b2b SaaS для автоматизации коммуникаций с клиентами
+
 - у вас болит, что сегментов слишком много и всех руками не переберёшь
 
 то го пить кофе в зуме / irl и обмениваться опытом!
@@ -18,3 +21,4 @@ heroImage: '/pioblog/img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-men
 пишите [@piofant](https://t.me/piofant), с меня результаты рисерча + любая [полезность из списка](https://online-qr.ru/vova_value?utm_source=pioblog_chat_comms) бесплатно
 
 ![](/pioblog/img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/photo_229@03-11-2025_12-36-43.jpg)
+

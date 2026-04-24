@@ -5,6 +5,7 @@ pubDate: '2026-02-13'
 heroImage: '/pioblog/img/posts/2026-02-13-vozmozhnost-uvidet-blogera-vzhivuiu-v-pitere-408/photo_257@13-02-2026_15-58-30.jpg'
 ---
 
+
 > «Зумер, айтишник и танцор Вова - о своем первом опыте автостопа и побеге из зоны комфорта в настоящее»
 
 и еще там куча других докладов будет – про сопротивление терапевтическому обществу и сексуальную идентичность, например
@@ -16,3 +17,4 @@ heroImage: '/pioblog/img/posts/2026-02-13-vozmozhnost-uvidet-blogera-vzhivuiu-v-
 [регистрация вотъ](https://t.me/homeconference/505), приходите
 
 ![](/pioblog/img/posts/2026-02-13-vozmozhnost-uvidet-blogera-vzhivuiu-v-pitere-408/photo_257@13-02-2026_15-58-30.jpg)
+

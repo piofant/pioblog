@@ -5,12 +5,19 @@ pubDate: '2024-04-03'
 heroImage: '/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg'
 ---
 
+
 > посмотреть на красивых людей
+
 > окунуться в трип бесконечного [контекста знакомства](/pioblog/blog/delaiu-prezu-pro-netvorking-tusy-i-to-chto-takoe-116/)
+
 > встретить старых знакомых
+
 > найти работу продактом (подробнее [здесь](/pioblog/blog/kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/))
+
 > залутать мерч компаний (не пробовал, кстати)
+
 > нытинг без фасилитации
+
 > это просто весело
 
 В этот раз я буду в команде волонтёров прикладных блоков — будем делать небезынтересный воркшоп по АБ, постараемся сделать больше фокус на реальные кейсы
@@ -18,3 +25,4 @@ heroImage: '/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-prod
 Если вы тоже едете на продукт кемп — пишите мне ([@piofant](https://t.me/piofant)), увидимся!
 
 ![](/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg)
+

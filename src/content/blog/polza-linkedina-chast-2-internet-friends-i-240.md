@@ -5,6 +5,7 @@ pubDate: '2024-12-03'
 heroImage: '/pioblog/img/posts/2024-12-03-polza-linkedina-chast-2-internet-friends-i-240/photo_119@03-12-2024_23-15-43.jpg'
 ---
 
+
 несколько примеров:
 
 `-` Чаппи и Alexander Pavlov, которые после каждого нового поста с кейсом залетают в личку и челленджат «UX-тесты дорого будет Вов», «а ты на тот вопрос ответил?», «почему, повышая доступность ты повышаешь средний чек, а не частоту покупок?» — люблю их <3
@@ -20,3 +21,4 @@ heroImage: '/pioblog/img/posts/2024-12-03-polza-linkedina-chast-2-internet-frien
 законнектиться на линке со мной [можно тут](https://www.linkedin.com/in/lutsenko-vladimir/), если мы ещё не
 
 ![](/pioblog/img/posts/2024-12-03-polza-linkedina-chast-2-internet-friends-i-240/photo_119@03-12-2024_23-15-43.jpg)
+

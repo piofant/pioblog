@@ -5,6 +5,7 @@ pubDate: '2025-03-29'
 heroImage: '/pioblog/img/posts/2025-03-29-rezultat-eto-diff-278/photo_146@29-03-2025_11-56-47.jpg'
 ---
 
+
 Я ответил, что для меня это про **diff изменений a→b, 0→1, 1→10 и время, за которое он был достигнут**, например:
 
 Неуверенный 8-классник → **расслабленный и любопытный Вова**, спасибо [снс-тусам](/pioblog/blog/networking-party/) [2 года]
@@ -24,3 +25,4 @@ heroImage: '/pioblog/img/posts/2025-03-29-rezultat-eto-diff-278/photo_146@29-03-
 ![](/pioblog/img/posts/2025-03-29-rezultat-eto-diff-278/photo_146@29-03-2025_11-56-47.jpg)
 
 ![](/pioblog/img/posts/2025-03-29-rezultat-eto-diff-278/photo_147@29-03-2025_11-56-47.jpg)
+

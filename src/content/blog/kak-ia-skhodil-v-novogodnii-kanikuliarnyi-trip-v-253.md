@@ -5,6 +5,7 @@ pubDate: '2025-01-13'
 heroImage: '/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_128@13-01-2025_18-23-38.jpg'
 ---
 
+
 я вообще фанат утренних рендом кофе, типа, начинать утро с рандомного человека
 
 мне это помогает проснуться и **в неспешном ритме начать день с лёгкого общения**, а потом побежать на тренировочку к 10-ти, а после тренировочки баня, а потом апельсиновый фреш (ладно об этом в другой раз)
@@ -20,6 +21,7 @@ heroImage: '/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliar
 в конце встречек стандартно обмениваемся, чем можем быть полезны друг другу & о чем интересно поговорить/поделать в будущем & соц-сеточки, чтоб **держать слабую связь в отсутствие сильной**
 
 --
+
 если тоже хотите забукать рендом кофе со мной, напишите мне в тг [@piofant](https://t.me/piofant) — закину календарь
 
 ![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_128@13-01-2025_18-23-38.jpg)
@@ -29,3 +31,4 @@ heroImage: '/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliar
 ![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_130@13-01-2025_18-23-38.jpg)
 
 ![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_131@13-01-2025_18-23-38.jpg)
+

@@ -5,9 +5,11 @@ pubDate: '2024-08-24'
 heroImage: '/pioblog/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-raboty-na-190/photo_86@24-08-2024_09-40-28.jpg'
 ---
 
+
 Сегодня еду на ProductCamp, и поскольку сейчас ~~ищу работу продактом~~ ищу вдохновляющий продукт и новые челленджи, решил попробовать поместить call to action об этом прямо на себя, для этого сделал:
 
 (1) Футболку с call to action и ключевыми моментами в опыте
+
 (2) Telegram-бот [@hire\_vova\_bot](https://t.me/hire_vova_bot) с резюме, кейсами и целеполаганием
 
 За первый день сделал дизайн, отразив на обоих сторонах ключевые теги и достижения (спасибо Никите [@bigifoxi](https://t.me/bigifoxi) за помощь с макетом в фигме)
@@ -23,3 +25,4 @@ heroImage: '/pioblog/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-
 🔻 Поделитесь в комментариях, как вам UX/UI футболки и бота [@hire\_vova\_bot](https://t.me/hire_vova_bot)? Что хочется изменить / убрать / добавить?
 
 ![](/pioblog/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-raboty-na-190/photo_86@24-08-2024_09-40-28.jpg)
+

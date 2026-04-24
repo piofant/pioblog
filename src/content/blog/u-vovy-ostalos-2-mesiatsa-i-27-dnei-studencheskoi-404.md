@@ -5,9 +5,12 @@ pubDate: '2026-02-10'
 heroImage: '/pioblog/img/posts/2026-02-10-u-vovy-ostalos-2-mesiatsa-i-27-dnei-studencheskoi-404/photo_253@10-02-2026_12-48-23.jpg'
 ---
 
+
 про что темка: всякие авто / ии -зации постинга контента с целью поднять охваты / лайки / репосты, втч с учётом инсайтов / контента из трендовотчинга
 
 i'm gonna trying to do my best ^
+
 о результатах расскажу летом
 
 ![](/pioblog/img/posts/2026-02-10-u-vovy-ostalos-2-mesiatsa-i-27-dnei-studencheskoi-404/photo_253@10-02-2026_12-48-23.jpg)
+

@@ -5,6 +5,7 @@ pubDate: '2025-10-11'
 heroImage: '/pioblog/img/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/photo_218@11-10-2025_18-49-14.jpg'
 ---
 
+
 Я на нём иногда стою и танцую, смотрю на людей и вдаль – там довольно классный вид, однажды так полчаса стоял, это были те самые полчаса *жизни в настоящем*
 
 Люди смотрят на меня, а у меня ведь есть социально одобряемая причина – столб рядом с метро и я наверняка просто кого-то жду
@@ -28,9 +29,12 @@ heroImage: '/pioblog/img/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-p
 ![](/pioblog/img/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/photo_219@11-10-2025_18-49-14.jpg)
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
+
   <source src="/pioblog/video/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/video_5@11-10-2025_18-49-14.mp4" type="video/mp4">
+
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/363)
 
 ![](/pioblog/img/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/photo_220@11-10-2025_18-49-14.jpg)
+

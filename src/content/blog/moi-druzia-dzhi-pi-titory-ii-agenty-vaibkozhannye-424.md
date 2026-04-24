@@ -5,6 +5,7 @@ pubDate: '2026-04-02'
 heroImage: '/pioblog/img/posts/2026-04-02-moi-druzia-dzhi-pi-titory-ii-agenty-vaibkozhannye-424/photo_269@02-04-2026_20-02-04.jpg'
 ---
 
+
 (✦) [Лёша Остриков](https://t.me/aostrikov_ai_agents) – друллега из Яндекса, вместе запустили голосовых ии-агентов в Такси; Лёша занял 1 место в ERC3 (аля хак по агентам), пишет про разработку агентов и ведет комьюнити стримы – [ближайший](https://t.me/aostrikov_ai_agents/62) в эту субботу!
 
 (✦) [vlad bit by bit](https://t.me/vladbitbybit) – продакт, физтех, я позвал его на зум-кофе год назад; мне у него нравятся [видосы](https://t.me/vladbitbybit/1215) про создание сайтов
@@ -16,8 +17,10 @@ heroImage: '/pioblog/img/posts/2026-04-02-moi-druzia-dzhi-pi-titory-ii-agenty-va
 Создал прости-господи телеграм-папку каналами ребят: <https://t.me/addlist/lefR1wxyDJsxNzBi>
 
 --
+
 😊 еще у меня есть чат друзей про вайбкоденг проекты, вступайте: <https://t.me/+faPebkaeB1AwODli>
 
 если вы тоже пишете про опыт с агентами / вайбкодингом, кидайте ваши каналы в комментс!
 
 ![](/pioblog/img/posts/2026-04-02-moi-druzia-dzhi-pi-titory-ii-agenty-vaibkozhannye-424/photo_269@02-04-2026_20-02-04.jpg)
+
