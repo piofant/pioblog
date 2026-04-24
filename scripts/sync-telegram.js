@@ -155,24 +155,27 @@ async function processPost(msg, existing) {
 	const entities = msg.entities || msg.caption_entities || [];
 	const body = entitiesToMarkdown(text, entities);
 
-	// Photo: берём самый большой вариант
+	// Photo: собираем либо из msg._photos (media_group merged), либо из msg.photo (одиночный)
 	const imgRefs = [];
 	let heroImage;
-	if (msg.photo && msg.photo.length) {
-		const largest = msg.photo[msg.photo.length - 1];
-		const filename = `0.jpg`;
+	const photos = msg._photos && msg._photos.length
+		? msg._photos
+		: (msg.photo && msg.photo.length ? [msg.photo[msg.photo.length - 1]] : []);
+	for (let i = 0; i < photos.length; i++) {
+		const p = photos[i];
+		const filename = `${i}.jpg`;
 		const rel = `/pioblog/img/tg/${msg.message_id}/${filename}`;
 		const abs = path.join(IMAGES_DIR, String(msg.message_id), filename);
 		if (!DRY_RUN) {
 			try {
-				const info = await apiCall('getFile', { file_id: largest.file_id });
+				const info = await apiCall('getFile', { file_id: p.file_id });
 				await downloadTo(`${FILE}/${info.file_path}`, abs);
 			} catch (e) {
 				console.warn(`    ⚠ photo fail: ${e.message}`);
 			}
 		}
 		imgRefs.push(rel);
-		heroImage = rel;
+		if (i === 0) heroImage = rel;
 	}
 	// Document (для video/file — не скачиваем пока, только метка)
 	// Animation/video — пропускаем, можно добавить позже
@@ -215,6 +218,21 @@ async function main() {
 	let offset = 0;
 	let guard = 0;
 
+	// Собираем все подходящие сообщения из updates — потом группируем по media_group_id.
+	const buckets = new Map();  // key: groupKey → Array of normalized {msg, origId, origDate, mgid}
+	const loose = [];           // посты без media_group
+	const pushMsg = (msg, origId, origDate) => {
+		const mgid = msg.media_group_id;
+		const item = { msg, origId, origDate, mgid };
+		if (mgid) {
+			const key = `mg:${mgid}`;
+			if (!buckets.has(key)) buckets.set(key, []);
+			buckets.get(key).push(item);
+		} else {
+			loose.push(item);
+		}
+	};
+
 	while (guard++ < 20) {
 		const updates = await apiCall('getUpdates', {
 			offset,
@@ -228,20 +246,13 @@ async function main() {
 		for (const u of updates) {
 			offset = Math.max(offset, u.update_id + 1);
 
-			// Вариант 1: прямой channel_post из канала, где бот — админ.
 			const post = u.channel_post || u.edited_channel_post;
 			if (post) {
 				const uname = (post.chat && post.chat.username) || '';
-				if (uname.toLowerCase() === CHANNEL) {
-					try {
-						if (await processPost(post, existing)) written++;
-					} catch (e) { console.warn(`  ✗ tg-${post.message_id}: ${e.message}`); }
-				}
+				if (uname.toLowerCase() === CHANNEL) pushMsg(post, post.message_id, post.date);
 				continue;
 			}
 
-			// Вариант 2: пересланное сообщение в DM боту — используем forward_origin
-			// чтобы восстановить оригинальный id и дату из канала.
 			const msg = u.message;
 			if (!msg) continue;
 			const fo = msg.forward_origin;
@@ -251,18 +262,29 @@ async function main() {
 			const origId = fo?.message_id ?? msg.forward_from_message_id;
 			const origDate = fo?.date ?? msg.forward_date ?? msg.date;
 			if (!origId) continue;
-
-			// Проксируем как channel_post — подменяем id и дату на оригинальные.
-			const pseudo = {
-				...msg,
-				message_id: origId,
-				date: origDate,
-			};
-			console.log(`  forwarded → treating as channel post ${origId}`);
-			try {
-				if (await processPost(pseudo, existing)) written++;
-			} catch (e) { console.warn(`  ✗ tg-${origId}: ${e.message}`); }
+			pushMsg(msg, origId, origDate);
 		}
+	}
+
+	// Обработка: для каждой media-group склеиваем фото + caption из того, где он есть.
+	for (const [key, items] of buckets) {
+		// Сортируем по оригинальному id, чтобы порядок фоток сохранялся.
+		items.sort((a, b) => a.origId - b.origId);
+		const withText = items.find((i) => i.msg.caption || i.msg.text) || items[0];
+		const merged = { ...withText.msg };
+		// Собираем все фото из всех items (каждый item имеет свой msg.photo[])
+		merged._photos = items.map((i) => i.msg.photo?.[i.msg.photo.length - 1]).filter(Boolean);
+		merged.message_id = withText.origId;
+		merged.date = withText.origDate;
+		try {
+			if (await processPost(merged, existing)) written++;
+		} catch (e) { console.warn(`  ✗ tg-${withText.origId}: ${e.message}`); }
+	}
+	for (const item of loose) {
+		const pseudo = { ...item.msg, message_id: item.origId, date: item.origDate };
+		try {
+			if (await processPost(pseudo, existing)) written++;
+		} catch (e) { console.warn(`  ✗ tg-${item.origId}: ${e.message}`); }
 	}
 
 	// Подтверждаем offset — Telegram очистит очередь.
