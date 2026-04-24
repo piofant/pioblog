@@ -12,7 +12,7 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: 'Lora',
+			name: 'Fraunces',
 			cssVariable: '--font-body',
 			weights: [400, 700],
 			styles: ['normal', 'italic'],

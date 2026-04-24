@@ -27,7 +27,7 @@ body {
 	color: var(--text);
 	font-family: var(--font-body), Georgia, serif;
 	font-size: 1rem;
-	line-height: 1.7;
+	line-height: 1.6;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
@@ -276,7 +276,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 .post-tags a:hover { background: var(--text-dark); color: #fff; }
 
-.post-content p { margin: 0 0 1rem; }
+.post-content p { margin: 0 0 15px; }
 .post-content a { color: var(--link); }
 .post-content a:hover { color: var(--link-hover); }
 
