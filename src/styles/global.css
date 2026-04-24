@@ -3,14 +3,14 @@
    ============================================================ */
 
 :root {
-	/* near-white палитра — светлее прежней кремовой */
-	--bg:          #fafaf8;
-	--bg-navbar:   #f5f3ee;
-	--text:        #3a3a3a;
-	--text-dark:   #1a1a1a;
-	--muted:       #777777;
+	/* pure white палитра */
+	--bg:          #ffffff;
+	--bg-navbar:   #ffffff;
+	--text:        #333333;
+	--text-dark:   #111111;
+	--muted:       #666666;
 	--muted-2:     #999999;
-	--border:      #ececec;
+	--border:      #e8e8e8;
 	--border-soft: #f4f4f4;
 	--link:        #FF4200;
 	--link-hover:  #FF8c00;
