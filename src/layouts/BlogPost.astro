@@ -20,11 +20,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<Header />
 		<main class="content">
 			<article>
-				{heroImage && (
-					<div class="post-hero-top">
-						<img src={heroImage} alt="" />
-					</div>
-				)}
 				<header class="post-header">
 					<div class="post-date">
 						<FormattedDate date={pubDate} />
