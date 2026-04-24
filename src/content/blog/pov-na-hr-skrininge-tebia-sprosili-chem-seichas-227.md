@@ -5,6 +5,8 @@ pubDate: '2024-10-30'
 heroImage: '/pioblog/img/posts/2024-10-30-pov-na-hr-skrininge-tebia-sprosili-chem-seichas-227/photo_110@30-10-2024_15-04-49.jpg'
 ---
 
+дальше как в [сериале](https://t.me/not_tldr/472) про убер, варианты ти-кея:
+
 `-` пишу посты на линке и тг
 `-` генерю и тестирую с менти уже которую по счёту гипотезу по монетизации [@dogpsybot](https://t.me/dogpsybot)
 `-` решаю кейсы, флужу в чат своего [кейс-клуба](/pioblog/blog/zapis-ot-15-aprelia-2024-146/)

@@ -300,6 +300,17 @@ async function syncPage(pageId, pageConfig) {
 	parentContent = parentContent
 		.replace(/\*\*:[^:*\s]+:\*\*\s*/g, '')   // **:...:**
 		.replace(/:[\wа-яА-Я\-]+:\s*/g, '');     // :...:
+
+	// Post-process 5: выпрямить абзацы с 4-space-indent.
+	// Notion рендерит "children" булет-блоков с 4 пробелами в начале строки,
+	// markdown интерпретирует их как code-block → Astro shiki рендерит <pre
+	// class="astro-code">. В таких строках реального кода нет, снимаем
+	// отступ. Не трогаем строки-продолжения списков (`    - `, `    * `,
+	// `    1. `) — там отступ значим для nested lists.
+	parentContent = parentContent.replace(
+		/^    (?![-*+] |\d+\. )(\S.*)$/gm,
+		'$1',
+	);
 	// child_page уже превратились в list-items через наш transformer.
 	// separateChildPage: false → mdObject содержит только `parent`, sub-pages отдельно не пишем.
 
