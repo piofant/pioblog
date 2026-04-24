@@ -5,6 +5,9 @@ pubDate: '2025-09-01'
 heroImage: '/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvstvoval-334/photo_194@01-09-2025_15-57-30.jpg'
 ---
 
+
+Ласт неделю лета я провел на Русском Севере у Вани в Малошуйке — такой поморской Russian village
+
 Мы познакомились на снс-тусе у [Юры](/pioblog/blog/znakomtes-iura-moi-partner-po-avtostopu-326/), потом вместе пили чай на [Бессоннице](/pioblog/blog/trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/)
 
 Ваня — тру помор, путешественник, копит на автодом и по-настоящему любит свои края, посему позвал к себе в гости
