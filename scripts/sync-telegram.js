@@ -182,7 +182,10 @@ async function processPost(msg, existing) {
 
 	const date = new Date(msg.date * 1000);
 	const pubDate = date.toISOString().slice(0, 10);
-	const firstLine = (body.split('\n')[0] || '').slice(0, 120) || `Запись ${msg.message_id}`;
+	// Для title берём первую строку из ПЛЕЙНОГО текста (без markdown-разметки),
+	// иначе title начнётся с *bold* или подобного маркера.
+	const plain = text || '';
+	const firstLine = (plain.split('\n')[0] || '').slice(0, 120) || `Запись ${msg.message_id}`;
 
 	const fm = buildFrontmatter({
 		title: firstLine,
