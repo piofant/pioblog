@@ -125,11 +125,16 @@ function parseMessages(html) {
 }
 
 async function listExistingTgIds() {
+	// A post "exists" if ANY markdown file in POSTS_DIR references this TG id —
+	// either via the tg-<id>.md filename (this script's format) or via a
+	// trailing -<id>.md suffix produced by migrate-posts.mjs (imported from
+	// vedulix-blog, where slugs look like "krabik-openclaw-...-421.md").
 	try {
 		const files = await readdir(POSTS_DIR);
 		const ids = new Set();
 		for (const f of files) {
-			const m = f.match(/^tg-(\d+)\.md$/);
+			if (!f.endsWith('.md')) continue;
+			const m = f.match(/-(\d+)\.md$/);
 			if (m) ids.add(Number(m[1]));
 		}
 		return ids;
