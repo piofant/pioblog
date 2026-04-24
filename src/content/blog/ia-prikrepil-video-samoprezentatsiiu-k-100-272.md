@@ -21,6 +21,8 @@ heroImage: '/pioblog/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k
 **Го делиться мыслями и опытом в комментах!**
 Если будет большой запрос, проведем с [Вовой Камчаткиным](https://t.me/data_new_gold) совместный стрим и поразгоняем про истории с самопрезентациями на собесах и в общем поиск работы
 
-*\*1 часть поста про самопрезентацию:* </blog/2025-03-12-samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271/>
+*\*1 часть поста про самопрезентацию:* </blog/samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271-2025-03-12/>
 
 ![](/pioblog/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_142@13-03-2025_18-00-48.jpg)
+
+![](/pioblog/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_143@13-03-2025_18-00-48.jpg)

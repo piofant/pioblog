@@ -26,3 +26,9 @@ heroImage: '/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliar
 если тоже хотите забукать рендом кофе со мной, напишите мне в тг [@piofant](https://t.me/piofant) — закину календарь
 
 ![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_128@13-01-2025_18-23-38.jpg)
+
+![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_129@13-01-2025_18-23-38.jpg)
+
+![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_130@13-01-2025_18-23-38.jpg)
+
+![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_131@13-01-2025_18-23-38.jpg)

@@ -16,7 +16,7 @@ heroImage: '/pioblog/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-
 (4) выделенные жирным выводы \ so what'ы в конце каждого блока — чтоб можно было не читать весь блок, а понять главное в выводе
 (5) конечно же executive summary по всей работе — показывает, что я забочусь о читателе и хочу сэкономить его время
 
-Посмотреть, как пункты воспроизводятся в решении, можно в [pdf-ке](/blog/2024-10-14-pioblog-215/)
+Посмотреть, как пункты воспроизводятся в решении, можно в [pdf-ке](/blog/zanial-14-iz-420-mesto-v-reshenii-keisa-ot-avito-211-2024-10-14/)
 
 **→ Что помогло в решении:**
 
@@ -26,6 +26,6 @@ heroImage: '/pioblog/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-
 
 Пошерьте внизу, что вам помогает в решении кейс-чемпов, на чем делаете фокус? 🦻
 
-[Часть 1](/blog/2024-10-04-kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/)
+[Часть 1](/blog/kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202-2024-10-04/)
 
 ![](/pioblog/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/photo_118@13-11-2024_13-27-32.jpg)

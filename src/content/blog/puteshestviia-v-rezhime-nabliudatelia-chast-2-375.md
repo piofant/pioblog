@@ -11,7 +11,7 @@ heroImage: '/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-
 > **Работяга с вахты в Мурманске**
 детство в Архангельске, переезд в Питер, женился и развёлся, беспомощность, рейсы на вахту по рефлексу, в выходные пишет репчик и вообще на самом деле творческий человек!
 
-> **Полиаморная пара на** [хиппи-фесте](/blog/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/)50 и 25 лет радости, много света в глазах, разговоры о границах и вот эта детская бука и нехочуха на лице
+> **Полиаморная пара на** [хиппи-фесте](/blog/6-dnei-s-randomami-v-lesu-ili-zhizn-v-313-2025-07-13/)50 и 25 лет радости, много света в глазах, разговоры о границах и вот эта детская бука и нехочуха на лице
 
 --
 В таких *трипах в другие образы жизни* порой возникают открытые вопросы о том,
@@ -19,3 +19,7 @@ heroImage: '/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-
 - хочу ли я жить по-другому
 
 ![](/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_226@29-10-2025_17-19-01.jpg)
+
+![](/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_227@29-10-2025_17-19-01.jpg)
+
+![](/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_228@29-10-2025_17-19-01.jpg)

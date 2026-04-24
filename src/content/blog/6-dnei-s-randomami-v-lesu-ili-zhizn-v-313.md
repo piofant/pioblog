@@ -5,7 +5,7 @@ heroImage: '/pioblog/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-
 ---
 
 **6 дней с рандомами в лесу или** **жизнь в настоящем**
-после [трипа в автостоп](/blog/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/) мы отправились с Юрцом на один некоммерческий фестиваль в подмосковном лесу
+после [трипа в автостоп](/blog/moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307-2025-06-22/) мы отправились с Юрцом на один некоммерческий фестиваль в подмосковном лесу
 
 перешли реку через брод, дошли до лагеря и начался ураган — я почувствовал вот ето чувство страха за жизнь, ветер был очень сильный, деревья вырывало с корнем, но в итоге все выжили и пострадала лишь 1 палатка
  **Страх безделья**
@@ -20,7 +20,7 @@ heroImage: '/pioblog/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-
 без лидеров, онбординга, фасилитации, все self-service: сами готовим еду, проводим эвенты, читаем лекции, держим вместе тент чтоб спастись от урагана
 
 **Моё состояние**
-as always, в [дискавери трипе](/blog/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/) это ∞ exploration с интересом
+as always, в [дискавери трипе](/blog/chto-takoe-tripy-v-diskaveri-novogo-opyta-184-2024-08-18/) это ∞ exploration с интересом
 
 в одном лагере зайдешь учиться урокам английского по рассказам Кафки, в другом поговорить об опыте полиамории, о зимовке на Гоа, а где-то просто под музычку медитируешь
 
@@ -35,3 +35,21 @@ as always, в [дискавери трипе](/blog/2024-08-18-chto-takoe-tripy-
 // На след неделе еду на Бессонницу — [пишите](http://t.me/piofant), если вы тоже да
 
 ![](/pioblog/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/photo_178@13-07-2025_19-57-38.jpg)
+
+![](/pioblog/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/photo_179@13-07-2025_19-57-38.jpg)
+
+![](/pioblog/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/photo_180@13-07-2025_19-57-38.jpg)
+
+<video controls preload="metadata" style="width:100%;max-width:620px">
+  <source src="/assets/video/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/video_2@13-07-2025_19-57-39.mp4" type="video/mp4">
+</video>
+
+[Оригинал в Telegram →](https://t.me/pioblog/313)
+
+<video controls preload="metadata" style="width:100%;max-width:620px">
+  <source src="/assets/video/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/video_3@13-07-2025_19-57-39.mp4" type="video/mp4">
+</video>
+
+[Оригинал в Telegram →](https://t.me/pioblog/313)
+
+![](/pioblog/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/photo_181@13-07-2025_19-57-39.jpg)

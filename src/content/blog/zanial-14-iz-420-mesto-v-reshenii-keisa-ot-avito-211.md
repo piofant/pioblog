@@ -15,6 +15,12 @@ heroImage: '/pioblog/img/posts/2024-10-14-zanial-14-iz-420-mesto-v-reshenii-keis
 Что может происходить дальше: топ-100 работ и резюме участников рассмотрят продакт лиды Авито, далее могут позвать пообщаться на собес, по результатам которого могут пригласить присоединиться к команде Авито и в течение 9 месяцев решать сложные челленджи и расти до стронг продакта
 
 В следующем посте поделюсь, что мне помогло в решении кейса и на чем фокусировался, а под этим шерю само решение кейса
-Upd. Написал: </blog/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/>
+Upd. Написал: </blog/kak-ia-reshaiu-testovye-na-prodakta-2-chast-235-2024-11-13/>
 
 ![](/pioblog/img/posts/2024-10-14-zanial-14-iz-420-mesto-v-reshenii-keisa-ot-avito-211/photo_98@14-10-2024_19-52-58.jpg)
+
+![](/pioblog/img/posts/2024-10-14-zanial-14-iz-420-mesto-v-reshenii-keisa-ot-avito-211/photo_99@14-10-2024_19-52-58.jpg)
+
+![](/pioblog/img/posts/2024-10-14-zanial-14-iz-420-mesto-v-reshenii-keisa-ot-avito-211/photo_100@14-10-2024_19-52-58.jpg)
+
+![](/pioblog/img/posts/2024-10-14-zanial-14-iz-420-mesto-v-reshenii-keisa-ot-avito-211/photo_101@14-10-2024_19-52-58.jpg)

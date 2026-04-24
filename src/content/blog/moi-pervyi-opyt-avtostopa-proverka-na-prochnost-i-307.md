@@ -22,11 +22,21 @@ heroImage: '/pioblog/img/posts/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-
 `-` эмоционально: ярко одеваешься, *продаёшь* себя водителям улыбкой, хорошим настроением и пальцем вверх, а тебя один за другим реджектит и ещё смотрят таким удивленным взглядом
 
 **Шеринг историй**
-спустя час ожидания останавливается неравнодушный водитель, а дальше похожий на [рендом-кофе флоу](/blog/2022-12-09-random-coffee-boty-kak-sposob-znakomitsia-s-114/) знакомство • шеринг историй: сегодня было много про веру и про то, как дальнобойщик спас жизнь девушке на дороге зимой
+спустя час ожидания останавливается неравнодушный водитель, а дальше похожий на [рендом-кофе флоу](/blog/zapis-ot-9-dekabria-2022-113-2022-12-09/) знакомство • шеринг историй: сегодня было много про веру и про то, как дальнобойщик спас жизнь девушке на дороге зимой
 
 --
 Мы часть дня стопим, часть останавливаемся в городе в палаке\у ребят из кауч бота, поэтому если вы сейчас в Саранске/Ульяновске/Казани — [пишите мне](https://t.me/piofant), скоро увидимся
 
-\* пост с лекцией про эту поездку: </blog/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/>
+\* пост с лекцией про эту поездку: </blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329-2025-08-19/>
 
 ![](/pioblog/img/posts/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/photo_172@22-06-2025_19-51-06.jpg)
+
+![](/pioblog/img/posts/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/photo_173@22-06-2025_19-51-06.jpg)
+
+![](/pioblog/img/posts/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/photo_174@22-06-2025_19-51-06.jpg)
+
+![](/pioblog/img/posts/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/photo_175@22-06-2025_19-51-06.jpg)
+
+![](/pioblog/img/posts/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/photo_176@22-06-2025_19-51-06.jpg)
+
+![](/pioblog/img/posts/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/photo_177@22-06-2025_19-51-06.jpg)

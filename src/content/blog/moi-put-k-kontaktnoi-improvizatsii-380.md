@@ -32,8 +32,14 @@ heroImage: '/pioblog/img/posts/2025-11-17-moi-put-k-kontaktnoi-improvizatsii-380
 возможный next step для меня здесь это научиться монетизировать эту проявленность и давать внимание тем, кому это нужно
 
 --
-это моя история, а вот вам ещё история моего друга [Жеки](/blog/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/), если хотите <https://t.me/e_rumynskiy/64>
+это моя история, а вот вам ещё история моего друга [Жеки](/blog/razobrannost-zheki-rumynskogo-art-khaus-khata-i-288-2025-05-11/), если хотите <https://t.me/e_rumynskiy/64>
 
-еще один мой пост про КИ: </blog/2026-03-19-znaete-v-chem-prikol-tantsevat-kontaktnuiu-409/>
+еще один мой пост про КИ: </blog/znaete-v-chem-prikol-tantsevat-kontaktnuiu-409-2026-03-19/>
 
 ![](/pioblog/img/posts/2025-11-17-moi-put-k-kontaktnoi-improvizatsii-380/photo_231@17-11-2025_20-40-59.jpg)
+
+![](/pioblog/img/posts/2025-11-17-moi-put-k-kontaktnoi-improvizatsii-380/photo_232@17-11-2025_20-40-59.jpg)
+
+![](/pioblog/img/posts/2025-11-17-moi-put-k-kontaktnoi-improvizatsii-380/photo_233@17-11-2025_20-40-59.jpg)
+
+![](/pioblog/img/posts/2025-11-17-moi-put-k-kontaktnoi-improvizatsii-380/photo_234@17-11-2025_20-40-59.jpg)

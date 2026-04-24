@@ -1,6 +1,7 @@
 ---
 title: 'Я сделал презентацию про нетворкинг тусы: как перезнакомить группу людей, что'
 pubDate: '2023-03-12'
+heroImage: '/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_37@12-03-2023_18-23-11.jpg'
 ---
 
 **Я сделал** [презентацию](https://docs.google.com/presentation/d/1qZTjkXzEI71DS-xRjUyOwCUxneD2lRuS01ARNtuzPKY/edit?usp=sharing) **про нетворкинг тусы: как перезнакомить группу людей, что такое контекст знакомства и как его создавать**, и где ещё соприкасаться с интересными людьми
@@ -26,3 +27,11 @@ pubDate: '2023-03-12'
 • Хочу развить навык публичных выступлений перед большим количеством людей
 
 p. s. меня также можно пригласить на тусу про знакомство и попросить помочь организовать тусу про знакомство 🌱
+
+![](/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_37@12-03-2023_18-23-11.jpg)
+
+![](/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_38@12-03-2023_18-23-11.jpg)
+
+![](/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_39@12-03-2023_18-23-11.jpg)
+
+![](/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_40@12-03-2023_18-23-11.jpg)

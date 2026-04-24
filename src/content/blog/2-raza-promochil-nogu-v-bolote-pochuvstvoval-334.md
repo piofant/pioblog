@@ -8,7 +8,7 @@ heroImage: '/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvs
 
 Ласт неделю лета я провел на Русском Севере у Вани в Малошуйке — такой поморской Russian village
 
-Мы познакомились на снс-тусе у [Юры](/blog/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/), потом вместе пили чай на [Бессоннице](/blog/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/)
+Мы познакомились на снс-тусе у [Юры](/blog/znakomtes-iura-moi-partner-po-avtostopu-326-2025-08-05/), потом вместе пили чай на [Бессоннице](/blog/trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319-2025-07-23/)
 
 Ваня — тру помор, путешественник, копит на автодом и по-настоящему любит свои края, посему позвал к себе в гости
 
@@ -19,3 +19,13 @@ heroImage: '/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvs
 Если и тебе хочется такого — пиши Ване [@KotKamar](https://t.me/KotKamar), а за фотки спасибо Лене [@bezdna\_slov](https://t.me/bezdna_slov)
 
 ![](/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvstvoval-334/photo_194@01-09-2025_15-57-30.jpg)
+
+![](/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvstvoval-334/photo_195@01-09-2025_15-57-30.jpg)
+
+![](/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvstvoval-334/photo_196@01-09-2025_15-57-30.jpg)
+
+![](/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvstvoval-334/photo_197@01-09-2025_15-57-30.jpg)
+
+![](/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvstvoval-334/photo_198@01-09-2025_15-57-30.jpg)
+
+![](/pioblog/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvstvoval-334/photo_199@01-09-2025_15-57-30.jpg)

@@ -23,3 +23,7 @@ heroImage: '/pioblog/img/posts/2025-06-04-sns-birthday-tusa-v-moskve-7-go-iiunia
 **как придти**: написать [@piofant](https://t.me/piofant) → добавиться в чат → прислать хуиз → опционально взять плюсодина
 
 ![](/pioblog/img/posts/2025-06-04-sns-birthday-tusa-v-moskve-7-go-iiunia-299/photo_164@04-06-2025_16-26-11.jpg)
+
+![](/pioblog/img/posts/2025-06-04-sns-birthday-tusa-v-moskve-7-go-iiunia-299/photo_165@04-06-2025_16-26-11.jpg)
+
+![](/pioblog/img/posts/2025-06-04-sns-birthday-tusa-v-moskve-7-go-iiunia-299/photo_166@04-06-2025_16-26-11.jpg)

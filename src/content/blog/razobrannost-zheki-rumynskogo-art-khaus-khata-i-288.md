@@ -32,3 +32,15 @@ heroImage: '/pioblog/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khau
 [канал Жеки](https://t.me/e_rumynskiy) • [его картины](https://t.me/color_of_shape) (купить можно через личку)
 
 ![](/pioblog/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_154@11-05-2025_15-25-01.jpg)
+
+![](/pioblog/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_155@11-05-2025_15-25-02.jpg)
+
+<video controls preload="metadata" style="width:100%;max-width:620px">
+  <source src="/assets/video/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/жека.mp4" type="video/mp4">
+</video>
+
+[Оригинал в Telegram →](https://t.me/pioblog/288)
+
+![](/pioblog/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_156@11-05-2025_15-25-02.jpg)
+
+![](/pioblog/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_157@11-05-2025_15-25-02.jpg)

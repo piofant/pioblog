@@ -4,7 +4,7 @@ pubDate: '2024-10-12'
 heroImage: '/pioblog/img/posts/2024-10-12-chem-zakonchilas-istoriia-s-otborom-na-midla-210/photo_97@12-10-2024_13-44-27.jpg'
 ---
 
-**Чем закончилась** [история](/blog/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/) **с отбором на мидла продакта в Доставку**
+**Чем закончилась** [история](/blog/kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207-2024-10-09/) **с отбором на мидла продакта в Доставку**
 
 Дальнейший таймлайн был такой: защита тестового → реджект
 

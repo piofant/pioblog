@@ -10,7 +10,7 @@ heroImage: '/pioblog/img/posts/2026-04-02-moi-druzia-dzhi-pi-titory-ii-agenty-va
 
 (✦) [vlad bit by bit](https://t.me/vladbitbybit) – продакт, физтех, я позвал его на зум-кофе год назад; мне у него нравятся [видосы](https://t.me/vladbitbybit/1215) про создание сайтов
 
-(✦) [Алек Алибутаев](https://t.me/alek_dev) – уже [светился](/blog/2025-04-08-proiti-pervyi-v-zhizni-keis-sobes-i-otobratsia-v-280/) в этом канале, пишет и про свои проектики и [запуски в энтерпрайзе](https://t.me/alek_dev/273)
+(✦) [Алек Алибутаев](https://t.me/alek_dev) – уже [светился](/blog/proiti-pervyi-v-zhizni-keis-sobes-i-otobratsia-v-280-2025-04-08/) в этом канале, пишет и про свои проектики и [запуски в энтерпрайзе](https://t.me/alek_dev/273)
 
 (✦) И x2 Ильи с продукт кемпа – [@ilya\_eli\_blog](https://t.me/ilya_eli_blog) и [@smirdin](https://t.me/smirdin), второй ещё увлекается [биохакингом](https://t.me/Smirdin/86)
 

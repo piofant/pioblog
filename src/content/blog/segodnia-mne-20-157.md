@@ -23,3 +23,13 @@ heroImage: '/pioblog/img/posts/2024-06-07-segodnia-mne-20-157/photo_59@07-06-202
 Поделитесь скринчиком из зумчика, сторителлингом, воспоминанием или любой мыслью, которая возникает 🙂
 
 ![](/pioblog/img/posts/2024-06-07-segodnia-mne-20-157/photo_59@07-06-2024_12-26-18.jpg)
+
+![](/pioblog/img/posts/2024-06-07-segodnia-mne-20-157/photo_60@07-06-2024_12-26-18.jpg)
+
+![](/pioblog/img/posts/2024-06-07-segodnia-mne-20-157/photo_61@07-06-2024_12-26-18.jpg)
+
+![](/pioblog/img/posts/2024-06-07-segodnia-mne-20-157/photo_62@07-06-2024_12-26-18.jpg)
+
+![](/pioblog/img/posts/2024-06-07-segodnia-mne-20-157/photo_63@07-06-2024_12-26-18.jpg)
+
+![](/pioblog/img/posts/2024-06-07-segodnia-mne-20-157/photo_64@07-06-2024_12-26-18.jpg)

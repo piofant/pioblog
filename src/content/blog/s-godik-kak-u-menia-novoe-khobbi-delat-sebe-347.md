@@ -15,3 +15,9 @@ heroImage: '/pioblog/img/posts/2025-09-22-s-godik-kak-u-menia-novoe-khobbi-delat
 каждая отражает проживаемое состояние души, ну и содержит частичку души, конечно же! ведь не один час был проведен в фигме за подбором шрифтов или цветов
 
 ![](/pioblog/img/posts/2025-09-22-s-godik-kak-u-menia-novoe-khobbi-delat-sebe-347/photo_206@22-09-2025_22-34-59.jpg)
+
+![](/pioblog/img/posts/2025-09-22-s-godik-kak-u-menia-novoe-khobbi-delat-sebe-347/photo_207@22-09-2025_22-34-59.jpg)
+
+![](/pioblog/img/posts/2025-09-22-s-godik-kak-u-menia-novoe-khobbi-delat-sebe-347/photo_208@22-09-2025_22-34-59.jpg)
+
+![](/pioblog/img/posts/2025-09-22-s-godik-kak-u-menia-novoe-khobbi-delat-sebe-347/photo_209@22-09-2025_22-34-59.jpg)

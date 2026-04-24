@@ -21,10 +21,10 @@ heroImage: '/pioblog/img/posts/2025-12-19-ia-ne-umru-s-golodu-384/photo_235@19-1
 [**excitement** в том, что]
 - все автоматизировано и кеш прилетает почти сам,
 - талантливые школьники сами иногда в личку стучатся
-- это [канал траффика](/blog/2025-06-13-open-call-edtekham-i-vsem-ostalnym-go-dadim-306/) для экспериментальных проектов для меня и друзей
+- это [канал траффика](/blog/open-call-edtekham-i-vsem-ostalnym-go-dadim-306-2025-06-13/) для экспериментальных проектов для меня и друзей
 
 --
 в след. посте расскажу про fresh запуск ИИ-зации для роста числа новых сабов, и к чему это привело, а к этому прикрепил фоточку из школьных лет с моими корешами
-upd рассказал – </blog/2026-01-13-zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392/>
+upd рассказал – </blog/zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392-2026-01-13/>
 
 ![](/pioblog/img/posts/2025-12-19-ia-ne-umru-s-golodu-384/photo_235@19-12-2025_16-01-57.jpg)

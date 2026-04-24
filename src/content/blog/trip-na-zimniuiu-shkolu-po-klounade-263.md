@@ -29,3 +29,11 @@ as always, на таких эвентах фокус на исследовани
 эта лаба — некоммерческая, спасибо [Кате Мироновой](https://t.me/clown_s_diplomom), [мастерской живого театра](https://t.me/zhivoyteatr) и [ЛШ](https://t.me/lsh_potok)
 
 ![](/pioblog/img/posts/2025-02-26-trip-na-zimniuiu-shkolu-po-klounade-263/photo_137@26-02-2025_22-18-58.jpg)
+
+![](/pioblog/img/posts/2025-02-26-trip-na-zimniuiu-shkolu-po-klounade-263/photo_138@26-02-2025_22-18-58.jpg)
+
+![](/pioblog/img/posts/2025-02-26-trip-na-zimniuiu-shkolu-po-klounade-263/photo_139@26-02-2025_22-18-58.jpg)
+
+![](/pioblog/img/posts/2025-02-26-trip-na-zimniuiu-shkolu-po-klounade-263/photo_140@26-02-2025_22-18-58.jpg)
+
+![](/pioblog/img/posts/2025-02-26-trip-na-zimniuiu-shkolu-po-klounade-263/photo_141@26-02-2025_22-18-58.jpg)

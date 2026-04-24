@@ -28,14 +28,14 @@ heroImage: '/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-op
 
 **Примеры моих трипов:**
 В бесконечный контекст знакомства 🌐
-→ снс-[тусы-про-знакомство](/blog/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/)
-→ продукт [кемп](/blog/2023-08-21-produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130/)
+→ снс-[тусы-про-знакомство](/blog/ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120-2023-03-12/)
+→ продукт [кемп](/blog/produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130-2023-08-21/)
 → [физтех](https://t.me/not_tldr/367)
 
 В контакт с природой & с собой 🏕
 → летняя [школа](https://t.me/not_tldr/440)
 → [велопрогулки](https://t.me/fiveAMwalk/18) в пять утра
-→ [практики](/blog/2023-08-27-freimvork-khoroshego-sostoianiia-i-kucha-ssylok-na-131/) ННО
+→ [практики](/blog/freimvork-khoroshego-sostoianiia-i-kucha-ssylok-na-131-2023-08-27/) ННО
 → [кафе](https://t.me/not_tldr/293) эмпатии
 
 🔻 А какой последний трип сильно изменил вас и как? Поделитесь в комментах
@@ -43,3 +43,9 @@ heroImage: '/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-op
 📞 [Зовите](http://t.me/piofant) в трипы
 
 ![](/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_82@18-08-2024_20-16-30.jpg)
+
+![](/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_83@18-08-2024_20-16-30.jpg)
+
+![](/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_84@18-08-2024_20-16-30.jpg)
+
+![](/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_85@18-08-2024_20-16-30.jpg)

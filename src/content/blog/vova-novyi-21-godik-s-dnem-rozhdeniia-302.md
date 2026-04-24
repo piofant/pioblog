@@ -24,3 +24,9 @@ heroImage: '/pioblog/img/posts/2025-06-07-vova-novyi-21-godik-s-dnem-rozhdeniia-
 [вишлист](https://docs.google.com/spreadsheets/d/1-upJ533s-d2j8grciWpUisyzsEC0uo-Y6v9URzbOkMI) • [написать в личку](http://t.me/piofant) • [поделиться каналом с другом](https://t.me/share/url?url=https://t.me/pioblog&text=%D0%97%D0%B0%D1%86%D0%B5%D0%BD%D0%B8%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20%D0%92%D0%BE%D0%B2%D1%8B)
 
 ![](/pioblog/img/posts/2025-06-07-vova-novyi-21-godik-s-dnem-rozhdeniia-302/photo_167@07-06-2025_11-49-16.jpg)
+
+![](/pioblog/img/posts/2025-06-07-vova-novyi-21-godik-s-dnem-rozhdeniia-302/photo_168@07-06-2025_11-49-16.jpg)
+
+![](/pioblog/img/posts/2025-06-07-vova-novyi-21-godik-s-dnem-rozhdeniia-302/photo_169@07-06-2025_11-49-16.jpg)
+
+![](/pioblog/img/posts/2025-06-07-vova-novyi-21-godik-s-dnem-rozhdeniia-302/photo_170@07-06-2025_11-49-16.jpg)

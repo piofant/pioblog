@@ -23,7 +23,7 @@ pubDate: '2025-03-04'
 - Оценивать можно только действия человека и результат, а не самого человека
 
 **Явки, пароли**
-[Резюме](/blog/2025-03-04-zapis-ot-4-marta-2025-269/) и [портфолио кейсов](/blog/2025-03-04-zapis-ot-4-marta-2025-270/) / [сильные стороны](/blog/2025-01-06-moi-silnye-storony-i-chem-oni-polezny-248/) / [результаты менти](http://online-qr.ru/vova_mentor?utm_source=pioblog_open_to_work)
+[Резюме](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268-2025-03-04/) и [портфолио кейсов](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268-2025-03-04/) / [сильные стороны](/blog/moi-silnye-storony-i-chem-oni-polezny-248-2025-01-06/) / [результаты менти](http://online-qr.ru/vova_mentor?utm_source=pioblog_open_to_work)
 
 **Акция** 🔥
 *Переведу 40% от первой ЗП тому, кто порекомендует меня на позицию, по которой я выйду на работу — перешлите этот пост знакомым продакт-лидам и hr*

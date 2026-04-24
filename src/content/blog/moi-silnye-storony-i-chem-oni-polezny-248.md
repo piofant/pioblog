@@ -1,13 +1,14 @@
 ---
 title: 'Мои сильные стороны и чем они полезны'
 pubDate: '2025-01-06'
+heroImage: '/pioblog/img/posts/2025-01-06-moi-silnye-storony-i-chem-oni-polezny-248/photo_124@06-01-2025_21-41-45.jpg'
 ---
 
 **Мои сильные стороны и чем они полезны**
 
-Часть 1. [Persistence + въедливость](/blog/2025-01-06-1-moi-persistence-vedlivost-problem-solving-i-249/)
-Часть 2. [Живой ум + чуткость](/blog/2025-01-07-2-zhivoi-um-chutkost-client-problem-definition-250/)
-Часть 3. [Рефлексия + сбор фидбека + тяга к структуре](/blog/2025-01-10-3-refleksiia-sbor-fidbeka-tiaga-k-strukture-vyvody-252/)
+Часть 1. [Persistence + въедливость](/blog/moi-silnye-storony-i-chem-oni-polezny-248-2025-01-06/)
+Часть 2. [Живой ум + чуткость](/blog/2-zhivoi-um-chutkost-client-problem-definition-250-2025-01-07/)
+Часть 3. [Рефлексия + сбор фидбека + тяга к структуре](/blog/3-refleksiia-sbor-fidbeka-tiaga-k-strukture-vyvody-252-2025-01-10/)
 
 «Расскажи про свои сильные стороны» — средний по частотности вопрос с собесов, и чтоб на него ответить, потребовалось пережить несколько кейсов в работе
 
@@ -16,3 +17,5 @@ pubDate: '2025-01-06'
 *[моё качество] + [другое моё качество] = ценность*
 
 Т. е. да, я определил сильные стороны не как навыки, которые можно развить, а как (заранее заложенные?) в меня личностные особенности, которые я (кажется) научился применять, чтобы генерить пользу
+
+![](/pioblog/img/posts/2025-01-06-moi-silnye-storony-i-chem-oni-polezny-248/photo_124@06-01-2025_21-41-45.jpg)

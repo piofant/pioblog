@@ -30,3 +30,7 @@ heroImage: '/pioblog/img/posts/2025-01-16-chto-proizoshlo-v-nashem-keis-klube-dl
 [Заполняй форму](https://online-qr.ru/vova_case_club?utm_source=pioblog_second_post) и становись частью нашего микро комьюнити продактов (это бесплатно)
 
 ![](/pioblog/img/posts/2025-01-16-chto-proizoshlo-v-nashem-keis-klube-dlia-prodaktov-257/photo_132@16-01-2025_10-07-14.jpg)
+
+![](/pioblog/img/posts/2025-01-16-chto-proizoshlo-v-nashem-keis-klube-dlia-prodaktov-257/photo_133@16-01-2025_10-07-14.jpg)
+
+![](/pioblog/img/posts/2025-01-16-chto-proizoshlo-v-nashem-keis-klube-dlia-prodaktov-257/photo_134@16-01-2025_10-07-14.jpg)

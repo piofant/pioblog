@@ -8,9 +8,9 @@ heroImage: '/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-prod
 
 > утилизировать выходные с пользой
 > посмотреть на красивых людей
-> окунуться в трип бесконечного [контекста знакомства](/blog/2023-02-28-delaiu-prezu-pro-netvorking-tusy-i-to-chto-takoe-116/)
+> окунуться в трип бесконечного [контекста знакомства](/blog/delaiu-prezu-pro-netvorking-tusy-i-to-chto-takoe-116-2023-02-28/)
 > встретить старых знакомых
-> найти работу продактом (подробнее [здесь](/blog/2024-03-01-kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/))
+> найти работу продактом (подробнее [здесь](/blog/kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142-2024-03-01/))
 > залутать мерч компаний (не пробовал, кстати)
 > нытинг без фасилитации
 > это просто весело

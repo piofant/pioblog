@@ -11,7 +11,7 @@ heroImage: '/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo
 – 1.2 страх одиночества \ "пустого календаря" – оттуда вот этот летний гештальт «провести лето не дома»,
 – 1.3 напряжение от состояния неопределенности
 
-В результате 1.1 в июне я поехал в [автостоп](/blog/2025-06-22-moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/), в результате 1.2 и 1.3 – убежал в лес на [випассану](/blog/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/) на майские
+В результате 1.1 в июне я поехал в [автостоп](/blog/moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307-2025-06-22/), в результате 1.2 и 1.3 – убежал в лес на [випассану](/blog/ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284-2025-05-06/) на майские
 
 **Трейдофф страхов**Поехать в трип – это трейдофф одного страха жить в текущем состоянии (одиночество\неопределенность\etc) в пользу страха нового\безумного опыта (умереть в автостопе, продолбать ноут и вещи, etc)
 
@@ -21,3 +21,19 @@ heroImage: '/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo
 Кажца, что такой метод shot-term способ помогает, но глобально кажца темка не самая лучшая, не буду ж я всю жизнь так бегать от трудностей?
 
 ![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_244@08-02-2026_16-05-49.jpg)
+
+![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_245@08-02-2026_16-05-49.jpg)
+
+![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_246@08-02-2026_16-05-49.jpg)
+
+![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_247@08-02-2026_16-05-49.jpg)
+
+![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_248@08-02-2026_16-05-49.jpg)
+
+![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_249@08-02-2026_16-05-49.jpg)
+
+![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_250@08-02-2026_16-05-49.jpg)
+
+![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_251@08-02-2026_16-05-49.jpg)
+
+![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_252@08-02-2026_16-05-49.jpg)

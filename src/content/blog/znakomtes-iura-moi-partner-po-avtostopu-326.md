@@ -18,7 +18,7 @@ heroImage: '/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostop
 выражается в лёгком отношении к преградам и странностям на пути
 
 **3) Скорость принятия решений**
-может за один день решить кардинально поменять план путешествия и поехать обратно в Москву вместо Алтая, быстро выходя из [состояния неопределенности](/blog/2025-05-20-neopredelennost-porozhdaet-razobrannost-kak-ia-294/)
+может за один день решить кардинально поменять план путешествия и поехать обратно в Москву вместо Алтая, быстро выходя из [состояния неопределенности](/blog/neopredelennost-porozhdaet-razobrannost-kak-ia-294-2025-05-20/)
 
 --
 Могу предположить, что в развитие этих принципов у Юры законтрибьютила и по сей день вносит свой вклад *любовь и принятие* в его семье
@@ -26,3 +26,7 @@ heroImage: '/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostop
 Я уже сейчас чувствую, как зеркальными нейронами осознанно и не осознанно забираю в себя кусочки этих принципов, — и мне нравится, как я меняюсь
 
 ![](/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_189@05-08-2025_20-28-41.jpg)
+
+![](/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_190@05-08-2025_20-28-41.jpg)
+
+![](/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_191@05-08-2025_20-28-41.jpg)

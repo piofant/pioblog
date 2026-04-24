@@ -1,54 +1,52 @@
 /*
- * Notion database → Astro blog sync.
+ * Notion wiki → Astro pages sync.
  *
- * Queries a Notion DATABASE for blog posts and writes them as markdown files
- * to src/content/blog/<slug>.md. Images are downloaded to /public/img/notion/<slug>/.
+ * Reads `scripts/notion-pages.json` — список страниц Notion с target-файлами.
+ * Каждая страница тянется через Notion API, конвертируется в markdown,
+ * картинки (подписанные S3 URL с TTL 1ч) скачиваются в public/img/notion/<slug>/,
+ * sub-pages (вложенные child_pages) становятся отдельными файлами в src/content/pages/cases/.
  *
- * Expected Notion database schema (user creates this DB and shares with integration):
- *   - "Title"      (title)               — post title
- *   - "Subtitle"   (rich_text, optional) — subtitle
- *   - "Slug"       (rich_text, optional) — custom slug; auto-generated from title if empty
- *   - "Tags"       (multi_select, opt)   — tags
- *   - "PubDate"    (date)                — publication date
- *   - "Published"  (checkbox)            — only pages with true are synced
+ * Итог:
+ *   /pioblog/wiki/          — корневая wiki
+ *   /pioblog/wiki/about/    — «Чем могу быть полезен»
+ *   /pioblog/wiki/portfolio/ — портфолио с ссылками на cases
+ *   /pioblog/wiki/mentoring/
+ *   /pioblog/wiki/cases/<slug>/ — вложенные старые кейсы
+ *
+ * Все картинки и текст отдаются с GitHub Pages → читается из России без VPN.
  *
  * Env:
- *   NOTION_TOKEN        — Internal Integration Secret
- *   NOTION_DATABASE_ID  — the database id (UUID with or without dashes)
- *   DRY_RUN=1           — skip writes, log only
+ *   NOTION_TOKEN — Internal Integration Secret
+ *   DRY_RUN=1    — не делает реальных запросов, пишет fixture
  */
 
 import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 import crypto from 'node:crypto';
-import { mkdir, writeFile, stat, readFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import https from 'node:https';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
-const POSTS_DIR = path.join(REPO_ROOT, 'src', 'content', 'blog');
-const IMAGES_DIR = path.join(REPO_ROOT, 'public', 'img', 'notion');
+const config = JSON.parse(await fs.readFile(path.join(__dirname, 'notion-pages.json'), 'utf8'));
 
 const DRY_RUN = !!process.env.DRY_RUN;
 const TOKEN = process.env.NOTION_TOKEN;
-const DB_ID = process.env.NOTION_DATABASE_ID;
-
 if (!DRY_RUN && !TOKEN) { console.error('NOTION_TOKEN required'); process.exit(1); }
-if (!DRY_RUN && !DB_ID) { console.error('NOTION_DATABASE_ID required'); process.exit(1); }
 
 const notion = DRY_RUN ? null : new Client({ auth: TOKEN, notionVersion: '2026-03-11' });
 
 const MAX_IMAGE_BYTES = 25 * 1024 * 1024;
+const IMAGE_HOSTS = [/\.amazonaws\.com$/i, /\.notion\.so$/i, /\.notion-static\.com$/i];
 
 function slugify(text) {
 	return (text || '')
 		.toLowerCase()
 		.replace(/[^\p{L}\p{N}]+/gu, '-')
 		.replace(/^-+|-+$/g, '')
-		.slice(0, 60) || 'post';
+		.slice(0, 60) || 'page';
 }
 function shortHash(s, n = 8) {
 	return crypto.createHash('sha256').update(s).digest('hex').slice(0, n);
@@ -60,33 +58,29 @@ function buildFrontmatter(fields) {
 	const lines = ['---'];
 	for (const [k, v] of Object.entries(fields)) {
 		if (v === undefined || v === null || v === '') continue;
-		if (Array.isArray(v)) {
-			if (v.length === 0) continue;
-			lines.push(`${k}: [${v.map((x) => `'${escapeYaml(x)}'`).join(', ')}]`);
-		} else {
-			lines.push(`${k}: '${escapeYaml(String(v))}'`);
-		}
+		lines.push(`${k}: '${escapeYaml(String(v))}'`);
 	}
 	lines.push('---');
 	return lines.join('\n');
 }
-
-function getPlain(prop) {
-	if (!prop) return '';
-	if (prop.type === 'title') return prop.title.map((t) => t.plain_text).join('');
-	if (prop.type === 'rich_text') return prop.rich_text.map((t) => t.plain_text).join('');
-	if (prop.type === 'multi_select') return prop.multi_select.map((t) => t.name);
-	if (prop.type === 'date') return prop.date?.start || null;
-	if (prop.type === 'checkbox') return prop.checkbox;
-	if (prop.type === 'url') return prop.url || '';
-	return '';
+async function writeFile(abs, content) {
+	await fs.mkdir(path.dirname(abs), { recursive: true });
+	await fs.writeFile(abs, content, 'utf8');
 }
 
 async function downloadImage(url, abs) {
-	if (existsSync(abs)) return;
-	await mkdir(path.dirname(abs), { recursive: true });
-	await new Promise((resolve, reject) => {
-		https.get(url, (res) => {
+	try {
+		const st = await fs.stat(abs);
+		if (st.size > 0) return;
+	} catch {}
+	const u = new URL(url);
+	if (u.protocol !== 'https:') throw new Error('https only');
+	const hostOk = IMAGE_HOSTS.some((rx) => rx.test(u.hostname));
+	if (!hostOk) throw new Error(`host not allowlisted: ${u.hostname}`);
+	await fs.mkdir(path.dirname(abs), { recursive: true });
+	const tmp = `${abs}.tmp-${process.pid}`;
+	return new Promise((resolve, reject) => {
+		const req = https.get(url, { timeout: 30000 }, (res) => {
 			if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
 				return downloadImage(res.headers.location, abs).then(resolve, reject);
 			}
@@ -95,94 +89,165 @@ async function downloadImage(url, abs) {
 			let bytes = 0;
 			res.on('data', (c) => {
 				bytes += c.length;
-				if (bytes > MAX_IMAGE_BYTES) { res.destroy(); return reject(new Error('image too big')); }
+				if (bytes > MAX_IMAGE_BYTES) { res.destroy(); return reject(new Error('too big')); }
 				chunks.push(c);
 			});
-			res.on('end', async () => { try { await writeFile(abs, Buffer.concat(chunks)); resolve(); } catch (e) { reject(e); } });
+			res.on('end', async () => {
+				try {
+					await fs.writeFile(tmp, Buffer.concat(chunks));
+					await fs.rename(tmp, abs);
+					resolve();
+				} catch (e) { reject(e); }
+			});
 			res.on('error', reject);
-		}).on('error', reject);
+		});
+		req.on('timeout', () => req.destroy(new Error('timeout')));
+		req.on('error', reject);
 	});
 }
 
-async function getAllPublished() {
-	const results = [];
+async function fetchAllChildren(blockId) {
+	const all = [];
 	let cursor;
 	do {
-		const res = await notion.databases.query({
-			database_id: DB_ID,
-			page_size: 100,
-			start_cursor: cursor,
-			filter: { property: 'Published', checkbox: { equals: true } },
-		});
-		results.push(...res.results);
+		const res = await notion.blocks.children.list({ block_id: blockId, page_size: 100, start_cursor: cursor });
+		all.push(...res.results);
 		cursor = res.has_more ? res.next_cursor : undefined;
 	} while (cursor);
-	return results;
+	return all;
 }
 
-async function syncPage(page) {
-	const p = page.properties;
-	const title = getPlain(p.Title);
-	const subtitle = getPlain(p.Subtitle);
-	const customSlug = getPlain(p.Slug);
-	const tags = getPlain(p.Tags) || [];
-	const pubDate = getPlain(p.PubDate);
+function getExt(url) {
+	const clean = url.split('?')[0];
+	return (clean.match(/\.([a-z0-9]{3,4})$/i)?.[1] || 'png').toLowerCase();
+}
 
-	if (!title) { console.warn(`  ⚠ skipping ${page.id} — no title`); return false; }
-	if (!pubDate) { console.warn(`  ⚠ skipping ${page.id} — no PubDate`); return false; }
+function createN2M(pageSlug, imageTasks, subPageIdByTitle) {
+	const n2m = new NotionToMarkdown({
+		notionClient: notion,
+		config: { parseChildPages: true, separateChildPage: true },
+	});
 
-	const slug = customSlug || `${slugify(title)}-${shortHash(page.id, 6)}`;
-	const imageTasks = [];
+	n2m.setCustomTransformer('callout', async (block) => {
+		const c = block.callout;
+		const color = (c.color || 'gray_bg').replace(/[^a-z_]/g, '');
+		let icon = '';
+		if (c.icon?.type === 'emoji') icon = c.icon.emoji;
+		const text = c.rich_text.map((t) => {
+			let s = t.plain_text;
+			if (t.annotations.bold) s = `**${s}**`;
+			if (t.annotations.italic) s = `*${s}*`;
+			if (t.href) s = `[${s}](${t.href})`;
+			return s;
+		}).join('');
+		return `<div class="callout ${color}">\n\n${icon} ${text}\n\n</div>\n\n`;
+	});
 
-	const n2m = new NotionToMarkdown({ notionClient: notion });
 	n2m.setCustomTransformer('image', async (block) => {
 		const img = block.image;
 		const url = img.type === 'file' ? img.file.url : img.external.url;
 		const caption = img.caption?.map((t) => t.plain_text).join('') || '';
-		const ext = (url.split('?')[0].match(/\.([a-z0-9]{3,4})$/i)?.[1] || 'jpg').toLowerCase();
+		const ext = getExt(url);
 		const filename = `${shortHash(block.id)}.${ext}`;
-		const rel = `/pioblog/img/notion/${slug}/${filename}`;
-		const abs = path.join(IMAGES_DIR, slug, filename);
+		const rel = `/pioblog/img/notion/${pageSlug}/${filename}`;
+		const abs = path.join(REPO_ROOT, config.options.imageDir, pageSlug, filename);
 		imageTasks.push({ url, abs });
 		return `![${caption}](${rel})\n\n`;
 	});
 
-	const mdblocks = await n2m.pageToMarkdown(page.id);
-	const mdStr = n2m.toMarkdownString(mdblocks).parent || '';
-
-	const fm = buildFrontmatter({
-		title,
-		subtitle,
-		pubDate,
-		tags,
-		heroImage: imageTasks[0] ? `/pioblog/img/notion/${slug}/${shortHash(imageTasks[0].url, 8)}.jpg` : undefined,
+	n2m.setCustomTransformer('child_page', async (block) => {
+		const title = block.child_page?.title || '';
+		if (title) subPageIdByTitle.set(title, block.id);
+		return false; // fallback to library default
 	});
 
-	const dst = path.join(POSTS_DIR, `${slug}.md`);
-	await writeFile(dst, `${fm}\n\n${mdStr}\n`);
+	return n2m;
+}
 
-	for (const t of imageTasks) {
-		try { await downloadImage(t.url, t.abs); } catch (e) { console.warn(`    ⚠ image fail: ${e.message}`); }
+async function syncPage(pageId, pageConfig) {
+	const { target, slug, title, isRoot } = pageConfig;
+
+	if (DRY_RUN) {
+		console.log(`[DRY] ${title} → ${target}`);
+		const fm = buildFrontmatter({ title, notion_id: pageId, notion_last_edited: '2026-04-24T00:00:00.000Z' });
+		await writeFile(path.join(REPO_ROOT, target), `${fm}\n\n## ${title} (DRY_RUN fixture)\n\nЗаглушка для dry run.\n`);
+		return { imageCount: 0, subPageCount: 0 };
 	}
-	console.log(`  ✓ ${slug}.md (${imageTasks.length} imgs)`);
-	return true;
+
+	const imageTasks = [];
+	const subPageIdByTitle = new Map();
+	const n2m = createN2M(slug, imageTasks, subPageIdByTitle);
+
+	const pageMeta = await notion.pages.retrieve({ page_id: pageId });
+	const mdblocks = await n2m.pageToMarkdown(pageId);
+	const mdObject = n2m.toMarkdownString(mdblocks);
+
+	let parentContent = mdObject.parent || '';
+	const subPages = [];
+	for (const [subTitle, md] of Object.entries(mdObject)) {
+		if (subTitle === 'parent' || !subTitle) continue;
+		const subId = subPageIdByTitle.get(subTitle);
+		const subSlug = subId ? `${slugify(subTitle)}-${shortHash(subId, 6)}` : `${slugify(subTitle)}-${shortHash(subTitle, 6)}`;
+		subPages.push({ title: subTitle, slug: subSlug, content: md });
+
+		const escaped = subTitle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+		parentContent = parentContent.replace(
+			new RegExp(`^## ${escaped}$`, 'm'),
+			`- [${subTitle}](${config.options.subPagesUrlPrefix}${subSlug}/)`,
+		);
+	}
+
+	const frontMatter = buildFrontmatter({
+		title,
+		notion_id: pageId,
+		notion_last_edited: pageMeta.last_edited_time,
+		isRoot: isRoot ? 'true' : undefined,
+	});
+
+	await writeFile(path.join(REPO_ROOT, target), `${frontMatter}\n\n${parentContent}\n`);
+
+	for (const sp of subPages) {
+		const subFm = buildFrontmatter({
+			title: sp.title,
+			parent_notion_id: pageId,
+		});
+		const subAbs = path.join(REPO_ROOT, config.options.subPagesDir, `${sp.slug}.md`);
+		await writeFile(subAbs, `${subFm}\n\n${sp.content}\n`);
+	}
+
+	// Images — bounded concurrency
+	let failed = 0;
+	const limit = 4;
+	const chunks = [];
+	for (let i = 0; i < imageTasks.length; i += limit) chunks.push(imageTasks.slice(i, i + limit));
+	for (const chunk of chunks) {
+		const results = await Promise.allSettled(chunk.map((t) => downloadImage(t.url, t.abs)));
+		for (const r of results) if (r.status === 'rejected') { failed++; console.warn('  ⚠ image fail:', r.reason.message); }
+	}
+
+	return { imageCount: imageTasks.length - failed, subPageCount: subPages.length };
 }
 
 async function main() {
-	console.log(`🚀 Notion sync ${DRY_RUN ? '[DRY]' : '[LIVE]'}`);
-	if (DRY_RUN) {
-		console.log('(dry run — would query database and write files)');
-		return;
+	console.log(`🚀 Notion pages sync ${DRY_RUN ? '[DRY]' : '[LIVE]'}`);
+	let totalImages = 0;
+	let totalSubPages = 0;
+	let failed = 0;
+	const pageCount = Object.keys(config.pages).length;
+	for (const [pageId, pageConfig] of Object.entries(config.pages)) {
+		try {
+			console.log(`→ ${pageConfig.title}`);
+			const { imageCount, subPageCount } = await syncPage(pageId, pageConfig);
+			totalImages += imageCount;
+			totalSubPages += subPageCount;
+			console.log(`  ✓ ${pageConfig.target} (${imageCount} imgs, ${subPageCount} sub-pages)`);
+		} catch (e) {
+			console.error(`  ✗ ${pageConfig.title}: ${e.message}`);
+			failed++;
+		}
 	}
-	const pages = await getAllPublished();
-	console.log(`  ${pages.length} published pages`);
-	let ok = 0, fail = 0;
-	for (const page of pages) {
-		try { if (await syncPage(page)) ok++; }
-		catch (e) { console.error(`  ✗ ${page.id}: ${e.message}`); fail++; }
-	}
-	console.log(`\n📊 ${ok}/${pages.length} OK, ${fail} failed`);
-	if (fail > 0) process.exit(1);
+	console.log(`\n📊 ${pageCount - failed}/${pageCount} pages OK, ${totalImages} imgs, ${totalSubPages} sub-pages`);
+	if (failed > 0) process.exit(1);
 }
 
 main().catch((e) => { console.error('💥', e); process.exit(1); });

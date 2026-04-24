@@ -8,7 +8,7 @@ heroImage: '/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-si
 
 эпик это высокая концентрация C-lvl (с докладами и без), рекрутёры у стендов компаний-партнёров, и много гуд-лукинг пипл
 
-в сравнении с тусовочным форматом [продукт кемпа](/blog/2023-08-21-produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130/), эпик показался более модно-деловым и синьористым
+в сравнении с тусовочным форматом [продукт кемпа](/blog/produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130-2023-08-21/), эпик показался более модно-деловым и синьористым
 
 --
 В результате:
@@ -17,8 +17,18 @@ heroImage: '/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-si
 `•` юнит лид зачелленджил на предмет того, а чо я хочу от роли продакта → помог мне определиться, продукты [каких типов и на какой стадии](https://docs.google.com/presentation/d/1b_DKIjQs8Kej0c2lf9Dh5QbS6p6BiYT_/edit#slide=id.g30ef41d2964_0_0) развития мне больше подходят `•` послушал доклад Саши Капустина → узнал авторские трюки для эффективного прохождения discovery гейтов в Авито
 `•` в чиселках: +12 новых контактов продактов разного рода сиьнорности
 `•` as always, улыбнулся от встречек с уже знакомыми ребятами из комьюнити
-`•` пропустил воркшоп от gogol school, говорят было круто (+1 причина записаться уже к ним на открытое занятие, а то [лш](/blog/2024-07-17-privet-ia-seichas-na-letnei-shkole-v-tripe-v-moi-168/) в жизни не хватает прям)
+`•` пропустил воркшоп от gogol school, говорят было круто (+1 причина записаться уже к ним на открытое занятие, а то [лш](/blog/privet-ia-seichas-na-letnei-shkole-v-tripe-v-moi-168-2024-07-17/) в жизни не хватает прям)
 
 How to попасть на эпик → либо волонтёришь, либо участвуешь от компании, либо как спикер, либо по билету; у меня было первое, я помогал тудым-сюдым в зале стартап-трека
 
 ![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_104@26-10-2024_20-03-58.jpg)
+
+![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_105@26-10-2024_20-03-58.jpg)
+
+![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_106@26-10-2024_20-03-58.jpg)
+
+![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_107@26-10-2024_20-03-58.jpg)
+
+![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_108@26-10-2024_20-03-58.jpg)
+
+![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_109@26-10-2024_20-03-58.jpg)

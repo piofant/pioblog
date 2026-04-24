@@ -1,0 +1,30 @@
+{
+	"pages": {
+		"2e61c921005b80cb8523f5273f54244a": {
+			"target": "src/content/pages/wiki.md",
+			"slug": "wiki",
+			"title": "vova @piofant wiki",
+			"isRoot": true
+		},
+		"d0d67ebeb5504322b875bf22dac51e56": {
+			"target": "src/content/pages/about.md",
+			"slug": "about",
+			"title": "Чем могу быть полезен"
+		},
+		"b9e7ade0f6844fe1b91079390c0119b4": {
+			"target": "src/content/pages/portfolio.md",
+			"slug": "portfolio",
+			"title": "Портфолио кейсов Вовы Луценко"
+		},
+		"3118a5b81e9d469183c26a8b0aa96ad8": {
+			"target": "src/content/pages/mentoring.md",
+			"slug": "mentoring",
+			"title": "Менторство по продакт-менеджменту в IT"
+		}
+	},
+	"options": {
+		"imageDir": "public/img/notion",
+		"subPagesDir": "src/content/pages/cases",
+		"subPagesUrlPrefix": "/pioblog/wiki/cases/"
+	}
+}

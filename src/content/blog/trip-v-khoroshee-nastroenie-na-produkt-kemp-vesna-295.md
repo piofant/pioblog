@@ -19,3 +19,9 @@ heroImage: '/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt
 до встречи на кемпе в августе!!
 
 ![](/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_160@26-05-2025_23-17-23.jpg)
+
+![](/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_161@26-05-2025_23-17-23.jpg)
+
+![](/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_162@26-05-2025_23-17-23.jpg)
+
+![](/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_163@26-05-2025_23-17-23.jpg)

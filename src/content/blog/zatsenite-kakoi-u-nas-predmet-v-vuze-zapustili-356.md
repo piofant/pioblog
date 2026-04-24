@@ -28,3 +28,15 @@ heroImage: '/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-z
 *> А какие ИИ-продукты то в итоге создали?*Это осталось на самостоятельное изучение, см. в следующих сериях..
 
 ![](/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_211@05-10-2025_09-18-16.jpg)
+
+![](/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_212@05-10-2025_09-18-16.jpg)
+
+![](/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_213@05-10-2025_09-18-16.jpg)
+
+![](/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_214@05-10-2025_09-18-16.jpg)
+
+![](/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_215@05-10-2025_09-18-16.jpg)
+
+![](/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_216@05-10-2025_09-18-16.jpg)
+
+![](/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_217@05-10-2025_09-18-16.jpg)
