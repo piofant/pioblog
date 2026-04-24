@@ -20,6 +20,6 @@ tags: ['рекомендации']
 
 upd: тут прям совсем чуть-чуть источников, так-то их намного больше, вот, например, [статья](https://teletype.in/@bananapie/python_courses), где их в разы больше)
 
-upd2: а ещё тыкайте <pythontutor.ru> или английскую версию <snakify.org> от [@vitalypavlenko](https://t.me/vitalypavlenko), там много задач хороших)
+upd2: а ещё тыкайте <https://pythontutor.ru> или английскую версию <https://snakify.org> от [@vitalypavlenko](https://t.me/vitalypavlenko), там много задач хороших)
 
 upd3: а вот еще роадмап по питону: <https://t.me/not_tldr/252>

@@ -11,11 +11,11 @@ heroImage: '/pioblog/img/posts/2026-04-02-moi-druzia-dzhi-pi-titory-ii-agenty-va
 
 (✦) И x2 Ильи с продукт кемпа – [@ilya\_eli\_blog](https://t.me/ilya_eli_blog) и [@smirdin](https://t.me/smirdin), второй ещё увлекается [биохакингом](https://t.me/Smirdin/86)
 
-Создал прости-господи телеграм-папку каналами ребят: <t.me/addlist/lefR1wxyDJsxNzBi>
+Создал прости-господи телеграм-папку каналами ребят: <https://t.me/addlist/lefR1wxyDJsxNzBi>
 
 --
-[😊](video_files/sticker.webm) еще у меня есть чат друзей про вайбкоденг проекты, вступайте: <https://t.me/+faPebkaeB1AwODli>
+😊 еще у меня есть чат друзей про вайбкоденг проекты, вступайте: <https://t.me/+faPebkaeB1AwODli>
 
-если вы тоже пишете про опыт с агентами\вайбкодингом, кидайте ваши каналы в комментс!
+если вы тоже пишете про опыт с агентами / вайбкодингом, кидайте ваши каналы в комментс!
 
 ![](/pioblog/img/posts/2026-04-02-moi-druzia-dzhi-pi-titory-ii-agenty-vaibkozhannye-424/photo_269@02-04-2026_20-02-04.jpg)

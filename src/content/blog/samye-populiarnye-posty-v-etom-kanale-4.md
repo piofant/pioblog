@@ -6,7 +6,7 @@ tags: ['whois', 'intro']
 ---
 
 • Мой путь до стажировки продактом в Яндексе (5 частей) - [link](/pioblog/blog/ia-v-iandekse-stazher-menedzher-produkta-132/)
-• Как я поступил в университет по проектам, а не ЕГЭ\олимпиадам - [link](/pioblog/blog/moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/)
+• Как я поступил в университет по проектам, а не ЕГЭ / олимпиадам - [link](/pioblog/blog/moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/)
 • Трип в контакт с природой и телесные практики на Летней школе - [link](/pioblog/blog/privet-ia-seichas-na-letnei-shkole-v-tripe-v-moi-168/)
 2023:
 • Я сделал презентацию про нетворкинг тусы - [link](/pioblog/blog/ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/)• Почему я решил стать продакт-менеджером? (4 причины) - [link](/pioblog/blog/pochemu-ia-reshil-stat-prodakt-menedzherom-pm-126/)• Сказ про продукт кемп лето 2023 - [link](/pioblog/blog/produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130/)• Фреймворк *хорошего* состояния - [link](/pioblog/blog/freimvork-khoroshego-sostoianiia-i-kucha-ssylok-na-131/)

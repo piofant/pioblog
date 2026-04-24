@@ -68,15 +68,27 @@ function rewriteAssetPaths(body) {
 }
 
 function fixContent(body) {
-	return body
-		// 1) TG «bold-heading» склеенное со следующим абзацем:
-		//    `**Трейдофф страхов**Поехать в трип — это...`
-		//    → вставляем blank line после bold-run'а, если дальше идёт буква/цифра/дефис.
+	let out = body
+		// 1) TG «bold-heading» склеенное со следующим абзацем
 		.replace(/(\*\*[^*\n]+\*\*)([A-Za-zА-Яа-я0-9–—-])/g, '$1\n\n$2')
-		// 2) убираем sticker-ссылки (TG-экспорт): [🔵](stickers/...) → 🔵
+		// 2) sticker-ссылки: [🔵](stickers/…) / [😊](video_files/sticker.webm) → оставляем только эмодзи
 		.replace(/\[([^\]]*)\]\(stickers\/[^\n]*?\.(webp|png|jpg|gif|tgs|lottie)\)/g, '$1')
-		// 3) внутренние Jekyll-ссылки /blog/<slug>-YYYY-MM-DD/ → /pioblog/blog/<slug>/
-		.replace(/\]\(\/blog\/([a-z0-9-]+)-\d{4}-\d{2}-\d{2}\/?\)/g, '](/pioblog/blog/$1/)');
+		.replace(/\[([^\]]*)\]\(video_files\/sticker\.\w+\)/g, '$1')
+		// 3) Jekyll-ссылки /blog/<slug>-YYYY-MM-DD/ → /pioblog/blog/<slug>/
+		.replace(/\]\(\/blog\/([a-z0-9-]+)-\d{4}-\d{2}-\d{2}\/?\)/g, '](/pioblog/blog/$1/)')
+		// 4) «разорванный» жирный: `**foo**\n\n**bar**` → `**foo bar**`
+		.replace(/\*\*([^*\n]+?)\*\*\s*\n\s*\n\s*\*\*([^*\n]+?)\*\*/g, '**$1 $2**')
+		// 5) пустой bold-блок на своей строке
+		.replace(/^\s*\*\*\s*\*\*\s*$/gm, '')
+		// 6) бэкслеш-разделитель между кириллицей: `одиночество\неопределенность` → `… / …`
+		.replace(/([а-яёa-z0-9])\\([а-яёa-z])/gi, '$1 / $2')
+		// 7) autolinks без схемы: `<domain.tld/path>` → `<https://domain.tld/path>`
+		.replace(/<(?!https?:\/\/|mailto:|#)([a-z0-9][a-z0-9._-]*\.[a-z]{2,}(?:\/[^>\s]*)?)>/gi, '<https://$1>')
+		// 8) лишние пустые строки после blockquote
+		.replace(/^(>.*)\n\s*\n\s*\n/gm, '$1\n\n')
+		// 9) несколько подряд пустых строк → максимум две
+		.replace(/\n{4,}/g, '\n\n\n');
+	return out;
 }
 
 function rewriteHero(url) {

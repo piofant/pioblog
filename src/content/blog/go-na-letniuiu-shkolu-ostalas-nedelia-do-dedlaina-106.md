@@ -8,7 +8,7 @@ heroImage: '/pioblog/img/posts/2022-05-23-go-na-letniuiu-shkolu-ostalas-nedelia-
 Учиться можно очень разному, там много всяких [мастерских](https://letnyayashkola.org/workshops/) (почти каждый себе что-то найдет), я поеду на [ML&Texts](https://letnyayashkola.org/nlp/).
 
 У всех мастерских разные даты (циклы), ML&Texts будет 16-31 июля.
-По цене: 600р\день (10к суммарно)
+По цене: 600р / день (10к суммарно)
 Больше инфы про ЛШ на их [сайте](https://letnyayashkola.org/news/2022/04/24/nachalsya-nabor-uchastnikov-na-masterskie-letnej-shkoly-2022-goda/), зарегаться на вступы можно [тут](https://nabor.letnyayashkola.org/).
 
 Если думаете поехать, то давайте скооперируемся, напишите мне.

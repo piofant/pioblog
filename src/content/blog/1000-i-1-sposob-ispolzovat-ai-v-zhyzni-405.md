@@ -75,7 +75,6 @@ heroImage: '/pioblog/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni
 > — Правильный ответ
 > — Комментарий ведущего
 
-
 ps [Миша](https://t.me/misha_light_xx), с др
 
 ![](/pioblog/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_254@11-02-2026_13-53-49.jpg)

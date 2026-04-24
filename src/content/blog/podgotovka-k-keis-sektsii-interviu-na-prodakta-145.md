@@ -10,8 +10,8 @@ pubDate: '2024-04-12'
 
 • [productmanagementexercises.com](https://www.productmanagementexercises.com/interview-questions) — тут вопросы прям с собеседований, и есть ответы пользователей, — это те самые короткие вопросы, где не хватает вводных и нужно снижать уровень неопределенности, очерчивая границу самостоятельно
 • [Карьерный цех](https://app.careerpath.tech/contest_inside/1661774275311x182089118701060100?lang=ru_ru) — тут есть большие кейсы компаний и решения участников
-- UX/UI кейсы: <growth.design/case-studies>
-- A/B тесты с результатами: <abtest.design>
+- UX/UI кейсы: <https://growth.design/case-studies>
+- A/B тесты с результатами: <https://abtest.design>
 
 Также полезно посмотреть тестовые интервью, их можно найти в YT по запросу [product manager mock interview](https://www.youtube.com/results?search_query=product+manager+mock+interview). Например, в [этом](https://www.youtube.com/watch?v=CXdaPETE7iE) видео про кейс с Google maps чувак классно и быстро снижает уровень неопределенности, сужая сегмент пользователей и выбирая конкретную проблему.
 

@@ -20,6 +20,6 @@ heroImage: '/pioblog/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-
 
 👀 Посмотрим, какая будет конверсия, расскажу потом
 
-🔻 Поделитесь в комментариях, как вам UX/UI футболки и бота [@hire\_vova\_bot](https://t.me/hire_vova_bot)? Что хочется изменить\убрать\добавить?
+🔻 Поделитесь в комментариях, как вам UX/UI футболки и бота [@hire\_vova\_bot](https://t.me/hire_vova_bot)? Что хочется изменить / убрать / добавить?
 
 ![](/pioblog/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-raboty-na-190/photo_86@24-08-2024_09-40-28.jpg)

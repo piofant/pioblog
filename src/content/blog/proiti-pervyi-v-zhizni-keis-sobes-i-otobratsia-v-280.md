@@ -15,8 +15,6 @@ heroImage: '/pioblog/img/posts/2025-04-08-proiti-pervyi-v-zhizni-keis-sobes-i-ot
 >
 > Было комфортно и полезно: моковый собес в итоге сильно помог!
 
-
-
 > Бонус от Алека: [статья](https://telegra.ph/Kak-reshat-vstupitelnye-v-SHMYA-04-07) про его опыт решения тестового в ШМЯ
 
 Приходите и вы на менторские встречки ко мне — помогаю не только подготовиться к кейс-собесам, но и проработать карьеру продакта, детали и кнопка на [страничке 🔗](https://online-qr.ru/vova_mentor?utm_source=pioblog_mentoring_alek)

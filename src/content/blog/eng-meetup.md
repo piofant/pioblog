@@ -20,11 +20,7 @@ heroImage: 'https://telegra.ph/file/4bf4286daa72f6c8dd635.png'
 ![img](https://telegra.ph/file/4bf4286daa72f6c8dd635.png)
 
 
-
-
-
 Join: [@MIPT_Meetup_Inviter_bot](http://t.me/MIPT_Meetup_Inviter_bot)
-
 
 
 А ещё у mipt_meetup есть оффлайн-митапы. Всё то же самое, только оффлайн irl (in real life).
@@ -32,25 +28,13 @@ Join: [@MIPT_Meetup_Inviter_bot](http://t.me/MIPT_Meetup_Inviter_bot)
 ![img](https://telegra.ph/file/dabc022ed2aec79cd8909.png)
 
 
-
-
-
 ![img](https://telegra.ph/file/098dd74b929aae7b6f52d.png)
-
-
-
 
 
 ![img](https://telegra.ph/file/f80548fec7dffdbfcece7.png)
 
 
-
-
-
 ![img](https://telegra.ph/file/aa113e19e46ea2ca152c3.png)
-
-
-
 
 
 ![img](https://telegra.ph/file/bbb1e23a1f6686f3b1381.png)

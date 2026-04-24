@@ -18,7 +18,7 @@ heroImage: '/pioblog/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-
 
 **→ Что помогло в решении:**
 
-`-` подумскроллить новости про кредиты\рассрочки\bnpl в екоме → собрать [базу инсайтов](https://docs.google.com/spreadsheets/d/1SDoWR2ixUapSceznWxq6HtU-8T__RaVGKupfrthTuc0/edit?usp=sharing) с ссылками на новости
+`-` подумскроллить новости про кредиты / рассрочки / bnpl в екоме → собрать [базу инсайтов](https://docs.google.com/spreadsheets/d/1SDoWR2ixUapSceznWxq6HtU-8T__RaVGKupfrthTuc0/edit?usp=sharing) с ссылками на новости
 `-` в конце решения пробежаться с нуля и применить критический подход к каждому из пунктов и выводов
 `-` проскорить своё же решение по критериям из [разборов](https://youtu.be/4vIHU2fPOuE?t=446) работ прошлых лет от Саши Капустина и Ильи Грубера (Илье особенный лайк за чёткую таблицу критериев с объяснением идеи каждого)
 
