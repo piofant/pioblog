@@ -5,8 +5,8 @@ pubDate: '2025-09-22'
 heroImage: '/pioblog/img/posts/2025-09-22-s-godik-kak-u-menia-novoe-khobbi-delat-sebe-347/photo_206@22-09-2025_22-34-59.jpg'
 ---
 
-• я Вова [🔵](stickers/sticker (2).webp)
-• unemployed [🤩](stickers/sticker (3).webp)
+• я Вова 🔵
+• unemployed 🤩
 
 я в них *ни на что не намекаю конечно*, просто качаю проявленность и шучу, что продакт футболок теперь
 

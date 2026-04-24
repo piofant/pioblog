@@ -166,6 +166,22 @@ function createN2M(pageSlug, imageTasks, subPageIdByTitle) {
 
 	/* Toggle: не трогаем кастом (ломает вложение в списки); пост-процессим. */
 
+	// Heading с is_toggleable=true → <details><summary><h…></summary>…children…</details>
+	for (const level of [1, 2, 3]) {
+		const hKey = `heading_${level}`;
+		n2m.setCustomTransformer(hKey, async (block) => {
+			const h = block[hKey];
+			const text = richText(h?.rich_text);
+			if (!h?.is_toggleable || !block.has_children) {
+				return `${'#'.repeat(level + 1)} ${text}\n\n`;
+			}
+			const children = await fetchAllChildren(block.id);
+			const childMd = await n2m.blocksToMarkdown(children);
+			const inner = n2m.toMarkdownString(childMd).parent || '';
+			return `<details>\n<summary><strong>${text}</strong></summary>\n\n${inner}\n\n</details>\n\n`;
+		});
+	}
+
 	n2m.setCustomTransformer('image', async (block) => {
 		const img = block.image;
 		const url = img.type === 'file' ? img.file.url : img.external.url;
@@ -254,13 +270,36 @@ async function syncPage(pageId, pageConfig) {
 	// Post-process 2: внутренние ссылки на Notion-страницы (из rich_text `href`)
 	// приходят вида `/{32-char-uuid}` — перепишем в наши локальные URL по конфигу.
 	const pageUrlById = new Map();
+	const pageTitleById = new Map();
 	for (const [id, pc] of Object.entries(config.pages)) {
-		pageUrlById.set(id.replace(/-/g, ''), pc.isRoot ? '/pioblog/wiki/' : `/pioblog/wiki/${pc.slug}/`);
+		const key = id.replace(/-/g, '');
+		pageUrlById.set(key, pc.isRoot ? '/pioblog/wiki/' : `/pioblog/wiki/${pc.slug}/`);
+		pageTitleById.set(key, pc.title);
 	}
 	parentContent = parentContent.replace(/\]\(\/([0-9a-f]{32})(\?[^)]*)?\)/g, (m, id) => {
 		const url = pageUrlById.get(id);
 		return url ? `](${url})` : m;
 	});
+
+	// Post-process 3: Notion `link_to_page` блоки библиотека отдаёт как
+	// `[link_to_page](https://www.notion.so/<uuid>)` — подменяем на
+	// нормальную ссылку с заголовком из config.
+	parentContent = parentContent.replace(
+		/\[link_to_page\]\(https:\/\/www\.notion\.so\/([0-9a-f-]{32,})\)/g,
+		(m, raw) => {
+			const key = raw.replace(/-/g, '').slice(-32);
+			const url = pageUrlById.get(key);
+			const title = pageTitleById.get(key);
+			if (url && title) return `[${title}](${url})`;
+			return m;
+		},
+	);
+
+	// Post-process 4: убрать Notion-custom-emoji shortcodes `:name:`
+	// (dates, cyrillic names, etc. — рендерить их нечем, только шум).
+	parentContent = parentContent
+		.replace(/\*\*:[^:*\s]+:\*\*\s*/g, '')   // **:...:**
+		.replace(/:[\wа-яА-Я\-]+:\s*/g, '');     // :...:
 	// child_page уже превратились в list-items через наш transformer.
 	// separateChildPage: false → mdObject содержит только `parent`, sub-pages отдельно не пишем.
 

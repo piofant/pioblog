@@ -5,7 +5,9 @@ notion_last_edited: '2026-04-23T23:28:00.000Z'
 ---
 
 
-### Кейсы
+#### Кейсы
+
+
 
 
 [[Центральный Университет, edtech] Как привлечь сильных абитуриентов через сервис агрегации олимпиад](https://docs.google.com/presentation/d/1lEpizbIOYH8kcuRSNEhz_An_aVH8x_KE1cXrChlH23Q/edit?usp=sharing)
@@ -17,16 +19,16 @@ notion_last_edited: '2026-04-23T23:28:00.000Z'
 [**[Яндекс Такси]** ](https://drive.google.com/file/d/17F9s1NyF4kKdOHcI8weDEmcarfCYquQ1/view?usp=drive_link)[Конфликтные ситуации со смежниками и MVP сервиса для обмена опытом](https://drive.google.com/file/d/17F9s1NyF4kKdOHcI8weDEmcarfCYquQ1/view?usp=drive_link)
 
 
-:2025-02-26_14-56: [**[fintech, b2c]** ](https://online-qr.ru/vova_cv_avito_product_bootcamp_case?utm_source=cases_portfolio)[Как увеличить GMV товаров на Авито с помощью кредитов](https://online-qr.ru/vova_cv_avito_product_bootcamp_case?utm_source=cases_portfolio)
+[**[fintech, b2c]** ](https://online-qr.ru/vova_cv_avito_product_bootcamp_case?utm_source=cases_portfolio)[Как увеличить GMV товаров на Авито с помощью кредитов](https://online-qr.ru/vova_cv_avito_product_bootcamp_case?utm_source=cases_portfolio)
 
 
-**:доставка-лого-2:** [**[Доставка, b2e]** ](https://drive.google.com/file/d/11CbE27AGeIhCBVP3CG85T4I4esIZGytR/view?usp=sharing)[Как снизить долгое ожидание курьера в Яндекс Доставке [вышел в поля курьером]](https://drive.google.com/file/d/11CbE27AGeIhCBVP3CG85T4I4esIZGytR/view?usp=sharing)
+[**[Доставка, b2e]** ](https://drive.google.com/file/d/11CbE27AGeIhCBVP3CG85T4I4esIZGytR/view?usp=sharing)[Как снизить долгое ожидание курьера в Яндекс Доставке [вышел в поля курьером]](https://drive.google.com/file/d/11CbE27AGeIhCBVP3CG85T4I4esIZGytR/view?usp=sharing)
 
 
 [**🌐 [еком, веб]** ](https://drive.google.com/file/d/1K1vJceB8ugHg4tlX9dPWGTpUDyYX5QEV/view?usp=sharing)[Как решить проблему низкой конверсии в корзину на сайте интернет магазина](https://drive.google.com/file/d/1K1vJceB8ugHg4tlX9dPWGTpUDyYX5QEV/view?usp=sharing)
 
 
-**:2025-03-04_00-11:** [**[ecom, b2b]** ](https://drive.google.com/file/d/1kA_9PB35Nqvmw_Cc1JU0eUo1X5VPdjFe/view?usp=sharing)[Как улучшить качество контента у карточек товаров на Яндекс.Маркете](https://drive.google.com/file/d/1kA_9PB35Nqvmw_Cc1JU0eUo1X5VPdjFe/view?usp=sharing)
+[**[ecom, b2b]** ](https://drive.google.com/file/d/1kA_9PB35Nqvmw_Cc1JU0eUo1X5VPdjFe/view?usp=sharing)[Как улучшить качество контента у карточек товаров на Яндекс.Маркете](https://drive.google.com/file/d/1kA_9PB35Nqvmw_Cc1JU0eUo1X5VPdjFe/view?usp=sharing)
 
 
 ---
@@ -41,7 +43,9 @@ notion_last_edited: '2026-04-23T23:28:00.000Z'
 </details>
 
 
-### Мои суперсилы
+<details>
+
+<summary><strong>Мои суперсилы</strong></summary>
 
 <details>
 
@@ -88,10 +92,18 @@ notion_last_edited: '2026-04-23T23:28:00.000Z'
 </details>
 
 
-### Чем ещё могу быть полезен (доклады, менторство, эвент-менеджмент)
+
+</details>
 
 
-[link_to_page](https://www.notion.so/d0d67ebe-b550-4322-b875-bf22dac51e56)
+
+
+#### Чем ещё могу быть полезен (доклады, менторство, эвент-менеджмент)
+
+
+
+
+[Чем могу быть полезен](/pioblog/wiki/about/)
 
 
 Веду [Telegram-блог](https://t.me/pioblog) про путь до продакт-лида (1K подписчиков)
