@@ -128,20 +128,36 @@ function createN2M(pageSlug, imageTasks, subPageIdByTitle) {
 		config: { parseChildPages: true, separateChildPage: true },
 	});
 
+	// Wrap rich_text run in markdown markers, but move whitespace OUTSIDE the
+	// markers — `**text **` is invalid markdown (trailing space breaks bold).
+	const wrap = (s, open, close = open) => {
+		if (!s) return s;
+		const leading = s.match(/^\s*/)[0];
+		const trailing = s.match(/\s*$/)[0];
+		const core = s.slice(leading.length, s.length - trailing.length);
+		if (!core) return s;
+		return `${leading}${open}${core}${close}${trailing}`;
+	};
+	const richText = (arr) => (arr || []).map((t) => {
+		let s = t.plain_text;
+		if (t.annotations?.code) s = wrap(s, '`');
+		if (t.annotations?.bold) s = wrap(s, '**');
+		if (t.annotations?.italic) s = wrap(s, '*');
+		if (t.annotations?.strikethrough) s = wrap(s, '~~');
+		if (t.href) s = `[${s}](${t.href})`;
+		return s;
+	}).join('');
+
 	n2m.setCustomTransformer('callout', async (block) => {
 		const c = block.callout;
 		const color = (c.color || 'gray_bg').replace(/[^a-z_]/g, '');
 		let icon = '';
 		if (c.icon?.type === 'emoji') icon = c.icon.emoji;
-		const text = c.rich_text.map((t) => {
-			let s = t.plain_text;
-			if (t.annotations.bold) s = `**${s}**`;
-			if (t.annotations.italic) s = `*${s}*`;
-			if (t.href) s = `[${s}](${t.href})`;
-			return s;
-		}).join('');
+		const text = richText(c.rich_text);
 		return `<div class="callout ${color}">\n\n${icon} ${text}\n\n</div>\n\n`;
 	});
+
+	/* Toggle: не трогаем кастом (ломает вложение в списки); пост-процессим. */
 
 	n2m.setCustomTransformer('image', async (block) => {
 		const img = block.image;
@@ -183,6 +199,34 @@ async function syncPage(pageId, pageConfig) {
 	const mdObject = n2m.toMarkdownString(mdblocks);
 
 	let parentContent = mdObject.parent || '';
+
+	// Post-process 1: внутри <details>...</details> убрать `> ` префикс
+	// (notion-to-md по умолчанию превращает дочерние блоки toggle в blockquote)
+	// и поставить пустую строку между контентными строками — чтобы markdown
+	// в Astro распознавал их как отдельные параграфы.
+	parentContent = parentContent.replace(/<details>([\s\S]*?)<\/details>/g, (m, inner) => {
+		const stripped = inner
+			.split('\n')
+			.map((l) => l.replace(/^>\s?/, ''))
+			.join('\n')
+			.replace(/  +$/gm, '')        // убрать trailing `  ` (markdown <br>)
+			.replace(/\n(?!\n)/g, '\n\n') // force blank line between stripped lines
+			.replace(/\n{3,}/g, '\n\n');
+		// гарантируем пустую строку между summary и первым параграфом
+		const fixed = stripped.replace(/(<\/summary>)\n(?!\n)/, '$1\n\n');
+		return `<details>${fixed}</details>`;
+	});
+
+	// Post-process 2: внутренние ссылки на Notion-страницы (из rich_text `href`)
+	// приходят вида `/{32-char-uuid}` — перепишем в наши локальные URL по конфигу.
+	const pageUrlById = new Map();
+	for (const [id, pc] of Object.entries(config.pages)) {
+		pageUrlById.set(id.replace(/-/g, ''), pc.isRoot ? '/pioblog/wiki/' : `/pioblog/wiki/${pc.slug}/`);
+	}
+	parentContent = parentContent.replace(/\]\(\/([0-9a-f]{32})(\?[^)]*)?\)/g, (m, id) => {
+		const url = pageUrlById.get(id);
+		return url ? `](${url})` : m;
+	});
 	const subPages = [];
 	for (const [subTitle, md] of Object.entries(mdObject)) {
 		if (subTitle === 'parent' || !subTitle) continue;
