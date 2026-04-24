@@ -122,10 +122,17 @@ function getExt(url) {
 	return (clean.match(/\.([a-z0-9]{3,4})$/i)?.[1] || 'png').toLowerCase();
 }
 
+// Build a lookup: notion page uuid (no dashes) → final site URL
+const pageUrlByNotionId = new Map();
+for (const [id, pc] of Object.entries(config.pages)) {
+	const key = id.replace(/-/g, '');
+	pageUrlByNotionId.set(key, pc.isRoot ? '/pioblog/wiki/' : `/pioblog/wiki/${pc.slug}/`);
+}
+
 function createN2M(pageSlug, imageTasks, subPageIdByTitle) {
 	const n2m = new NotionToMarkdown({
 		notionClient: notion,
-		config: { parseChildPages: true, separateChildPage: true },
+		config: { parseChildPages: true, separateChildPage: false },
 	});
 
 	// Wrap rich_text run in markdown markers, but move whitespace OUTSIDE the
@@ -174,7 +181,12 @@ function createN2M(pageSlug, imageTasks, subPageIdByTitle) {
 	n2m.setCustomTransformer('child_page', async (block) => {
 		const title = block.child_page?.title || '';
 		if (title) subPageIdByTitle.set(title, block.id);
-		return false; // fallback to library default
+		const id32 = (block.id || '').replace(/-/g, '');
+		const known = pageUrlByNotionId.get(id32);
+		if (known) return `- [${title}](${known})\n`;
+		// неконфигурированная подстраница — line с «📄» и ссылкой в /cases/
+		const subSlug = `${slugify(title)}-${shortHash(block.id, 6)}`;
+		return `- [${title}](${config.options.subPagesUrlPrefix}${subSlug}/)\n`;
 	});
 
 	return n2m;
@@ -195,10 +207,32 @@ async function syncPage(pageId, pageConfig) {
 	const n2m = createN2M(slug, imageTasks, subPageIdByTitle);
 
 	const pageMeta = await notion.pages.retrieve({ page_id: pageId });
-	const mdblocks = await n2m.pageToMarkdown(pageId);
-	const mdObject = n2m.toMarkdownString(mdblocks);
 
-	let parentContent = mdObject.parent || '';
+	let parentContent;
+	if (isRoot) {
+		// Для root-wiki child_page в notion-to-md частенько просто теряются.
+		// Обрабатываем вручную: дети страницы → маркдаун, child_page → ссылка.
+		const children = await fetchAllChildren(pageId);
+		const items = [];
+		for (const b of children) {
+			if (b.type === 'child_page') {
+				const subTitle = b.child_page?.title || '';
+				const id32 = (b.id || '').replace(/-/g, '');
+				const known = pageUrlByNotionId.get(id32);
+				const url = known || `${config.options.subPagesUrlPrefix}${slugify(subTitle)}-${shortHash(b.id, 6)}/`;
+				items.push(`- [${subTitle}](${url})`);
+			} else {
+				const arr = await n2m.blocksToMarkdown([b]);
+				const md = n2m.toMarkdownString(arr).parent;
+				if (md && md.trim()) items.push(md.trim());
+			}
+		}
+		parentContent = items.join('\n\n');
+	} else {
+		const mdblocks = await n2m.pageToMarkdown(pageId);
+		const mdObject = n2m.toMarkdownString(mdblocks);
+		parentContent = mdObject.parent || '';
+	}
 
 	// Post-process 1: внутри <details>...</details> убрать `> ` префикс
 	// (notion-to-md по умолчанию превращает дочерние блоки toggle в blockquote)
@@ -227,19 +261,8 @@ async function syncPage(pageId, pageConfig) {
 		const url = pageUrlById.get(id);
 		return url ? `](${url})` : m;
 	});
-	const subPages = [];
-	for (const [subTitle, md] of Object.entries(mdObject)) {
-		if (subTitle === 'parent' || !subTitle) continue;
-		const subId = subPageIdByTitle.get(subTitle);
-		const subSlug = subId ? `${slugify(subTitle)}-${shortHash(subId, 6)}` : `${slugify(subTitle)}-${shortHash(subTitle, 6)}`;
-		subPages.push({ title: subTitle, slug: subSlug, content: md });
-
-		const escaped = subTitle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-		parentContent = parentContent.replace(
-			new RegExp(`^## ${escaped}$`, 'm'),
-			`- [${subTitle}](${config.options.subPagesUrlPrefix}${subSlug}/)`,
-		);
-	}
+	// child_page уже превратились в list-items через наш transformer.
+	// separateChildPage: false → mdObject содержит только `parent`, sub-pages отдельно не пишем.
 
 	const frontMatter = buildFrontmatter({
 		title,
@@ -249,15 +272,6 @@ async function syncPage(pageId, pageConfig) {
 	});
 
 	await writeFile(path.join(REPO_ROOT, target), `${frontMatter}\n\n${parentContent}\n`);
-
-	for (const sp of subPages) {
-		const subFm = buildFrontmatter({
-			title: sp.title,
-			parent_notion_id: pageId,
-		});
-		const subAbs = path.join(REPO_ROOT, config.options.subPagesDir, `${sp.slug}.md`);
-		await writeFile(subAbs, `${subFm}\n\n${sp.content}\n`);
-	}
 
 	// Images — bounded concurrency
 	let failed = 0;
@@ -269,7 +283,7 @@ async function syncPage(pageId, pageConfig) {
 		for (const r of results) if (r.status === 'rejected') { failed++; console.warn('  ⚠ image fail:', r.reason.message); }
 	}
 
-	return { imageCount: imageTasks.length - failed, subPageCount: subPages.length };
+	return { imageCount: imageTasks.length - failed, subPageCount: 0 };
 }
 
 async function main() {

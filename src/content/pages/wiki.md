@@ -5,4 +5,8 @@ notion_last_edited: '2026-04-24T09:06:00.000Z'
 isRoot: 'true'
 ---
 
+- [Вова Луценко: Чем могу быть полезен](/pioblog/wiki/about/)
 
+- [Портфолио кейсов Вовы Луценко](/pioblog/wiki/portfolio/)
+
+- [Вова Луценко — ментор по продакт менеджменту в IT](/pioblog/wiki/mentoring/)
