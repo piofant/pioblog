@@ -1,10 +1,9 @@
 ---
 title: 'Топ-8 причин почему я поеду на продукт кемп весна 2024'
+subtitle: 'Топ-8 причин почему я поеду на продукт кемп весна 2024'
 pubDate: '2024-04-03'
 heroImage: '/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg'
 ---
-
-Топ-8 причин почему я поеду на [продукт кемп](https://productcamp.ru/?utm_source=telegram&utm_medium=referral&utm_campaign=pioblog&utm_content=pcamp-spring24&clckid=16bc5e64) весна 2024
 
 > утилизировать выходные с пользой
 > посмотреть на красивых людей

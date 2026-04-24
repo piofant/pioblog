@@ -1,10 +1,8 @@
 ---
 title: 'Самопрезентация для собеса: как составить, что даёт и как конвертит?'
+subtitle: 'Делюсь опытом и 2-мя рефами часть 1'
 pubDate: '2025-03-12'
 ---
-
-**Самопрезентация для собеса: как составить, что даёт и как конвертит?**
-Делюсь опытом и 2-мя рефами [часть 1]
 
 **Чтобы что**
 1. Помогает структурировать опыт
@@ -37,7 +35,7 @@ pubDate: '2025-03-12'
 Upd: написал </blog/ia-prikrepil-video-samoprezentatsiiu-k-100-272-2025-03-13/>
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/assets/video/posts/2025-03-12-samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271/11.03.2025 (6) .mp4" type="video/mp4">
+  <source src="/pioblog/video/posts/2025-03-12-samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271/11.03.2025 (6) .mp4" type="video/mp4">
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/271)

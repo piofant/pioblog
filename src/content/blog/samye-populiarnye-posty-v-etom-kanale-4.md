@@ -1,12 +1,10 @@
 ---
 title: '📍 Самые популярные посты в этом канале:'
+subtitle: '2024:'
 pubDate: '2020-08-12'
 tags: ['whois', 'intro']
 ---
 
-📍 **Самые популярные посты в этом канале:**
-
-2024:
 • Мой путь до стажировки продактом в Яндексе (5 частей) - [link](/blog/ia-v-iandekse-stazher-menedzher-produkta-132-2023-10-07/)
 • Как я поступил в университет по проектам, а не ЕГЭ\олимпиадам - [link](/blog/moi-opyt-postupleniia-po-proektam-na-grant-v-top-163-2024-06-12/)
 • Трип в контакт с природой и телесные практики на Летней школе - [link](/blog/privet-ia-seichas-na-letnei-shkole-v-tripe-v-moi-168-2024-07-17/)

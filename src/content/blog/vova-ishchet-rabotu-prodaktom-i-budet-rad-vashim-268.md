@@ -1,11 +1,9 @@
 ---
 title: 'Вова ищет работу продактом и будет рад вашим рекомендациям 👀'
+subtitle: 'Коротко обо мне'
 pubDate: '2025-03-04'
 ---
 
-**Вова ищет работу продактом** и будет рад вашим рекомендациям 👀
-
-**Коротко обо мне**
 2+ лет продуктового опыта: B2C ЧатРулете, B2Employee в Яндексе, технический бекграунд после разработки на Python, SQL. Умею работать с дискавери и деливери, активацией и удержанием юзеров
 
 **Топ Результаты**
@@ -31,7 +29,7 @@ pubDate: '2025-03-04'
 Напишите мне [@piofant](https://t.me/piofant), если создается ощущение, что мы можем заколлаборировать + буду рад реферам
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/assets/video/posts/2025-03-04-vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/video_1@04-03-2025_11-19-05.mp4" type="video/mp4">
+  <source src="/pioblog/video/posts/2025-03-04-vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/video_1@04-03-2025_11-19-05.mp4" type="video/mp4">
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/268)

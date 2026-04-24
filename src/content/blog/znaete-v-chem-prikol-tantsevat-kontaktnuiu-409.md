@@ -1,9 +1,9 @@
 ---
 title: 'Знаете, в чем прикол танцевать контактную импровизацию с мужчинами?'
+subtitle: 'Знаете, в чем прикол танцевать контактную импровизацию с мужчинами?'
 pubDate: '2026-03-19'
 ---
 
-Знаете, в чем прикол танцевать [контактную импровизацию](/blog/moi-put-k-kontaktnoi-improvizatsii-380-2025-11-17/) с мужчинами?
 rejection rate невероятно низкий, ~5%
 
 мужчины на КИ почти никогда не отказывают и идут в контакт
@@ -23,7 +23,7 @@ rejection rate невероятно низкий, ~5%
 рекомендую сначала сходить на 1-3 класса, а потом на джемы
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/assets/video/posts/2026-03-19-znaete-v-chem-prikol-tantsevat-kontaktnuiu-409/ci.mp4" type="video/mp4">
+  <source src="/pioblog/video/posts/2026-03-19-znaete-v-chem-prikol-tantsevat-kontaktnuiu-409/ci.mp4" type="video/mp4">
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/409)

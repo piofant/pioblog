@@ -1,11 +1,9 @@
 ---
 title: 'польза линкедина [часть 2] — internet friends и visibility'
+subtitle: 'заметил, что помимо прочего «постерство» в линк кажется правда создает visibility и, внезапно, даже сближает!'
 pubDate: '2024-12-03'
 heroImage: '/pioblog/img/posts/2024-12-03-polza-linkedina-chast-2-internet-friends-i-240/photo_119@03-12-2024_23-15-43.jpg'
 ---
-
-**польза линкедина [часть 2] — internet friends и visibility**
-заметил, что помимо прочего «постерство» в линк кажется правда создает visibility и, внезапно, даже сближает!
 
 несколько примеров:
 

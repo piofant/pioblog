@@ -1,12 +1,9 @@
 ---
 title: 'У меня есть любимый столб в центре Питера'
+subtitle: 'Он находится у станции метро Владимирская рядом с памятником Достоевского'
 pubDate: '2025-10-11'
 heroImage: '/pioblog/img/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/photo_218@11-10-2025_18-49-14.jpg'
 ---
-
-**У меня есть любимый столб в центре Питера**
-
-Он находится у станции метро Владимирская рядом с памятником Достоевского
 
 Я на нём иногда стою и танцую, смотрю на людей и вдаль – там довольно классный вид, однажды так полчаса стоял, это были те самые полчаса *жизни в настоящем*
 
@@ -29,7 +26,7 @@ heroImage: '/pioblog/img/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-p
 ![](/pioblog/img/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/photo_219@11-10-2025_18-49-14.jpg)
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/assets/video/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/video_5@11-10-2025_18-49-14.mp4" type="video/mp4">
+  <source src="/pioblog/video/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/video_5@11-10-2025_18-49-14.mp4" type="video/mp4">
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/363)

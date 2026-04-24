@@ -1,13 +1,11 @@
 ---
 title: 'Давайте знакомиться — я Вова, и я меняюсь ☀️'
+subtitle: 'whois #intro'
 pubDate: '2024-08-10'
 tags: ['whois', 'intro']
 heroImage: '/pioblog/img/posts/2024-08-10-davaite-znakomitsia-ia-vova-i-ia-meniaius-177/photo_76@10-08-2024_13-52-57.jpg'
 ---
 
-Давайте знакомиться — я Вова, и я меняюсь ☀️
-
-#whois #intro
 21 y.o, Москва ⟷ СПб, продакт в Яндексе, ex-ChatRoulette, CS бакалавриат ITMO.STARS
 
 **(1) Два года писал на C++, Python и перешёл в продакты по** [5-ти причинам](/blog/pochemu-ia-reshil-stat-prodakt-menedzherom-pm-126-2023-04-19/), по пути:

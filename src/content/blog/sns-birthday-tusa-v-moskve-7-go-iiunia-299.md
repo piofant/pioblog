@@ -1,12 +1,9 @@
 ---
 title: 'sns-birthday-туса в Москве 7-го июня'
+subtitle: 'ого, Вове 7-го числа будет 21 годик (а Пушкину шестого было бы двести двадцать шесть), по случаю можно запилить снс-тусу про знакомство и общение'
 pubDate: '2025-06-04'
 heroImage: '/pioblog/img/posts/2025-06-04-sns-birthday-tusa-v-moskve-7-go-iiunia-299/photo_164@04-06-2025_16-26-11.jpg'
 ---
-
-**sns-birthday-туса в Москве 7-го июня**
-
-ого, Вове 7-го числа будет 21 годик (а Пушкину шестого было бы двести двадцать шесть), по случаю можно запилить снс-тусу про знакомство и общение
 
 **sns-туса — это когда**
 максимальный onboarding в social mode: поменьше pre-existing connections, но все заранее dropают свои whois в чат тусы, на входе клеят на себя тег-стикеры с interests & talking points, и весь setup — про soft intro, low-barrier коммуникацию, embedded context of знакомства и organic social graph building прямо на месте

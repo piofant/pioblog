@@ -54,15 +54,25 @@ function toYaml(obj) {
 	return lines.join('\n');
 }
 
-function rewriteImagePaths(body) {
-	// /assets/img/xxx.jpg → /pioblog/img/xxx.jpg (учитываем `base: /pioblog`)
-	return body.replace(/\/assets\/img\//g, '/pioblog/img/');
+function rewriteAssetPaths(body) {
+	// vedulix-blog emits /blog/assets/{img,video,audio,files}/... because Jekyll
+	// is served at piofant.github.io/blog/. Pioblog is served at
+	// piofant.github.io/pioblog/ with its own public/ layout. Map accordingly.
+	return body
+		.replace(/\/blog\/assets\/img\//g, '/pioblog/img/')
+		.replace(/\/blog\/assets\/video\//g, '/pioblog/video/')
+		.replace(/\/blog\/assets\/audio\//g, '/pioblog/audio/')
+		.replace(/\/blog\/assets\/files\//g, '/pioblog/files/')
+		// keep legacy paths working for the hand-authored 15 posts
+		.replace(/\/assets\/img\//g, '/pioblog/img/');
 }
 
 function rewriteHero(url) {
 	if (!url) return undefined;
 	if (url.startsWith('http')) return url;
-	return url.replace(/^\/assets\/img\//, '/pioblog/img/');
+	return url
+		.replace(/^\/blog\/assets\/img\//, '/pioblog/img/')
+		.replace(/^\/assets\/img\//, '/pioblog/img/');
 }
 
 async function main() {
@@ -89,7 +99,7 @@ async function main() {
 		// убираем undefined
 		Object.keys(newFm).forEach(k => newFm[k] === undefined && delete newFm[k]);
 
-		const newBody = rewriteImagePaths(body).trimStart();
+		const newBody = rewriteAssetPaths(body).trimStart();
 		const out = toYaml(newFm) + '\n\n' + newBody;
 		const dstFile = join(DST, `${slug}.md`);
 		await writeFile(dstFile, out, 'utf8');

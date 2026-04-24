@@ -1,12 +1,10 @@
 ---
 title: 'Разобранность Жеки Румынского, арт-хаус хата и контакт'
+subtitle: 'Мне нравится рассказывать историю нашего знакомства'
 pubDate: '2025-05-11'
 heroImage: '/pioblog/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_154@11-05-2025_15-25-01.jpg'
 ---
 
-**Разобранность Жеки Румынского, арт-хаус хата и контакт**
-
-**Мне нравится рассказывать историю нашего знакомства**
 год назад я решал, хочу ли идти на лидерскую программу в стратегию, и для этого нашёл себе ментора по стратегии с физтеха — Жеку, он тогда накидал мне вижен этой роли и это чуток помогло в принятии решения
 
 а потом, значит, спустя год я еду к метро на велосипеде, вижу знакомое лицо и говорю *Жека, ты?* — оказалось, что все это время мы жили в соседних домах и даже не знали об этом
@@ -36,7 +34,7 @@ heroImage: '/pioblog/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khau
 ![](/pioblog/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_155@11-05-2025_15-25-02.jpg)
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/assets/video/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/жека.mp4" type="video/mp4">
+  <source src="/pioblog/video/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/жека.mp4" type="video/mp4">
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/288)

@@ -1,11 +1,8 @@
 ---
 title: 'Что делать если ты продакт антифрода Авито??'
+subtitle: 'первое — никому ничего не рассказывать, NDA же'
 pubDate: '2024-11-19'
 ---
-
-**Что делать если ты продакт антифрода Авито??**
-
-~~первое — никому ничего не рассказывать, NDA же~~
 
 а вообще, дискаверить и фиксить фрод кейсы, и главное —мыслить как фродер
 
@@ -18,7 +15,7 @@ pubDate: '2024-11-19'
 3. training my structuring, slidemaking and presentation skills
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/assets/video/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2).mp4" type="video/mp4">
+  <source src="/pioblog/video/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2).mp4" type="video/mp4">
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/238)

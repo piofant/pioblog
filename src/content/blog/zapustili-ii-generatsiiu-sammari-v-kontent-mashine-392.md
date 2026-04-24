@@ -1,11 +1,9 @@
 ---
 title: 'Запустили ИИ-генерацию саммари в контент машине с Рамиром – сколько $ принесло?'
+subtitle: 'Контекст'
 pubDate: '2026-01-13'
 ---
 
-**Запустили ИИ-генерацию саммари в контент машине с Рамиром** **– сколько $ принесло?**
-
-**Контекст**
 Пилю контент-машину для тг-каналов, монетизирую через рекламу, см. [предыдущий пост](/blog/ia-ne-umru-s-golodu-384-2025-12-19/)
 
 **Как растить revenue в TG-канале – построили дерево метрик**
@@ -29,7 +27,7 @@ pubDate: '2026-01-13'
 а как бы вы повышали ERR в телеграм-канале с автоматизированным постингом?
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/assets/video/posts/2026-01-13-zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392/саммаризация_threshold_0.0100.mp4" type="video/mp4">
+  <source src="/pioblog/video/posts/2026-01-13-zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392/саммаризация_threshold_0.0100.mp4" type="video/mp4">
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/392)
