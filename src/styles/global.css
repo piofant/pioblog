@@ -3,14 +3,15 @@
    ============================================================ */
 
 :root {
-	--bg:          #FCF8F0;
-	--bg-navbar:   #FCEACB;
-	--text:        #404040;
-	--text-dark:   #222222;
+	/* near-white палитра — светлее прежней кремовой */
+	--bg:          #fafaf8;
+	--bg-navbar:   #f5f3ee;
+	--text:        #3a3a3a;
+	--text-dark:   #1a1a1a;
 	--muted:       #777777;
 	--muted-2:     #999999;
-	--border:      #eaeaea;
-	--border-soft: #f2f2f2;
+	--border:      #ececec;
+	--border-soft: #f4f4f4;
 	--link:        #FF4200;
 	--link-hover:  #FF8c00;
 
@@ -35,15 +36,16 @@ a { color: var(--link); text-decoration: none; }
 a:hover { color: var(--link-hover); }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: var(--font-heading), 'Open Sans', sans-serif;
+	font-family: var(--font-heading), 'Inter', 'Open Sans', sans-serif;
 	color: var(--text-dark);
-	line-height: 1.25;
-	font-weight: 400;
+	line-height: 1.2;
+	font-weight: 800;
+	letter-spacing: -0.02em;
 	margin: 0 0 0.5em 0;
 }
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.375rem; margin-top: 2rem; }
-h3 { font-size: 1.125rem; margin-top: 1.5rem; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.625rem; margin-top: 2rem; }
+h3 { font-size: 1.375rem; margin-top: 1.75rem; }
 
 img { max-width: 100%; height: auto; }
 
@@ -238,6 +240,13 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 
 /* POST PAGE */
+.post-hero-top {
+	margin: 0 0 1.25rem;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.post-hero-top img { display: block; width: 100%; height: auto; }
+
 .post-header { margin-bottom: 1.5rem; }
 .post-header .post-date {
 	font-family: var(--font-ui), system-ui, sans-serif;
@@ -304,15 +313,12 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .callout > p:first-child strong:first-child { color: var(--text-dark); }
 .callout > p:last-child { margin-bottom: 0; }
 
-/* заголовки на wiki-страницах — Open Sans 700 (Play не заходит на коротких) */
-main.content h1,
-.page-content h1,
-.page-content h2,
-.page-content h3 {
-	font-family: var(--font-ui), 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 700;
+/* wiki заголовки — Inter 800 (глобально) с небольшим override */
+.page-content h2, .page-content h3 {
+	font-weight: 800;
+	letter-spacing: -0.02em;
 }
-.page-content h2 strong, .page-content h3 strong { font-weight: 700; }
+.page-content h2 strong, .page-content h3 strong { font-weight: 800; }
 
 /* toggle blocks (Notion toggle → <details>/<summary>) */
 .page-content details,

@@ -24,7 +24,7 @@ export default defineConfig({
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'Play',
+			name: 'Inter',
 			cssVariable: '--font-heading',
 			fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
 		},
