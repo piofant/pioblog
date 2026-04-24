@@ -36,11 +36,10 @@ a { color: var(--link); text-decoration: none; }
 a:hover { color: var(--link-hover); }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: var(--font-heading), 'Inter', 'Open Sans', sans-serif;
+	font-family: var(--font-heading), 'Play', 'Open Sans', sans-serif;
 	color: var(--text-dark);
 	line-height: 1.2;
-	font-weight: 800;
-	letter-spacing: -0.02em;
+	font-weight: 700;
 	margin: 0 0 0.5em 0;
 }
 h1 { font-size: 2rem; }
@@ -306,12 +305,8 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .callout > p:first-child strong:first-child { color: var(--text-dark); }
 .callout > p:last-child { margin-bottom: 0; }
 
-/* wiki заголовки — Inter 800 (глобально) с небольшим override */
-.page-content h2, .page-content h3 {
-	font-weight: 800;
-	letter-spacing: -0.02em;
-}
-.page-content h2 strong, .page-content h3 strong { font-weight: 800; }
+/* wiki заголовки — Play 700 (наследуется от глобального h) */
+.page-content h2 strong, .page-content h3 strong { font-weight: 700; }
 
 /* toggle blocks (Notion toggle → <details>/<summary>) */
 .page-content details,
