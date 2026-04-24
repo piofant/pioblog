@@ -25,9 +25,10 @@ jobs:
       - name: Install deps
         working-directory: scripts
         run: npm install --no-audit --no-fund
-      - name: Scrape channel
+      - name: Pull channel updates via Bot API
         env:
           TG_CHANNEL: pioblog
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
         run: cd scripts && node sync-telegram.js
       - name: Commit new posts
         run: |
