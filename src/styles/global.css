@@ -279,17 +279,103 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .post-content a { color: var(--link); }
 .post-content a:hover { color: var(--link-hover); }
 
-.callout {
+.callout,
+.page-content .callout {
 	border: 1px solid var(--border);
 	border-left: 3px solid var(--muted);
-	padding: 12px 16px;
+	padding: 14px 18px;
 	margin: 20px 0;
 	background: #fafafa;
+	border-radius: 3px;
 }
-.callout.insight { border-left-color: #1e8a4a; }
-.callout.warning { border-left-color: #c0392b; }
+.callout.insight,
+.callout.green_background { border-left-color: #1e8a4a; }
+.callout.warning,
+.callout.red_background   { border-left-color: #c0392b; }
+.callout.yellow_background { border-left-color: #e8b923; }
+.callout.blue_background   { border-left-color: #2e73ba; }
+.callout.orange_background { border-left-color: #d9730d; }
+.callout.purple_background { border-left-color: #8250df; }
+.callout.pink_background   { border-left-color: #d16ba5; }
+.callout.brown_background  { border-left-color: #8b6f47; }
+.callout.gray_background,
+.callout.gray_bg           { border-left-color: #888; background: #f6f6f6; }
 .callout > p:first-child strong:first-child { color: var(--text-dark); }
 .callout > p:last-child { margin-bottom: 0; }
+
+/* toggle blocks (Notion toggle → <details>/<summary>) */
+.page-content details,
+.post-content details {
+	margin: 0.75rem 0;
+	padding: 10px 14px;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	background: #fafafa;
+}
+.page-content details[open],
+.post-content details[open] {
+	background: #fff;
+}
+.page-content summary,
+.post-content summary {
+	cursor: pointer;
+	font-weight: 600;
+	color: var(--text-dark);
+	padding: 2px 0;
+	list-style: disclosure-closed;
+	font-family: var(--font-ui), system-ui, sans-serif;
+}
+.page-content details[open] > summary,
+.post-content details[open] > summary {
+	list-style: disclosure-open;
+	margin-bottom: 6px;
+}
+.page-content details > :not(summary),
+.post-content details > :not(summary) {
+	padding-left: 14px;
+	margin-top: 4px;
+}
+
+/* Notion sub-page links (child_page блоки) */
+.page-content a[href*="/pioblog/wiki/cases/"],
+.page-content details a[href*="/pioblog/wiki/cases/"] {
+	display: block;
+	padding: 10px 14px;
+	margin: 6px 0;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	text-decoration: none;
+	color: var(--text-dark);
+	background: #fff;
+	transition: background 0.15s;
+}
+.page-content a[href*="/pioblog/wiki/cases/"]::before,
+.page-content details a[href*="/pioblog/wiki/cases/"]::before {
+	content: "📄 ";
+	margin-right: 6px;
+	opacity: 0.6;
+}
+.page-content a[href*="/pioblog/wiki/cases/"]:hover {
+	background: var(--border-soft);
+}
+
+/* Page content — images nicer */
+.page-content img {
+	border-radius: 4px;
+	margin: 1.25rem 0;
+}
+.page-content h2 { font-size: 1.375rem; }
+.page-content h3 { font-size: 1.125rem; }
+.page-content hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
+.page-content ul, .page-content ol { padding-left: 1.5rem; }
+.page-content li { margin: 0.35rem 0; }
+.page-content blockquote {
+	border-left: 3px solid var(--border);
+	margin: 1.25rem 0;
+	padding: 0.25rem 1rem;
+	color: var(--muted);
+	font-style: italic;
+}
 
 /* ARCHIVE */
 .archive-page h2 {
