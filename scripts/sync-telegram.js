@@ -220,22 +220,48 @@ async function main() {
 			offset,
 			limit: 100,
 			timeout: 0,
-			allowed_updates: ['channel_post', 'edited_channel_post'],
+			allowed_updates: ['channel_post', 'edited_channel_post', 'message'],
 		});
 		if (!updates.length) break;
 		console.log(`  batch: ${updates.length} updates`);
 
 		for (const u of updates) {
 			offset = Math.max(offset, u.update_id + 1);
-			const msg = u.channel_post || u.edited_channel_post;
-			if (!msg) continue;
-			const uname = (msg.chat && msg.chat.username) || '';
-			if (uname.toLowerCase() !== CHANNEL) continue;
-			try {
-				if (await processPost(msg, existing)) written++;
-			} catch (e) {
-				console.warn(`  ✗ tg-${msg.message_id}: ${e.message}`);
+
+			// Вариант 1: прямой channel_post из канала, где бот — админ.
+			const post = u.channel_post || u.edited_channel_post;
+			if (post) {
+				const uname = (post.chat && post.chat.username) || '';
+				if (uname.toLowerCase() === CHANNEL) {
+					try {
+						if (await processPost(post, existing)) written++;
+					} catch (e) { console.warn(`  ✗ tg-${post.message_id}: ${e.message}`); }
+				}
+				continue;
 			}
+
+			// Вариант 2: пересланное сообщение в DM боту — используем forward_origin
+			// чтобы восстановить оригинальный id и дату из канала.
+			const msg = u.message;
+			if (!msg) continue;
+			const fo = msg.forward_origin;
+			const legacyChat = msg.forward_from_chat;
+			const fwdChannelUsername = (fo?.type === 'channel' ? fo.chat?.username : legacyChat?.username) || '';
+			if (fwdChannelUsername.toLowerCase() !== CHANNEL) continue;
+			const origId = fo?.message_id ?? msg.forward_from_message_id;
+			const origDate = fo?.date ?? msg.forward_date ?? msg.date;
+			if (!origId) continue;
+
+			// Проксируем как channel_post — подменяем id и дату на оригинальные.
+			const pseudo = {
+				...msg,
+				message_id: origId,
+				date: origDate,
+			};
+			console.log(`  forwarded → treating as channel post ${origId}`);
+			try {
+				if (await processPost(pseudo, existing)) written++;
+			} catch (e) { console.warn(`  ✗ tg-${origId}: ${e.message}`); }
 		}
 	}
 
