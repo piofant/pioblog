@@ -23,7 +23,7 @@ pubDate: '2025-03-12'
 Я обычно спрашиваю *«Есть ли среди вас визуалы? Если да, у меня есть картинка»* и шерю экран при положительном ответе (это примерно 60% случаев, в остальных отвечают «неважно» или «давай без»)
 
 **Примеры през**
-- мое [видео](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268-2025-03-04/)
+- мое [видео](/pioblog/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/)
 - [преза](https://docs.google.com/presentation/d/1thyyialS-mv7HLU2z33-uCPSmPQidKwT/) лид-аналитика [Вовы Камчаткина](https://t.me/data_new_gold)
 - [преза](https://t.me/beginner_fintech/189?comment=656) аналитика [Паши Литвинова](https://t.me/beginner_fintech)
 

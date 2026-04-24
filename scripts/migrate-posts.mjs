@@ -67,6 +67,18 @@ function rewriteAssetPaths(body) {
 		.replace(/\/assets\/img\//g, '/pioblog/img/');
 }
 
+function fixContent(body) {
+	return body
+		// 1) TG «bold-heading» склеенное со следующим абзацем:
+		//    `**Трейдофф страхов**Поехать в трип — это...`
+		//    → вставляем blank line после bold-run'а, если дальше идёт буква/цифра/дефис.
+		.replace(/(\*\*[^*\n]+\*\*)([A-Za-zА-Яа-я0-9–—-])/g, '$1\n\n$2')
+		// 2) убираем sticker-ссылки (TG-экспорт): [🔵](stickers/...) → 🔵
+		.replace(/\[([^\]]*)\]\(stickers\/[^\n]*?\.(webp|png|jpg|gif|tgs|lottie)\)/g, '$1')
+		// 3) внутренние Jekyll-ссылки /blog/<slug>-YYYY-MM-DD/ → /pioblog/blog/<slug>/
+		.replace(/\]\(\/blog\/([a-z0-9-]+)-\d{4}-\d{2}-\d{2}\/?\)/g, '](/pioblog/blog/$1/)');
+}
+
 function rewriteHero(url) {
 	if (!url) return undefined;
 	if (url.startsWith('http')) return url;
@@ -99,7 +111,7 @@ async function main() {
 		// убираем undefined
 		Object.keys(newFm).forEach(k => newFm[k] === undefined && delete newFm[k]);
 
-		const newBody = rewriteAssetPaths(body).trimStart();
+		const newBody = fixContent(rewriteAssetPaths(body)).trimStart();
 		const out = toYaml(newFm) + '\n\n' + newBody;
 		const dstFile = join(DST, `${slug}.md`);
 		await writeFile(dstFile, out, 'utf8');

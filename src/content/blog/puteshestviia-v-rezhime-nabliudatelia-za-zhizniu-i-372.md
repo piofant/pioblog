@@ -16,7 +16,7 @@ heroImage: '/pioblog/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-
 > **Предприниматель из Саранска**
 начинал кладовщиком, построил свой бизнес с нуля, вытеснил икею с рынка в регионе, а потом развод и длиннющая будто нескончаемая пауза на переосмысление жизни
 
-[2 часть](/blog/puteshestviia-v-rezhime-nabliudatelia-chast-2-375-2025-10-29/)
+[2 часть](/pioblog/blog/puteshestviia-v-rezhime-nabliudatelia-chast-2-375/)
 
 ![](/pioblog/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_223@28-10-2025_17-41-01.jpg)
 

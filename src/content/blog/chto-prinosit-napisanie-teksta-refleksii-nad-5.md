@@ -14,7 +14,9 @@ tags: ['предыстория', 'истории']
 
 ×××
 
-**Моя** [история](https://telegra.ph/Moya-istoriya-osoznaniya-togo-chto-nuzhno-uchitsya-a-vmeste-s-ehtim-perehoda-v-fizmat-klass-04-04) **осознания того, что нужно учиться**, а вместе с этим перехода в физмат-класс
+**Моя** [история](https://telegra.ph/Moya-istoriya-osoznaniya-togo-chto-nuzhno-uchitsya-a-vmeste-s-ehtim-perehoda-v-fizmat-klass-04-04) **
+
+осознания того, что нужно учиться**, а вместе с этим перехода в физмат-класс
 #предыстория
 #истории
 

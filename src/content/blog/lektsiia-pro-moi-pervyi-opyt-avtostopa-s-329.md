@@ -15,7 +15,7 @@ heroImage: '/pioblog/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa
 14:41 принципы, помогающие в автостопе
 19:10 3 результата автостопа
 
-[аудиоверсия](/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329-2025-08-19/) **•** [презентация](/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329-2025-08-19/)
+[аудиоверсия](/pioblog/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/) **•** [презентация](/pioblog/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/)
 
 <script async src="https://telegram.org/js/telegram-widget.js?22"
         data-telegram-post="pioblog/329" data-width="100%"></script>

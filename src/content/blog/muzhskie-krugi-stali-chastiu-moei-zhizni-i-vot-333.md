@@ -15,6 +15,6 @@ heroImage: '/pioblog/img/posts/2025-08-28-muzhskie-krugi-stali-chastiu-moei-zhiz
 
 So, результат — проще проявляться irl (я начал рычать), меньше блокеров и страха оценки
 
-Практика некоммерческая, фасилитируем сами, детали в [прошлом посте](/blog/ia-skhodil-na-5-muzhskikh-krugov-i-pochuvstvoval-276-2025-03-22/)
+Практика некоммерческая, фасилитируем сами, детали в [прошлом посте](/pioblog/blog/ia-skhodil-na-5-muzhskikh-krugov-i-pochuvstvoval-276/)
 
 ![](/pioblog/img/posts/2025-08-28-muzhskie-krugi-stali-chastiu-moei-zhizni-i-vot-333/photo_193@28-08-2025_19-40-57.jpg)

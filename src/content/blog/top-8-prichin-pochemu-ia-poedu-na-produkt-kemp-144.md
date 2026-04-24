@@ -6,9 +6,9 @@ heroImage: '/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-prod
 ---
 
 > посмотреть на красивых людей
-> окунуться в трип бесконечного [контекста знакомства](/blog/delaiu-prezu-pro-netvorking-tusy-i-to-chto-takoe-116-2023-02-28/)
+> окунуться в трип бесконечного [контекста знакомства](/pioblog/blog/delaiu-prezu-pro-netvorking-tusy-i-to-chto-takoe-116/)
 > встретить старых знакомых
-> найти работу продактом (подробнее [здесь](/blog/kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142-2024-03-01/))
+> найти работу продактом (подробнее [здесь](/pioblog/blog/kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/))
 > залутать мерч компаний (не пробовал, кстати)
 > нытинг без фасилитации
 > это просто весело

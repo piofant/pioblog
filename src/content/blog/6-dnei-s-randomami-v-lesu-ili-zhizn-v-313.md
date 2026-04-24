@@ -18,7 +18,7 @@ heroImage: '/pioblog/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-
 без лидеров, онбординга, фасилитации, все self-service: сами готовим еду, проводим эвенты, читаем лекции, держим вместе тент чтоб спастись от урагана
 
 **Моё состояние**
-as always, в [дискавери трипе](/blog/chto-takoe-tripy-v-diskaveri-novogo-opyta-184-2024-08-18/) это ∞ exploration с интересом
+as always, в [дискавери трипе](/pioblog/blog/chto-takoe-tripy-v-diskaveri-novogo-opyta-184/) это ∞ exploration с интересом
 
 в одном лагере зайдешь учиться урокам английского по рассказам Кафки, в другом поговорить об опыте полиамории, о зимовке на Гоа, а где-то просто под музычку медитируешь
 

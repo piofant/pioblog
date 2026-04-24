@@ -23,7 +23,7 @@ heroImage: '/pioblog/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-s
 
 Ну и пришёл на защиту к нанимающему и его лиду с таким вот сюрпризом
 
-Какой был результат, что сказал нанимающий и чо там с оффером — давайте напишу в следующем [посте](/blog/chem-zakonchilas-istoriia-s-otborom-na-midla-210-2024-10-12/), а то чот уже многобукв тут получилось 🙂
+Какой был результат, что сказал нанимающий и чо там с оффером — давайте напишу в следующем [посте](/pioblog/blog/chem-zakonchilas-istoriia-s-otborom-na-midla-210/), а то чот уже многобукв тут получилось 🙂
 
 ![](/pioblog/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_94@09-10-2024_15-22-47.jpg)
 
