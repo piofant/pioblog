@@ -12,10 +12,11 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: 'Fraunces',
+			name: 'Literata',
 			cssVariable: '--font-body',
 			weights: [400, 700],
 			styles: ['normal', 'italic'],
+			subsets: ['cyrillic', 'latin', 'latin-ext'],
 			fallbacks: ['Georgia', 'serif'],
 		},
 		{
