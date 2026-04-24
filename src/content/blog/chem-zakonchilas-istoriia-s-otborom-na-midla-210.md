@@ -3,6 +3,7 @@ title: 'Чем закончилась история с отбором на ми
 subtitle: 'Дальнейший таймлайн был такой: защита тестового → реджект'
 pubDate: '2024-10-12'
 heroImage: '/pioblog/img/posts/2024-10-12-chem-zakonchilas-istoriia-s-otborom-na-midla-210/photo_97@12-10-2024_13-44-27.jpg'
+tags: ['продакт', 'карьера']
 ---
 
 

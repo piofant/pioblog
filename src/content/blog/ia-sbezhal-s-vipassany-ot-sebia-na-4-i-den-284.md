@@ -3,6 +3,7 @@ title: 'Я сбежал с випассаны от себя на 4-й день'
 subtitle: 'День 1'
 pubDate: '2025-05-06'
 heroImage: '/pioblog/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_151@06-05-2025_16-03-03.jpg'
+tags: ['трипы']
 ---
 
 

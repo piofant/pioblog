@@ -3,6 +3,7 @@ title: 'В чем ИИ эффективен для продуктового ди
 subtitle: 'Коротко, что сделал'
 pubDate: '2025-07-31'
 heroImage: '/pioblog/img/posts/2025-07-31-v-chem-ii-effektiven-dlia-produktovogo-diskaveri-a-325/photo_188@31-07-2025_20-27-52.jpg'
+tags: ['ии']
 ---
 
 

@@ -2,19 +2,46 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
-export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
-}
-type Props = CollectionEntry<'blog'>;
+type NeighborInfo = { id: string; title: string; pubDate: Date } | null;
 
-const post = Astro.props;
+export async function getStaticPaths() {
+	const posts = (await getCollection('blog'))
+		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+	return posts.map((post, i) => {
+		// prev = более свежий пост (в отсортированном по убыванию — выше)
+		const prev = posts[i - 1] || null;
+		// next = более старый пост
+		const next = posts[i + 1] || null;
+
+		// related — другие посты с максимальным пересечением тегов
+		const myTags = new Set(post.data.tags || []);
+		const scored = posts
+			.filter((p, j) => j !== i && p.data.tags && p.data.tags.length)
+			.map((p) => ({
+				post: p,
+				overlap: (p.data.tags || []).filter((t) => myTags.has(t)).length,
+			}))
+			.filter((x) => x.overlap > 0)
+			.sort((a, b) => b.overlap - a.overlap || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf())
+			.slice(0, 4)
+			.map((x) => ({ id: x.post.id, title: x.post.data.title, pubDate: x.post.data.pubDate }));
+
+		return {
+			params: { slug: post.id },
+			props: {
+				post,
+				prev: prev ? { id: prev.id, title: prev.data.title, pubDate: prev.data.pubDate } : null,
+				next: next ? { id: next.id, title: next.data.title, pubDate: next.data.pubDate } : null,
+				related: scored,
+			},
+		};
+	});
+}
+
+const { post, prev, next, related } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} prev={prev} next={next} related={related}>
 	<Content />
 </BlogPost>

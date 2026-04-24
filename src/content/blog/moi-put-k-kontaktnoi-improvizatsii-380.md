@@ -3,6 +3,7 @@ title: 'Мой путь к контактной импровизации'
 subtitle: 'Сторителл'
 pubDate: '2025-11-17'
 heroImage: '/pioblog/img/posts/2025-11-17-moi-put-k-kontaktnoi-improvizatsii-380/photo_231@17-11-2025_20-40-59.jpg'
+tags: ['театр', 'психология', 'учёба', 'танцы']
 ---
 
 

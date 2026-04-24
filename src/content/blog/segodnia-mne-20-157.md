@@ -3,6 +3,7 @@ title: 'Сегодня мне 20 🎈'
 subtitle: 'Мысли:'
 pubDate: '2024-06-07'
 heroImage: '/pioblog/img/posts/2024-06-07-segodnia-mne-20-157/photo_59@07-06-2024_12-26-18.jpg'
+tags: ['рефлексия']
 ---
 
 

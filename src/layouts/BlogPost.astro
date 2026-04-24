@@ -5,9 +5,14 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Neighbor = { id: string; title: string; pubDate: Date } | null;
+type Props = CollectionEntry<'blog'>['data'] & {
+	prev?: Neighbor;
+	next?: Neighbor;
+	related?: { id: string; title: string; pubDate: Date }[];
+};
 
-const { title, subtitle, pubDate, updatedDate, heroImage, tags } = Astro.props;
+const { title, subtitle, pubDate, updatedDate, heroImage, tags, prev, next, related } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -38,6 +43,41 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				<div class="post-content">
 					<slot />
 				</div>
+
+				{related && related.length > 0 && (
+					<aside class="related-posts">
+						<h3>Похожие посты</h3>
+						<ul>
+							{related.map((r) => (
+								<li>
+									<a href={`${base}/blog/${r.id}/`}>{r.title}</a>
+									<span class="d"><FormattedDate date={r.pubDate} short /></span>
+								</li>
+							))}
+						</ul>
+					</aside>
+				)}
+
+				{(prev || next) && (
+					<nav class="post-nav">
+						<div class="post-nav-slot prev">
+							{prev && (
+								<a href={`${base}/blog/${prev.id}/`}>
+									<span class="dir">← новее</span>
+									<span class="t">{prev.title}</span>
+								</a>
+							)}
+						</div>
+						<div class="post-nav-slot next">
+							{next && (
+								<a href={`${base}/blog/${next.id}/`}>
+									<span class="dir">старее →</span>
+									<span class="t">{next.title}</span>
+								</a>
+							)}
+						</div>
+					</nav>
+				)}
 			</article>
 		</main>
 		<Footer />

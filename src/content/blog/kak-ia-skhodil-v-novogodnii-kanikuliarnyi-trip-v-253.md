@@ -3,6 +3,7 @@ title: 'как я сходил в новогодний каникулярный 
 subtitle: 'этот пост — паблик шеринг (собеседники согласились)'
 pubDate: '2025-01-13'
 heroImage: '/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_128@13-01-2025_18-23-38.jpg'
+tags: ['продакт', 'рефлексия', 'трипы', 'безумие']
 ---
 
 

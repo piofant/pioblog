@@ -2,7 +2,7 @@
 title: 'Давайте знакомиться — я Вова, и я меняюсь ☀️'
 subtitle: 'whois #intro'
 pubDate: '2024-08-10'
-tags: ['whois', 'intro']
+tags: ['whois', 'intro', 'продакт', 'рефлексия', 'карьера', 'учёба', 'боты']
 heroImage: '/pioblog/img/posts/2024-08-10-davaite-znakomitsia-ia-vova-i-ia-meniaius-177/photo_76@10-08-2024_13-52-57.jpg'
 ---
 

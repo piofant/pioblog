@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const posts = await getCollection('blog');
+const counts = new Map<string, number>();
+for (const p of posts) {
+	for (const t of p.data.tags ?? []) counts.set(t, (counts.get(t) || 0) + 1);
+}
+const tags = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+const maxCount = Math.max(...counts.values(), 1);
+
+// font-size scale 0.875rem → 2rem based on count
+function sizeFor(n: number): string {
+	const min = 0.875, max = 2.0;
+	const ratio = Math.sqrt(n / maxCount);
+	return (min + (max - min) * ratio).toFixed(3) + 'rem';
+}
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title="Теги" description={`Все теги — ${SITE_TITLE}`} />
+	</head>
+	<body>
+		<Header />
+		<main class="content">
+			<h1>Теги</h1>
+			<p style="color: var(--muted);">{tags.length} уникальных тегов · {posts.length} постов</p>
+			<div class="tag-cloud">
+				{tags.map(([t, n]) => (
+					<a href={`${base}/tags/${encodeURIComponent(t)}/`} style={`font-size: ${sizeFor(n)};`}>
+						{t}<span class="c">&nbsp;{n}</span>
+					</a>
+				))}
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

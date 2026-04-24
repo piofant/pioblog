@@ -3,6 +3,7 @@ title: 'Театр как «исцеляющая фантазия» – PMF ак
 subtitle: 'Заметили, сколько в предыдущем посте эмоциональных потребностей? Целый салатик 🥗'
 pubDate: '2026-03-27'
 heroImage: '/pioblog/img/posts/2026-03-27-teatr-kak-istseliaiushchaia-fantaziia-pmf-420/photo_265@27-03-2026_18-42-01.jpg'
+tags: ['театр', 'продакт', 'рефлексия']
 ---
 
 

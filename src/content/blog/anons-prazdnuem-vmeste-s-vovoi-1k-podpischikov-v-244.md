@@ -2,7 +2,7 @@
 title: '[анонс] празднуем вместе с Вовой 1К подписчиков в @pioblog — в это воскресенье'
 subtitle: 'что будет:'
 pubDate: '2024-12-19'
-tags: ['whois']
+tags: ['whois', 'психология', 'анонс']
 heroImage: '/pioblog/img/posts/2024-12-19-anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov-v-244/photo_121@19-12-2024_20-29-23.jpg'
 ---
 

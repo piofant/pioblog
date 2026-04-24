@@ -1,7 +1,7 @@
 ---
 title: 'Открыл для себя регулярные физтеховские english meetup-ы '
 pubDate: '2022-02-12'
-tags: ['жизнипост']
+tags: ['жизнипост', 'учёба']
 heroImage: 'https://telegra.ph/file/4bf4286daa72f6c8dd635.png'
 ---
 

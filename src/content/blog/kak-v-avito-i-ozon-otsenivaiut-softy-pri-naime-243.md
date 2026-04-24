@@ -3,6 +3,7 @@ title: 'Как в Авито и Ozon оценивают софты при най
 subtitle: 'Этой весной я сходил на:'
 pubDate: '2024-12-15'
 heroImage: '/pioblog/img/posts/2024-12-15-kak-v-avito-i-ozon-otsenivaiut-softy-pri-naime-243/photo_120@15-12-2024_20-28-52.jpg'
+tags: ['продакт', 'карьера']
 ---
 
 

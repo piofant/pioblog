@@ -3,6 +3,7 @@ title: 'Делюсь результатами футболки для поиск
 subtitle: '100+ запусков @hire\\vova\\bot, из которых только 8 по QR с футболки → 3 касания с нанимающими → feedback pending (пока зиро офферов), детальнее воронку смотрите на фотке'
 pubDate: '2024-09-05'
 heroImage: '/pioblog/img/posts/2024-09-05-delius-rezultatami-futbolki-dlia-poiska-raboty-195/photo_87@05-09-2024_17-32-21.jpg'
+tags: ['продакт', 'карьера', 'учёба', 'творчество']
 ---
 
 

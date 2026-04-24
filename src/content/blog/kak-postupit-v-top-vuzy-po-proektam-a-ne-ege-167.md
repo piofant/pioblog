@@ -2,6 +2,7 @@
 title: 'Как поступить в топ-ВУЗы по проектам, а не ЕГЭ/олимпиадам'
 subtitle: '<https://youtube.com/watch?v=jX9L7UDlQks>'
 pubDate: '2024-06-16'
+tags: ['учёба', 'мнения']
 ---
 
 

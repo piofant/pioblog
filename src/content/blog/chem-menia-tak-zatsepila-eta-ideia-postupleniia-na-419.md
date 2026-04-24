@@ -3,6 +3,7 @@ title: 'Чем меня так зацепила эта идея поступле
 subtitle: 'Смотрите, сколько всего интересного я увидел в образе учебы в театральном'
 pubDate: '2026-03-25'
 heroImage: '/pioblog/img/posts/2026-03-25-chem-menia-tak-zatsepila-eta-ideia-postupleniia-na-419/photo_264@25-03-2026_18-33-00.jpg'
+tags: ['театр', 'безумие', 'ии', 'жизнь']
 ---
 
 

@@ -3,6 +3,7 @@ title: 'Я нашёл метрику внутренней опоры'
 subtitle: 'это моё отношение к записям в КПТ-дневнике'
 pubDate: '2025-10-22'
 heroImage: '/pioblog/img/posts/2025-10-22-ia-nashel-metriku-vnutrennei-opory-371/photo_222@22-10-2025_00-28-04.jpg'
+tags: ['рефлексия', 'безумие']
 ---
 
 

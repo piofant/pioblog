@@ -3,6 +3,7 @@ title: 'Знакомьтесь, Юра — мой партнёр по автос
 subtitle: 'Мы провели вместе 6 дней и проехали от Москвы до Ульяновска'
 pubDate: '2025-08-05'
 heroImage: '/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_189@05-08-2025_20-28-41.jpg'
+tags: ['трипы', 'безумие']
 ---
 
 

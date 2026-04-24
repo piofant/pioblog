@@ -1,0 +1,255 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const posts = await getCollection('blog');
+const byId = new Map(posts.map((p) => [p.id, p]));
+
+const nodes = posts.map((p) => ({
+	id: p.id,
+	title: p.data.title,
+	date: p.data.pubDate.toISOString().slice(0, 10),
+	tags: p.data.tags ?? [],
+}));
+
+const edges = new Map<string, { source: string; target: string; kind: string }>();
+const LINK_RE = new RegExp(`\\]\\(${base}/blog/([a-z0-9-]+)/?\\)`, 'g');
+
+for (const p of posts) {
+	const body = p.body || '';
+	for (const m of body.matchAll(LINK_RE)) {
+		const target = m[1];
+		if (byId.has(target) && target !== p.id) {
+			const key = [p.id, target].sort().join('|');
+			edges.set(key, { source: p.id, target, kind: 'link' });
+		}
+	}
+}
+
+// Chain-connect posts sharing a tag (distributes pull, avoids hub)
+const byTag = new Map<string, string[]>();
+for (const p of posts) {
+	for (const t of p.data.tags ?? []) {
+		if (!byTag.has(t)) byTag.set(t, []);
+		byTag.get(t)!.push(p.id);
+	}
+}
+for (const [tag, ids] of byTag) {
+	if (ids.length <= 1) continue;
+	ids.sort();
+	for (let i = 0; i < ids.length - 1; i++) {
+		const [a, b] = [ids[i], ids[i + 1]].sort();
+		const key = `${a}|${b}|${tag}`;
+		edges.set(key, { source: a, target: b, kind: 'tag:' + tag });
+	}
+}
+
+const graphData = { nodes, links: [...edges.values()] };
+const graphJson = JSON.stringify(graphData);
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title="Граф" description={`Граф постов — ${SITE_TITLE}`} />
+		<style>
+			html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #0a0a0a; color: #eee; }
+			body { font-family: var(--font-ui), system-ui, sans-serif !important; }
+			.site-header { display: none; }
+			.topbar { position: fixed; top: 12px; left: 12px; z-index: 10; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+			.pill { background: rgba(20,20,20,.92); padding: 6px 8px; border-radius: 8px; border: 1px solid #333; display: flex; align-items: center; gap: 6px; }
+			.pill a, .pill button { background: #222; color: #ddd; border: 1px solid #3a3a3a; padding: 6px 12px; border-radius: 4px; cursor: pointer; font: 13px inherit; text-decoration: none; }
+			.pill a.home { background: #fff; color: #111; border-color: #fff; font-weight: 600; }
+			.pill input { background: #1a1a1a; border: 1px solid #3a3a3a; color: #eee; padding: 6px 10px; border-radius: 4px; width: 240px; font: 13px inherit; }
+			.pill input::placeholder { color: #666; }
+			.hint { position: fixed; bottom: 12px; left: 12px; z-index: 10; font-size: 12px; color: #999; background: rgba(20,20,20,.8); padding: 8px 12px; border-radius: 6px; max-width: 540px; line-height: 1.5; }
+			.stage { position: fixed; inset: 0; }
+			.info-pill { position: fixed; top: 12px; right: 12px; z-index: 10; background: rgba(20,20,20,.95); border: 1px solid #333; padding: 12px 14px; border-radius: 8px; max-width: 400px; font-size: 13px; display: none; }
+			.info-pill.show { display: block; }
+			.info-pill strong { display: block; margin-bottom: 4px; color: #fff; }
+			.info-pill .meta { color: #999; font-size: 11px; margin-top: 6px; line-height: 1.5; }
+			.info-pill a { color: #ff8c00; text-decoration: none; font-size: 11px; margin-top: 6px; display: inline-block; }
+			.legend { position: fixed; bottom: 12px; right: 12px; z-index: 10; background: rgba(20,20,20,.92); padding: 10px 12px; border-radius: 8px; font-size: 11px; border: 1px solid #333; max-width: 240px; }
+			.legend .row { display: flex; align-items: center; gap: 6px; margin: 3px 0; cursor: pointer; padding: 2px 4px; border-radius: 3px; user-select: none; }
+			.legend .row:hover { background: rgba(255,255,255,.06); }
+			.legend .row.active { background: rgba(255,140,0,0.15); }
+			.legend .row .count { margin-left: auto; opacity: .5; font-size: 10px; }
+			.legend .sw { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+			.legend .title { font-weight: 600; color: #fff; margin-bottom: 6px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; opacity: .6; }
+		</style>
+	</head>
+	<body>
+		<div class="topbar">
+			<div class="pill">
+				<a href={`${base}/`} class="home">← pio blog</a>
+			</div>
+			<div class="pill">
+				<input id="search" type="text" placeholder="поиск по заголовку…" />
+				<button id="reset">сброс</button>
+			</div>
+		</div>
+
+		<div class="info-pill" id="info"></div>
+		<div class="legend" id="legend"></div>
+		<div class="stage" id="stage"></div>
+		<div class="hint">
+			<strong>{nodes.length} постов · {graphData.links.length} связей</strong>. drag — pan · wheel — zoom · click — фокус · клик на тег (легенда) — фильтр
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/force-graph@1.49.5/dist/force-graph.min.js" is:inline></script>
+		<script define:vars={{ DATA: graphData, BASE: base }} is:inline>
+			const neighbors = new Map();
+			DATA.nodes.forEach(n => neighbors.set(n.id, new Set()));
+			DATA.links.forEach(l => {
+				neighbors.get(l.source)?.add(l.target);
+				neighbors.get(l.target)?.add(l.source);
+			});
+			const metaTags = new Set(['whois','intro','история','истории','жизнипост','предыстория','мысли','сторителл','telegram']);
+			DATA.nodes.forEach(n => {
+				n.deg = neighbors.get(n.id)?.size || 0;
+				n.primaryTag = (n.tags || []).find(t => !metaTags.has(t)) || 'разное';
+			});
+			const tagPalette = [
+				['продакт','#ff4200'], ['карьера','#e11d48'], ['учёба','#f59e0b'],
+				['трипы','#10b981'], ['рефлексия','#8b5cf6'], ['психология','#a855f7'],
+				['нетворкинг','#06b6d4'], ['безумие','#ec4899'], ['театр','#f43f5e'],
+				['ии','#0ea5e9'], ['анонс','#14b8a6'], ['боты','#22c55e'],
+				['танцы','#d946ef'], ['творчество','#eab308'], ['жизнь','#84cc16'],
+				['друзья','#f97316'], ['мнения','#64748b'],
+			];
+			const tagColor = new Map(tagPalette);
+			function colorByTag(n) { return tagColor.get(n.primaryTag) || '#777'; }
+
+			const stage = document.getElementById('stage');
+			const info = document.getElementById('info');
+			const legend = document.getElementById('legend');
+			let current = null;
+			let activeFilter = null;
+			let highlightNode = null;
+
+			function showInfo(node) {
+				if (!node) { info.classList.remove('show'); return; }
+				info.innerHTML = '<strong>' + node.title + '</strong>' +
+					'<div class="meta">' + node.date + ' · связей: ' + node.deg +
+					(node.tags && node.tags.length ? '<br>теги: ' + node.tags.join(', ') : '') + '</div>' +
+					'<a href="' + BASE + '/blog/' + node.id + '/">открыть пост →</a>';
+				info.classList.add('show');
+			}
+			function renderLegend() {
+				const counts = new Map();
+				DATA.nodes.forEach(n => counts.set(n.primaryTag, (counts.get(n.primaryTag) || 0) + 1));
+				legend.innerHTML = '<div class="title">клик — фильтр</div>' +
+					tagPalette.filter(([t]) => counts.has(t)).map(([t, c]) =>
+						'<div class="row ' + (activeFilter === t ? 'active' : '') + '" data-tag="' + t + '">' +
+						'<span class="sw" style="background:' + c + '"></span>' + t +
+						'<span class="count">' + counts.get(t) + '</span></div>'
+					).join('');
+				legend.querySelectorAll('.row').forEach(r =>
+					r.addEventListener('click', () => applyFilter(r.dataset.tag))
+				);
+			}
+			function applyFilter(tag) {
+				if (activeFilter === tag) { clearFilter(); return; }
+				activeFilter = tag; highlightNode = null;
+				const keep = new Set();
+				DATA.nodes.forEach(n => { if (n.primaryTag === tag) keep.add(n.id); });
+				const expanded = new Set(keep);
+				DATA.links.forEach(l => {
+					const s = typeof l.source === 'object' ? l.source.id : l.source;
+					const t = typeof l.target === 'object' ? l.target.id : l.target;
+					if (keep.has(s)) expanded.add(t);
+					if (keep.has(t)) expanded.add(s);
+				});
+				render({ nodeFilter: id => expanded.has(id), primaryIds: keep });
+			}
+			function clearFilter() {
+				activeFilter = null; highlightNode = null;
+				render();
+			}
+			function focusNode(id) {
+				const neighborIds = new Set([id, ...(neighbors.get(id) || [])]);
+				highlightNode = id;
+				render({ nodeFilter: n => neighborIds.has(n), primaryIds: new Set([id]) });
+				setTimeout(() => {
+					const node = DATA.nodes.find(n => n.id === id);
+					if (node && current && current.centerAt) current.centerAt(node.x, node.y, 800).zoom(3, 800);
+				}, 300);
+			}
+
+			function render(opts) {
+				opts = opts || {};
+				stage.innerHTML = '';
+				const { nodeFilter, primaryIds } = opts;
+				const visibleNodes = nodeFilter ? DATA.nodes.filter(n => nodeFilter(n.id)) : DATA.nodes;
+				const visibleIds = new Set(visibleNodes.map(n => n.id));
+				const visibleLinks = DATA.links.filter(l => {
+					const s = typeof l.source === 'object' ? l.source.id : l.source;
+					const t = typeof l.target === 'object' ? l.target.id : l.target;
+					return visibleIds.has(s) && visibleIds.has(t);
+				}).map(l => ({
+					source: typeof l.source === 'object' ? l.source.id : l.source,
+					target: typeof l.target === 'object' ? l.target.id : l.target,
+					kind: l.kind,
+				}));
+				function isPrimary(id) { return !primaryIds || primaryIds.has(id); }
+
+				renderLegend();
+				current = ForceGraph()(stage)
+					.graphData({ nodes: visibleNodes, links: visibleLinks })
+					.backgroundColor('#0a0a0a')
+					.nodeRelSize(4)
+					.nodeVal(n => 1 + Math.min(n.deg, 20) * 0.6)
+					.nodeColor(n => isPrimary(n.id) ? colorByTag(n) : '#333')
+					.linkColor(l => l.kind === 'link' ? 'rgba(210,210,210,0.3)' : 'rgba(120,180,255,0.1)')
+					.linkWidth(l => l.kind === 'link' ? 0.6 : 0.2)
+					.nodeCanvasObjectMode(n => n.deg >= 4 ? 'after' : undefined)
+					.nodeCanvasObject((node, ctx, scale) => {
+						if (node.deg < 4 || !isPrimary(node.id)) return;
+						const label = node.title.slice(0, 42);
+						const fontSize = Math.min(13, 10 / scale * 1.4);
+						ctx.font = fontSize + 'px sans-serif';
+						ctx.fillStyle = '#eee';
+						ctx.textAlign = 'center';
+						ctx.textBaseline = 'middle';
+						const nodeR = 4 * Math.sqrt(1 + Math.min(node.deg, 20) * 0.6);
+						ctx.fillText(label, node.x, node.y + nodeR + fontSize * 0.8);
+					})
+					.onNodeHover(showInfo)
+					.onNodeClick(n => focusNode(n.id))
+					.nodeLabel(n => n.title)
+					.cooldownTicks(250)
+					.warmupTicks(80);
+
+				setTimeout(() => {
+					try {
+						current.d3Force('charge').strength(-180);
+						current.d3Force('link').distance(l => l.kind === 'link' ? 45 : 30);
+						current.d3ReheatSimulation();
+					} catch(e) {}
+				}, 50);
+				current.onEngineStop(() => { current.zoomToFit(400, 60); });
+			}
+
+			document.getElementById('search').addEventListener('input', (e) => {
+				const q = e.target.value.trim().toLowerCase();
+				if (!q) { clearFilter(); return; }
+				const matches = DATA.nodes.filter(n => n.title.toLowerCase().includes(q));
+				if (matches.length === 1) focusNode(matches[0].id);
+				else if (matches.length > 1 && matches.length < 30) {
+					const ids = new Set(matches.map(m => m.id));
+					render({ nodeFilter: id => ids.has(id), primaryIds: ids });
+				}
+			});
+			document.getElementById('reset').addEventListener('click', () => {
+				document.getElementById('search').value = '';
+				clearFilter();
+			});
+
+			render();
+		</script>
+	</body>
+</html>
