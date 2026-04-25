@@ -150,16 +150,16 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 .site-header .brand span {
 	font-weight: 800;
-	font-size: 1.0625rem;
-	letter-spacing: -0.005em;
+	font-size: 1.3125rem;
+	letter-spacing: -0.01em;
 }
 .site-header .brand img {
-	width: 34px;
-	height: 34px;
+	width: 44px;
+	height: 44px;
 	border-radius: 50%;
 	transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
 }
-.site-header.scrolled .brand img { width: 26px; height: 26px; }
+.site-header.scrolled .brand img { width: 34px; height: 34px; }
 .site-header nav {
 	margin-left: auto;
 	display: flex;
