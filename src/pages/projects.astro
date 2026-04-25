@@ -1,0 +1,293 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const img = (name: string) => `${base}/img/projects/${name}`;
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title="Проекты" description={`Что строил и зачем — ${SITE_TITLE}`} />
+		<style>
+			.projects-page {
+				max-width: 720px;
+				margin: 0 auto;
+				padding: 1rem;
+			}
+			.page-sub {
+				color: var(--muted);
+				font-size: 0.9375rem;
+				line-height: 1.55;
+				margin: 0 0 2rem;
+			}
+			.projects-list {
+				display: block;
+			}
+			.tile {
+				display: grid;
+				grid-template-columns: 90px 1fr;
+				gap: 18px;
+				padding: 24px 8px 28px;
+				border-bottom: 1px solid var(--border);
+				align-items: start;
+				transition: background 0.15s;
+			}
+			.tile:hover { background: var(--border-soft); }
+
+			.tile .avatar-link {
+				display: block;
+				width: 90px;
+				height: 90px;
+				border-radius: 6px;
+				background-size: cover;
+				background-position: center;
+				background-color: var(--border-soft);
+				position: relative;
+				overflow: hidden;
+				transition: transform 0.2s, box-shadow 0.2s;
+			}
+			.tile:hover .avatar-link {
+				transform: scale(1.03);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+			}
+			.tile .avatar-link::after {
+				content: '↗';
+				position: absolute;
+				top: 4px; right: 4px;
+				width: 22px; height: 22px;
+				background: rgba(0, 0, 0, 0.7);
+				color: #fff;
+				font-size: 12px;
+				border-radius: 50%;
+				display: flex; align-items: center; justify-content: center;
+				opacity: 0;
+				transition: opacity 0.2s;
+			}
+			.tile .avatar-link:hover::after { opacity: 1; }
+
+			.tile .body { min-width: 0; }
+			.tile .meta {
+				font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+				font-size: 11px;
+				color: var(--muted-2);
+				margin-bottom: 6px;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
+			.tile .title {
+				font-size: 1.0625rem;
+				font-weight: 600;
+				margin: 0 0 6px;
+				letter-spacing: -0.01em;
+				color: var(--text-dark);
+				transition: color 0.15s;
+				font-family: var(--font-heading), 'Play', sans-serif;
+			}
+			.tile:hover .title { color: var(--link); }
+			.tile .tagline {
+				font-size: 0.875rem;
+				color: var(--text);
+				line-height: 1.5;
+				margin: 0 0 10px;
+			}
+			.tile .metrics {
+				font-size: 11px;
+				color: var(--muted);
+				margin-top: 4px;
+			}
+			.tile .metric::before { content: ' · '; color: var(--border); }
+			.tile .metric:first-child::before { content: ''; }
+
+			.tile .actions-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 6px;
+				margin-top: 10px;
+			}
+			.tile .pill-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 5px;
+				padding: 5px 11px;
+				background: var(--bg);
+				border: 1px solid var(--border);
+				border-radius: 999px;
+				color: var(--text-dark);
+				font-size: 0.75rem;
+				font-weight: 600;
+				text-decoration: none;
+				transition: all 0.15s;
+			}
+			.tile .pill-btn::after {
+				content: '↗';
+				font-size: 0.85em;
+				color: var(--muted-2);
+				transition: color 0.15s, transform 0.15s;
+			}
+			.tile .pill-btn:hover {
+				background: var(--link);
+				border-color: var(--link);
+				color: #fff;
+				transform: translateY(-1px);
+				box-shadow: 0 3px 10px rgba(255, 66, 0, 0.3);
+			}
+			.tile .pill-btn:hover::after {
+				color: #fff;
+				transform: translate(2px, -2px);
+			}
+
+			.tile .sections { margin-top: 14px; }
+			.tile .sections p {
+				font-size: 0.875rem;
+				color: var(--text);
+				line-height: 1.55;
+				margin: 0 0 10px;
+			}
+			.tile .sections p:last-child { margin-bottom: 0; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main class="content projects-page">
+			<h1>Проекты</h1>
+			<p class="page-sub">Делал разные штуки. Часто продукты вырастали из своей боли. Дигитал и всякое творческое.</p>
+
+			<div class="projects-list">
+
+				<!-- ПСАЙКО -->
+				<article class="tile">
+					<a class="avatar-link" href="https://t.me/dogpsybot" target="_blank" rel="noopener" aria-label="Открыть бота Псайко" style={`background-image: url(${img('psaiko.jpg')})`}></a>
+					<div class="body">
+						<div class="meta">2022.01 · tg-bot / mental-health</div>
+						<div class="title">Псайко · @dogpsybot</div>
+						<p class="tagline">Бот рефлексии и заботы о ментальном здоровье. С нуля до прибыли.</p>
+						<div class="metrics">
+							<span class="metric">10K+ юзеров</span>
+							<span class="metric">+300/мес органически</span>
+							<span class="metric">+9% retention</span>
+						</div>
+						<div class="actions-row">
+							<a class="pill-btn" href="https://t.me/dogpsybot" target="_blank" rel="noopener">Открыть бота</a>
+							<a class="pill-btn" href="https://t.me/pioblog/275" target="_blank" rel="noopener">Сторителл про монетизацию</a>
+						</div>
+						<div class="sections">
+							<p>Сам вёл дневник благодарности, увидел что регулярная практика работает лучше разовых инсайтов. Сделал бота для друзей, он зажил своей жизнью. Эволюция: gratitude-bot → reflection diary с темами и пушами.</p>
+							<p>Аудитория сошлась: женщины 16-45 интересующиеся психологией. Ретеншн +9% за счёт пушей по дофаминовому циклу.</p>
+						</div>
+					</div>
+				</article>
+
+				<!-- ХАБ-ХАБ -->
+				<article class="tile">
+					<a class="avatar-link" href="https://t.me/hub_hub_bot" target="_blank" rel="noopener" aria-label="Открыть бота Хаб-хаб" style={`background-image: url(${img('hub-hub.jpg')}); background-color: #000; background-size: contain; background-repeat: no-repeat;`}></a>
+					<div class="body">
+						<div class="meta">2023.07 · tg-bot / habits</div>
+						<div class="title">Хаб-хаб</div>
+						<p class="tagline">Привычки через социальный коммитмент. Друзья шлют отчёты, бот трекает.</p>
+						<div class="metrics">
+							<span class="metric">200 юзеров</span>
+							<span class="metric">40 хабов</span>
+							<span class="metric">NPS 70%</span>
+						</div>
+						<div class="actions-row">
+							<a class="pill-btn" href="https://t.me/hub_hub_bot" target="_blank" rel="noopener">Открыть бота</a>
+							<a class="pill-btn" href="https://telegra.ph/Pro-hab-hab-dlya-kogo-kakuyu-problemu-reshaet-i-v-chem-cennost-01-21" target="_blank" rel="noopener">Лонгрид</a>
+						</div>
+						<div class="sections">
+							<p>Привычки лучше формируются в группе. Создаёшь хаб («бег», «медитация», «английский»), зовёшь друзей по ссылке, шлёте друг другу кружочки и реакции. Стыдно слиться когда видят друзья.</p>
+							<p>Бот сам кикает тех кто продолбался, без модератора. Не геймификация и баллы, а реальные люди и реальные кружочки.</p>
+						</div>
+					</div>
+				</article>
+
+				<!-- КЕЙСЕРЫ -->
+				<article class="tile">
+					<a class="avatar-link" href="https://v0-kasem-club-website.vercel.app/" target="_blank" rel="noopener" aria-label="Сайт Кейс-клуба" style={`background-image: url(${img('case-club.png')}); background-color: #fff8e1; background-size: 70%; background-repeat: no-repeat;`}></a>
+					<div class="body">
+						<div class="meta">2023.04 · community / product</div>
+						<div class="title">Кейс-клуб «Кейсеры»</div>
+						<p class="tagline">Тёплое peer-to-peer комьюнити продактов. Разбираем кейсы вместе, поддерживаем друг друга по карьере, не пропадаем после оффера.</p>
+						<div class="metrics">
+							<span class="metric">50+ ребят прошли через клуб</span>
+							<span class="metric">15+ разборов</span>
+						</div>
+						<div class="actions-row">
+							<a class="pill-btn" href="https://v0-kasem-club-website.vercel.app/" target="_blank" rel="noopener">Вступить в клуб</a>
+							<a class="pill-btn" href="https://t.me/pioblog/147" target="_blank" rel="noopener">Пост про клуб</a>
+						</div>
+						<div class="sections">
+							<p>Хотел место где можно тренироваться без менторов-«экспертов» и оценок. И чтобы было не одиноко после собесов. Получилось комьюнити куда возвращаются помогать новеньким даже после оффера.</p>
+							<p>Зум раз в 1-2 недели, peer-to-peer ревью без иерархии. Кто-то из ребят попал в Яндекс, Авито, Самокат, 2 в ТОП-15 буткемпа Авито (из 400+). Многие остались дружить.</p>
+						</div>
+					</div>
+				</article>
+
+				<!-- ДОКЛАД -->
+				<article class="tile">
+					<a class="avatar-link" href="https://docs.google.com/presentation/d/1qZTjkXzEI71DS-xRjUyOwCUxneD2lRuS01ARNtuzPKY/edit" target="_blank" rel="noopener" aria-label="Слайды доклада" style={`background-image: url(${img('talk.png')})`}></a>
+					<div class="body">
+						<div class="meta">2023.03 · talk / open-source</div>
+						<div class="title">Доклад про нетворкинг-тусы</div>
+						<p class="tagline">Как перезнакомить группу людей. 30 слайдов, 7 инструментов фасилитации.</p>
+						<div class="metrics">
+							<span class="metric">30 слайдов</span>
+							<span class="metric">4.5K просмотров анонса</span>
+						</div>
+						<div class="actions-row">
+							<a class="pill-btn" href="https://docs.google.com/presentation/d/1qZTjkXzEI71DS-xRjUyOwCUxneD2lRuS01ARNtuzPKY/edit" target="_blank" rel="noopener">Открыть слайды</a>
+							<a class="pill-btn" href="https://t.me/pioblog/120" target="_blank" rel="noopener">Анонс</a>
+						</div>
+						<div class="sections">
+							<p>Авторская концепция «контекста знакомства»: что превращает случайных людей в группу с разговором. Внутри 4 типа сетапа аудитории, 7 инструментов фасилитации, SNS-стандарт тусы. Применимо к корпоративам, нетворкинг-эвентам, тимбилдингам.</p>
+							<p>Готов рассказать на любую аудиторию от 10 до 1000 человек. Pitch 7-10 минут, deep 20-30.</p>
+						</div>
+					</div>
+				</article>
+
+				<!-- КОНТЕНТ-МАШИНА -->
+				<article class="tile">
+					<a class="avatar-link" href={`${base}/blog/ia-ne-umru-s-golodu-384/`} aria-label="Пост про контент-машину" style={`background-image: url(${img('content-machine.jpg')}); background-color: #1a1a1a;`}></a>
+					<div class="body">
+						<div class="meta">2021 → 2026 · n8n / контент / автоматизация</div>
+						<div class="title">Контент-машина с трендвотчингом</div>
+						<p class="tagline">Школьный парсер новостей про олимпиады и ЕГЭ. Кронджоб не выключил. За 5 лет органически вырос до 5к сабов с рекламой.</p>
+						<div class="metrics">
+							<span class="metric">5к подписчиков органически</span>
+							<span class="metric">ERR +2 п.п.</span>
+							<span class="metric">69% полезность</span>
+						</div>
+						<div class="actions-row">
+							<a class="pill-btn" href={`${base}/blog/ia-ne-umru-s-golodu-384/`}>Пост</a>
+						</div>
+						<div class="sections">
+							<p>Парсер тематических каналов и новостных сайтов про олимпиады и ЕГЭ для старшеклассников-технарей. Краулит, фильтрует по новизне и релевантности, постит автоматически.</p>
+							<p>ИИ подключил недавно для еженедельных саммари: собирать неделю в один дайджест чтобы возвращать редко заходящих сабов. ERR +2 п.п., 69% сказали полезно.</p>
+						</div>
+					</div>
+				</article>
+
+				<!-- FIVEAMWALK -->
+				<article class="tile">
+					<a class="avatar-link" href="https://piofant.github.io/fiveamwalk/" target="_blank" rel="noopener" aria-label="Лендинг fiveamwalk" style={`background-image: url(${img('fiveamwalk.jpg')}); background-color: #f6d365; background-size: cover;`}></a>
+					<div class="body">
+						<div class="meta">2022.01 · community / school</div>
+						<div class="title">fiveamwalk</div>
+						<p class="tagline">Клуб прогулок и велозаездов в 5 утра по Москве летом. Школьный пет-проект.</p>
+						<div class="metrics">
+							<span class="metric">в архиве, но я иногда хожу сам</span>
+						</div>
+						<div class="actions-row">
+							<a class="pill-btn" href="https://piofant.github.io/fiveamwalk/" target="_blank" rel="noopener">Лендинг</a>
+						</div>
+					</div>
+				</article>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
