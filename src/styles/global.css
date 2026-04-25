@@ -25,22 +25,21 @@ html, body { margin: 0; padding: 0; }
 body {
 	background: var(--bg);
 	color: var(--text);
-	font-family: var(--font-ui), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+	font-family: var(--font-body), Georgia, serif;
 	font-size: 1rem;
 	line-height: 1.6;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
 
-/* статьи блога и /photos/ — литературный serif (Literata) */
-article .post-content,
-article .post-content p,
-article .post-content li,
-article .post-content blockquote,
-.photos-page,
-.photos-page p,
-.photos-page li {
-	font-family: var(--font-body), Georgia, serif;
+/* /projects/ — современный sans (Inter) */
+.projects-page,
+.projects-page p,
+.projects-page li,
+.projects-page span,
+.projects-page a,
+.projects-page button {
+	font-family: var(--font-ui), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 a { color: var(--link); text-decoration: none; }
