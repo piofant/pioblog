@@ -3,6 +3,7 @@ title: 'Делюсь результатами футболки для поиск
 subtitle: 'на ProductCamp лето 2024? 🧮 Результат в числах'
 pubDate: '2024-09-05'
 heroImage: '/pioblog/img/posts/2024-09-05-delius-rezultatami-futbolki-dlia-poiska-raboty-195/photo_87@05-09-2024_17-32-21.jpg'
+tags: ['продакт', 'карьера', 'учёба', 'творчество']
 ---
 
 100+ запусков [@hire\_vova\_bot](http://t.me/hire_vova_bot?start=pioblog_2), из которых только 8 по QR с футболки → 3 касания с нанимающими → feedback pending (пока зиро офферов), детальнее воронку смотрите на фотке

@@ -3,6 +3,7 @@ title: 'Зацените, какой у нас предмет в ВУЗе зап
 subtitle: 'ИИ'''
 pubDate: '2025-10-05'
 heroImage: '/pioblog/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_211@05-10-2025_09-18-16.jpg'
+tags: ['продакт', 'ии', 'творчество']
 ---
 
 Главный суетолог — [Александр Меркушев](https://www.linkedin.com/in/alexander-merkushev-073456184/), лид продакт в ai-консалтинге yandex cloud — ребят внедряют ИИ b2b клиентам облака, в общем эксперт из индустрии, прикиньте

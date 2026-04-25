@@ -2,7 +2,7 @@
 title: '📍 Самые популярные посты в этом канале:'
 subtitle: '2024:'
 pubDate: '2020-08-12'
-tags: ['whois', 'intro']
+tags: ['whois', 'intro', 'продакт', 'нетворкинг', 'трипы', 'карьера', 'учёба', 'анонс']
 ---
 
 • Мой путь до стажировки продактом в Яндексе (5 частей) - [link](/pioblog/blog/ia-v-iandekse-stazher-menedzher-produkta-132/)

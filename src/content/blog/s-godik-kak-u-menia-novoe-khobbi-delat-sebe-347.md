@@ -3,6 +3,7 @@ title: 'С годик как у меня новое хобби — делать 
 subtitle: '• unmarried 🧸'
 pubDate: '2025-09-22'
 heroImage: '/pioblog/img/posts/2025-09-22-s-godik-kak-u-menia-novoe-khobbi-delat-sebe-347/photo_206@22-09-2025_22-34-59.jpg'
+tags: ['продакт', 'рефлексия', 'безумие', 'творчество']
 ---
 
 • я Вова 🔵

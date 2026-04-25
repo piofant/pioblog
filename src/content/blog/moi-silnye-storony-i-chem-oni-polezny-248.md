@@ -3,6 +3,7 @@ title: 'Мои сильные стороны и чем они полезны'
 subtitle: 'Часть 1. Persistence + въедливость'
 pubDate: '2025-01-06'
 heroImage: '/pioblog/img/posts/2025-01-06-moi-silnye-storony-i-chem-oni-polezny-248/photo_124@06-01-2025_21-41-45.jpg'
+tags: ['продакт', 'рефлексия']
 ---
 
 Часть 1. [Persistence + въедливость](/pioblog/blog/moi-silnye-storony-i-chem-oni-polezny-248/)
