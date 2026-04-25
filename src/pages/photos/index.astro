@@ -127,12 +127,19 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 		<Footer />
 
 		<style is:global>
-			.photos-page { padding-top: 0; }
+			/* Override the global `main.content { max-width: 620px }` for photos.
+			   Photos need horizontal real estate; copy is the rest of the site. */
+			main.content.photos-page {
+				max-width: 1400px;
+				padding-left: 24px;
+				padding-right: 24px;
+				padding-top: 0;
+			}
 
 			.album-hero {
-				max-width: 1400px;
+				max-width: 100%;
 				margin: 0 auto;
-				padding: 56px 24px 8px;
+				padding: 40px 0 8px;
 			}
 			.album-hero > * { max-width: 60ch; }
 			.album-hero .kicker {
@@ -167,9 +174,9 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 			}
 
 			.chapter-section {
-				max-width: 1400px;
-				margin: 56px auto 16px;
-				padding: 0 24px;
+				max-width: 100%;
+				margin: 56px 0 16px;
+				padding: 0;
 			}
 			.chapter-section:first-of-type { margin-top: 24px; }
 			.chapter-section .ch-header {

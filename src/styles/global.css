@@ -144,15 +144,82 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
 }
 .site-header.scrolled .brand img { width: 26px; height: 26px; }
-.site-header nav { margin-left: auto; display: flex; gap: 16px; }
-.site-header nav a {
+.site-header nav {
+	margin-left: auto;
+	display: flex;
+	gap: 18px;
+	align-items: center;
+}
+.site-header nav > a,
+.site-header nav .nav-dd-trigger {
 	color: var(--text);
 	font-size: 0.9375rem;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
 	font-weight: 600;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	font-family: inherit;
+	padding: 0;
+	line-height: 1;
 }
-.site-header nav a:hover { color: var(--link-hover); }
+.site-header nav > a:hover,
+.site-header nav .nav-dd-trigger:hover { color: var(--link-hover); }
+.site-header nav .nav-dd { position: relative; }
+.site-header nav .nav-dd-trigger::after {
+	content: ' ▾';
+	font-size: 0.65em;
+	opacity: 0.45;
+	margin-left: 2px;
+}
+.site-header nav .nav-dd:hover .nav-dd-trigger,
+.site-header nav .nav-dd.tap-open .nav-dd-trigger { color: var(--link-hover); }
+.site-header nav .nav-dd-menu {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 0.4rem;
+	min-width: 200px;
+	background: #fff;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	padding: 0.3rem 0;
+	display: none;
+	z-index: 50;
+	font-family: var(--font-ui), system-ui, sans-serif;
+}
+/* small bridge so the menu doesn't close when moving mouse to it */
+.site-header nav .nav-dd-menu::before {
+	content: '';
+	position: absolute;
+	top: -0.5rem; left: 0; right: 0; height: 0.5rem;
+}
+.site-header nav .nav-dd:hover .nav-dd-menu,
+.site-header nav .nav-dd.tap-open .nav-dd-menu { display: block; }
+.site-header nav .nav-dd-menu a {
+	display: block;
+	padding: 0.4rem 0.9rem;
+	color: var(--text);
+	text-transform: none;
+	letter-spacing: 0;
+	font-weight: 500;
+	font-size: 0.875rem;
+	white-space: nowrap;
+	transition: background 0.12s, color 0.12s;
+}
+.site-header nav .nav-dd-menu a.external::after {
+	content: ' ↗';
+	color: var(--muted-2);
+	font-size: 0.85em;
+}
+.site-header nav .nav-dd-menu a:hover {
+	background: var(--border-soft);
+	color: var(--text-dark);
+}
+.site-header nav .nav-dd-menu a.external:hover::after { color: var(--link); }
 
 /* FOOTER */
 .site-footer {
