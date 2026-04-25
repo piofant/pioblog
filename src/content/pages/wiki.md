@@ -11,6 +11,6 @@ isRoot: 'true'
 
 - [Вова Луценко — ментор по продакт менеджменту в IT](/pioblog/wiki/mentoring/)
 
-[link_to_page](https://www.notion.so/4f293576-cd1a-434c-a700-c64b96f766e1)
+[чтобы лучше понимать вову](/pioblog/wiki/vova/)
 
 ![](/pioblog/img/notion/wiki/8edba76b.png)
