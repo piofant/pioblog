@@ -1,7 +1,7 @@
 ---
 title: 'Чем могу быть полезен'
 notion_id: 'd0d67ebeb5504322b875bf22dac51e56'
-notion_last_edited: '2026-04-25T09:23:00.000Z'
+notion_last_edited: '2026-04-25T12:50:00.000Z'
 ---
 
 
@@ -18,6 +18,9 @@ notion_last_edited: '2026-04-25T09:23:00.000Z'
 
 
 
+- [менторю](/pioblog/wiki/mentoring/) продактов по карьерным и рабочим вопросам
+- создал кейс-клуб для продактов, где мы разбираем кейсы с интервью, — комьюнити открытое: [бесплатно вступить](https://v0-kasem-club-website.vercel.app/)
+- нанять продактом: [CV](http://online-qr.ru/vova_cv?utm_source=vova_value)
 - могу привлечь лидов для вашего бизнеса:
 <details>
 
@@ -43,9 +46,6 @@ notion_last_edited: '2026-04-25T09:23:00.000Z'
 
 </details>
 
-- [менторю](/pioblog/wiki/mentoring/) продактов по карьерным и рабочим вопросам
-- создал кейс-клуб для продактов, где мы разбираем кейсы с интервью, — комьюнити открытое: [бесплатно вступить](https://v0-kasem-club-website.vercel.app/)
-- нанять продактом: [CV](http://online-qr.ru/vova_cv?utm_source=vova_value)
 
 ### **🤝 Социальное**
 
