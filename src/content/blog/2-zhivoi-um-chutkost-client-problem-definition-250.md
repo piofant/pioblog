@@ -2,7 +2,7 @@
 title: '(2) живой ум + чуткость = client problem definition'
 subtitle: 'Я узнал, что такое живоумие гибкость мышления, способность находить связи между понятиями, широта взгляда и чуткость, когда общался с ребятами из ЭКОПСИ (топ-1 hr-консалтинг)'
 pubDate: '2025-01-07'
-heroImage: '/pioblog/img/posts/2025-01-07-2-zhivoi-um-chutkost-client-problem-definition-250/photo_125@07-01-2025_18-59-58.jpg'
+heroImage: '/img/posts/2025-01-07-2-zhivoi-um-chutkost-client-problem-definition-250/photo_125@07-01-2025_18-59-58.jpg'
 tags: ['продакт', 'рефлексия', 'психология']
 series: 'my-strengths'
 seriesPart: 2
@@ -14,4 +14,4 @@ seriesPart: 2
 
 `>` **Ценность силы**: такой подход (а) помогает понимать истинную проблему клиента, (б) поднимает комфорт на встречах с коллегами
 
-![](/pioblog/img/posts/2025-01-07-2-zhivoi-um-chutkost-client-problem-definition-250/photo_125@07-01-2025_18-59-58.jpg)
+![](/img/posts/2025-01-07-2-zhivoi-um-chutkost-client-problem-definition-250/photo_125@07-01-2025_18-59-58.jpg)

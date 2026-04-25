@@ -2,7 +2,7 @@
 title: 'Знакомьтесь, Юра — мой партнёр по автостопу'
 subtitle: 'Мы провели вместе 6 дней и проехали от Москвы до Ульяновска'
 pubDate: '2025-08-05'
-heroImage: '/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_189@05-08-2025_20-28-41.jpg'
+heroImage: '/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_189@05-08-2025_20-28-41.jpg'
 tags: ['трипы', 'безумие']
 ---
 
@@ -18,15 +18,15 @@ tags: ['трипы', 'безумие']
 выражается в лёгком отношении к преградам и странностям на пути
 
 **3) Скорость принятия решений**
-может за один день решить кардинально поменять план путешествия и поехать обратно в Москву вместо Алтая, быстро выходя из [состояния неопределенности](/pioblog/blog/neopredelennost-porozhdaet-razobrannost-kak-ia-294/)
+может за один день решить кардинально поменять план путешествия и поехать обратно в Москву вместо Алтая, быстро выходя из [состояния неопределенности](/blog/neopredelennost-porozhdaet-razobrannost-kak-ia-294/)
 
 --
 Могу предположить, что в развитие этих принципов у Юры законтрибьютила и по сей день вносит свой вклад *любовь и принятие* в его семье
 
 Я уже сейчас чувствую, как зеркальными нейронами осознанно и не осознанно забираю в себя кусочки этих принципов, — и мне нравится, как я меняюсь
 
-![](/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_189@05-08-2025_20-28-41.jpg)
+![](/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_189@05-08-2025_20-28-41.jpg)
 
-![](/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_190@05-08-2025_20-28-41.jpg)
+![](/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_190@05-08-2025_20-28-41.jpg)
 
-![](/pioblog/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_191@05-08-2025_20-28-41.jpg)
+![](/img/posts/2025-08-05-znakomtes-iura-moi-partner-po-avtostopu-326/photo_191@05-08-2025_20-28-41.jpg)

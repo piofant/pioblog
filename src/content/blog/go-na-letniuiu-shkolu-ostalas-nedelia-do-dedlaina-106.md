@@ -2,7 +2,7 @@
 title: 'Го на Летнюю Школу. Осталась неделя до дедлайна вступов.'
 subtitle: 'В двух словах: тут все учат и учатся, живут вместе в лесу на Волге, спят, готовят, едят. Палаточки, учёба, контекст знакомства, общение, вот это вот всё. Аудитория -'
 pubDate: '2022-05-23'
-heroImage: '/pioblog/img/posts/2022-05-23-go-na-letniuiu-shkolu-ostalas-nedelia-do-dedlaina-106/photo_29@23-05-2022_23-19-09.jpg'
+heroImage: '/img/posts/2022-05-23-go-na-letniuiu-shkolu-ostalas-nedelia-do-dedlaina-106/photo_29@23-05-2022_23-19-09.jpg'
 tags: ['нетворкинг', 'трипы', 'школа жизни']
 ---
 
@@ -15,4 +15,4 @@ tags: ['нетворкинг', 'трипы', 'школа жизни']
 
 Если думаете поехать, то давайте скооперируемся, напишите мне.
 
-![](/pioblog/img/posts/2022-05-23-go-na-letniuiu-shkolu-ostalas-nedelia-do-dedlaina-106/photo_29@23-05-2022_23-19-09.jpg)
+![](/img/posts/2022-05-23-go-na-letniuiu-shkolu-ostalas-nedelia-do-dedlaina-106/photo_29@23-05-2022_23-19-09.jpg)

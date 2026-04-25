@@ -2,7 +2,7 @@
 title: 'Почему я езжу в трипы (1\\4)'
 subtitle: 'бегство в настоящее как анестезия'
 pubDate: '2026-02-08'
-heroImage: '/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_244@08-02-2026_16-05-49.jpg'
+heroImage: '/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_244@08-02-2026_16-05-49.jpg'
 tags: ['рефлексия', 'трипы', 'психология']
 ---
 
@@ -12,7 +12,7 @@ tags: ['рефлексия', 'трипы', 'психология']
 – 1.2 страх одиночества \ "пустого календаря" – оттуда вот этот летний гештальт «провести лето не дома»,
 – 1.3 напряжение от состояния неопределенности
 
-В результате 1.1 в июне я поехал в [автостоп](/pioblog/blog/moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/), в результате 1.2 и 1.3 – убежал в лес на [випассану](/pioblog/blog/ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/) на майские
+В результате 1.1 в июне я поехал в [автостоп](/blog/moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/), в результате 1.2 и 1.3 – убежал в лес на [випассану](/blog/ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/) на майские
 
 **Трейдофф страхов**
 
@@ -23,20 +23,20 @@ tags: ['рефлексия', 'трипы', 'психология']
 
 Кажца, что такой метод shot-term способ помогает, но глобально кажца темка не самая лучшая, не буду ж я всю жизнь так бегать от трудностей?
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_244@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_244@08-02-2026_16-05-49.jpg)
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_245@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_245@08-02-2026_16-05-49.jpg)
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_246@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_246@08-02-2026_16-05-49.jpg)
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_247@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_247@08-02-2026_16-05-49.jpg)
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_248@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_248@08-02-2026_16-05-49.jpg)
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_249@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_249@08-02-2026_16-05-49.jpg)
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_250@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_250@08-02-2026_16-05-49.jpg)
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_251@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_251@08-02-2026_16-05-49.jpg)
 
-![](/pioblog/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_252@08-02-2026_16-05-49.jpg)
+![](/img/posts/2026-02-08-pochemu-ia-ezzhu-v-tripy-1-4-395/photo_252@08-02-2026_16-05-49.jpg)

@@ -7,11 +7,11 @@
  * sub-pages (вложенные child_pages) становятся отдельными файлами в src/content/pages/cases/.
  *
  * Итог:
- *   /pioblog/wiki/          — корневая wiki
- *   /pioblog/wiki/about/    — «Чем могу быть полезен»
- *   /pioblog/wiki/portfolio/ — портфолио с ссылками на cases
- *   /pioblog/wiki/mentoring/
- *   /pioblog/wiki/cases/<slug>/ — вложенные старые кейсы
+ *   /wiki/          — корневая wiki
+ *   /wiki/about/    — «Чем могу быть полезен»
+ *   /wiki/portfolio/ — портфолио с ссылками на cases
+ *   /wiki/mentoring/
+ *   /wiki/cases/<slug>/ — вложенные старые кейсы
  *
  * Все картинки и текст отдаются с GitHub Pages → читается из России без VPN.
  *
@@ -126,7 +126,7 @@ function getExt(url) {
 const pageUrlByNotionId = new Map();
 for (const [id, pc] of Object.entries(config.pages)) {
 	const key = id.replace(/-/g, '');
-	pageUrlByNotionId.set(key, pc.isRoot ? '/pioblog/wiki/' : `/pioblog/wiki/${pc.slug}/`);
+	pageUrlByNotionId.set(key, pc.isRoot ? '/wiki/' : `/wiki/${pc.slug}/`);
 }
 
 function createN2M(pageSlug, imageTasks, subPageIdByTitle) {
@@ -188,7 +188,7 @@ function createN2M(pageSlug, imageTasks, subPageIdByTitle) {
 		const caption = img.caption?.map((t) => t.plain_text).join('') || '';
 		const ext = getExt(url);
 		const filename = `${shortHash(block.id)}.${ext}`;
-		const rel = `/pioblog/img/notion/${pageSlug}/${filename}`;
+		const rel = `/img/notion/${pageSlug}/${filename}`;
 		const abs = path.join(REPO_ROOT, config.options.imageDir, pageSlug, filename);
 		imageTasks.push({ url, abs });
 		return `![${caption}](${rel})\n\n`;
@@ -273,7 +273,7 @@ async function syncPage(pageId, pageConfig) {
 	const pageTitleById = new Map();
 	for (const [id, pc] of Object.entries(config.pages)) {
 		const key = id.replace(/-/g, '');
-		pageUrlById.set(key, pc.isRoot ? '/pioblog/wiki/' : `/pioblog/wiki/${pc.slug}/`);
+		pageUrlById.set(key, pc.isRoot ? '/wiki/' : `/wiki/${pc.slug}/`);
 		pageTitleById.set(key, pc.title);
 	}
 	parentContent = parentContent.replace(/\]\(\/([0-9a-f]{32})(\?[^)]*)?\)/g, (m, id) => {

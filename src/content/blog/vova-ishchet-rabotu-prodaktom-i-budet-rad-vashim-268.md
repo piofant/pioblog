@@ -22,7 +22,7 @@ tags: ['продакт', 'карьера', 'школа жизни']
 - Оценивать можно только действия человека и результат, а не самого человека
 
 **Явки, пароли**
-[Резюме](/pioblog/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/) и [портфолио кейсов](/pioblog/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/) / [сильные стороны](/pioblog/blog/moi-silnye-storony-i-chem-oni-polezny-248/) / [результаты менти](http://online-qr.ru/vova_mentor?utm_source=pioblog_open_to_work)
+[Резюме](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/) и [портфолио кейсов](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/) / [сильные стороны](/blog/moi-silnye-storony-i-chem-oni-polezny-248/) / [результаты менти](http://online-qr.ru/vova_mentor?utm_source=pioblog_open_to_work)
 
 **Акция** 🔥
 *Переведу 40% от первой ЗП тому, кто порекомендует меня на позицию, по которой я выйду на работу — перешлите этот пост знакомым продакт-лидам и hr*
@@ -30,7 +30,7 @@ tags: ['продакт', 'карьера', 'школа жизни']
 Напишите мне [@piofant](https://t.me/piofant), если создается ощущение, что мы можем заколлаборировать + буду рад реферам
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/pioblog/video/posts/2025-03-04-vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/video_1@04-03-2025_11-19-05.mp4" type="video/mp4">
+  <source src="/video/posts/2025-03-04-vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/video_1@04-03-2025_11-19-05.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/pioblog/268)
+[Оригинал в Telegram →](https://t.me/268)

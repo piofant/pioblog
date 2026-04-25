@@ -2,7 +2,7 @@
 title: 'Путешествия в режиме наблюдателя [за жизнью и историями людей]'
 subtitle: 'Вот эта стандартная история, формата: приезжаешь в город, селишься в отель и ходишь смотришь море, архитектуру, да хоть грибы с глазами в Рязани — вообще не вау, там нет эмоций'
 pubDate: '2025-10-28'
-heroImage: '/pioblog/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_223@28-10-2025_17-41-01.jpg'
+heroImage: '/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_223@28-10-2025_17-41-01.jpg'
 tags: ['трипы', 'жизнь']
 series: 'observer-travels'
 seriesPart: 1
@@ -19,10 +19,10 @@ seriesPart: 1
 > **Предприниматель из Саранска**
 начинал кладовщиком, построил свой бизнес с нуля, вытеснил икею с рынка в регионе, а потом развод и длиннющая будто нескончаемая пауза на переосмысление жизни
 
-[2 часть](/pioblog/blog/puteshestviia-v-rezhime-nabliudatelia-chast-2-375/)
+[2 часть](/blog/puteshestviia-v-rezhime-nabliudatelia-chast-2-375/)
 
-![](/pioblog/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_223@28-10-2025_17-41-01.jpg)
+![](/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_223@28-10-2025_17-41-01.jpg)
 
-![](/pioblog/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_224@28-10-2025_17-41-01.jpg)
+![](/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_224@28-10-2025_17-41-01.jpg)
 
-![](/pioblog/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_225@28-10-2025_17-41-01.jpg)
+![](/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_225@28-10-2025_17-41-01.jpg)

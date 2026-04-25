@@ -2,7 +2,7 @@
 title: 'Как перейти из разработчика в продакты?'
 subtitle: 'Этот вопрос мне чаще всего задают коворкеры с кронвы и мои одногруппники'
 pubDate: '2026-02-06'
-heroImage: '/pioblog/img/posts/2026-02-06-kak-pereiti-iz-razrabotchika-v-prodakty-394/photo_243@06-02-2026_18-26-42.jpg'
+heroImage: '/img/posts/2026-02-06-kak-pereiti-iz-razrabotchika-v-prodakty-394/photo_243@06-02-2026_18-26-42.jpg'
 tags: ['продакт', 'карьера', 'школа жизни', 'вуз']
 ---
 
@@ -42,4 +42,4 @@ tags: ['продакт', 'карьера', 'школа жизни', 'вуз']
 - Ильи из T: <https://t.me/easylaneoff/437>
 - Юры из Озона: <https://t.me/kukuyura_blog/53>
 
-![](/pioblog/img/posts/2026-02-06-kak-pereiti-iz-razrabotchika-v-prodakty-394/photo_243@06-02-2026_18-26-42.jpg)
+![](/img/posts/2026-02-06-kak-pereiti-iz-razrabotchika-v-prodakty-394/photo_243@06-02-2026_18-26-42.jpg)

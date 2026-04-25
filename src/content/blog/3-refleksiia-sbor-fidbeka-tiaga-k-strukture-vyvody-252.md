@@ -2,7 +2,7 @@
 title: '(3) рефлексия + сбор фидбека + тяга к структуре = выводы на будущее'
 subtitle: 'Процесс рефлексии у меня автоматически запускается после завершения эпика\\задачи, в нём я:'
 pubDate: '2025-01-10'
-heroImage: '/pioblog/img/posts/2025-01-10-3-refleksiia-sbor-fidbeka-tiaga-k-strukture-vyvody-252/photo_127@10-01-2025_21-28-22.jpg'
+heroImage: '/img/posts/2025-01-10-3-refleksiia-sbor-fidbeka-tiaga-k-strukture-vyvody-252/photo_127@10-01-2025_21-28-22.jpg'
 tags: ['рефлексия', 'трипы']
 series: 'my-strengths'
 seriesPart: 3
@@ -25,4 +25,4 @@ seriesPart: 3
 
 поделитесь в комментах, а как вы отвечаете на вопрос про *сильные стороны*?
 
-![](/pioblog/img/posts/2025-01-10-3-refleksiia-sbor-fidbeka-tiaga-k-strukture-vyvody-252/photo_127@10-01-2025_21-28-22.jpg)
+![](/img/posts/2025-01-10-3-refleksiia-sbor-fidbeka-tiaga-k-strukture-vyvody-252/photo_127@10-01-2025_21-28-22.jpg)

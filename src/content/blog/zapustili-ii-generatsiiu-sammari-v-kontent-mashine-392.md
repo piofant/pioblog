@@ -5,7 +5,7 @@ pubDate: '2026-01-13'
 tags: ['творчество']
 ---
 
-Пилю контент-машину для тг-каналов, монетизирую через рекламу, см. [предыдущий пост](/pioblog/blog/ia-ne-umru-s-golodu-384/)
+Пилю контент-машину для тг-каналов, монетизирую через рекламу, см. [предыдущий пост](/blog/ia-ne-umru-s-golodu-384/)
 
 **Как растить revenue в TG-канале – построили дерево метрик**
 выручка складывается из кол-ва интеграций x ср. чек, для роста ср. чека нужно **растить охваты**, т.к. это целевая метрика, от которой зависит стоимость продаваемой рекламы
@@ -28,7 +28,7 @@ tags: ['творчество']
 а как бы вы повышали ERR в телеграм-канале с автоматизированным постингом?
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/pioblog/video/posts/2026-01-13-zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392/саммаризация_threshold_0.0100.mp4" type="video/mp4">
+  <source src="/video/posts/2026-01-13-zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392/саммаризация_threshold_0.0100.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/pioblog/392)
+[Оригинал в Telegram →](https://t.me/392)

@@ -3,7 +3,7 @@ title: '0 лидов за 2 месяца или как я протестиров
 subtitle: '#сторителл'
 pubDate: '2025-03-19'
 tags: ['история', 'продакт', 'трипы', 'боты']
-heroImage: '/pioblog/img/posts/2025-03-19-0-lidov-za-2-mesiatsa-ili-kak-ia-protestiroval-3-274/photo_144@19-03-2025_20-48-41.jpg'
+heroImage: '/img/posts/2025-03-19-0-lidov-za-2-mesiatsa-ili-kak-ia-protestiroval-3-274/photo_144@19-03-2025_20-48-41.jpg'
 series: 'psaiko-monetization'
 seriesPart: 1
 ---
@@ -23,6 +23,6 @@ seriesPart: 1
 - на выходе получили (1) джобы, которые юзеры уже решают с помощью бота и (2) чего им не хватает
 - отталкиваясь от запросов, набросали табличку гипотез для быстрого теста
 
-➡️ про сами гипотезы и результаты их тестирования расскажу во [2 части](/pioblog/blog/storitell-pro-monetizatsiiu-psaiko-chast-2-kakie-275/) завтра
+➡️ про сами гипотезы и результаты их тестирования расскажу во [2 части](/blog/storitell-pro-monetizatsiiu-psaiko-chast-2-kakie-275/) завтра
 
-![](/pioblog/img/posts/2025-03-19-0-lidov-za-2-mesiatsa-ili-kak-ia-protestiroval-3-274/photo_144@19-03-2025_20-48-41.jpg)
+![](/img/posts/2025-03-19-0-lidov-za-2-mesiatsa-ili-kak-ia-protestiroval-3-274/photo_144@19-03-2025_20-48-41.jpg)

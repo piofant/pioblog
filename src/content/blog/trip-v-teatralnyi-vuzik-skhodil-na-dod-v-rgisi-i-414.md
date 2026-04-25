@@ -2,11 +2,11 @@
 title: 'Трип в театральный вузик: сходил на ДоД в РГИСИ и опросил двух мастеров'
 subtitle: 'Алина мне рассказала, что в том самом актёрском вузе на Моховой будет ДоД в вс, а ещё поделилась каналом группы её мастерской и фильмом «Театральный. Битва за мечту». Я'
 pubDate: '2026-03-24'
-heroImage: '/pioblog/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_260@24-03-2026_10-03-14.jpg'
+heroImage: '/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_260@24-03-2026_10-03-14.jpg'
 tags: ['театр', 'трипы']
 ---
 
-[Алина](/pioblog/blog/klounskii-nos-obediniaet-411/) мне рассказала, что в том самом актёрском вузе на Моховой будет ДоД в вс, а ещё поделилась [каналом](https://t.me/stukalovtsy) группы её мастерской и [фильмом](https://www.youtube.com/watch?v=_IxTqbsF9oM) «Театральный. Битва за мечту». Я вдохновился и не смог скипнуть опцию посмотреть irl на этот движ
+[Алина](/blog/klounskii-nos-obediniaet-411/) мне рассказала, что в том самом актёрском вузе на Моховой будет ДоД в вс, а ещё поделилась [каналом](https://t.me/stukalovtsy) группы её мастерской и [фильмом](https://www.youtube.com/watch?v=_IxTqbsF9oM) «Театральный. Битва за мечту». Я вдохновился и не смог скипнуть опцию посмотреть irl на этот движ
 
 **[День открытых дверей]**
 я опоздал на полчаса – мне казалось это вообще ок, т.к. обычно на таких эвентах нет четкого начала и конца; на входе меня развернули и отправили смотреть трансляцию во дворе (лол), позалипал, и потом всё-таки смог проникнуть внутрь
@@ -37,10 +37,10 @@ tags: ['театр', 'трипы']
 
 Итого, ухожу с намерением записаться на 0 тур отбора – творческую консультацию в апреле, чтобы вообще попробовать себя, что там да как
 
-![](/pioblog/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_260@24-03-2026_10-03-14.jpg)
+![](/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_260@24-03-2026_10-03-14.jpg)
 
-![](/pioblog/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_261@24-03-2026_10-03-14.jpg)
+![](/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_261@24-03-2026_10-03-14.jpg)
 
-![](/pioblog/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_262@24-03-2026_10-03-14.jpg)
+![](/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_262@24-03-2026_10-03-14.jpg)
 
-![](/pioblog/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_263@24-03-2026_10-03-14.jpg)
+![](/img/posts/2026-03-24-trip-v-teatralnyi-vuzik-skhodil-na-dod-v-rgisi-i-414/photo_263@24-03-2026_10-03-14.jpg)

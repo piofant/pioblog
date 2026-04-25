@@ -2,7 +2,7 @@
 title: '⚡️ open-call эдтехам и всем остальным: го дадим ценность 5000 абитуриентам'
 subtitle: 'контексту меня под рукой нишевой ресурс, где тусуются 5К старшеклассников-технарей, средний охват ≈ 2К, ERR ≈ 30%'
 pubDate: '2025-06-13'
-heroImage: '/pioblog/img/posts/2025-06-13-open-call-edtekham-i-vsem-ostalnym-go-dadim-306/photo_171@13-06-2025_19-43-06.jpg'
+heroImage: '/img/posts/2025-06-13-open-call-edtekham-i-vsem-ostalnym-go-dadim-306/photo_171@13-06-2025_19-43-06.jpg'
 tags: ['продакт', 'карьера', 'школа жизни', 'жизнь', 'вуз']
 ---
 
@@ -20,4 +20,4 @@ tags: ['продакт', 'карьера', 'школа жизни', 'жизнь'
 
 Давайте поможем абитуре облегчить старт вузовской жизни!
 
-![](/pioblog/img/posts/2025-06-13-open-call-edtekham-i-vsem-ostalnym-go-dadim-306/photo_171@13-06-2025_19-43-06.jpg)
+![](/img/posts/2025-06-13-open-call-edtekham-i-vsem-ostalnym-go-dadim-306/photo_171@13-06-2025_19-43-06.jpg)

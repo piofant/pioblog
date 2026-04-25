@@ -2,7 +2,7 @@
 title: 'Мужские круги стали частью моей жизни, и вот чувствуется результат'
 subtitle: 'Кто-то называет это групповой терапией, кто-то эмоциональной тренажёркой, для меня это место, где можно свободно проявляться, выпускать своего primal''а, внешнего наблюдателя'
 pubDate: '2025-08-28'
-heroImage: '/pioblog/img/posts/2025-08-28-muzhskie-krugi-stali-chastiu-moei-zhizni-i-vot-333/photo_193@28-08-2025_19-40-57.jpg'
+heroImage: '/img/posts/2025-08-28-muzhskie-krugi-stali-chastiu-moei-zhizni-i-vot-333/photo_193@28-08-2025_19-40-57.jpg'
 tags: ['безумие', 'психология', 'жизнь']
 ---
 
@@ -18,6 +18,6 @@ tags: ['безумие', 'психология', 'жизнь']
 
 So, результат — проще проявляться irl (я начал рычать), меньше блокеров и страха оценки
 
-Практика некоммерческая, фасилитируем сами, детали в [прошлом посте](/pioblog/blog/ia-skhodil-na-5-muzhskikh-krugov-i-pochuvstvoval-276/)
+Практика некоммерческая, фасилитируем сами, детали в [прошлом посте](/blog/ia-skhodil-na-5-muzhskikh-krugov-i-pochuvstvoval-276/)
 
-![](/pioblog/img/posts/2025-08-28-muzhskie-krugi-stali-chastiu-moei-zhizni-i-vot-333/photo_193@28-08-2025_19-40-57.jpg)
+![](/img/posts/2025-08-28-muzhskie-krugi-stali-chastiu-moei-zhizni-i-vot-333/photo_193@28-08-2025_19-40-57.jpg)

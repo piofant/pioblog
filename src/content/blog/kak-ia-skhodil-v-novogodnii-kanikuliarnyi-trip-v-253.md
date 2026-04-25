@@ -2,7 +2,7 @@
 title: 'как я сходил в новогодний каникулярный трип в рендом кофе'
 subtitle: 'этот пост — паблик шеринг (собеседники согласились)'
 pubDate: '2025-01-13'
-heroImage: '/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_128@13-01-2025_18-23-38.jpg'
+heroImage: '/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_128@13-01-2025_18-23-38.jpg'
 tags: ['продакт', 'рефлексия', 'трипы', 'безумие']
 ---
 
@@ -23,10 +23,10 @@ tags: ['продакт', 'рефлексия', 'трипы', 'безумие']
 --
 если тоже хотите забукать рендом кофе со мной, напишите мне в тг [@piofant](https://t.me/piofant) — закину календарь
 
-![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_128@13-01-2025_18-23-38.jpg)
+![](/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_128@13-01-2025_18-23-38.jpg)
 
-![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_129@13-01-2025_18-23-38.jpg)
+![](/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_129@13-01-2025_18-23-38.jpg)
 
-![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_130@13-01-2025_18-23-38.jpg)
+![](/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_130@13-01-2025_18-23-38.jpg)
 
-![](/pioblog/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_131@13-01-2025_18-23-38.jpg)
+![](/img/posts/2025-01-13-kak-ia-skhodil-v-novogodnii-kanikuliarnyi-trip-v-253/photo_131@13-01-2025_18-23-38.jpg)

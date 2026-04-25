@@ -2,7 +2,7 @@
 title: 'Путешествия в режиме наблюдателя, часть 2'
 subtitle: 'Дальнобойщик-семьянин из народа Дунгановподвозил меня до Ульяновска и рассказывал, как он был раздолбаем в школе, а потом родители женили → позворослел; отношения с женой на'
 pubDate: '2025-10-29'
-heroImage: '/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_226@29-10-2025_17-19-01.jpg'
+heroImage: '/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_226@29-10-2025_17-19-01.jpg'
 tags: ['рефлексия', 'трипы', 'школа жизни']
 series: 'observer-travels'
 seriesPart: 2
@@ -15,15 +15,15 @@ seriesPart: 2
 > **Работяга с вахты в Мурманске**
 детство в Архангельске, переезд в Питер, женился и развёлся, беспомощность, рейсы на вахту по рефлексу, в выходные пишет репчик и вообще на самом деле творческий человек!
 
-> **Полиаморная пара на** [хиппи-фесте](/pioblog/blog/6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/)50 и 25 лет радости, много света в глазах, разговоры о границах и вот эта детская бука и нехочуха на лице
+> **Полиаморная пара на** [хиппи-фесте](/blog/6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/)50 и 25 лет радости, много света в глазах, разговоры о границах и вот эта детская бука и нехочуха на лице
 
 --
 В таких *трипах в другие образы жизни* порой возникают открытые вопросы о том,
 - что я хочу поменять в своей жизни,
 - хочу ли я жить по-другому
 
-![](/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_226@29-10-2025_17-19-01.jpg)
+![](/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_226@29-10-2025_17-19-01.jpg)
 
-![](/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_227@29-10-2025_17-19-01.jpg)
+![](/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_227@29-10-2025_17-19-01.jpg)
 
-![](/pioblog/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_228@29-10-2025_17-19-01.jpg)
+![](/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_228@29-10-2025_17-19-01.jpg)

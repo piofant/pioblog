@@ -2,11 +2,11 @@
 title: 'Футболка как маркер безумия и атеншен-магнит'
 subtitle: 'На самом деле, эта история с футболкой была больше по фану, как и углубление метрики чтоб посчитать её эффективность'
 pubDate: '2024-09-15'
-heroImage: '/pioblog/img/posts/2024-09-15-futbolka-kak-marker-bezumiia-i-atenshen-magnit-199/photo_88@15-09-2024_16-07-06.jpg'
+heroImage: '/img/posts/2024-09-15-futbolka-kak-marker-bezumiia-i-atenshen-magnit-199/photo_88@15-09-2024_16-07-06.jpg'
 tags: ['безумие', 'творчество']
 ---
 
-На самом деле, эта [история](/pioblog/blog/delius-rezultatami-futbolki-dlia-poiska-raboty-195/) с футболкой была больше по фану, как и углубление метрики чтоб посчитать её эффективность
+На самом деле, эта [история](/blog/delius-rezultatami-futbolki-dlia-poiska-raboty-195/) с футболкой была больше по фану, как и углубление метрики чтоб посчитать её эффективность
 
 **> Немного сторителла, как пришла идея запилить футболку:**
 Весной на продукт кемпе увидел участника (тоже зовут Владимир) в толстовке с принтом "Ищу работу" и QR, меня это почему-то так позабавило тогда, но в то же время задело мой *продуктовый перфекционизм* — по ней было вообще непонятно, кем Владимир ищет работу, в какой сфере, какой есть релевантный опыт,
@@ -30,6 +30,6 @@ tags: ['безумие', 'творчество']
 
 Предлагайте ваши варианты мемных формулировок в комменты!
 
-![](/pioblog/img/posts/2024-09-15-futbolka-kak-marker-bezumiia-i-atenshen-magnit-199/photo_88@15-09-2024_16-07-06.jpg)
+![](/img/posts/2024-09-15-futbolka-kak-marker-bezumiia-i-atenshen-magnit-199/photo_88@15-09-2024_16-07-06.jpg)
 
-![](/pioblog/img/posts/2024-09-15-futbolka-kak-marker-bezumiia-i-atenshen-magnit-199/photo_89@15-09-2024_16-07-06.jpg)
+![](/img/posts/2024-09-15-futbolka-kak-marker-bezumiia-i-atenshen-magnit-199/photo_89@15-09-2024_16-07-06.jpg)

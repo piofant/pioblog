@@ -3,7 +3,7 @@ title: '#я_не_умру_с_голоду'
 subtitle: 'я\\не\\умру\\с\\голоду'
 pubDate: '2025-12-19'
 tags: ['я_не_умру_с_голоду', 'карьера', 'школа жизни']
-heroImage: '/pioblog/img/posts/2025-12-19-ia-ne-umru-s-golodu-384/photo_235@19-12-2025_16-01-57.jpg'
+heroImage: '/img/posts/2025-12-19-ia-ne-umru-s-golodu-384/photo_235@19-12-2025_16-01-57.jpg'
 ---
 
 школьный проектик внезапно стал приносить прибыль
@@ -21,10 +21,10 @@ heroImage: '/pioblog/img/posts/2025-12-19-ia-ne-umru-s-golodu-384/photo_235@19-1
 [**excitement** в том, что]
 - все автоматизировано и кеш прилетает почти сам,
 - талантливые школьники сами иногда в личку стучатся
-- это [канал траффика](/pioblog/blog/open-call-edtekham-i-vsem-ostalnym-go-dadim-306/) для экспериментальных проектов для меня и друзей
+- это [канал траффика](/blog/open-call-edtekham-i-vsem-ostalnym-go-dadim-306/) для экспериментальных проектов для меня и друзей
 
 --
 в след. посте расскажу про fresh запуск ИИ-зации для роста числа новых сабов, и к чему это привело, а к этому прикрепил фоточку из школьных лет с моими корешами
 upd рассказал – </blog/zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392-2026-01-13/>
 
-![](/pioblog/img/posts/2025-12-19-ia-ne-umru-s-golodu-384/photo_235@19-12-2025_16-01-57.jpg)
+![](/img/posts/2025-12-19-ia-ne-umru-s-golodu-384/photo_235@19-12-2025_16-01-57.jpg)

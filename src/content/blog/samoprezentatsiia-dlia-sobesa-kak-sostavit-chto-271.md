@@ -24,7 +24,7 @@ tags: ['продакт', 'рефлексия', 'карьера', 'анонс']
 Я обычно спрашиваю *«Есть ли среди вас визуалы? Если да, у меня есть картинка»* и шерю экран при положительном ответе (это примерно 60% случаев, в остальных отвечают «неважно» или «давай без»)
 
 **Примеры през**
-- мое [видео](/pioblog/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/)
+- мое [видео](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/)
 - [преза](https://docs.google.com/presentation/d/1thyyialS-mv7HLU2z33-uCPSmPQidKwT/) лид-аналитика [Вовы Камчаткина](https://t.me/data_new_gold)
 - [преза](https://t.me/beginner_fintech/189?comment=656) аналитика [Паши Литвинова](https://t.me/beginner_fintech)
 
@@ -36,7 +36,7 @@ tags: ['продакт', 'рефлексия', 'карьера', 'анонс']
 Upd: написал </blog/ia-prikrepil-video-samoprezentatsiiu-k-100-272-2025-03-13/>
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/pioblog/video/posts/2025-03-12-samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271/11.03.2025 (6) .mp4" type="video/mp4">
+  <source src="/video/posts/2025-03-12-samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271/11.03.2025 (6) .mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/pioblog/271)
+[Оригинал в Telegram →](https://t.me/271)

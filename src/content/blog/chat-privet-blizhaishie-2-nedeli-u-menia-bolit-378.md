@@ -2,7 +2,7 @@
 title: 'чат, привет, ближайшие 2 недели у меня болит голова про ИИ в коммуникациях'
 subtitle: 'активно ресёрчу best practices, как с помощью ИИ\\ИИ-агентов персонализировать триггерные коммуникации, улучшать их перфоманс и экономить время и ресурсы'
 pubDate: '2025-11-03'
-heroImage: '/pioblog/img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/photo_229@03-11-2025_12-36-43.jpg'
+heroImage: '/img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/photo_229@03-11-2025_12-36-43.jpg'
 tags: ['продакт', 'ии']
 ---
 
@@ -18,4 +18,4 @@ tags: ['продакт', 'ии']
 
 пишите [@piofant](https://t.me/piofant), с меня результаты рисерча + любая [полезность из списка](https://online-qr.ru/vova_value?utm_source=pioblog_chat_comms) бесплатно
 
-![](/pioblog/img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/photo_229@03-11-2025_12-36-43.jpg)
+![](/img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/photo_229@03-11-2025_12-36-43.jpg)

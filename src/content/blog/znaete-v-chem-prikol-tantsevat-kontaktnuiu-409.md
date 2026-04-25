@@ -22,7 +22,7 @@ tags: ['танцы']
 рекомендую сначала сходить на 1-3 класса, а потом на джемы
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/pioblog/video/posts/2026-03-19-znaete-v-chem-prikol-tantsevat-kontaktnuiu-409/ci.mp4" type="video/mp4">
+  <source src="/video/posts/2026-03-19-znaete-v-chem-prikol-tantsevat-kontaktnuiu-409/ci.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/pioblog/409)
+[Оригинал в Telegram →](https://t.me/409)

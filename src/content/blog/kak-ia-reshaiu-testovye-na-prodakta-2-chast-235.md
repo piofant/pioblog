@@ -2,7 +2,7 @@
 title: 'Как я решаю тестовые на продакта [2 часть]'
 subtitle: 'Как себе помочь и на чем сделать фокус в решении?'
 pubDate: '2024-11-13'
-heroImage: '/pioblog/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/photo_118@13-11-2024_13-27-32.jpg'
+heroImage: '/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/photo_118@13-11-2024_13-27-32.jpg'
 tags: ['продакт', 'рефлексия']
 series: 'pm-take-home'
 seriesPart: 2
@@ -17,7 +17,7 @@ seriesPart: 2
 (4) выделенные жирным выводы \ so what'ы в конце каждого блока — чтоб можно было не читать весь блок, а понять главное в выводе
 (5) конечно же executive summary по всей работе — показывает, что я забочусь о читателе и хочу сэкономить его время
 
-Посмотреть, как пункты воспроизводятся в решении, можно в [pdf-ке](/pioblog/blog/zanial-14-iz-420-mesto-v-reshenii-keisa-ot-avito-211/)
+Посмотреть, как пункты воспроизводятся в решении, можно в [pdf-ке](/blog/zanial-14-iz-420-mesto-v-reshenii-keisa-ot-avito-211/)
 
 **→ Что помогло в решении:**
 
@@ -27,6 +27,6 @@ seriesPart: 2
 
 Пошерьте внизу, что вам помогает в решении кейс-чемпов, на чем делаете фокус? 🦻
 
-[Часть 1](/pioblog/blog/kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/)
+[Часть 1](/blog/kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/)
 
-![](/pioblog/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/photo_118@13-11-2024_13-27-32.jpg)
+![](/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/photo_118@13-11-2024_13-27-32.jpg)

@@ -710,8 +710,8 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 
 /* Notion sub-page links (child_page блоки) */
-.page-content a[href*="/pioblog/wiki/cases/"],
-.page-content details a[href*="/pioblog/wiki/cases/"] {
+.page-content a[href*="/wiki/cases/"],
+.page-content details a[href*="/wiki/cases/"] {
 	display: block;
 	padding: 10px 14px;
 	margin: 6px 0;
@@ -722,13 +722,13 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	background: #fff;
 	transition: background 0.15s;
 }
-.page-content a[href*="/pioblog/wiki/cases/"]::before,
-.page-content details a[href*="/pioblog/wiki/cases/"]::before {
+.page-content a[href*="/wiki/cases/"]::before,
+.page-content details a[href*="/wiki/cases/"]::before {
 	content: "📄 ";
 	margin-right: 6px;
 	opacity: 0.6;
 }
-.page-content a[href*="/pioblog/wiki/cases/"]:hover {
+.page-content a[href*="/wiki/cases/"]:hover {
 	background: var(--border-soft);
 }
 

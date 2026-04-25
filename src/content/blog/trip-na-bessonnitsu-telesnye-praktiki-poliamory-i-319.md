@@ -2,16 +2,16 @@
 title: 'Трип на Бессонницу: телесные практики, полиаморы и изобилие'
 subtitle: 'Это такой фестиваль в лесу, где ночью показывают мультики, а днем всякие мастер-классы. 4-й год подряд слышал, как много кто из знакомых ездит туда и вот попробовал доехать сам'
 pubDate: '2025-07-23'
-heroImage: '/pioblog/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_182@23-07-2025_18-25-07.jpg'
+heroImage: '/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_182@23-07-2025_18-25-07.jpg'
 tags: ['трипы', 'психология', 'школа жизни']
 ---
 
 Это такой фестиваль в лесу, где ночью показывают мультики, а днем всякие мастер-классы. 4-й год подряд слышал, как много кто из знакомых ездит туда и вот попробовал доехать сам, делюсь опытом
 
 **Пипл**
-Было невероятно много людей — вроде как под 10.000чел, на контрасте с локальным [хиппи-фестивалем](/pioblog/blog/6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/), где было порядка 70чел в пике и вайбы большой семьи, было непривычно первый день
+Было невероятно много людей — вроде как под 10.000чел, на контрасте с локальным [хиппи-фестивалем](/blog/6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/), где было порядка 70чел в пике и вайбы большой семьи, было непривычно первый день
 
-С одной стороны это создавало вайбы одиночества в большом городе, ведь все ходили своими компаниями, с другой — я выходил гулять и постоянно встречал знакомых из разных мест: физтех, ИТМО (привет Даня Тян), [продукт кемп](/pioblog/blog/trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/), хиппи
+С одной стороны это создавало вайбы одиночества в большом городе, ведь все ходили своими компаниями, с другой — я выходил гулять и постоянно встречал знакомых из разных мест: физтех, ИТМО (привет Даня Тян), [продукт кемп](/blog/trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/), хиппи
 
 **Лагеря**
 Я планировал жить в дружном лагере физтехов (3 фоточка), но волею судьбы меня занесло в БЦ — лагерь полиаморов, с ними было довольно весело, ещё больше погрузился в философию и истории перехода из моногамии в полиаморию
@@ -24,14 +24,14 @@ tags: ['трипы', 'психология', 'школа жизни']
 
 NPS фестика 4\5, за изобилием практик и знакомых вокруг можно возвращаться
 
-![](/pioblog/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_182@23-07-2025_18-25-07.jpg)
+![](/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_182@23-07-2025_18-25-07.jpg)
 
-![](/pioblog/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_183@23-07-2025_18-25-07.jpg)
+![](/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_183@23-07-2025_18-25-07.jpg)
 
-![](/pioblog/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_184@23-07-2025_18-25-07.jpg)
+![](/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_184@23-07-2025_18-25-07.jpg)
 
-![](/pioblog/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_185@23-07-2025_18-25-07.jpg)
+![](/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_185@23-07-2025_18-25-07.jpg)
 
-![](/pioblog/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_186@23-07-2025_18-25-07.jpg)
+![](/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_186@23-07-2025_18-25-07.jpg)
 
-![](/pioblog/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_187@23-07-2025_18-25-07.jpg)
+![](/img/posts/2025-07-23-trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/photo_187@23-07-2025_18-25-07.jpg)

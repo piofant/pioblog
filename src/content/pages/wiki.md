@@ -5,12 +5,12 @@ notion_last_edited: '2026-04-25T11:00:00.000Z'
 isRoot: 'true'
 ---
 
-- [Вова Луценко: Чем могу быть полезен](/pioblog/wiki/about/)
+- [Вова Луценко: Чем могу быть полезен](/wiki/about/)
 
-- [Портфолио кейсов Вовы Луценко](/pioblog/wiki/portfolio/)
+- [Портфолио кейсов Вовы Луценко](/wiki/portfolio/)
 
-- [Вова Луценко — ментор по продакт менеджменту в IT](/pioblog/wiki/mentoring/)
+- [Вова Луценко — ментор по продакт менеджменту в IT](/wiki/mentoring/)
 
-[чтобы лучше понимать вову](/pioblog/wiki/vova/)
+[чтобы лучше понимать вову](/wiki/vova/)
 
-![](/pioblog/img/notion/wiki/8edba76b.png)
+![](/img/notion/wiki/8edba76b.png)

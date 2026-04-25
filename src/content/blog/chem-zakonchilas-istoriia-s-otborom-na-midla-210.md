@@ -2,7 +2,7 @@
 title: 'Чем закончилась история с отбором на мидла продакта в Доставку'
 subtitle: 'Дальнейший таймлайн был такой: защита тестового → реджект'
 pubDate: '2024-10-12'
-heroImage: '/pioblog/img/posts/2024-10-12-chem-zakonchilas-istoriia-s-otborom-na-midla-210/photo_97@12-10-2024_13-44-27.jpg'
+heroImage: '/img/posts/2024-10-12-chem-zakonchilas-istoriia-s-otborom-na-midla-210/photo_97@12-10-2024_13-44-27.jpg'
 tags: ['продакт', 'карьера']
 ---
 
@@ -14,4 +14,4 @@ tags: ['продакт', 'карьера']
 
 **📍 Вывод по кейсу**: глубокое погружение в роль пользователя продукта, в который отбираешься, позволяет (а) лучше сделать тестовое и (б) показать high мотивацию, но не гарантирует успеха
 
-![](/pioblog/img/posts/2024-10-12-chem-zakonchilas-istoriia-s-otborom-na-midla-210/photo_97@12-10-2024_13-44-27.jpg)
+![](/img/posts/2024-10-12-chem-zakonchilas-istoriia-s-otborom-na-midla-210/photo_97@12-10-2024_13-44-27.jpg)

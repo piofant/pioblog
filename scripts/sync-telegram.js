@@ -208,7 +208,7 @@ async function processPost(msg, existing) {
 	for (let i = 0; i < photos.length; i++) {
 		const p = photos[i];
 		const filename = `${i}.jpg`;
-		const rel = `/pioblog/img/tg/${msg.message_id}/${filename}`;
+		const rel = `/img/tg/${msg.message_id}/${filename}`;
 		const abs = path.join(IMAGES_DIR, String(msg.message_id), filename);
 		if (!DRY_RUN) {
 			try {

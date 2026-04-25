@@ -30,6 +30,6 @@
 	"options": {
 		"imageDir": "public/img/notion",
 		"subPagesDir": "src/content/pages/cases",
-		"subPagesUrlPrefix": "/pioblog/wiki/cases/"
+		"subPagesUrlPrefix": "/wiki/cases/"
 	}
 }

@@ -2,7 +2,7 @@
 title: 'Сделал прототип решения для поиска работы на оффлайн конференции [до прода за'
 subtitle: 'Сделал прототип решения для поиска работы на оффлайн конференции до прода за 2 дня — футболку с принтом и бота с резюме'
 pubDate: '2024-08-24'
-heroImage: '/pioblog/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-raboty-na-190/photo_86@24-08-2024_09-40-28.jpg'
+heroImage: '/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-raboty-na-190/photo_86@24-08-2024_09-40-28.jpg'
 tags: ['продакт', 'карьера', 'анонс', 'боты', 'творчество']
 ---
 
@@ -23,4 +23,4 @@ tags: ['продакт', 'карьера', 'анонс', 'боты', 'творч
 
 🔻 Поделитесь в комментариях, как вам UX/UI футболки и бота [@hire\_vova\_bot](https://t.me/hire_vova_bot)? Что хочется изменить / убрать / добавить?
 
-![](/pioblog/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-raboty-na-190/photo_86@24-08-2024_09-40-28.jpg)
+![](/img/posts/2024-08-24-sdelal-prototip-resheniia-dlia-poiska-raboty-na-190/photo_86@24-08-2024_09-40-28.jpg)

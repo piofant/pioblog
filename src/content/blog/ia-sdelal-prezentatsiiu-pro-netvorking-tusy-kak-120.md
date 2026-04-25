@@ -2,7 +2,7 @@
 title: 'Я сделал презентацию про нетворкинг тусы: как перезнакомить группу людей, что'
 subtitle: 'такое контекст знакомства и как его создавать, и где ещё соприкасаться с интересными людьми'
 pubDate: '2023-03-12'
-heroImage: '/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_37@12-03-2023_18-23-11.jpg'
+heroImage: '/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_37@12-03-2023_18-23-11.jpg'
 tags: ['нетворкинг', 'анонс']
 ---
 
@@ -28,10 +28,10 @@ tags: ['нетворкинг', 'анонс']
 
 p. s. меня также можно пригласить на тусу про знакомство и попросить помочь организовать тусу про знакомство 🌱
 
-![](/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_37@12-03-2023_18-23-11.jpg)
+![](/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_37@12-03-2023_18-23-11.jpg)
 
-![](/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_38@12-03-2023_18-23-11.jpg)
+![](/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_38@12-03-2023_18-23-11.jpg)
 
-![](/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_39@12-03-2023_18-23-11.jpg)
+![](/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_39@12-03-2023_18-23-11.jpg)
 
-![](/pioblog/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_40@12-03-2023_18-23-11.jpg)
+![](/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_40@12-03-2023_18-23-11.jpg)

@@ -2,7 +2,7 @@
 title: 'Я сбежал с випассаны от себя на 4-й день'
 subtitle: 'День 1'
 pubDate: '2025-05-06'
-heroImage: '/pioblog/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_151@06-05-2025_16-03-03.jpg'
+heroImage: '/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_151@06-05-2025_16-03-03.jpg'
 tags: ['трипы']
 ---
 
@@ -52,14 +52,14 @@ tags: ['трипы']
 > you're bound to be successful,
 > bound to be successful
 
-![](/pioblog/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_151@06-05-2025_16-03-03.jpg)
+![](/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_151@06-05-2025_16-03-03.jpg)
 
-![](/pioblog/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_152@06-05-2025_16-03-03.jpg)
+![](/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_152@06-05-2025_16-03-03.jpg)
 
-![](/pioblog/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_153@06-05-2025_16-03-03.jpg)
+![](/img/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/photo_153@06-05-2025_16-03-03.jpg)
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/pioblog/video/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/video_2025-05-06_14-19-01.mp4" type="video/mp4">
+  <source src="/video/posts/2025-05-06-ia-sbezhal-s-vipassany-ot-sebia-na-4-i-den-284/video_2025-05-06_14-19-01.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/pioblog/284)
+[Оригинал в Telegram →](https://t.me/284)

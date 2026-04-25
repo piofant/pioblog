@@ -2,7 +2,7 @@
 title: '1000 и 1 способ использовать ai в жызни'
 subtitle: 'сгенерил интерактивчик на др друга – квиз с вопросами про него на основе его соц-сетей'
 pubDate: '2026-02-11'
-heroImage: '/pioblog/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_254@11-02-2026_13-53-49.jpg'
+heroImage: '/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_254@11-02-2026_13-53-49.jpg'
 tags: ['ии']
 ---
 
@@ -78,8 +78,8 @@ tags: ['ии']
 
 ps [Миша](https://t.me/misha_light_xx), с др
 
-![](/pioblog/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_254@11-02-2026_13-53-49.jpg)
+![](/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_254@11-02-2026_13-53-49.jpg)
 
-![](/pioblog/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_255@11-02-2026_13-53-49.jpg)
+![](/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_255@11-02-2026_13-53-49.jpg)
 
-![](/pioblog/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_256@11-02-2026_13-53-49.jpg)
+![](/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_256@11-02-2026_13-53-49.jpg)

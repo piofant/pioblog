@@ -2,7 +2,7 @@
 title: 'Как, кажется, сбылась моя мечта о летней школе'
 pubDate: '2021-06-16'
 tags: ['жизнипост', 'трипы', 'безумие', 'школа жизни']
-heroImage: '/pioblog/img/summer_dream1.jpg'
+heroImage: '/img/summer_dream1.jpg'
 ---
 
 > Дисклеймер: данная поездка описана слишком подробно из-за того, что это был первый и довольно долгожданный опыт. Искал летние школы весь май, поэтому был настолько размашист в тексте с фидбеком про эту поездку.
@@ -57,10 +57,10 @@ heroImage: '/pioblog/img/summer_dream1.jpg'
 
 Фоточки из Академии Цифровых Технологий:
 
-![1](/pioblog/img/summer_dream1.jpg)
+![1](/img/summer_dream1.jpg)
 
-![2](/pioblog/img/summer_dream2.jpg)
+![2](/img/summer_dream2.jpg)
 
-![3](/pioblog/img/summer_dream3.jpg)
+![3](/img/summer_dream3.jpg)
 
-![4](/pioblog/img/summer_dream4.jpg)
+![4](/img/summer_dream4.jpg)

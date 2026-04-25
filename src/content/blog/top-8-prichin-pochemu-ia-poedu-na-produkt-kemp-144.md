@@ -2,14 +2,14 @@
 title: 'Топ-8 причин почему я поеду на продукт кемп весна 2024'
 subtitle: 'утилизировать выходные с пользой'
 pubDate: '2024-04-03'
-heroImage: '/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg'
+heroImage: '/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg'
 tags: ['продакт', 'нетворкинг', 'трипы', 'карьера']
 ---
 
 > посмотреть на красивых людей
-> окунуться в трип бесконечного [контекста знакомства](/pioblog/blog/delaiu-prezu-pro-netvorking-tusy-i-to-chto-takoe-116/)
+> окунуться в трип бесконечного [контекста знакомства](/blog/delaiu-prezu-pro-netvorking-tusy-i-to-chto-takoe-116/)
 > встретить старых знакомых
-> найти работу продактом (подробнее [здесь](/pioblog/blog/kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/))
+> найти работу продактом (подробнее [здесь](/blog/kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/))
 > залутать мерч компаний (не пробовал, кстати)
 > нытинг без фасилитации
 > это просто весело
@@ -18,4 +18,4 @@ tags: ['продакт', 'нетворкинг', 'трипы', 'карьера']
 
 Если вы тоже едете на продукт кемп — пишите мне ([@piofant](https://t.me/piofant)), увидимся!
 
-![](/pioblog/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg)
+![](/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg)

@@ -2,7 +2,7 @@
 title: 'Как в Авито и Ozon оценивают софты при найме джунов менеджеров — делюсь опытом'
 subtitle: 'и хинтами как это пройти'
 pubDate: '2024-12-15'
-heroImage: '/pioblog/img/posts/2024-12-15-kak-v-avito-i-ozon-otsenivaiut-softy-pri-naime-243/photo_120@15-12-2024_20-28-52.jpg'
+heroImage: '/img/posts/2024-12-15-kak-v-avito-i-ozon-otsenivaiut-softy-pri-naime-243/photo_120@15-12-2024_20-28-52.jpg'
 tags: ['продакт', 'карьера']
 ---
 
@@ -35,4 +35,4 @@ tags: ['продакт', 'карьера']
 
 🔻 Расскажите ваш опыт участия в подобных движухах в комментах!
 
-![](/pioblog/img/posts/2024-12-15-kak-v-avito-i-ozon-otsenivaiut-softy-pri-naime-243/photo_120@15-12-2024_20-28-52.jpg)
+![](/img/posts/2024-12-15-kak-v-avito-i-ozon-otsenivaiut-softy-pri-naime-243/photo_120@15-12-2024_20-28-52.jpg)

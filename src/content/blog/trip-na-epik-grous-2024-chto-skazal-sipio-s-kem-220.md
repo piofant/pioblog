@@ -2,11 +2,11 @@
 title: 'трип на эпик гроус 2024 — что сказал сипио, с кем сфоткался и какие результаты?'
 subtitle: 'эпик это высокая концентрация C-lvl (с докладами и без), рекрутёры у стендов компаний-партнёров, и много гуд-лукинг пипл'
 pubDate: '2024-10-26'
-heroImage: '/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_104@26-10-2024_20-03-58.jpg'
+heroImage: '/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_104@26-10-2024_20-03-58.jpg'
 tags: ['продакт', 'нетворкинг', 'трипы']
 ---
 
-в сравнении с тусовочным форматом [продукт кемпа](/pioblog/blog/produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130/), эпик показался более модно-деловым и синьористым
+в сравнении с тусовочным форматом [продукт кемпа](/blog/produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130/), эпик показался более модно-деловым и синьористым
 
 --
 В результате:
@@ -15,18 +15,18 @@ tags: ['продакт', 'нетворкинг', 'трипы']
 `•` юнит лид зачелленджил на предмет того, а чо я хочу от роли продакта → помог мне определиться, продукты [каких типов и на какой стадии](https://docs.google.com/presentation/d/1b_DKIjQs8Kej0c2lf9Dh5QbS6p6BiYT_/edit#slide=id.g30ef41d2964_0_0) развития мне больше подходят `•` послушал доклад Саши Капустина → узнал авторские трюки для эффективного прохождения discovery гейтов в Авито
 `•` в чиселках: +12 новых контактов продактов разного рода сиьнорности
 `•` as always, улыбнулся от встречек с уже знакомыми ребятами из комьюнити
-`•` пропустил воркшоп от gogol school, говорят было круто (+1 причина записаться уже к ним на открытое занятие, а то [лш](/pioblog/blog/privet-ia-seichas-na-letnei-shkole-v-tripe-v-moi-168/) в жизни не хватает прям)
+`•` пропустил воркшоп от gogol school, говорят было круто (+1 причина записаться уже к ним на открытое занятие, а то [лш](/blog/privet-ia-seichas-na-letnei-shkole-v-tripe-v-moi-168/) в жизни не хватает прям)
 
 How to попасть на эпик → либо волонтёришь, либо участвуешь от компании, либо как спикер, либо по билету; у меня было первое, я помогал тудым-сюдым в зале стартап-трека
 
-![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_104@26-10-2024_20-03-58.jpg)
+![](/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_104@26-10-2024_20-03-58.jpg)
 
-![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_105@26-10-2024_20-03-58.jpg)
+![](/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_105@26-10-2024_20-03-58.jpg)
 
-![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_106@26-10-2024_20-03-58.jpg)
+![](/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_106@26-10-2024_20-03-58.jpg)
 
-![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_107@26-10-2024_20-03-58.jpg)
+![](/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_107@26-10-2024_20-03-58.jpg)
 
-![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_108@26-10-2024_20-03-58.jpg)
+![](/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_108@26-10-2024_20-03-58.jpg)
 
-![](/pioblog/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_109@26-10-2024_20-03-58.jpg)
+![](/img/posts/2024-10-26-trip-na-epik-grous-2024-chto-skazal-sipio-s-kem-220/photo_109@26-10-2024_20-03-58.jpg)

@@ -12,7 +12,7 @@ import { existsSync } from 'node:fs';
 import { join, basename } from 'node:path';
 
 const SRC = '/Users/piofant/cursor/vedulix-blog/_posts';
-const DST = '/Users/piofant/cursor/pioblog/src/content/blog';
+const DST = '/Users/piofant/cursor/src/content/blog';
 
 function parseFrontmatter(raw) {
 	const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
@@ -57,14 +57,14 @@ function toYaml(obj) {
 function rewriteAssetPaths(body) {
 	// vedulix-blog emits /blog/assets/{img,video,audio,files}/... because Jekyll
 	// is served at piofant.github.io/blog/. Pioblog is served at
-	// piofant.github.io/pioblog/ with its own public/ layout. Map accordingly.
+	// piofant.github.io/ with its own public/ layout. Map accordingly.
 	return body
-		.replace(/\/blog\/assets\/img\//g, '/pioblog/img/')
-		.replace(/\/blog\/assets\/video\//g, '/pioblog/video/')
-		.replace(/\/blog\/assets\/audio\//g, '/pioblog/audio/')
-		.replace(/\/blog\/assets\/files\//g, '/pioblog/files/')
+		.replace(/\/blog\/assets\/img\//g, '/img/')
+		.replace(/\/blog\/assets\/video\//g, '/video/')
+		.replace(/\/blog\/assets\/audio\//g, '/audio/')
+		.replace(/\/blog\/assets\/files\//g, '/files/')
 		// keep legacy paths working for the hand-authored 15 posts
-		.replace(/\/assets\/img\//g, '/pioblog/img/');
+		.replace(/\/assets\/img\//g, '/img/');
 }
 
 function fixContent(body) {
@@ -74,8 +74,8 @@ function fixContent(body) {
 		// 2) sticker-ссылки: [🔵](stickers/…) / [😊](video_files/sticker.webm) → оставляем только эмодзи
 		.replace(/\[([^\]]*)\]\(stickers\/[^\n]*?\.(webp|png|jpg|gif|tgs|lottie)\)/g, '$1')
 		.replace(/\[([^\]]*)\]\(video_files\/sticker\.\w+\)/g, '$1')
-		// 3) Jekyll-ссылки /blog/<slug>-YYYY-MM-DD/ → /pioblog/blog/<slug>/
-		.replace(/\]\(\/blog\/([a-z0-9-]+)-\d{4}-\d{2}-\d{2}\/?\)/g, '](/pioblog/blog/$1/)')
+		// 3) Jekyll-ссылки /blog/<slug>-YYYY-MM-DD/ → /blog/<slug>/
+		.replace(/\]\(\/blog\/([a-z0-9-]+)-\d{4}-\d{2}-\d{2}\/?\)/g, '](/blog/$1/)')
 		// 4) «разорванный» жирный: `**foo**\n\n**bar**` → `**foo bar**`
 		.replace(/\*\*([^*\n]+?)\*\*\s*\n\s*\n\s*\*\*([^*\n]+?)\*\*/g, '**$1 $2**')
 		// 5) пустой bold-блок на своей строке
@@ -95,8 +95,8 @@ function rewriteHero(url) {
 	if (!url) return undefined;
 	if (url.startsWith('http')) return url;
 	return url
-		.replace(/^\/blog\/assets\/img\//, '/pioblog/img/')
-		.replace(/^\/assets\/img\//, '/pioblog/img/');
+		.replace(/^\/blog\/assets\/img\//, '/img/')
+		.replace(/^\/assets\/img\//, '/img/');
 }
 
 async function main() {

@@ -2,7 +2,7 @@
 title: 'Пройти первый в жизни кейс-собес и отобраться в ШМЯ / Результаты моих менти'
 subtitle: 'часть 2'
 pubDate: '2025-04-08'
-heroImage: '/pioblog/img/posts/2025-04-08-proiti-pervyi-v-zhizni-keis-sobes-i-otobratsia-v-280/photo_148@08-04-2025_19-28-42.jpg'
+heroImage: '/img/posts/2025-04-08-proiti-pervyi-v-zhizni-keis-sobes-i-otobratsia-v-280/photo_148@08-04-2025_19-28-42.jpg'
 tags: ['продакт', 'карьера', 'школа жизни', 'жизнь']
 series: 'mentees-results'
 seriesPart: 2
@@ -24,4 +24,4 @@ seriesPart: 2
 
 Приходите и вы на менторские встречки ко мне — помогаю не только подготовиться к кейс-собесам, но и проработать карьеру продакта, детали и кнопка на [страничке 🔗](https://online-qr.ru/vova_mentor?utm_source=pioblog_mentoring_alek)
 
-![](/pioblog/img/posts/2025-04-08-proiti-pervyi-v-zhizni-keis-sobes-i-otobratsia-v-280/photo_148@08-04-2025_19-28-42.jpg)
+![](/img/posts/2025-04-08-proiti-pervyi-v-zhizni-keis-sobes-i-otobratsia-v-280/photo_148@08-04-2025_19-28-42.jpg)

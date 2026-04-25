@@ -103,7 +103,7 @@ notion_last_edited: '2026-04-23T23:28:00.000Z'
 
 
 
-[Чем могу быть полезен](/pioblog/wiki/about/)
+[Чем могу быть полезен](/wiki/about/)
 
 
 Веду [Telegram-блог](https://t.me/pioblog) про путь до продакт-лида (1K подписчиков)
@@ -113,9 +113,9 @@ notion_last_edited: '2026-04-23T23:28:00.000Z'
 
 <summary>images</summary>
 
-![](/pioblog/img/notion/portfolio/07211d94.png)
+![](/img/notion/portfolio/07211d94.png)
 
-![](/pioblog/img/notion/portfolio/b30e2e31.png)
+![](/img/notion/portfolio/b30e2e31.png)
 
 </details>
 

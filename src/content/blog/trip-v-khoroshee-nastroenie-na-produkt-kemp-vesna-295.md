@@ -2,7 +2,7 @@
 title: 'трип в хорошее настроение на продукт кемп весна 2025'
 subtitle: 'уже в четвертый раз сгонял на самую ламповую не-конференцию для всех, кто связан с разработкой продуктов'
 pubDate: '2025-05-26'
-heroImage: '/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_160@26-05-2025_23-17-23.jpg'
+heroImage: '/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_160@26-05-2025_23-17-23.jpg'
 tags: ['продакт', 'трипы', 'психология', 'анонс']
 ---
 
@@ -16,10 +16,10 @@ tags: ['продакт', 'трипы', 'психология', 'анонс']
 
 до встречи на кемпе в августе!!
 
-![](/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_160@26-05-2025_23-17-23.jpg)
+![](/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_160@26-05-2025_23-17-23.jpg)
 
-![](/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_161@26-05-2025_23-17-23.jpg)
+![](/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_161@26-05-2025_23-17-23.jpg)
 
-![](/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_162@26-05-2025_23-17-23.jpg)
+![](/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_162@26-05-2025_23-17-23.jpg)
 
-![](/pioblog/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_163@26-05-2025_23-17-23.jpg)
+![](/img/posts/2025-05-26-trip-v-khoroshee-nastroenie-na-produkt-kemp-vesna-295/photo_163@26-05-2025_23-17-23.jpg)

@@ -7,18 +7,15 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://piofant.github.io',
-	base: '/pioblog',
 	integrations: [mdx(), sitemap()],
 	// Short-URL aliases for memorable sharing. /wiki/{slug}/ remains the
 	// canonical Notion-synced location; these are entry points that emit
 	// a static redirect HTML page.
 	redirects: {
-		// Astro's redirect emitter does NOT prefix with `base`, so paths
-		// must be fully-qualified with /pioblog/ for GitHub Pages.
-		'/CV': '/pioblog/cv/',
-		'/value': '/pioblog/wiki/about/',
-		'/cases': '/pioblog/wiki/portfolio/',
-		'/mentor': '/pioblog/wiki/mentoring/',
+		'/CV': '/cv/',
+		'/value': '/wiki/about/',
+		'/cases': '/wiki/portfolio/',
+		'/mentor': '/wiki/mentoring/',
 	},
 	fonts: [
 		{

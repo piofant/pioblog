@@ -2,7 +2,7 @@
 title: '🗺 Зарешать кейс и отобраться на джуна продакта в MIRO — результаты моих менти'
 subtitle: '🗺.webp) Зарешать кейс и отобраться на джуна продакта в MIRO — результаты моих менти часть 3'
 pubDate: '2025-05-14'
-heroImage: '/pioblog/img/posts/2025-05-14-zareshat-keis-i-otobratsia-na-dzhuna-prodakta-v-293/photo_158@14-05-2025_19-08-55.jpg'
+heroImage: '/img/posts/2025-05-14-zareshat-keis-i-otobratsia-na-dzhuna-prodakta-v-293/photo_158@14-05-2025_19-08-55.jpg'
 tags: ['продакт']
 series: 'mentees-results'
 seriesPart: 3
@@ -25,4 +25,4 @@ seriesPart: 3
 
 📍 Подробнее про менторство у меня и как записаться на [страничке 🔗](https://online-qr.ru/vova_mentor?utm_source=pioblog_misha_miro)
 
-![](/pioblog/img/posts/2025-05-14-zareshat-keis-i-otobratsia-na-dzhuna-prodakta-v-293/photo_158@14-05-2025_19-08-55.jpg)
+![](/img/posts/2025-05-14-zareshat-keis-i-otobratsia-na-dzhuna-prodakta-v-293/photo_158@14-05-2025_19-08-55.jpg)

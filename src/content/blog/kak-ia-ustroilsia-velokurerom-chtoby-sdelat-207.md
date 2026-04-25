@@ -2,7 +2,7 @@
 title: 'Как я устроился велокурьером, чтобы сделать тестовое на продакта в Доставку'
 subtitle: 'Давеча одним летним месяцем я отбирался на мидла продакта в Доставку, прошёл собес с нанимающим → дали тестовое про курьерский продукт'
 pubDate: '2024-10-09'
-heroImage: '/pioblog/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_94@09-10-2024_15-22-47.jpg'
+heroImage: '/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_94@09-10-2024_15-22-47.jpg'
 tags: ['продакт', 'карьера']
 ---
 
@@ -24,10 +24,10 @@ tags: ['продакт', 'карьера']
 
 Ну и пришёл на защиту к нанимающему и его лиду с таким вот сюрпризом
 
-Какой был результат, что сказал нанимающий и чо там с оффером — давайте напишу в следующем [посте](/pioblog/blog/chem-zakonchilas-istoriia-s-otborom-na-midla-210/), а то чот уже многобукв тут получилось 🙂
+Какой был результат, что сказал нанимающий и чо там с оффером — давайте напишу в следующем [посте](/blog/chem-zakonchilas-istoriia-s-otborom-na-midla-210/), а то чот уже многобукв тут получилось 🙂
 
-![](/pioblog/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_94@09-10-2024_15-22-47.jpg)
+![](/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_94@09-10-2024_15-22-47.jpg)
 
-![](/pioblog/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_95@09-10-2024_15-22-47.jpg)
+![](/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_95@09-10-2024_15-22-47.jpg)
 
-![](/pioblog/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_96@09-10-2024_15-22-47.jpg)
+![](/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_96@09-10-2024_15-22-47.jpg)

@@ -17,7 +17,7 @@ tags: ['нетворкинг', 'боты']
 тоже к вам вопрос, я сам подписываюсь на бложики чтоб следить за человеком, как он меняется, чем делится, поэтому сам стараюсь писать посты с личным опытом & результатами & выводами, а не yet another абстрактными советами
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/pioblog/video/posts/2025-04-18-vov-otkuda-u-tebia-stolko-podpischikov-v-pioblog-281/16.04.2025 (2).mp4" type="video/mp4">
+  <source src="/video/posts/2025-04-18-vov-otkuda-u-tebia-stolko-podpischikov-v-pioblog-281/16.04.2025 (2).mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/pioblog/281)
+[Оригинал в Telegram →](https://t.me/281)

@@ -5,7 +5,7 @@ pubDate: '2020-08-22'
 tags: ['история', 'истории', 'школа жизни']
 ---
 
-читать, советую вернуться к [содержанию](/pioblog/blog/samye-populiarnye-posty-v-etom-kanale-4/))
+читать, советую вернуться к [содержанию](/blog/samye-populiarnye-posty-v-etom-kanale-4/))
 #предыстория
 #истории
 

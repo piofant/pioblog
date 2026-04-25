@@ -22,12 +22,12 @@ tags: ['школа жизни', 'танцы']
 --
 бачата — это всего лишь один из примеров моего, если хотите, когнитивного искажения про *обесценивание достигнутого результата*, приятно познакомиться 🤝
 
-замечать научился, какой next step? чатгпт грит, что та самая [практика благодарности](/pioblog/blog/popytka-nauchitsia-liubit-sebia-75/) полечит
+замечать научился, какой next step? чатгпт грит, что та самая [практика благодарности](/blog/popytka-nauchitsia-liubit-sebia-75/) полечит
 
 p. s. когда-нибудь расскажу про контактную импровизацию — она мне нравится тем, что в ней не нужно учить никакую технику, можно *свободно проявляться*, отчего легко расслабиться даже без опыта
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/pioblog/video/posts/2025-09-26-bachata-i-obestsenivanie-rezultata-355/video_4@26-09-2025_21-23-36.mp4" type="video/mp4">
+  <source src="/video/posts/2025-09-26-bachata-i-obestsenivanie-rezultata-355/video_4@26-09-2025_21-23-36.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/pioblog/355)
+[Оригинал в Telegram →](https://t.me/355)

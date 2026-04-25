@@ -2,7 +2,7 @@
 title: 'Я прикрепил видео-самопрезентацию к 100+ откликам: как конвертит и какие выводы?'
 subtitle: 'Есть гипотеза, что ссылка на видео в отклике помогает зацепить рекрутера в отклике → увеличить шанс того, что позовут пообщаться на интервью'
 pubDate: '2025-03-13'
-heroImage: '/pioblog/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_142@13-03-2025_18-00-48.jpg'
+heroImage: '/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_142@13-03-2025_18-00-48.jpg'
 tags: ['продакт', 'рефлексия', 'карьера', 'анонс']
 ---
 
@@ -22,6 +22,6 @@ tags: ['продакт', 'рефлексия', 'карьера', 'анонс']
 
 *\*1 часть поста про самопрезентацию:* </blog/samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271-2025-03-12/>
 
-![](/pioblog/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_142@13-03-2025_18-00-48.jpg)
+![](/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_142@13-03-2025_18-00-48.jpg)
 
-![](/pioblog/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_143@13-03-2025_18-00-48.jpg)
+![](/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_143@13-03-2025_18-00-48.jpg)

@@ -1,6 +1,6 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 
-const BLOG = '/Users/piofant/cursor/pioblog/src/content/blog';
+const BLOG = '/Users/piofant/cursor/src/content/blog';
 
 const TAG_RULES = [
 	{ tag: 'театр',       patterns: [/театр/i, /актёр/i, /актер/i, /\bроль\b/i, /пьес/i, /спектакл/i, /pmf.*актёр/i, /исцеляющ/i, /рольная/i, /поступлени.*на.*актёр/i] },

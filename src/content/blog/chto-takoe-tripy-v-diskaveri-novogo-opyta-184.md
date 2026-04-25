@@ -2,7 +2,7 @@
 title: 'Что такое Трипы в дискавери [нового опыта, ощущений, людей, контекстов, смыслов]'
 subtitle: 'Недавно сформулировал для себя определение трипов в дискавери — то, что наполняет жизнь и помогает меняться'
 pubDate: '2024-08-18'
-heroImage: '/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_82@18-08-2024_20-16-30.jpg'
+heroImage: '/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_82@18-08-2024_20-16-30.jpg'
 tags: ['рефлексия', 'трипы', 'жизнь']
 ---
 
@@ -28,24 +28,24 @@ tags: ['рефлексия', 'трипы', 'жизнь']
 - Логируешь, но не рефлексируешь (откладываешь этап рефлексии на потом)
 В результате трипа — **Меняешься Примеры моих трипов:**
 В бесконечный контекст знакомства 🌐
-→ снс-[тусы-про-знакомство](/pioblog/blog/ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/)
-→ продукт [кемп](/pioblog/blog/produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130/)
+→ снс-[тусы-про-знакомство](/blog/ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/)
+→ продукт [кемп](/blog/produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130/)
 → [физтех](https://t.me/not_tldr/367)
 
 В контакт с природой & с собой 🏕
 → летняя [школа](https://t.me/not_tldr/440)
 → [велопрогулки](https://t.me/fiveAMwalk/18) в пять утра
-→ [практики](/pioblog/blog/freimvork-khoroshego-sostoianiia-i-kucha-ssylok-na-131/) ННО
+→ [практики](/blog/freimvork-khoroshego-sostoianiia-i-kucha-ssylok-na-131/) ННО
 → [кафе](https://t.me/not_tldr/293) эмпатии
 
 🔻 А какой последний трип сильно изменил вас и как? Поделитесь в комментах
 
 📞 [Зовите](http://t.me/piofant) в трипы
 
-![](/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_82@18-08-2024_20-16-30.jpg)
+![](/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_82@18-08-2024_20-16-30.jpg)
 
-![](/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_83@18-08-2024_20-16-30.jpg)
+![](/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_83@18-08-2024_20-16-30.jpg)
 
-![](/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_84@18-08-2024_20-16-30.jpg)
+![](/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_84@18-08-2024_20-16-30.jpg)
 
-![](/pioblog/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_85@18-08-2024_20-16-30.jpg)
+![](/img/posts/2024-08-18-chto-takoe-tripy-v-diskaveri-novogo-opyta-184/photo_85@18-08-2024_20-16-30.jpg)

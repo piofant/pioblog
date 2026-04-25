@@ -2,7 +2,7 @@
 title: 'Лекция про мой первый опыт автостопа: с результатами и впечатлениями'
 subtitle: 'Рассказывал её ребятам на снс-тусе у Юры в июле, а вот и запись подоспела'
 pubDate: '2025-08-19'
-heroImage: '/pioblog/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg'
+heroImage: '/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg'
 tags: ['нетворкинг', 'трипы', 'психология', 'анонс']
 ---
 
@@ -16,11 +16,11 @@ tags: ['нетворкинг', 'трипы', 'психология', 'анонс
 14:41 принципы, помогающие в автостопе
 19:10 3 результата автостопа
 
-[аудиоверсия](/pioblog/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/) **•** [презентация](/pioblog/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/)
+[аудиоверсия](/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/) **•** [презентация](/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/)
 
 <script async src="https://telegram.org/js/telegram-widget.js?22"
         data-telegram-post="pioblog/329" data-width="100%"></script>
 
-[Оригинал в Telegram →](https://t.me/pioblog/329)
+[Оригинал в Telegram →](https://t.me/329)
 
-![](/pioblog/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg)
+![](/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg)

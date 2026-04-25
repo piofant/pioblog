@@ -2,7 +2,7 @@
 title: '📍 Результаты моих менти [часть 1] → от директора даркстора Яндекс Лавки до'
 subtitle: 'У Руслана довольно интересный кейс — он управлял даркстором Яндекс.Лавки в Израиле. Это такой жанр операционных продуктов, которые не видны пользователю, но которые супер важны'
 pubDate: '2025-01-21'
-heroImage: '/pioblog/img/posts/2025-01-21-rezultaty-moikh-menti-chast-1-ot-direktora-261/photo_135@21-01-2025_16-47-45.jpg'
+heroImage: '/img/posts/2025-01-21-rezultaty-moikh-menti-chast-1-ot-direktora-261/photo_135@21-01-2025_16-47-45.jpg'
 tags: ['продакт', 'карьера']
 series: 'mentees-results'
 seriesPart: 1
@@ -45,4 +45,4 @@ seriesPart: 1
 
 Подробнее про то, с чем я помогаю в роли ментора, можно посмотреть на [страничке 🔗](https://online-qr.ru/vova_mentor?utm_source=pioblog_21_01_2025)
 
-![](/pioblog/img/posts/2025-01-21-rezultaty-moikh-menti-chast-1-ot-direktora-261/photo_135@21-01-2025_16-47-45.jpg)
+![](/img/posts/2025-01-21-rezultaty-moikh-menti-chast-1-ot-direktora-261/photo_135@21-01-2025_16-47-45.jpg)

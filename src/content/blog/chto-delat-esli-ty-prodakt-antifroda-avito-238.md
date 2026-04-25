@@ -16,7 +16,7 @@ tags: ['продакт', 'рефлексия', 'карьера']
 3. training my structuring, slidemaking and presentation skills
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-  <source src="/pioblog/video/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2).mp4" type="video/mp4">
+  <source src="/video/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2).mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/pioblog/238)
+[Оригинал в Telegram →](https://t.me/238)

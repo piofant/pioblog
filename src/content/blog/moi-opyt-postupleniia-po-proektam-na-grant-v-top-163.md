@@ -3,7 +3,7 @@ title: 'Мой опыт поступления по проектам на гра
 subtitle: 'Иннополис'
 pubDate: '2024-06-12'
 tags: ['по_жизни', 'школа жизни', 'анонс', 'вуз']
-heroImage: '/pioblog/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_65@12-06-2024_19-10-58.jpg'
+heroImage: '/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_65@12-06-2024_19-10-58.jpg'
 ---
 
 В это воскресенье в 12:00 на [стриме](https://youtube.com/watch?v=jX9L7UDlQks) буду рассказывать про мою историю поступления в топ ВУЗы по проектам, приходите!
@@ -28,10 +28,10 @@ heroImage: '/pioblog/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-g
 
 📅 16 июня, 12:00 по МСК
 
-![](/pioblog/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_65@12-06-2024_19-10-58.jpg)
+![](/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_65@12-06-2024_19-10-58.jpg)
 
-![](/pioblog/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_66@12-06-2024_19-10-58.jpg)
+![](/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_66@12-06-2024_19-10-58.jpg)
 
-![](/pioblog/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_67@12-06-2024_19-10-58.jpg)
+![](/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_67@12-06-2024_19-10-58.jpg)
 
-![](/pioblog/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_68@12-06-2024_19-10-58.jpg)
+![](/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_68@12-06-2024_19-10-58.jpg)
