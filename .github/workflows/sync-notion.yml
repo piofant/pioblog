@@ -11,6 +11,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write   # required for `gh workflow run "Deploy to GitHub Pages"` step below
 
 jobs:
   sync:
