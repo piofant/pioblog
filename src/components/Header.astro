@@ -3,7 +3,7 @@ import { SITE_TITLE } from '../consts';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<header class="site-header">
+<header class="site-header" id="site-header">
 	<div class="inner">
 		<a class="brand" href={`${base}/`}>
 			<img src={`${base}/avatar_pio.png`} alt="pio" />
@@ -17,3 +17,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		</nav>
 	</div>
 </header>
+
+<script is:inline>
+	// Compact navbar on scroll — same trigger as beautiful-jekyll (>50px).
+	// passive listener + rAF throttle для плавности.
+	(() => {
+		const header = document.getElementById('site-header');
+		if (!header) return;
+		let ticking = false;
+		const update = () => {
+			header.classList.toggle('scrolled', window.scrollY > 50);
+			ticking = false;
+		};
+		window.addEventListener('scroll', () => {
+			if (!ticking) {
+				requestAnimationFrame(update);
+				ticking = true;
+			}
+		}, { passive: true });
+		update();
+	})();
+</script>
