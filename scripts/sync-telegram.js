@@ -195,6 +195,16 @@ async function processPost(msg, existing) {
 	const photos = msg._photos && msg._photos.length
 		? msg._photos
 		: (msg.photo && msg.photo.length ? [msg.photo[msg.photo.length - 1]] : []);
+
+	// Skip stub messages: no text and no media. They surface as "Запись N"
+	// posts with empty bodies — useless on the feed.
+	const hasMedia = photos.length > 0
+		|| !!msg.video || !!msg.audio || !!msg.voice
+		|| !!msg.video_note || !!msg.document || !!msg.animation;
+	if (!text.trim() && !hasMedia) {
+		console.log(`  skip tg-${msg.message_id} (no text + no media)`);
+		return false;
+	}
 	for (let i = 0; i < photos.length; i++) {
 		const p = photos[i];
 		const filename = `${i}.jpg`;

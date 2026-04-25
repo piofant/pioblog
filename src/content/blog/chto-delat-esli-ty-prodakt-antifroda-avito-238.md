@@ -2,9 +2,7 @@
 title: 'Что делать если ты продакт антифрода Авито??'
 subtitle: 'первое — никому ничего не рассказывать, NDA же'
 pubDate: '2024-11-19'
-tags: ['продакт', 'рефлексия', 'карьера']
 ---
-
 
 а вообще, дискаверить и фиксить фрод кейсы, и главное —мыслить как фродер
 
@@ -13,16 +11,11 @@ tags: ['продакт', 'рефлексия', 'карьера']
 контекст, зачем эта преза: позвали на собес → сделал презу, чтобы
 
 1. лучше понять роль и сметчить свой вижен с виженом ребят,
-
 2. подготовиться и въехать в тему антифрода
-
 3. training my structuring, slidemaking and presentation skills
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
-
   <source src="/pioblog/video/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2).mp4" type="video/mp4">
-
 </video>
 
 [Оригинал в Telegram →](https://t.me/pioblog/238)
-
