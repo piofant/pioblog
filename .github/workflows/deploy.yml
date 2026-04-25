@@ -23,6 +23,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install CV pipeline deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          pip3 install --quiet pypdf
+      - name: Regenerate CV assets (PNG + links.json)
+        run: python3 scripts/build-cv.py
       - uses: withastro/action@v4
   deploy:
     needs: build

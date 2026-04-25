@@ -9,6 +9,7 @@ const productMenu = [
 	{ label: 'чтобы лучше понимать вову', href: 'https://tender-show-a65.notion.site/4f293576cd1a434ca700c64b96f766e1?source=copy_link', external: true },
 ];
 const creativeMenu = [
+	{ label: 'фото', href: `${base}/photos/` },
 	{ label: '#театр', href: `${base}/tags/${encodeURIComponent('театр')}/` },
 	{ label: '#танцы', href: `${base}/tags/${encodeURIComponent('танцы')}/` },
 	{ label: '#творчество', href: `${base}/tags/${encodeURIComponent('творчество')}/` },
@@ -24,7 +25,7 @@ const creativeMenu = [
 		</a>
 		<nav>
 			<div class="nav-dd">
-				<button class="nav-dd-trigger" aria-expanded="false">продукт</button>
+				<button class="nav-dd-trigger" aria-haspopup="true">продукт</button>
 				<div class="nav-dd-menu">
 					{productMenu.map((item) => (
 						item.external
@@ -33,16 +34,15 @@ const creativeMenu = [
 					))}
 				</div>
 			</div>
-			<a href={`${base}/useful/`}>полезность</a>
+			<a href={`${base}/wiki/about/`}>полезность</a>
 			<div class="nav-dd">
-				<button class="nav-dd-trigger" aria-expanded="false">творчество</button>
+				<button class="nav-dd-trigger" aria-haspopup="true">творчество</button>
 				<div class="nav-dd-menu">
 					{creativeMenu.map((item) => (
 						<a href={item.href}>{item.label}</a>
 					))}
 				</div>
 			</div>
-			<a href={`${base}/photos/`}>фото</a>
 			<a href={`${base}/archive/`}>архив</a>
 			<a href={`${base}/tags/`}>теги</a>
 			<a href={`${base}/graph/`}>граф</a>
@@ -54,46 +54,35 @@ const creativeMenu = [
 	(() => {
 		// Compact navbar on scroll (>50px)
 		const header = document.getElementById('site-header');
-		if (header) {
-			let ticking = false;
-			const onScroll = () => {
-				if (ticking) return;
-				ticking = true;
-				requestAnimationFrame(() => {
-					header.classList.toggle('scrolled', window.scrollY > 50);
-					ticking = false;
-				});
-			};
-			window.addEventListener('scroll', onScroll, { passive: true });
-		}
-
-		// Dropdown click-to-toggle
-		const triggers = document.querySelectorAll('.nav-dd-trigger');
-		const closeAll = () => {
-			document.querySelectorAll('.nav-dd.open').forEach((d) => {
-				d.classList.remove('open');
-				const t = d.querySelector('.nav-dd-trigger');
-				if (t) t.setAttribute('aria-expanded', 'false');
+		if (!header) return;
+		let ticking = false;
+		const onScroll = () => {
+			if (ticking) return;
+			ticking = true;
+			requestAnimationFrame(() => {
+				header.classList.toggle('scrolled', window.scrollY > 50);
+				ticking = false;
 			});
 		};
-		triggers.forEach((t) => {
-			t.addEventListener('click', (e) => {
-				e.preventDefault();
-				e.stopPropagation();
-				const dd = t.closest('.nav-dd');
-				const wasOpen = dd.classList.contains('open');
-				closeAll();
-				if (!wasOpen) {
-					dd.classList.add('open');
-					t.setAttribute('aria-expanded', 'true');
+		window.addEventListener('scroll', onScroll, { passive: true });
+
+		// Touch fallback: tap-to-toggle (since :hover on touch is sticky)
+		const isTouch = window.matchMedia('(hover: none)').matches;
+		if (isTouch) {
+			document.querySelectorAll('.nav-dd-trigger').forEach((t) => {
+				t.addEventListener('click', (e) => {
+					e.preventDefault();
+					const dd = t.closest('.nav-dd');
+					const wasOpen = dd.classList.contains('tap-open');
+					document.querySelectorAll('.nav-dd.tap-open').forEach((d) => d.classList.remove('tap-open'));
+					if (!wasOpen) dd.classList.add('tap-open');
+				});
+			});
+			document.addEventListener('click', (e) => {
+				if (!e.target.closest('.nav-dd')) {
+					document.querySelectorAll('.nav-dd.tap-open').forEach((d) => d.classList.remove('tap-open'));
 				}
 			});
-		});
-		document.addEventListener('click', (e) => {
-			if (!e.target.closest('.nav-dd')) closeAll();
-		});
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape') closeAll();
-		});
+		}
 	})();
 </script>

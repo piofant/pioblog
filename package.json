@@ -7,6 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "build:cv": "python3 scripts/build-cv.py",
+    "prebuild": "npm run build:cv",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
