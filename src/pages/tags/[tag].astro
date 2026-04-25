@@ -7,7 +7,7 @@ import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
 
 export async function getStaticPaths() {
-	const META_TAGS = new Set(['whois', 'intro', 'история', 'истории', 'жизнипост', 'предыстория', 'мысли', 'сторителл', 'telegram']);
+	const META_TAGS = new Set(['whois', 'intro', 'история', 'истории', 'жизнипост', 'мысли', 'telegram']);
 	const primaryTagOf = (tags?: string[]): string =>
 		(tags || []).find((t) => !META_TAGS.has(t)) || 'разное';
 
@@ -114,10 +114,10 @@ const showSubgraph = subgraph.nodes.length >= 3;
 				<script src="https://cdn.jsdelivr.net/npm/force-graph@1.49.5/dist/force-graph.min.js" is:inline></script>
 				<script define:vars={{ DATA: subgraph, BASE: base }} is:inline>
 					const palette = {
-						'продакт':'#ff4200','карьера':'#e11d48','учёба':'#f59e0b',
-						'трипы':'#10b981','рефлексия':'#8b5cf6','психология':'#a855f7',
-						'нетворкинг':'#06b6d4','безумие':'#ec4899','театр':'#f43f5e',
-						'ии':'#0ea5e9','анонс':'#14b8a6','боты':'#22c55e',
+						'продакт':'#ff4200','карьера':'#e11d48','школа жизни':'#f59e0b',
+						'вуз':'#1e40af','трипы':'#10b981','рефлексия':'#8b5cf6',
+						'психология':'#a855f7','нетворкинг':'#06b6d4','безумие':'#ec4899',
+						'театр':'#f43f5e','ии':'#0ea5e9','анонс':'#14b8a6','боты':'#22c55e',
 						'танцы':'#d946ef','творчество':'#eab308','жизнь':'#84cc16',
 						'друзья':'#f97316','мнения':'#64748b',
 					};

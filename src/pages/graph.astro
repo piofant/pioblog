@@ -113,18 +113,18 @@ const graphJson = JSON.stringify(graphData);
 				neighbors.get(l.source)?.add(l.target);
 				neighbors.get(l.target)?.add(l.source);
 			});
-			const metaTags = new Set(['whois','intro','история','истории','жизнипост','предыстория','мысли','сторителл','telegram']);
+			const metaTags = new Set(['whois','intro','история','истории','жизнипост','мысли','telegram']);
 			DATA.nodes.forEach(n => {
 				n.deg = neighbors.get(n.id)?.size || 0;
 				n.primaryTag = (n.tags || []).find(t => !metaTags.has(t)) || 'разное';
 			});
 			const tagPalette = [
-				['продакт','#ff4200'], ['карьера','#e11d48'], ['учёба','#f59e0b'],
-				['трипы','#10b981'], ['рефлексия','#8b5cf6'], ['психология','#a855f7'],
-				['нетворкинг','#06b6d4'], ['безумие','#ec4899'], ['театр','#f43f5e'],
-				['ии','#0ea5e9'], ['анонс','#14b8a6'], ['боты','#22c55e'],
-				['танцы','#d946ef'], ['творчество','#eab308'], ['жизнь','#84cc16'],
-				['друзья','#f97316'], ['мнения','#64748b'],
+				['продакт','#ff4200'], ['карьера','#e11d48'], ['школа жизни','#f59e0b'],
+				['вуз','#1e40af'], ['трипы','#10b981'], ['рефлексия','#8b5cf6'],
+				['психология','#a855f7'], ['нетворкинг','#06b6d4'], ['безумие','#ec4899'],
+				['театр','#f43f5e'], ['ии','#0ea5e9'], ['анонс','#14b8a6'],
+				['боты','#22c55e'], ['танцы','#d946ef'], ['творчество','#eab308'],
+				['жизнь','#84cc16'], ['друзья','#f97316'], ['мнения','#64748b'],
 			];
 			const tagColor = new Map(tagPalette);
 			function colorByTag(n) { return tagColor.get(n.primaryTag) || '#777'; }

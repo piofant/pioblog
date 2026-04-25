@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-	const META_TAGS = new Set(['whois', 'intro', 'история', 'истории', 'жизнипост', 'предыстория', 'мысли', 'сторителл', 'telegram']);
+	const META_TAGS = new Set(['whois', 'intro', 'история', 'истории', 'жизнипост', 'мысли', 'telegram']);
 	const primaryTagOf = (tags?: string[]): string =>
 		(tags || []).find((t) => !META_TAGS.has(t)) || 'разное';
 

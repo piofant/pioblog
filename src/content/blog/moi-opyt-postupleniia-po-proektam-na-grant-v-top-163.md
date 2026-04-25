@@ -2,7 +2,7 @@
 title: 'Мой опыт поступления по проектам на грант в топ-ВУЗы: МФТИ, МИФИ, ИТМО,'
 subtitle: 'Иннополис'
 pubDate: '2024-06-12'
-tags: ['по_жизни', 'учёба', 'анонс']
+tags: ['по_жизни', 'школа жизни', 'анонс', 'вуз']
 heroImage: '/pioblog/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_65@12-06-2024_19-10-58.jpg'
 ---
 
