@@ -5,6 +5,10 @@ on:
     - cron: '*/30 * * * *'   # каждые 30 минут
   workflow_dispatch:
 
+# Opt-in to Node 24 runtime for JS actions (default June 2026; silences deprecation warning)
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 concurrency:
   group: sync-telegram
   cancel-in-progress: false
