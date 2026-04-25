@@ -64,6 +64,7 @@ const graphJson = JSON.stringify(graphData);
 			.pill { background: rgba(20,20,20,.92); padding: 6px 8px; border-radius: 8px; border: 1px solid #333; display: flex; align-items: center; gap: 6px; }
 			.pill a, .pill button { background: #222; color: #ddd; border: 1px solid #3a3a3a; padding: 6px 12px; border-radius: 4px; cursor: pointer; font: 13px inherit; text-decoration: none; }
 			.pill a.home { background: #fff; color: #111; border-color: #fff; font-weight: 600; }
+			.pill button.mode.active { background: #fff; color: #111; border-color: #fff; }
 			.pill input { background: #1a1a1a; border: 1px solid #3a3a3a; color: #eee; padding: 6px 10px; border-radius: 4px; width: 240px; font: 13px inherit; }
 			.pill input::placeholder { color: #666; }
 			.hint { position: fixed; bottom: 12px; left: 12px; z-index: 10; font-size: 12px; color: #999; background: rgba(20,20,20,.8); padding: 8px 12px; border-radius: 6px; max-width: 540px; line-height: 1.5; }
@@ -86,6 +87,10 @@ const graphJson = JSON.stringify(graphData);
 		<div class="topbar">
 			<div class="pill">
 				<a href={`${base}/`} class="home">← pio blog</a>
+			</div>
+			<div class="pill">
+				<button id="mode-posts" class="mode active">посты</button>
+				<button id="mode-tags" class="mode">теги</button>
 			</div>
 			<div class="pill">
 				<input id="search" type="text" placeholder="поиск по заголовку…" />
@@ -130,6 +135,39 @@ const graphJson = JSON.stringify(graphData);
 			let current = null;
 			let activeFilter = null;
 			let highlightNode = null;
+			let mode = 'posts';  // 'posts' | 'tags'
+
+			// Build tag co-occurrence graph
+			const tagGraph = (() => {
+				const tagCounts = new Map();
+				const cooc = new Map();  // 'tagA|tagB' (sorted) → count
+				for (const n of DATA.nodes) {
+					const ts = (n.tags || []).filter(t => !metaTags.has(t));
+					for (const t of ts) tagCounts.set(t, (tagCounts.get(t) || 0) + 1);
+					for (let i = 0; i < ts.length; i++) {
+						for (let j = i + 1; j < ts.length; j++) {
+							const key = [ts[i], ts[j]].sort().join('|');
+							cooc.set(key, (cooc.get(key) || 0) + 1);
+						}
+					}
+				}
+				const tagNodes = [...tagCounts.entries()].map(([id, count]) => ({
+					id, count, deg: 0, isTag: true, primaryTag: id,
+				}));
+				const tagLinks = [];
+				for (const [key, weight] of cooc) {
+					const [a, b] = key.split('|');
+					tagLinks.push({ source: a, target: b, weight, kind: 'cooc' });
+				}
+				// degree
+				for (const l of tagLinks) {
+					const a = tagNodes.find(n => n.id === l.source);
+					const b = tagNodes.find(n => n.id === l.target);
+					if (a) a.deg += 1;
+					if (b) b.deg += 1;
+				}
+				return { nodes: tagNodes, links: tagLinks };
+			})();
 
 			function showInfo(node) {
 				if (!node) { info.classList.remove('show'); return; }
@@ -180,9 +218,8 @@ const graphJson = JSON.stringify(graphData);
 				}, 300);
 			}
 
-			function render(opts) {
+			function renderPosts(opts) {
 				opts = opts || {};
-				stage.innerHTML = '';
 				const { nodeFilter, primaryIds } = opts;
 				const visibleNodes = nodeFilter ? DATA.nodes.filter(n => nodeFilter(n.id)) : DATA.nodes;
 				const visibleIds = new Set(visibleNodes.map(n => n.id));
@@ -206,17 +243,18 @@ const graphJson = JSON.stringify(graphData);
 					.nodeColor(n => isPrimary(n.id) ? colorByTag(n) : '#333')
 					.linkColor(l => l.kind === 'link' ? 'rgba(210,210,210,0.3)' : 'rgba(120,180,255,0.1)')
 					.linkWidth(l => l.kind === 'link' ? 0.6 : 0.2)
-					.nodeCanvasObjectMode(n => n.deg >= 4 ? 'after' : undefined)
+					.nodeCanvasObjectMode(() => 'after')
 					.nodeCanvasObject((node, ctx, scale) => {
-						if (node.deg < 4 || !isPrimary(node.id)) return;
-						const label = node.title.slice(0, 42);
-						const fontSize = Math.min(13, 10 / scale * 1.4);
+						if (!isPrimary(node.id)) return;
+						const label = node.primaryTag;  // 1-word label = тема поста
+						if (scale < 0.6 && node.deg < 3) return; // на сильном zoom-out — только хабы
+						const fontSize = Math.min(11, 8 / scale * 1.3);
 						ctx.font = fontSize + 'px sans-serif';
-						ctx.fillStyle = '#eee';
+						ctx.fillStyle = '#bbb';
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						const nodeR = 4 * Math.sqrt(1 + Math.min(node.deg, 20) * 0.6);
-						ctx.fillText(label, node.x, node.y + nodeR + fontSize * 0.8);
+						ctx.fillText(label, node.x, node.y + nodeR + fontSize * 0.7);
 					})
 					.onNodeHover(showInfo)
 					.onNodeClick(n => focusNode(n.id))
@@ -234,6 +272,60 @@ const graphJson = JSON.stringify(graphData);
 				current.onEngineStop(() => { current.zoomToFit(400, 60); });
 			}
 
+			function renderTags() {
+				stage.innerHTML = '';
+				legend.style.display = 'none';
+				const { nodes, links } = tagGraph;
+				current = ForceGraph()(stage)
+					.graphData({
+						nodes: nodes.map(n => ({...n})),
+						links: links.map(l => ({...l})),
+					})
+					.backgroundColor('#0a0a0a')
+					.nodeRelSize(8)
+					.nodeVal(n => 1 + Math.sqrt(n.count || 1) * 3)
+					.nodeColor(n => colorByTag({ primaryTag: n.id }))
+					.linkColor(() => 'rgba(210,210,210,0.35)')
+					.linkWidth(l => Math.min(0.8 + l.weight * 0.4, 4))
+					.nodeCanvasObjectMode(() => 'after')
+					.nodeCanvasObject((node, ctx, scale) => {
+						const fontSize = Math.max(11, Math.min(20, 10 + Math.sqrt(node.count) * 1.5)) / Math.max(scale, 0.6);
+						ctx.font = '700 ' + fontSize + 'px sans-serif';
+						ctx.fillStyle = '#fff';
+						ctx.textAlign = 'center';
+						ctx.textBaseline = 'middle';
+						const r = 8 * Math.sqrt(1 + Math.sqrt(node.count || 1) * 3);
+						ctx.fillText(node.id + ' (' + node.count + ')', node.x, node.y + r + fontSize * 0.7);
+					})
+					.onNodeHover(node => {
+						if (!node) { info.classList.remove('show'); return; }
+						info.innerHTML = '<strong>#' + node.id + '</strong>' +
+							'<div class="meta">' + node.count + ' постов · соседних тем: ' + node.deg + '</div>';
+						info.classList.add('show');
+					})
+					.onNodeClick(node => {
+						window.location.href = BASE + '/tags/' + encodeURIComponent(node.id) + '/';
+					})
+					.nodeLabel(n => n.id + ' (' + n.count + ' постов)')
+					.cooldownTicks(200)
+					.warmupTicks(80);
+
+				setTimeout(() => {
+					try {
+						current.d3Force('charge').strength(-400);
+						current.d3Force('link').distance(60);
+						current.d3ReheatSimulation();
+					} catch(e) {}
+				}, 50);
+				current.onEngineStop(() => { current.zoomToFit(500, 80); });
+			}
+
+			function render(opts) {
+				stage.innerHTML = '';
+				if (mode === 'tags') return renderTags();
+				return renderPosts(opts);
+			}
+
 			document.getElementById('search').addEventListener('input', (e) => {
 				const q = e.target.value.trim().toLowerCase();
 				if (!q) { clearFilter(); return; }
@@ -247,6 +339,19 @@ const graphJson = JSON.stringify(graphData);
 			document.getElementById('reset').addEventListener('click', () => {
 				document.getElementById('search').value = '';
 				clearFilter();
+			});
+
+			document.getElementById('mode-posts').addEventListener('click', () => {
+				mode = 'posts';
+				document.getElementById('mode-posts').classList.add('active');
+				document.getElementById('mode-tags').classList.remove('active');
+				clearFilter();
+			});
+			document.getElementById('mode-tags').addEventListener('click', () => {
+				mode = 'tags';
+				document.getElementById('mode-tags').classList.add('active');
+				document.getElementById('mode-posts').classList.remove('active');
+				render();
 			});
 
 			render();

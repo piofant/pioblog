@@ -224,7 +224,6 @@ async function processPost(msg, existing) {
 	const fm = buildFrontmatter({
 		title: firstLine,
 		pubDate,
-		tags: ['telegram'],
 		heroImage,
 	});
 
