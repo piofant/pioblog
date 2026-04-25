@@ -20,6 +20,11 @@
 			"target": "src/content/pages/mentoring.md",
 			"slug": "mentoring",
 			"title": "Менторство по продакт-менеджменту в IT"
+		},
+		"4f293576cd1a434ca700c64b96f766e1": {
+			"target": "src/content/pages/vova.md",
+			"slug": "vova",
+			"title": "чтобы лучше понимать вову"
 		}
 	},
 	"options": {
