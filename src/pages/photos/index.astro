@@ -1,0 +1,408 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ASSET = (sub: string, file: string) => `${base}/img/photos/proyavlennost/${sub}/${file}`;
+const POST = (slug: string) => `${base}/blog/${slug}/`;
+
+type Chapter = {
+	slug: string;
+	title: string;
+	blurb: string;
+	photos: string[];
+};
+
+const album: { title: string; total: number; chapters: Chapter[] } = {
+	title: 'Проявленность и движение',
+	total: 19,
+	chapters: [
+		{
+			slug: 'okno',
+			title: 'Окно',
+			blurb: 'Ночь, синий свет, фигура в белом отрабатывает движение на подоконнике.',
+			photos: [
+				'okno-1-4068.jpg',
+				'okno-2-4085.jpg',
+				'okno-3-4094.jpg',
+				'okno-4-4119.jpg',
+				'okno-5-4141.jpg',
+				'okno-6-4142.jpg',
+			],
+		},
+		{
+			slug: 'ulitsa',
+			title: 'Улица',
+			blurb: `Город как площадка для тела — отголоски <a href="${POST('moi-put-k-kontaktnoi-improvizatsii-380')}">контактной импровизации</a> · мой <a href="${POST('u-menia-est-liubimyi-stolb-v-tsentre-pitera-363')}">любимый столб</a>.`,
+			photos: [
+				'ulitsa-1-fall-up.jpg',
+				'ulitsa-2-floor-feet.jpg',
+				'ulitsa-3-graffiti.jpg',
+			],
+		},
+		{
+			slug: 'priroda',
+			title: 'Природа',
+			blurb: `Лес и <a href="${POST('puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372')}">Белое море</a> — пейзаж, в котором двое.`,
+			photos: ['priroda-1-bog.jpg', 'priroda-2-forest.jpg'],
+		},
+		{
+			slug: 'komnata-hudozhnika',
+			title: 'Комната художника',
+			blurb: `Студия с <a href="${POST('razobrannost-zheki-rumynskogo-art-khaus-khata-i-288')}">Жекой Румынским</a> — матрас, фен, кирпич, улыбки.`,
+			photos: [
+				'komnata-1-atelier.jpg',
+				'komnata-2-vova-yulia-smile.jpg',
+				'komnata-3-mattress.jpg',
+				'komnata-4-bridge.jpg',
+				'komnata-5-fan.jpg',
+			],
+		},
+		{
+			slug: 'portrety',
+			title: 'Портреты',
+			blurb: 'Лицо, тусовка, futurewear.',
+			photos: [
+				'portrety-1-bench.jpg',
+				'portrety-2-stage.jpg',
+				'portrety-3-unemployed.jpg',
+			],
+		},
+	],
+};
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead
+			title={`${album.title} · ${SITE_TITLE}`}
+			description="Перформансы, спонтанная импровизация, тело в пространстве — фотоальбом"
+			image={ASSET('thumb', 'okno-2-4085.jpg')}
+		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css" />
+	</head>
+	<body>
+		<Header />
+
+		<main class="content photos-page">
+			<section class="album-hero">
+				<p class="kicker">Альбом</p>
+				<h1>{album.title}</h1>
+				<p class="subtitle">
+					Перформансы, спонтанная импровизация, тело в пространстве, как способ <em class="emph">просто быть</em>. В настоящем.
+				</p>
+				<p class="meta">{album.total} фотографий · {album.chapters.length} глав</p>
+			</section>
+
+			<div id="gallery">
+				{album.chapters.map((ch, idx) => (
+					<section class="chapter-section" id={`ch-${ch.slug}`}>
+						<div class="ch-header">
+							<div class="text">
+								<p class="num">Глава {String(idx + 1).padStart(2, '0')}</p>
+								<h2 class="title-toggle" data-target={ch.slug}>
+									{ch.title} <span class="h2-arrow">↓</span>
+								</h2>
+								<p class="blurb" set:html={ch.blurb}></p>
+							</div>
+							<a class="reveal-link" data-target={ch.slug}>
+								<span class="arrow">↓</span> <span class="label">открыть главу</span>
+							</a>
+						</div>
+						<div class="masonry" id={`grid-${ch.slug}`}>
+							{ch.photos.map((p) => (
+								<a href={ASSET('full', p)} data-pswp-src={ASSET('full', p)} style="--blur:0px">
+									<img src={ASSET('thumb', p)} loading="lazy" alt="" />
+								</a>
+							))}
+						</div>
+					</section>
+				))}
+			</div>
+		</main>
+
+		<Footer />
+
+		<style is:global>
+			.photos-page { padding-top: 0; }
+
+			.album-hero {
+				max-width: 1080px;
+				margin: 0 auto;
+				padding: 56px 24px 8px;
+			}
+			.album-hero > * { max-width: 60ch; }
+			.album-hero .kicker {
+				font-family: var(--font-heading, Play, system-ui, sans-serif);
+				font-size: 0.75rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--c-muted, #888);
+				margin: 0 0 8px;
+			}
+			.album-hero h1 {
+				font-family: var(--font-heading, Play, system-ui, sans-serif);
+				font-size: 2.25rem;
+				margin: 0 0 12px;
+				line-height: 1.15;
+			}
+			.album-hero .subtitle {
+				font-size: 1.0625rem;
+				color: var(--c-muted, #666);
+				margin: 0 0 14px;
+			}
+			.album-hero .subtitle .emph {
+				font-style: normal;
+				font-weight: 700;
+				color: var(--c-fg, #1a1a1a);
+				background: linear-gradient(180deg, transparent 62%, rgba(140, 140, 140, 0.28) 62%);
+				padding: 0 2px;
+			}
+			.album-hero .meta {
+				font-size: 0.875rem;
+				color: var(--c-muted, #888);
+			}
+
+			.chapter-section {
+				max-width: 1080px;
+				margin: 56px auto 16px;
+				padding: 0 24px;
+			}
+			.chapter-section:first-of-type { margin-top: 24px; }
+			.chapter-section .ch-header {
+				max-width: 60ch;
+				margin-bottom: 16px;
+				display: flex;
+				align-items: baseline;
+				gap: 16px;
+				flex-wrap: wrap;
+			}
+			.chapter-section .ch-header .text { flex: 1 1 auto; min-width: 0; }
+			.chapter-section .ch-header .num {
+				font-family: var(--font-heading, Play, system-ui, sans-serif);
+				font-size: 0.75rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--c-accent, #FF4200);
+				margin: 0 0 4px;
+			}
+			.chapter-section .ch-header h2 {
+				font-family: var(--font-heading, Play, system-ui, sans-serif);
+				font-size: 1.5rem;
+				margin: 0 0 6px;
+				cursor: pointer;
+				user-select: none;
+				display: inline-flex;
+				align-items: baseline;
+				gap: 8px;
+				transition: color .2s ease;
+			}
+			.chapter-section .ch-header h2 .h2-arrow {
+				font-size: 0.875rem;
+				color: var(--c-muted, #888);
+				display: inline-block;
+				transition: transform .25s ease, color .2s ease;
+			}
+			.chapter-section .ch-header h2:hover { color: var(--c-accent, #FF4200); }
+			.chapter-section .ch-header h2:hover .h2-arrow {
+				color: var(--c-accent, #FF4200);
+				transform: translateY(2px);
+			}
+			.chapter-section.open .ch-header h2 .h2-arrow {
+				transform: rotate(180deg);
+			}
+			.chapter-section .ch-header .blurb {
+				font-size: 0.9375rem;
+				color: var(--c-muted, #666);
+				margin: 0;
+			}
+			.chapter-section .ch-header .blurb a {
+				color: var(--c-fg, #1a1a1a);
+				text-decoration: underline;
+				text-decoration-thickness: 1px;
+				text-underline-offset: 2px;
+				transition: color .15s ease;
+			}
+			.chapter-section .ch-header .blurb a:hover {
+				color: var(--c-accent, #FF4200);
+			}
+			.chapter-section .reveal-link {
+				flex: 0 0 auto;
+				font-size: 0.875rem;
+				color: var(--c-muted, #888);
+				text-decoration: none;
+				border-bottom: 1px solid transparent;
+				white-space: nowrap;
+				transition: color .2s ease, border-color .2s ease;
+				cursor: pointer;
+				user-select: none;
+			}
+			.chapter-section .reveal-link:hover {
+				color: var(--c-accent, #FF4200);
+				border-color: var(--c-accent, #FF4200);
+			}
+			.chapter-section .reveal-link .arrow {
+				display: inline-block;
+				transition: transform .25s ease;
+			}
+			.chapter-section .reveal-link:hover .arrow { transform: translateY(2px); }
+			.chapter-section.open .reveal-link .arrow {
+				transform: rotate(180deg);
+			}
+
+			.masonry {
+				column-count: 3;
+				column-gap: 12px;
+			}
+			.masonry > a {
+				--blur: 0px;
+				break-inside: avoid;
+				display: block;
+				margin: 0 0 12px;
+				border-radius: 4px;
+				overflow: hidden;
+				background: #1a1a1a;
+				position: relative;
+			}
+			.masonry > a img {
+				display: block;
+				width: 100%;
+				height: auto;
+				filter: blur(var(--blur));
+				transition: filter .35s ease, transform .3s ease, opacity .2s ease;
+				cursor: pointer;
+			}
+			.masonry > a:hover img {
+				filter: none;
+				transform: scale(1.01);
+			}
+			.chapter-section.open .masonry > a img {
+				filter: none;
+			}
+
+			@media (max-width: 900px) { .masonry { column-count: 2; } }
+			@media (max-width: 540px) {
+				.masonry { column-count: 1; column-gap: 0; }
+				.masonry > a { margin-bottom: 8px; border-radius: 0; }
+				.album-hero h1 { font-size: 1.75rem; }
+			}
+
+			.pswp { --pswp-bg: #0a0a0a; }
+		</style>
+
+		<script>
+			import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
+
+			const MAX_BLUR = 14;
+
+			function applyVisualBlur(grid: HTMLElement) {
+				const items = Array.from(grid.querySelectorAll('a')) as HTMLAnchorElement[];
+				if (items.length === 0) return;
+				if (items.length === 1) {
+					items[0].style.setProperty('--blur', '0px');
+					return;
+				}
+				const tops = items.map((el) => el.offsetTop);
+				const minTop = Math.min(...tops);
+				const ROW_TOL = 30;
+				const firstRow: HTMLAnchorElement[] = [];
+				const rest: { el: HTMLAnchorElement; top: number; left: number }[] = [];
+				items.forEach((el, i) => {
+					if (tops[i] - minTop < ROW_TOL) firstRow.push(el);
+					else rest.push({ el, top: tops[i], left: el.offsetLeft });
+				});
+				rest.sort((a, b) => (a.top - b.top) || (a.left - b.left));
+				firstRow.forEach((el) => el.style.setProperty('--blur', '0px'));
+				rest.forEach(({ el }, i) => {
+					const t = rest.length === 1 ? 1 : (i + 1) / rest.length;
+					el.style.setProperty('--blur', `${(t * MAX_BLUR).toFixed(1)}px`);
+				});
+			}
+
+			async function annotatePswp(grid: HTMLElement) {
+				const links = Array.from(grid.querySelectorAll('a[data-pswp-src]')) as HTMLAnchorElement[];
+				await Promise.all(
+					links.map(
+						(a) =>
+							new Promise<void>((resolve) => {
+								if (a.dataset.pswpWidth) return resolve();
+								const img = new Image();
+								img.onload = () => {
+									a.dataset.pswpWidth = String(img.naturalWidth);
+									a.dataset.pswpHeight = String(img.naturalHeight);
+									resolve();
+								};
+								img.onerror = () => {
+									a.dataset.pswpWidth = '1600';
+									a.dataset.pswpHeight = '1067';
+									resolve();
+								};
+								img.src = a.dataset.pswpSrc!;
+							}),
+					),
+				);
+			}
+
+			async function initLightbox(grid: HTMLElement) {
+				await annotatePswp(grid);
+				const lb = new PhotoSwipeLightbox({
+					gallery: `#${grid.id}`,
+					children: 'a',
+					pswpModule: () =>
+						import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
+					showHideAnimationType: 'fade',
+					bgOpacity: 0.95,
+				});
+				lb.init();
+			}
+
+			function init() {
+				const grids = Array.from(document.querySelectorAll<HTMLElement>('.masonry'));
+				grids.forEach((g) => initLightbox(g));
+
+				const compute = () => grids.forEach((g) => applyVisualBlur(g));
+				let timer: number | undefined;
+				window.addEventListener('resize', () => {
+					if (timer) window.clearTimeout(timer);
+					timer = window.setTimeout(compute, 120);
+				});
+
+				const allImgs = Array.from(document.querySelectorAll<HTMLImageElement>('.masonry img'));
+				let pending = allImgs.length;
+				const onMaybe = () => {
+					compute();
+					if (--pending <= 0) {
+						/* settled */
+					}
+				};
+				if (allImgs.length === 0) compute();
+				allImgs.forEach((img) => {
+					if (img.complete) onMaybe();
+					else img.addEventListener('load', onMaybe, { once: true });
+				});
+
+				document.querySelectorAll<HTMLElement>('.chapter-section').forEach((section) => {
+					const link = section.querySelector<HTMLElement>('.reveal-link');
+					const label = link?.querySelector<HTMLElement>('.label');
+					const title = section.querySelector<HTMLElement>('.title-toggle');
+					const toggle = (e: Event) => {
+						e.preventDefault();
+						const opened = section.classList.toggle('open');
+						if (label) label.textContent = opened ? 'свернуть главу' : 'открыть главу';
+					};
+					link?.addEventListener('click', toggle);
+					title?.addEventListener('click', toggle);
+				});
+			}
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', init);
+			} else {
+				init();
+			}
+		</script>
+	</body>
+</html>

@@ -23,3 +23,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 scripts/node_modules/
+проявленность и движение-3-001.zip
+
+# Original photo dump (processed copies live in public/img/photos/)
+*.zip
