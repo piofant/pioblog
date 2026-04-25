@@ -134,8 +134,12 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .site-header .brand {
 	display: flex; align-items: center; gap: 10px;
 	color: var(--text-dark);
-	font-weight: 700;
 	text-decoration: none;
+}
+.site-header .brand span {
+	font-weight: 800;
+	font-size: 1.0625rem;
+	letter-spacing: -0.005em;
 }
 .site-header .brand img {
 	width: 34px;
