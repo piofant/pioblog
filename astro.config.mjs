@@ -21,11 +21,12 @@ export default defineConfig({
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'Open Sans',
+			name: 'Inter',
 			cssVariable: '--font-ui',
-			weights: [400, 600, 700],
+			weights: [400, 500, 600, 700],
 			styles: ['normal'],
-			fallbacks: ['system-ui', 'sans-serif'],
+			subsets: ['cyrillic', 'latin', 'latin-ext'],
+			fallbacks: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
 		},
 		{
 			provider: fontProviders.google(),
