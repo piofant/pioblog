@@ -122,33 +122,55 @@ const showSubgraph = subgraph.nodes.length >= 3;
 						'друзья':'#f97316','мнения':'#64748b',
 					};
 					const el = document.getElementById('tag-graph');
+					// degree
+					const deg = new Map();
+					DATA.nodes.forEach(n => deg.set(n.id, 0));
+					DATA.links.forEach(l => {
+						deg.set(l.source, (deg.get(l.source) || 0) + 1);
+						deg.set(l.target, (deg.get(l.target) || 0) + 1);
+					});
+					DATA.nodes.forEach(n => { n.deg = deg.get(n.id) || 0; });
+
+					let highlighted = null;
 					const fg = ForceGraph()(el)
 						.graphData({ nodes: DATA.nodes.map(n => ({...n})), links: DATA.links.map(l => ({...l})) })
 						.backgroundColor('rgba(0,0,0,0)')
 						.width(el.clientWidth)
 						.height(380)
 						.nodeRelSize(5)
-						.nodeVal(() => 4)
+						.nodeVal(n => 1 + Math.min(n.deg, 10) * 0.6)
 						.nodeColor(n => palette[n.primaryTag] || '#aaa')
-						.linkColor(() => 'rgba(120,120,120,0.4)')
+						.linkColor(() => 'rgba(120,120,120,0.35)')
 						.linkWidth(1)
-						.nodeCanvasObjectMode(() => 'after')
+						.nodeCanvasObjectMode(n => (n.deg >= 3 || n.id === highlighted) ? 'after' : undefined)
 						.nodeCanvasObject((node, ctx, scale) => {
+							if (node.deg < 3 && node.id !== highlighted) return;
 							const label = node.title.slice(0, 32);
-							const fontSize = Math.max(10, 9 / scale);
+							const fontSize = Math.max(11, 9 / scale * 1.3);
 							ctx.font = fontSize + 'px sans-serif';
-							ctx.fillStyle = '#444';
+							ctx.fillStyle = '#222';
 							ctx.textAlign = 'center';
 							ctx.textBaseline = 'middle';
-							ctx.fillText(label, node.x, node.y + 6 + fontSize * 0.7);
+							const r = 5 * Math.sqrt(1 + Math.min(node.deg, 10) * 0.6);
+							// background pill for legibility
+							const tw = ctx.measureText(label).width;
+							ctx.fillStyle = 'rgba(255,255,255,0.85)';
+							ctx.fillRect(node.x - tw/2 - 4, node.y + r + 2, tw + 8, fontSize + 4);
+							ctx.fillStyle = '#222';
+							ctx.fillText(label, node.x, node.y + r + 4 + fontSize * 0.5);
 						})
 						.nodeLabel(n => n.title)
+						.onNodeHover(n => {
+							highlighted = n ? n.id : null;
+							fg.nodeCanvasObjectMode(fg.nodeCanvasObjectMode());
+						})
 						.onNodeClick(n => { window.location.href = BASE + '/blog/' + n.id + '/'; })
-						.cooldownTicks(150);
+						.cooldownTicks(250)
+						.warmupTicks(100);
 					setTimeout(() => {
 						try {
-							fg.d3Force('charge').strength(-200);
-							fg.d3Force('link').distance(50);
+							fg.d3Force('charge').strength(-450);
+							fg.d3Force('link').distance(80);
 							fg.d3ReheatSimulation();
 						} catch(e) {}
 					}, 50);
