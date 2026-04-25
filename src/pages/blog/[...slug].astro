@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { SERIES } from '../../series';
 
 export async function getStaticPaths() {
 	const META_TAGS = new Set(['whois', 'intro', 'история', 'истории', 'жизнипост', 'мысли', 'telegram']);
@@ -43,22 +44,62 @@ export async function getStaticPaths() {
 	const tagById = new Map(posts.map((p) => [p.id, primaryTagOf(p.data.tags)]));
 	const dateById = new Map(posts.map((p) => [p.id, p.data.pubDate]));
 
+	// Group posts by series (slug → ordered parts)
+	const bySeries = new Map<string, typeof posts>();
+	for (const p of posts) {
+		const s = p.data.series;
+		if (!s) continue;
+		if (!bySeries.has(s)) bySeries.set(s, []);
+		bySeries.get(s)!.push(p);
+	}
+	for (const [, list] of bySeries) {
+		list.sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
+	}
+
 	return posts.map((post, i) => {
 		const prev = posts[i - 1] || null;
 		const next = posts[i + 1] || null;
 
-		// Related — by tag overlap
+		// Series info
+		const seriesSlug = post.data.series;
+		const seriesEntry = seriesSlug ? SERIES[seriesSlug] : null;
+		const seriesParts = seriesSlug ? (bySeries.get(seriesSlug) || []) : [];
+		const seriesNodes = seriesParts.map((p) => ({
+			id: p.id,
+			title: p.data.title,
+			subtitle: p.data.subtitle ?? '',
+			part: p.data.seriesPart ?? 0,
+		}));
+		const myPart = post.data.seriesPart ?? 0;
+		// next non-current sibling with greater part
+		const nextSibling = seriesNodes.find((n) => n.part > myPart) || null;
+		const seriesData = seriesEntry && seriesNodes.length > 1
+			? {
+				slug: seriesSlug!,
+				name: seriesEntry.name,
+				introSlug: seriesEntry.introSlug ?? null,
+				parts: seriesNodes,
+				currentPart: myPart,
+				nextSibling,
+			}
+			: null;
+
+		// Related — series mates first, then tag-overlap fill (cap 4)
 		const myTags = new Set(post.data.tags || []);
-		const scored = posts
-			.filter((p, j) => j !== i && p.data.tags && p.data.tags.length)
+		const seriesMates = seriesParts
+			.filter((p) => p.id !== post.id)
+			.map((p) => ({ id: p.id, title: p.data.title, pubDate: p.data.pubDate }));
+		const seenIds = new Set([post.id, ...seriesMates.map((m) => m.id)]);
+		const tagScored = posts
+			.filter((p, j) => j !== i && !seenIds.has(p.id) && p.data.tags && p.data.tags.length)
 			.map((p) => ({
 				post: p,
 				overlap: (p.data.tags || []).filter((t) => myTags.has(t)).length,
 			}))
 			.filter((x) => x.overlap > 0)
 			.sort((a, b) => b.overlap - a.overlap || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf())
-			.slice(0, 4)
 			.map((x) => ({ id: x.post.id, title: x.post.data.title, pubDate: x.post.data.pubDate }));
+		const scored = [...seriesMates, ...tagScored].slice(0, 4);
 
 		// Mini-graph: 1-hop neighbors capped at 14 (+ center = 15)
 		const neighbors = [...(adj.get(post.id) || [])].slice(0, 14);
@@ -91,15 +132,16 @@ export async function getStaticPaths() {
 				next: next ? { id: next.id, title: next.data.title, pubDate: next.data.pubDate } : null,
 				related: scored,
 				miniGraph: { nodes: miniNodes, links: miniEdges },
+				series: seriesData,
 			},
 		};
 	});
 }
 
-const { post, prev, next, related, miniGraph } = Astro.props;
+const { post, prev, next, related, miniGraph, series } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} prev={prev} next={next} related={related} miniGraph={miniGraph}>
+<BlogPost {...post.data} prev={prev} next={next} related={related} miniGraph={miniGraph} series={series}>
 	<Content />
 </BlogPost>

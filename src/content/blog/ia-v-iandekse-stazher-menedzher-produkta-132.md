@@ -4,6 +4,8 @@ subtitle: 'Почему я вижу себя в роли продакта — р
 pubDate: '2023-10-07'
 heroImage: '/pioblog/img/posts/2023-10-07-ia-v-iandekse-stazher-menedzher-produkta-132/photo_41@07-10-2023_20-22-09.jpg'
 tags: ['продакт', 'карьера']
+series: 'yandex-internship'
+seriesPart: 0
 ---
 
 Почему я вижу себя в роли продакта — рассказывал [здесь](/pioblog/blog/pochemu-ia-reshil-stat-prodakt-menedzherom-pm-126/), а в следующих постах поделюсь мыслями про путь до стажера-джуна продакта

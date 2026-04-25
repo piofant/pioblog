@@ -4,6 +4,8 @@ subtitle: 'заметил, что помимо прочего «постерст
 pubDate: '2024-12-03'
 heroImage: '/pioblog/img/posts/2024-12-03-polza-linkedina-chast-2-internet-friends-i-240/photo_119@03-12-2024_23-15-43.jpg'
 tags: ['жизнь']
+series: 'linkedin-value'
+seriesPart: 2
 ---
 
 несколько примеров:

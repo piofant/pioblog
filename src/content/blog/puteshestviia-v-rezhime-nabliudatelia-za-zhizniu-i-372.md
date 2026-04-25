@@ -4,6 +4,8 @@ subtitle: 'Вот эта стандартная история, формата: 
 pubDate: '2025-10-28'
 heroImage: '/pioblog/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_223@28-10-2025_17-41-01.jpg'
 tags: ['трипы', 'жизнь']
+series: 'observer-travels'
+seriesPart: 1
 ---
 
 Мне нравится проживать **живые реальные истории**, чувствовать, какая жизнь у других людей, а не чиллить в отельчике в халатике с салатиком

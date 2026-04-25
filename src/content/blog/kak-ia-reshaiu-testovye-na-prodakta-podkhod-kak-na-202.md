@@ -4,6 +4,8 @@ subtitle: 'Этим подходом со мной поделился Паша, 
 pubDate: '2024-10-04'
 heroImage: '/pioblog/img/posts/2024-10-04-kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/photo_90@04-10-2024_18-01-07.jpg'
 tags: ['продакт', 'карьера']
+series: 'pm-take-home'
+seriesPart: 1
 ---
 
 Этим подходом со мной поделился [Паша](https://t.me/beginner_fintech), когда я решал тестовое для Яндекс.Доставки, и я решил зафиксировать его здесь себе в будущее, чтоб не забывать

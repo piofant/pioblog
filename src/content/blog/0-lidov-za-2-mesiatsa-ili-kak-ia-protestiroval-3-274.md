@@ -4,6 +4,8 @@ subtitle: '#сторителл'
 pubDate: '2025-03-19'
 tags: ['история', 'продакт', 'трипы', 'боты']
 heroImage: '/pioblog/img/posts/2025-03-19-0-lidov-za-2-mesiatsa-ili-kak-ia-protestiroval-3-274/photo_144@19-03-2025_20-48-41.jpg'
+series: 'psaiko-monetization'
+seriesPart: 1
 ---
 
 **[контекст]**

@@ -4,6 +4,8 @@ subtitle: 'Как себе помочь и на чем сделать фокус
 pubDate: '2024-11-13'
 heroImage: '/pioblog/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/photo_118@13-11-2024_13-27-32.jpg'
 tags: ['продакт', 'рефлексия']
+series: 'pm-take-home'
+seriesPart: 2
 ---
 
 *на примере кейса от Avito Product Bootcamp (14/420 место)*

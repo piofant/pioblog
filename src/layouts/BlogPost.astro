@@ -10,14 +10,24 @@ type MiniGraph = {
 	nodes: { id: string; title: string; primaryTag: string; date: string }[];
 	links: { source: string; target: string }[];
 };
+type SeriesPart = { id: string; title: string; subtitle: string; part: number };
+type SeriesData = {
+	slug: string;
+	name: string;
+	introSlug: string | null;
+	parts: SeriesPart[];
+	currentPart: number;
+	nextSibling: SeriesPart | null;
+} | null;
 type Props = CollectionEntry<'blog'>['data'] & {
 	prev?: Neighbor;
 	next?: Neighbor;
 	related?: { id: string; title: string; pubDate: Date }[];
 	miniGraph?: MiniGraph;
+	series?: SeriesData;
 };
 
-const { title, subtitle, pubDate, updatedDate, heroImage, tags, prev, next, related, miniGraph } = Astro.props;
+const { title, subtitle, pubDate, updatedDate, heroImage, tags, prev, next, related, miniGraph, series } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const showMini = miniGraph && miniGraph.nodes.length > 1;
 const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
@@ -47,6 +57,20 @@ const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 						</div>
 					)}
 				</header>
+
+				{series && (
+					<aside class="series-nav">
+						<span class="name">📚 {series.name}</span>
+						<div class="pills">
+							{series.parts.map((p) => {
+								const label = p.part === 0 ? 'intro' : `часть ${p.part}`;
+								if (p.part === series.currentPart) return <span class="pill current">{label}</span>;
+								return <a class="pill" href={`${base}/blog/${p.id}/`} title={p.title}>{label}</a>;
+							})}
+						</div>
+					</aside>
+				)}
+
 				<div class="post-content">
 					<slot />
 				</div>
@@ -63,6 +87,16 @@ const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 							))}
 						</ul>
 					</aside>
+				)}
+
+				{series && series.nextSibling && (
+					<a href={`${base}/blog/${series.nextSibling.id}/`} class="series-cta">
+						<div>
+							<div class="lbl">{series.currentPart === 0 ? 'Начать с части 1' : 'Следующая часть в серии'}</div>
+							<div class="ttl">{series.nextSibling.title}</div>
+						</div>
+						<span class="arrow">→</span>
+					</a>
 				)}
 
 				{(prev || next) && (
