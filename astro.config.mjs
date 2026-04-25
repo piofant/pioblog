@@ -35,5 +35,14 @@ export default defineConfig({
 			styles: ['normal'],
 			fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
 		},
+		{
+			provider: fontProviders.google(),
+			name: 'PT Sans',
+			cssVariable: '--font-brand',
+			weights: [400, 700],
+			styles: ['normal'],
+			subsets: ['cyrillic', 'cyrillic-ext', 'latin', 'latin-ext'],
+			fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+		},
 	],
 });
