@@ -130,7 +130,7 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 			.photos-page { padding-top: 0; }
 
 			.album-hero {
-				max-width: 1080px;
+				max-width: 1400px;
 				margin: 0 auto;
 				padding: 56px 24px 8px;
 			}
@@ -167,7 +167,7 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 			}
 
 			.chapter-section {
-				max-width: 1080px;
+				max-width: 1400px;
 				margin: 56px auto 16px;
 				padding: 0 24px;
 			}
@@ -255,8 +255,9 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 
 			.masonry {
 				column-count: 3;
-				column-gap: 12px;
+				column-gap: 14px;
 			}
+			@media (min-width: 1500px) { .masonry { column-count: 4; } }
 			.masonry > a {
 				--blur: 0px;
 				break-inside: avoid;
@@ -293,116 +294,115 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 			.pswp { --pswp-bg: #0a0a0a; }
 		</style>
 
-		<script>
-			import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
+		<script is:inline>
+			(() => {
+				const MAX_BLUR = 14;
+				const PSWP_BASE = 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist';
 
-			const MAX_BLUR = 14;
-
-			function applyVisualBlur(grid: HTMLElement) {
-				const items = Array.from(grid.querySelectorAll('a')) as HTMLAnchorElement[];
-				if (items.length === 0) return;
-				if (items.length === 1) {
-					items[0].style.setProperty('--blur', '0px');
-					return;
-				}
-				const tops = items.map((el) => el.offsetTop);
-				const minTop = Math.min(...tops);
-				const ROW_TOL = 30;
-				const firstRow: HTMLAnchorElement[] = [];
-				const rest: { el: HTMLAnchorElement; top: number; left: number }[] = [];
-				items.forEach((el, i) => {
-					if (tops[i] - minTop < ROW_TOL) firstRow.push(el);
-					else rest.push({ el, top: tops[i], left: el.offsetLeft });
-				});
-				rest.sort((a, b) => (a.top - b.top) || (a.left - b.left));
-				firstRow.forEach((el) => el.style.setProperty('--blur', '0px'));
-				rest.forEach(({ el }, i) => {
-					const t = rest.length === 1 ? 1 : (i + 1) / rest.length;
-					el.style.setProperty('--blur', `${(t * MAX_BLUR).toFixed(1)}px`);
-				});
-			}
-
-			async function annotatePswp(grid: HTMLElement) {
-				const links = Array.from(grid.querySelectorAll('a[data-pswp-src]')) as HTMLAnchorElement[];
-				await Promise.all(
-					links.map(
-						(a) =>
-							new Promise<void>((resolve) => {
-								if (a.dataset.pswpWidth) return resolve();
-								const img = new Image();
-								img.onload = () => {
-									a.dataset.pswpWidth = String(img.naturalWidth);
-									a.dataset.pswpHeight = String(img.naturalHeight);
-									resolve();
-								};
-								img.onerror = () => {
-									a.dataset.pswpWidth = '1600';
-									a.dataset.pswpHeight = '1067';
-									resolve();
-								};
-								img.src = a.dataset.pswpSrc!;
-							}),
-					),
-				);
-			}
-
-			async function initLightbox(grid: HTMLElement) {
-				await annotatePswp(grid);
-				const lb = new PhotoSwipeLightbox({
-					gallery: `#${grid.id}`,
-					children: 'a',
-					pswpModule: () =>
-						import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
-					showHideAnimationType: 'fade',
-					bgOpacity: 0.95,
-				});
-				lb.init();
-			}
-
-			function init() {
-				const grids = Array.from(document.querySelectorAll<HTMLElement>('.masonry'));
-				grids.forEach((g) => initLightbox(g));
-
-				const compute = () => grids.forEach((g) => applyVisualBlur(g));
-				let timer: number | undefined;
-				window.addEventListener('resize', () => {
-					if (timer) window.clearTimeout(timer);
-					timer = window.setTimeout(compute, 120);
-				});
-
-				const allImgs = Array.from(document.querySelectorAll<HTMLImageElement>('.masonry img'));
-				let pending = allImgs.length;
-				const onMaybe = () => {
-					compute();
-					if (--pending <= 0) {
-						/* settled */
+				function applyVisualBlur(grid) {
+					const items = Array.from(grid.querySelectorAll('a'));
+					if (items.length === 0) return;
+					if (items.length === 1) {
+						items[0].style.setProperty('--blur', '0px');
+						return;
 					}
-				};
-				if (allImgs.length === 0) compute();
-				allImgs.forEach((img) => {
-					if (img.complete) onMaybe();
-					else img.addEventListener('load', onMaybe, { once: true });
-				});
+					const tops = items.map((el) => el.offsetTop);
+					const minTop = Math.min.apply(null, tops);
+					const ROW_TOL = 30;
+					const firstRow = [];
+					const rest = [];
+					items.forEach((el, i) => {
+						if (tops[i] - minTop < ROW_TOL) firstRow.push(el);
+						else rest.push({ el: el, top: tops[i], left: el.offsetLeft });
+					});
+					rest.sort((a, b) => (a.top - b.top) || (a.left - b.left));
+					firstRow.forEach((el) => el.style.setProperty('--blur', '0px'));
+					rest.forEach((r, i) => {
+						const t = rest.length === 1 ? 1 : (i + 1) / rest.length;
+						r.el.style.setProperty('--blur', (t * MAX_BLUR).toFixed(1) + 'px');
+					});
+				}
 
-				document.querySelectorAll<HTMLElement>('.chapter-section').forEach((section) => {
-					const link = section.querySelector<HTMLElement>('.reveal-link');
-					const label = link?.querySelector<HTMLElement>('.label');
-					const title = section.querySelector<HTMLElement>('.title-toggle');
-					const toggle = (e: Event) => {
-						e.preventDefault();
-						const opened = section.classList.toggle('open');
-						if (label) label.textContent = opened ? 'свернуть главу' : 'открыть главу';
-					};
-					link?.addEventListener('click', toggle);
-					title?.addEventListener('click', toggle);
-				});
-			}
+				async function annotatePswp(grid) {
+					const links = Array.from(grid.querySelectorAll('a[data-pswp-src]'));
+					await Promise.all(
+						links.map(
+							(a) =>
+								new Promise((resolve) => {
+									if (a.dataset.pswpWidth) return resolve();
+									const img = new Image();
+									img.onload = () => {
+										a.dataset.pswpWidth = String(img.naturalWidth);
+										a.dataset.pswpHeight = String(img.naturalHeight);
+										resolve();
+									};
+									img.onerror = () => {
+										a.dataset.pswpWidth = '1600';
+										a.dataset.pswpHeight = '1067';
+										resolve();
+									};
+									img.src = a.dataset.pswpSrc;
+								}),
+						),
+					);
+				}
 
-			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', init);
-			} else {
-				init();
-			}
+				async function initLightbox(grid) {
+					try {
+						await annotatePswp(grid);
+						const mod = await import(PSWP_BASE + '/photoswipe-lightbox.esm.min.js');
+						const PhotoSwipeLightbox = mod.default;
+						const lb = new PhotoSwipeLightbox({
+							gallery: '#' + grid.id,
+							children: 'a',
+							pswpModule: () => import(PSWP_BASE + '/photoswipe.esm.min.js'),
+							showHideAnimationType: 'fade',
+							bgOpacity: 0.95,
+						});
+						lb.init();
+					} catch (err) {
+						console.error('PhotoSwipe init failed for', grid.id, err);
+					}
+				}
+
+				function init() {
+					const grids = Array.from(document.querySelectorAll('.masonry'));
+					grids.forEach((g) => initLightbox(g));
+
+					const compute = () => grids.forEach((g) => applyVisualBlur(g));
+					let timer;
+					window.addEventListener('resize', () => {
+						clearTimeout(timer);
+						timer = setTimeout(compute, 120);
+					});
+
+					const allImgs = Array.from(document.querySelectorAll('.masonry img'));
+					if (allImgs.length === 0) compute();
+					allImgs.forEach((img) => {
+						if (img.complete) compute();
+						else img.addEventListener('load', compute, { once: true });
+					});
+
+					document.querySelectorAll('.chapter-section').forEach((section) => {
+						const link = section.querySelector('.reveal-link');
+						const label = link ? link.querySelector('.label') : null;
+						const title = section.querySelector('.title-toggle');
+						const toggle = (e) => {
+							e.preventDefault();
+							const opened = section.classList.toggle('open');
+							if (label) label.textContent = opened ? 'свернуть главу' : 'открыть главу';
+						};
+						if (link) link.addEventListener('click', toggle);
+						if (title) title.addEventListener('click', toggle);
+					});
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', init);
+				} else {
+					init();
+				}
+			})();
 		</script>
 	</body>
 </html>
