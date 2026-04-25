@@ -278,6 +278,29 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 
 .post-content p { margin: 0 0 15px; }
 
+/* Local mini-graph below related-posts */
+.mini-graph-wrap {
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--border);
+	font-family: var(--font-ui), system-ui, sans-serif;
+}
+.mini-graph-wrap h3 {
+	font-size: 0.8125rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--muted);
+	font-weight: 700;
+	margin: 0 0 0.75rem;
+}
+.mini-graph {
+	width: 100%;
+	height: 280px;
+	background: var(--border-soft);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+}
+
 /* Related posts + prev/next */
 .related-posts {
 	margin-top: 3rem;

@@ -7,24 +7,78 @@ import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const META_TAGS = new Set(['whois', 'intro', 'история', 'истории', 'жизнипост', 'предыстория', 'мысли', 'сторителл', 'telegram']);
+	const primaryTagOf = (tags?: string[]): string =>
+		(tags || []).find((t) => !META_TAGS.has(t)) || 'разное';
+
+	const allPosts = await getCollection('blog');
 	const tags = new Set<string>();
-	for (const p of posts) {
+	for (const p of allPosts) {
 		for (const t of p.data.tags ?? []) tags.add(t);
 	}
-	return [...tags].map((tag) => ({
-		params: { tag },
-		props: {
-			tag,
-			posts: posts
-				.filter((p) => (p.data.tags ?? []).includes(tag))
-				.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
-		},
-	}));
+
+	// Build adjacency for ALL posts once (links + tag co-occurrence)
+	const slugSet = new Set(allPosts.map((p) => p.id));
+	const adj = new Map<string, Set<string>>();
+	for (const p of allPosts) adj.set(p.id, new Set());
+	const LINK_RE = /\]\(\/pioblog\/blog\/([a-z0-9-]+)\/?\)/g;
+	for (const p of allPosts) {
+		const body = p.body || '';
+		for (const m of body.matchAll(LINK_RE)) {
+			const target = m[1];
+			if (slugSet.has(target) && target !== p.id) {
+				adj.get(p.id)!.add(target);
+				adj.get(target)!.add(p.id);
+			}
+		}
+	}
+	const byTag = new Map<string, string[]>();
+	for (const p of allPosts) for (const t of p.data.tags ?? []) {
+		if (!byTag.has(t)) byTag.set(t, []);
+		byTag.get(t)!.push(p.id);
+	}
+	for (const [, ids] of byTag) {
+		if (ids.length <= 1) continue;
+		ids.sort();
+		for (let i = 0; i < ids.length - 1; i++) {
+			adj.get(ids[i])!.add(ids[i + 1]);
+			adj.get(ids[i + 1])!.add(ids[i]);
+		}
+	}
+
+	return [...tags].map((tag) => {
+		const taggedPosts = allPosts
+			.filter((p) => (p.data.tags ?? []).includes(tag))
+			.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+		const taggedIds = new Set(taggedPosts.map((p) => p.id));
+		const subNodes = taggedPosts.map((p) => ({
+			id: p.id,
+			title: p.data.title,
+			date: p.data.pubDate.toISOString().slice(0, 10),
+			primaryTag: primaryTagOf(p.data.tags),
+		}));
+		const subEdges: { source: string; target: string }[] = [];
+		const seen = new Set<string>();
+		for (const id of taggedIds) {
+			for (const nb of adj.get(id) || []) {
+				if (taggedIds.has(nb)) {
+					const k = [id, nb].sort().join('|');
+					if (seen.has(k)) continue;
+					seen.add(k);
+					subEdges.push({ source: id, target: nb });
+				}
+			}
+		}
+		return {
+			params: { tag },
+			props: { tag, posts: taggedPosts, subgraph: { nodes: subNodes, links: subEdges } },
+		};
+	});
 }
 
-const { tag, posts } = Astro.props;
+const { tag, posts, subgraph } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const showSubgraph = subgraph.nodes.length >= 3;
 ---
 
 <!doctype html>
@@ -36,7 +90,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<Header />
 		<main class="content archive-page">
 			<h1>#{tag}</h1>
-			<ul class="archive-list">
+			<p style="color: var(--muted); margin: 0 0 1.5rem;">{posts.length} постов</p>
+
+			{showSubgraph && (
+				<div class="mini-graph-wrap" style="margin-top: 0; padding-top: 0; border-top: 0;">
+					<div class="mini-graph" id="tag-graph" style="height: 380px;"></div>
+				</div>
+			)}
+
+			<ul class="archive-list" style="margin-top: 1.5rem;">
 				{posts.map((post) => (
 					<li>
 						<span class="date"><FormattedDate date={post.data.pubDate} short /></span>
@@ -46,5 +108,54 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			</ul>
 		</main>
 		<Footer />
+
+		{showSubgraph && (
+			<>
+				<script src="https://cdn.jsdelivr.net/npm/force-graph@1.49.5/dist/force-graph.min.js" is:inline></script>
+				<script define:vars={{ DATA: subgraph, BASE: base }} is:inline>
+					const palette = {
+						'продакт':'#ff4200','карьера':'#e11d48','учёба':'#f59e0b',
+						'трипы':'#10b981','рефлексия':'#8b5cf6','психология':'#a855f7',
+						'нетворкинг':'#06b6d4','безумие':'#ec4899','театр':'#f43f5e',
+						'ии':'#0ea5e9','анонс':'#14b8a6','боты':'#22c55e',
+						'танцы':'#d946ef','творчество':'#eab308','жизнь':'#84cc16',
+						'друзья':'#f97316','мнения':'#64748b',
+					};
+					const el = document.getElementById('tag-graph');
+					const fg = ForceGraph()(el)
+						.graphData({ nodes: DATA.nodes.map(n => ({...n})), links: DATA.links.map(l => ({...l})) })
+						.backgroundColor('rgba(0,0,0,0)')
+						.width(el.clientWidth)
+						.height(380)
+						.nodeRelSize(5)
+						.nodeVal(() => 4)
+						.nodeColor(n => palette[n.primaryTag] || '#aaa')
+						.linkColor(() => 'rgba(120,120,120,0.4)')
+						.linkWidth(1)
+						.nodeCanvasObjectMode(() => 'after')
+						.nodeCanvasObject((node, ctx, scale) => {
+							const label = node.title.slice(0, 32);
+							const fontSize = Math.max(10, 9 / scale);
+							ctx.font = fontSize + 'px sans-serif';
+							ctx.fillStyle = '#444';
+							ctx.textAlign = 'center';
+							ctx.textBaseline = 'middle';
+							ctx.fillText(label, node.x, node.y + 6 + fontSize * 0.7);
+						})
+						.nodeLabel(n => n.title)
+						.onNodeClick(n => { window.location.href = BASE + '/blog/' + n.id + '/'; })
+						.cooldownTicks(150);
+					setTimeout(() => {
+						try {
+							fg.d3Force('charge').strength(-200);
+							fg.d3Force('link').distance(50);
+							fg.d3ReheatSimulation();
+						} catch(e) {}
+					}, 50);
+					fg.onEngineStop(() => fg.zoomToFit(400, 40));
+					window.addEventListener('resize', () => fg.width(el.clientWidth));
+				</script>
+			</>
+		)}
 	</body>
 </html>

@@ -6,14 +6,20 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
 type Neighbor = { id: string; title: string; pubDate: Date } | null;
+type MiniGraph = {
+	nodes: { id: string; title: string; primaryTag: string; date: string }[];
+	links: { source: string; target: string }[];
+};
 type Props = CollectionEntry<'blog'>['data'] & {
 	prev?: Neighbor;
 	next?: Neighbor;
 	related?: { id: string; title: string; pubDate: Date }[];
+	miniGraph?: MiniGraph;
 };
 
-const { title, subtitle, pubDate, updatedDate, heroImage, tags, prev, next, related } = Astro.props;
+const { title, subtitle, pubDate, updatedDate, heroImage, tags, prev, next, related, miniGraph } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const showMini = miniGraph && miniGraph.nodes.length > 1;
 ---
 
 <!doctype html>
@@ -58,6 +64,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					</aside>
 				)}
 
+				{showMini && (
+					<aside class="mini-graph-wrap">
+						<h3>связи поста</h3>
+						<div class="mini-graph" id="mini-graph"></div>
+					</aside>
+				)}
+
 				{(prev || next) && (
 					<nav class="post-nav">
 						<div class="post-nav-slot prev">
@@ -81,5 +94,55 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			</article>
 		</main>
 		<Footer />
+
+		{showMini && (
+			<>
+				<script src="https://cdn.jsdelivr.net/npm/force-graph@1.49.5/dist/force-graph.min.js" is:inline></script>
+				<script define:vars={{ DATA: miniGraph, BASE: base }} is:inline>
+					const palette = {
+						'продакт':'#ff4200','карьера':'#e11d48','учёба':'#f59e0b',
+						'трипы':'#10b981','рефлексия':'#8b5cf6','психология':'#a855f7',
+						'нетворкинг':'#06b6d4','безумие':'#ec4899','театр':'#f43f5e',
+						'ии':'#0ea5e9','анонс':'#14b8a6','боты':'#22c55e',
+						'танцы':'#d946ef','творчество':'#eab308','жизнь':'#84cc16',
+						'друзья':'#f97316','мнения':'#64748b',
+					};
+					const el = document.getElementById('mini-graph');
+					const center = DATA.nodes[0]?.id;
+					const fg = ForceGraph()(el)
+						.graphData({ nodes: DATA.nodes.map((n) => ({...n})), links: DATA.links.map((l) => ({...l})) })
+						.backgroundColor('rgba(0,0,0,0)')
+						.width(el.clientWidth)
+						.height(280)
+						.nodeRelSize(5)
+						.nodeVal((n) => n.id === center ? 9 : 3)
+						.nodeColor((n) => n.id === center ? '#111' : (palette[n.primaryTag] || '#aaa'))
+						.linkColor(() => 'rgba(120,120,120,0.45)')
+						.linkWidth(1)
+						.nodeCanvasObjectMode(() => 'after')
+						.nodeCanvasObject((node, ctx, scale) => {
+							const fontSize = Math.max(10, 9 / scale);
+							ctx.font = fontSize + 'px sans-serif';
+							ctx.fillStyle = node.id === center ? '#111' : '#444';
+							ctx.textAlign = 'center';
+							ctx.textBaseline = 'middle';
+							const r = node.id === center ? 9 : 6;
+							ctx.fillText(node.primaryTag, node.x, node.y + r + fontSize * 0.7);
+						})
+						.nodeLabel((n) => n.title)
+						.onNodeClick((n) => { if (n.id !== center) window.location.href = BASE + '/blog/' + n.id + '/'; })
+						.cooldownTicks(120);
+					setTimeout(() => {
+						try {
+							fg.d3Force('charge').strength(-150);
+							fg.d3Force('link').distance(40);
+							fg.d3ReheatSimulation();
+						} catch(e) {}
+					}, 50);
+					fg.onEngineStop(() => fg.zoomToFit(300, 30));
+					window.addEventListener('resize', () => fg.width(el.clientWidth));
+				</script>
+			</>
+		)}
 	</body>
 </html>
