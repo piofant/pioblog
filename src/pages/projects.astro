@@ -95,11 +95,17 @@ const img = (name: string) => `${base}/img/projects/${name}`;
 				margin: 0 0 10px;
 			}
 			.tile .metrics {
-				font-size: 11px;
-				color: var(--muted);
-				margin-top: 4px;
+				font-size: 0.8125rem;
+				color: var(--text-dark);
+				font-weight: 700;
+				margin-top: 6px;
+				letter-spacing: -0.005em;
 			}
-			.tile .metric::before { content: ' · '; color: var(--border); }
+			.tile .metric::before {
+				content: ' · ';
+				color: var(--border);
+				font-weight: 400;
+			}
 			.tile .metric:first-child::before { content: ''; }
 
 			.tile .actions-row {
