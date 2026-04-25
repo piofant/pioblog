@@ -38,12 +38,12 @@ export default defineConfig({
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'PT Sans',
+			name: 'Cormorant Garamond',
 			cssVariable: '--font-brand',
-			weights: [400, 700],
-			styles: ['normal'],
+			weights: [400, 600, 700],
+			styles: ['normal', 'italic'],
 			subsets: ['cyrillic', 'cyrillic-ext', 'latin', 'latin-ext'],
-			fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+			fallbacks: ['Georgia', 'serif'],
 		},
 	],
 });

@@ -32,11 +32,14 @@ body {
 	overflow-wrap: break-word;
 }
 
-/* статьи блога — оставляем литературный serif */
+/* статьи блога и /photos/ — литературный serif (Literata) */
 article .post-content,
 article .post-content p,
 article .post-content li,
-article .post-content blockquote {
+article .post-content blockquote,
+.photos-page,
+.photos-page p,
+.photos-page li {
 	font-family: var(--font-body), Georgia, serif;
 }
 
