@@ -103,8 +103,10 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	margin-bottom: 1rem;
 }
 .home-title {
-	font-family: var(--font-brand), 'PT Sans', sans-serif;
+	font-family: var(--font-hero), 'Forum', Georgia, serif;
 	font-size: 2.5rem;
+	font-weight: 700;
+	letter-spacing: -0.005em;
 	margin: 0 0 0.5rem;
 	color: var(--text-dark);
 	font-weight: 700;
@@ -291,21 +293,22 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 .post-card .card-link {
 	color: var(--text-dark);
-	font-family: var(--font-heading), sans-serif;
-	font-weight: 400;
+	font-family: var(--font-body), Georgia, serif;
+	font-weight: 700;
 	font-size: 1.25rem;
 	line-height: 1.25;
 	margin: 2px 0;
 }
 .post-card .card-link:hover { color: var(--link-hover); }
 .post-card .card-sub {
-	font-family: var(--font-ui), system-ui, sans-serif;
+	font-family: var(--font-body), Georgia, serif;
 	color: var(--muted);
 	font-weight: 400;
 	font-size: 0.9375rem;
 	margin: 0;
 }
 .post-card .card-excerpt {
+	font-family: var(--font-body), Georgia, serif;
 	font-size: 0.9375rem;
 	color: #555;
 	line-height: 1.55;

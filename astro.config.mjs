@@ -9,6 +9,15 @@ export default defineConfig({
 	site: 'https://piofant.github.io',
 	base: '/pioblog',
 	integrations: [mdx(), sitemap()],
+	// Short-URL aliases for memorable sharing. /wiki/{slug}/ remains the
+	// canonical Notion-synced location; these are entry points that emit
+	// a static redirect HTML page.
+	redirects: {
+		'/CV': '/cv',
+		'/value': '/wiki/about',
+		'/cases': '/wiki/portfolio',
+		'/mentor': '/wiki/mentoring',
+	},
 	fonts: [
 		{
 			provider: fontProviders.google(),
@@ -42,6 +51,15 @@ export default defineConfig({
 			cssVariable: '--font-brand',
 			weights: [400, 600, 700],
 			styles: ['normal', 'italic'],
+			subsets: ['cyrillic', 'cyrillic-ext', 'latin', 'latin-ext'],
+			fallbacks: ['Georgia', 'serif'],
+		},
+		{
+			provider: fontProviders.google(),
+			name: 'Forum',
+			cssVariable: '--font-hero',
+			weights: [400],
+			styles: ['normal'],
 			subsets: ['cyrillic', 'cyrillic-ext', 'latin', 'latin-ext'],
 			fallbacks: ['Georgia', 'serif'],
 		},
