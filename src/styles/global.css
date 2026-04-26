@@ -35,10 +35,10 @@
 	--bg:          #0d0d0e;
 	--bg-navbar:   #16161a;
 	--bg-elevated: #1d1d22;
-	--text:        #d4d4d4;
-	--text-dark:   #f0f0f0;
-	--muted:       #8a8a8a;
-	--muted-2:     #5a5a5a;
+	--text:        #b8b8b8;
+	--text-dark:   #e0e0e0;
+	--muted:       #7a7a7a;
+	--muted-2:     #555555;
 	--border:      #2a2a2e;
 	--border-soft: #1a1a1e;
 	--link:        #ff6633;
@@ -344,7 +344,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .post-card .card-excerpt {
 	font-family: var(--font-body), Georgia, serif;
 	font-size: 0.9375rem;
-	color: #555;
+	color: var(--text);
 	line-height: 1.55;
 	margin: 6px 0 0;
 }
@@ -679,7 +679,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
    =================================================================== */
 .wiki-page {
 	font-family: var(--font-ui), 'Inter', system-ui, sans-serif;
-	color: #37352f;
+	color: var(--text-dark);
 	line-height: 1.5;
 }
 .wiki-page h1 {
@@ -687,7 +687,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	font-size: 2.25rem;
 	font-weight: 800;
 	letter-spacing: -0.01em;
-	color: #37352f;
+	color: var(--text-dark);
 	line-height: 1.2;
 	margin: 0 0 1.25rem;
 }
@@ -695,7 +695,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .wiki-page .page-content h3,
 .wiki-page .page-content h4 {
 	font-family: inherit;
-	color: #37352f;
+	color: var(--text-dark);
 	font-weight: 700;
 	letter-spacing: -0.01em;
 	line-height: 1.3;
@@ -709,28 +709,31 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .wiki-page .page-content p {
 	margin: 4px 0 6px;
 }
-.wiki-page .page-content strong { font-weight: 700; color: #37352f; }
+.wiki-page .page-content strong { font-weight: 700; color: var(--text-dark); }
 .wiki-page .page-content a {
-	color: #37352f;
-	text-decoration: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.4);
-	transition: border-color 0.12s;
+	color: var(--text-dark);
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+	border: 0;
+	transition: text-decoration-color 0.12s;
 }
 .wiki-page .page-content a:hover {
-	border-bottom-color: rgba(55, 53, 47, 0.85);
-	color: #37352f;
+	text-decoration-color: currentColor;
+	color: var(--text-dark);
 }
 .wiki-page .page-content blockquote {
-	border-left: 3px solid #37352f;
+	border-left: 3px solid var(--text-dark);
 	padding: 0 0 0 14px;
 	margin: 0.75rem 0;
-	color: #37352f;
+	color: var(--text-dark);
 	font-style: normal;
 }
 .wiki-page .page-content blockquote p { margin: 0.25rem 0; }
 .wiki-page .page-content hr {
 	border: 0;
-	border-top: 1px solid #e8e8e7;
+	border-top: 1px solid var(--border);
 	margin: 1.75rem 0;
 }
 
@@ -743,7 +746,8 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	align-items: flex-start;
 	padding: 14px 16px;
 	margin: 14px 0;
-	background: #f1f1ef;
+	background: var(--border-soft);
+	color: var(--text-dark);
 	border: 0;
 	border-radius: 4px;
 	font-size: 1rem;
@@ -751,16 +755,29 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 .callout > p:first-child { margin-top: 0; }
 .callout > p:last-child { margin-bottom: 0; }
-.callout.green_background  { background: #ddedea; }
-.callout.red_background    { background: #fbe4e4; }
-.callout.yellow_background { background: #fbf3db; }
-.callout.blue_background   { background: #ddebf1; }
-.callout.orange_background { background: #faebdd; }
-.callout.purple_background { background: #eadff5; }
-.callout.pink_background   { background: #f4dfeb; }
-.callout.brown_background  { background: #eee0da; }
+.callout.green_background  { background: #ddedea; color: #1c3a32; }
+.callout.red_background    { background: #fbe4e4; color: #5d1f1f; }
+.callout.yellow_background { background: #fbf3db; color: #4a3c0c; }
+.callout.blue_background   { background: #ddebf1; color: #1f3d4f; }
+.callout.orange_background { background: #faebdd; color: #5a3215; }
+.callout.purple_background { background: #eadff5; color: #3d2050; }
+.callout.pink_background   { background: #f4dfeb; color: #4d1d3a; }
+.callout.brown_background  { background: #eee0da; color: #3d2a1f; }
 .callout.gray_background,
-.callout.gray_bg           { background: #f1f1ef; }
+.callout.gray_bg           { background: #f1f1ef; color: #37352f; }
+/* Dark theme — Notion deep variants */
+:root[data-theme="dark"] .callout              { background: #2a2a2e; color: var(--text-dark); }
+:root[data-theme="dark"] .callout.green_background  { background: #243933; color: #d3eee5; }
+:root[data-theme="dark"] .callout.red_background    { background: #3a2424; color: #f3d4d4; }
+:root[data-theme="dark"] .callout.yellow_background { background: #3b3422; color: #f0e1b3; }
+:root[data-theme="dark"] .callout.blue_background   { background: #1f3340; color: #cfe2eb; }
+:root[data-theme="dark"] .callout.orange_background { background: #3d2a1c; color: #f1d6b4; }
+:root[data-theme="dark"] .callout.purple_background { background: #2e2238; color: #ddc8eb; }
+:root[data-theme="dark"] .callout.pink_background   { background: #392331; color: #ebcde0; }
+:root[data-theme="dark"] .callout.brown_background  { background: #322821; color: #ddc7b6; }
+:root[data-theme="dark"] .callout.gray_background,
+:root[data-theme="dark"] .callout.gray_bg           { background: #2a2a2e; color: #e0e0dc; }
+:root[data-theme="dark"] .callout a { color: inherit; }
 
 /* Toggle blocks — Notion-style ▶ + indented body */
 .wiki-page .page-content details {
@@ -778,14 +795,14 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	gap: 0.45rem;
 	padding: 0.15rem 0;
 	font-weight: 500;
-	color: #37352f;
+	color: var(--text-dark);
 	font-family: inherit;
 }
 .wiki-page .page-content summary::-webkit-details-marker { display: none; }
 .wiki-page .page-content summary::before {
 	content: '▶';
 	font-size: 0.7em;
-	color: rgba(55, 53, 47, 0.5);
+	color: var(--muted);
 	transition: transform 0.15s;
 	margin-top: 6px;
 	flex-shrink: 0;
