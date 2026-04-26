@@ -20,4 +20,4 @@ tags: ['нетворкинг']
   <source src="/video/posts/2025-04-18-vov-otkuda-u-tebia-stolko-podpischikov-v-pioblog-281/16.04.2025 (2).mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/281)
+[Оригинал в Telegram →](https://t.me/pioblog/281)

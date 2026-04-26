@@ -31,4 +31,4 @@ tags: ['творчество']
   <source src="/video/posts/2026-01-13-zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392/саммаризация_threshold_0.0100.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/392)
+[Оригинал в Telegram →](https://t.me/pioblog/392)

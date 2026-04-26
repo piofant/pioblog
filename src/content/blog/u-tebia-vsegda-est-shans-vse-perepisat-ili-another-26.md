@@ -12,4 +12,4 @@ tags: ['истории', 'школа жизни']
 <script async src="https://telegram.org/js/telegram-widget.js?22"
         data-telegram-post="pioblog/26" data-width="100%"></script>
 
-[Оригинал в Telegram →](https://t.me/26)
+[Оригинал в Telegram →](https://t.me/pioblog/26)

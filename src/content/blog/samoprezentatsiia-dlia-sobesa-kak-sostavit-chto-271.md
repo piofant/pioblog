@@ -39,4 +39,4 @@ Upd: написал </blog/ia-prikrepil-video-samoprezentatsiiu-k-100-272-2025-0
   <source src="/video/posts/2025-03-12-samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271/11.03.2025 (6) .mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/271)
+[Оригинал в Telegram →](https://t.me/pioblog/271)

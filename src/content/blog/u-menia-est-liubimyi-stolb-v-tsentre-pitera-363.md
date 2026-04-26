@@ -32,6 +32,6 @@ tags: ['безумие', 'школа жизни', 'жизнь']
   <source src="/video/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/video_5@11-10-2025_18-49-14.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/363)
+[Оригинал в Telegram →](https://t.me/pioblog/363)
 
 ![](/img/posts/2025-10-11-u-menia-est-liubimyi-stolb-v-tsentre-pitera-363/photo_220@11-10-2025_18-49-14.jpg)

@@ -21,6 +21,6 @@ tags: ['нетворкинг', 'трипы', 'психология', 'анонс
 <script async src="https://telegram.org/js/telegram-widget.js?22"
         data-telegram-post="pioblog/329" data-width="100%"></script>
 
-[Оригинал в Telegram →](https://t.me/329)
+[Оригинал в Telegram →](https://t.me/pioblog/329)
 
 ![](/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg)

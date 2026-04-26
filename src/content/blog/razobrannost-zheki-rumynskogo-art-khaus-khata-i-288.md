@@ -42,7 +42,7 @@ tags: ['нетворкинг', 'психология', 'школа жизни']
   <source src="/video/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/жека.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/288)
+[Оригинал в Telegram →](https://t.me/pioblog/288)
 
 ![](/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_156@11-05-2025_15-25-02.jpg)
 

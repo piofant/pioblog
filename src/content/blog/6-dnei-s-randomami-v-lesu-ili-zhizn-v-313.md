@@ -45,12 +45,12 @@ as always, в [дискавери трипе](/blog/chto-takoe-tripy-v-diskaveri
   <source src="/video/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/video_2@13-07-2025_19-57-39.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/313)
+[Оригинал в Telegram →](https://t.me/pioblog/313)
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
   <source src="/video/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/video_3@13-07-2025_19-57-39.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/313)
+[Оригинал в Telegram →](https://t.me/pioblog/313)
 
 ![](/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/photo_181@13-07-2025_19-57-39.jpg)

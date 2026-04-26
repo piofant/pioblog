@@ -10,4 +10,4 @@ tags: ['жизнь', 'истории']
   <source src="/video/posts/2022-01-02-vyiasnitsia-chto-uchitelnitsa-to-byla-nuzhna-ne-74/test.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/74)
+[Оригинал в Telegram →](https://t.me/pioblog/74)

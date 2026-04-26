@@ -19,4 +19,4 @@ tags: ['продакт', 'рефлексия', 'карьера']
   <source src="/video/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2).mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/238)
+[Оригинал в Telegram →](https://t.me/pioblog/238)

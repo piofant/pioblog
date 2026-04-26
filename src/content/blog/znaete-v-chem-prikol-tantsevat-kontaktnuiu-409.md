@@ -25,4 +25,4 @@ tags: ['танцы', 'контактная импровизация']
   <source src="/video/posts/2026-03-19-znaete-v-chem-prikol-tantsevat-kontaktnuiu-409/ci.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/409)
+[Оригинал в Telegram →](https://t.me/pioblog/409)

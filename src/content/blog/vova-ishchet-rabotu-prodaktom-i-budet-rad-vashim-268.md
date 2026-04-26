@@ -33,4 +33,4 @@ tags: ['продакт', 'карьера', 'школа жизни']
   <source src="/video/posts/2025-03-04-vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/video_1@04-03-2025_11-19-05.mp4" type="video/mp4">
 </video>
 
-[Оригинал в Telegram →](https://t.me/268)
+[Оригинал в Telegram →](https://t.me/pioblog/268)
