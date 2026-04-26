@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
 const PRES_ID = '1qZTjkXzEI71DS-xRjUyOwCUxneD2lRuS01ARNtuzPKY';
-// Default Google Slides embed — keeps the built-in nav controls (prev/next + fullscreen)
 const embedUrl = `https://docs.google.com/presentation/d/${PRES_ID}/embed?start=false&loop=false&delayms=3000`;
 const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=sharing`;
 ---
@@ -14,9 +13,13 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 	<head>
 		<BaseHead title="презентация" description={`Презентация — ${SITE_TITLE}`} />
 		<style>
+			/* No-scroll page when sources are collapsed */
+			html, body { overflow-x: hidden; }
+			body:has(.talk-sources details:not([open])) { overflow-y: hidden; }
+
 			main.talk {
 				max-width: none;
-				padding: 1rem;
+				padding: 0.75rem 1rem 1rem;
 			}
 			.talk-meta {
 				display: flex; align-items: center; justify-content: space-between;
@@ -24,19 +27,22 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				font-family: var(--font-ui), system-ui, sans-serif;
 				font-size: 0.875rem;
 				color: var(--muted);
-				margin: 0 0 0.75rem;
+				margin: 0 0 0.6rem;
 			}
 			.talk-meta a {
 				color: var(--text-dark);
 				font-weight: 600;
 			}
 			.talk-meta a:hover { color: var(--link); }
-			/* Slide area is 16:9 (=56.25% of width); the player adds a ~40px
-			   bottom toolbar. Container height = slide + toolbar — no black bars. */
+
+			/* Google Slides embed canonical aspect = 960:569 (slide 16:9 + ~29px toolbar).
+			   padding-bottom 59.27% matches it exactly — no black bars.
+			   Account for header (~60px) + meta (~30px) + page padding + sources summary (~46px). */
 			.talk-frame {
 				position: relative;
-				width: min(100%, calc((100vh - 8rem - 40px) * 16 / 9));
-				padding-bottom: calc(56.25% + 40px);
+				width: min(100%, calc((100vh - 12rem) * 960 / 569));
+				padding-bottom: 59.27%;
+				max-height: calc(100vh - 12rem);
 				height: 0;
 				margin: 0 auto;
 				border: 1px solid var(--border);
@@ -49,7 +55,6 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				width: 100%; height: 100%;
 				border: 0; display: block;
 			}
-			/* Cover the «Google Slides» watermark in the toolbar */
 			.talk-frame::after {
 				content: '';
 				position: absolute;
@@ -58,22 +63,52 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				background: #f1f3f4;
 				pointer-events: none;
 			}
+
+			/* Sources block — collapsible <details> */
 			.talk-sources {
-				width: min(100%, calc((100vh - 8rem) * 16 / 9));
-				margin: 1.5rem auto 0;
-				padding: 1.25rem 1.5rem;
-				border: 1px solid var(--border);
-				border-radius: 4px;
-				background: var(--border-soft);
+				width: min(100%, calc((100vh - 12rem) * 960 / 569));
+				margin: 0.6rem auto 0;
 				font-family: var(--font-ui), system-ui, sans-serif;
 			}
-			.talk-sources h3 {
+			.talk-sources details > summary {
 				font-size: 0.8125rem;
 				text-transform: uppercase;
 				letter-spacing: 0.08em;
+				color: var(--text);
+				font-weight: 600;
+				cursor: pointer;
+				padding: 0.55rem 0.9rem;
+				user-select: none;
+				list-style: none;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				background: var(--border-soft);
+				border: 1px solid var(--border);
+				border-radius: 999px;
+				transition: background 0.15s, border-color 0.15s, transform 0.15s;
+			}
+			.talk-sources details > summary::-webkit-details-marker { display: none; }
+			.talk-sources details > summary::before {
+				content: '▸';
+				font-size: 0.75rem;
 				color: var(--muted);
-				font-weight: 700;
-				margin: 0 0 0.75rem;
+				transition: transform 0.15s;
+				display: inline-block;
+			}
+			.talk-sources details[open] > summary::before { transform: rotate(90deg); }
+			.talk-sources details > summary:hover {
+				background: var(--bg);
+				border-color: var(--text);
+				transform: translateY(-1px);
+			}
+			.talk-sources details[open] > summary {
+				background: transparent;
+				border-color: transparent;
+				padding-left: 0;
+			}
+			.talk-sources .body {
+				padding: 0.75rem 1rem 0;
 			}
 			.talk-sources ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
 			.talk-sources li { font-size: 0.9375rem; line-height: 1.5; }
@@ -87,7 +122,7 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 		<Header />
 		<main class="content talk">
 			<div class="talk-meta">
-				<span>презентация · стрелки переключения и fullscreen появляются при наведении</span>
+				<span>стрелки переключения и fullscreen появляются при наведении</span>
 				<a href={editUrl} target="_blank" rel="noopener">открыть в Google Slides ↗</a>
 			</div>
 			<div class="talk-frame">
@@ -101,25 +136,29 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 			</div>
 
 			<aside class="talk-sources">
-				<h3>Источники вдохновения</h3>
-				<ul>
-					<li>
-						<span class="who">@vitalypavlenko · «общая теория тус»</span>
-						<span class="desc">— <a href="https://t.me/thingsiread/7473" target="_blank" rel="noopener">t.me/thingsiread/7473</a></span>
-					</li>
-					<li>
-						<span class="who">@rikachka</span>
-						<span class="desc">— <a href="https://t.me/random_random_thoughts/267" target="_blank" rel="noopener">t.me/random_random_thoughts/267</a></span>
-					</li>
-					<li>
-						<span class="who">@i_m_kittah</span>
-						<span class="desc">— <a href="https://t.me/explore_feel_analyse/55" target="_blank" rel="noopener">t.me/explore_feel_analyse/55</a></span>
-					</li>
-					<li>
-						<span class="who">@piofant</span>
-						<span class="desc">— <a href="https://t.me/pioblog/76" target="_blank" rel="noopener">t.me/pioblog/76</a></span>
-					</li>
-				</ul>
+				<details>
+					<summary>источники вдохновения</summary>
+					<div class="body">
+						<ul>
+							<li>
+								<span class="who">@vitalypavlenko · «общая теория тус»</span>
+								<span class="desc">— <a href="https://t.me/thingsiread/7473" target="_blank" rel="noopener">t.me/thingsiread/7473</a></span>
+							</li>
+							<li>
+								<span class="who">@rikachka</span>
+								<span class="desc">— <a href="https://t.me/random_random_thoughts/267" target="_blank" rel="noopener">t.me/random_random_thoughts/267</a></span>
+							</li>
+							<li>
+								<span class="who">@i_m_kittah</span>
+								<span class="desc">— <a href="https://t.me/explore_feel_analyse/55" target="_blank" rel="noopener">t.me/explore_feel_analyse/55</a></span>
+							</li>
+							<li>
+								<span class="who">@piofant</span>
+								<span class="desc">— <a href="https://t.me/pioblog/76" target="_blank" rel="noopener">t.me/pioblog/76</a></span>
+							</li>
+						</ul>
+					</div>
+				</details>
 			</aside>
 		</main>
 	</body>
