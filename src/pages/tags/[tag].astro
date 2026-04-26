@@ -119,10 +119,92 @@ function excerptOf(body: string, words = 20): string {
 			<p style="color: var(--muted); margin: 0 0 1.5rem;">{posts.length} постов</p>
 
 			{showSubgraph && (
-				<div class="mini-graph-wrap" style="margin-top: 0; padding-top: 0; border-top: 0;">
+				<div class="mini-graph-wrap" style="margin-top: 0; padding-top: 0; border-top: 0; position: relative;">
 					<div class="mini-graph" id="tag-graph" style="height: 380px;"></div>
+					<div class="node-popup" id="node-popup" hidden>
+						<button type="button" class="popup-close" id="popup-close" aria-label="Закрыть">×</button>
+						<div class="popup-inner">
+							<div class="popup-thumb" id="popup-thumb"></div>
+							<div class="popup-body">
+								<div class="popup-date" id="popup-date"></div>
+								<div class="popup-title" id="popup-title"></div>
+								<div class="popup-sub" id="popup-sub"></div>
+								<a class="popup-cta" id="popup-cta" href="#">Открыть пост →</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			)}
+
+			<style>
+				.node-popup {
+					position: absolute;
+					background: #fff;
+					border: 1px solid var(--border);
+					border-radius: 8px;
+					box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+					max-width: 320px;
+					padding: 12px 14px;
+					z-index: 50;
+					font-family: var(--font-ui), system-ui, sans-serif;
+				}
+				.node-popup[hidden] { display: none; }
+				.popup-close {
+					position: absolute;
+					top: 4px;
+					right: 8px;
+					background: none;
+					border: 0;
+					font-size: 18px;
+					line-height: 1;
+					cursor: pointer;
+					color: var(--muted-2);
+					padding: 4px 6px;
+				}
+				.popup-close:hover { color: var(--text-dark); }
+				.popup-inner { display: flex; gap: 10px; align-items: flex-start; }
+				.popup-thumb {
+					flex: 0 0 64px;
+					width: 64px;
+					height: 64px;
+					border-radius: 6px;
+					background: var(--border-soft);
+					background-size: cover;
+					background-position: center;
+				}
+				.popup-thumb.empty { display: none; }
+				.popup-body { flex: 1; min-width: 0; }
+				.popup-date {
+					font-size: 11px;
+					color: var(--muted-2);
+					text-transform: uppercase;
+					letter-spacing: 0.05em;
+					margin-bottom: 2px;
+				}
+				.popup-title {
+					font-family: var(--font-heading), sans-serif;
+					font-weight: 700;
+					font-size: 0.95rem;
+					line-height: 1.3;
+					color: var(--text-dark);
+					margin-bottom: 4px;
+				}
+				.popup-sub {
+					font-size: 0.8125rem;
+					color: var(--muted);
+					line-height: 1.4;
+					margin-bottom: 8px;
+				}
+				.popup-sub:empty { display: none; }
+				.popup-cta {
+					display: inline-block;
+					font-size: 0.8125rem;
+					font-weight: 600;
+					color: var(--link);
+					text-decoration: none;
+				}
+				.popup-cta:hover { color: var(--link-hover); }
+			</style>
 
 			<ul class="posts-list" style="margin-top: 1.5rem;">
 				{posts.map((post) => (
@@ -157,6 +239,47 @@ function excerptOf(body: string, words = 20): string {
 						'друзья':'#f97316','мнения':'#64748b',
 					};
 					const el = document.getElementById('tag-graph');
+					const popup = document.getElementById('node-popup');
+					const popupClose = document.getElementById('popup-close');
+					const popupThumb = document.getElementById('popup-thumb');
+					const popupDate = document.getElementById('popup-date');
+					const popupTitle = document.getElementById('popup-title');
+					const popupSub = document.getElementById('popup-sub');
+					const popupCta = document.getElementById('popup-cta');
+
+					function showNodePopup(node) {
+						const containerRect = el.getBoundingClientRect();
+						// node.x/y — координаты внутри canvas, нужно перевести в DOM-пиксели
+						const screen = fg.graph2ScreenCoords(node.x, node.y);
+						let left = screen.x + 12;
+						let top = screen.y - 30;
+						// держим popup в пределах контейнера
+						const maxLeft = containerRect.width - 340;
+						if (left > maxLeft) left = maxLeft;
+						if (left < 8) left = 8;
+						if (top < 8) top = 8;
+						popup.style.left = left + 'px';
+						popup.style.top = top + 'px';
+						if (node.heroImage) {
+							popupThumb.style.backgroundImage = "url('" + node.heroImage + "')";
+							popupThumb.classList.remove('empty');
+						} else {
+							popupThumb.classList.add('empty');
+						}
+						const dt = new Date(node.date);
+						popupDate.textContent = dt.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' });
+						popupTitle.textContent = node.title;
+						popupSub.textContent = node.subtitle || '';
+						popupCta.href = BASE + '/blog/' + node.id + '/';
+						popup.hidden = false;
+					}
+					function hidePopup() { popup.hidden = true; }
+					popupClose.addEventListener('click', hidePopup);
+					document.addEventListener('click', (e) => {
+						if (!popup.contains(e.target) && e.target.tagName !== 'CANVAS') hidePopup();
+					});
+					document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hidePopup(); });
+
 					// degree
 					const deg = new Map();
 					DATA.nodes.forEach(n => deg.set(n.id, 0));
@@ -199,7 +322,7 @@ function excerptOf(body: string, words = 20): string {
 							highlighted = n ? n.id : null;
 							fg.nodeCanvasObjectMode(fg.nodeCanvasObjectMode());
 						})
-						.onNodeClick(n => { window.location.href = BASE + '/blog/' + n.id + '/'; })
+						.onNodeClick(n => { showNodePopup(n); })
 						.cooldownTicks(250)
 						.warmupTicks(100);
 					setTimeout(() => {
