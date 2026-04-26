@@ -108,8 +108,8 @@ code {
 	font-size: 0.9em;
 }
 pre {
-	background: transparent;
-	border: 1px solid var(--text-dark);
+	background: var(--border-soft);
+	border: 1px solid var(--border);
 	border-radius: 2px;
 	padding: 14px 16px;
 	overflow-x: auto;

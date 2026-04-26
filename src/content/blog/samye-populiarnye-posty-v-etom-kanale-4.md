@@ -13,7 +13,7 @@ pubDate: '2020-08-12'
 2022:
 • Сходил на нетворкинг-тусу SNS - [link](/blog/networking-party/)• Открыл для себя физтеховские english-meetup'ы - [link](/blog/eng-meetup/)• Ingress как кусочек моего детства - [link](/blog/ingress/)• Сходил на психчас - [link](/blog/priglasili-na-mental-hour-udivitelno-krinzhovo-94/)• Серендипность aka сверх-удача как образ жизни - [link](/blog/serendipity/)• Школа - всё. ОБЖ-шник и учительница лит-ры - легендарные преподы - [link](/blog/shkola-vse-bolshe-nas-uchit-tam-ne-budut-dalshe-101/)• Мой способ потребления контента о саморазвитии - [link](/blog/consuming-self-development-content/)• random-coffee боты как способ соприкасаться с интересными людьми - [link](/blog/zapis-ot-9-dekabria-2022-113/)
 2021:
-• Про курсы для изучения Python - [link](/blog/pro-kursy-dlia-izucheniia-python-39/)**•** Сходил на ФКН ВШЭ на лекцию к Савватееву - [link](/blog/savvateev-HSE-lecture/)• Прожил один вечер светской жизни - [link](/blog/secular-evening/)• Написал про сильное чувство любви на ИС - [link](/blog/final-russian-lang-school-essay/)
+• Про курсы для изучения Python - [link](/blog/pro-kursy-dlia-izucheniia-python-39/)**•** Сходил на ФКН ВШЭ на лекцию к Савватееву - [link](/blog/savvateev-hse-lecture/)• Прожил один вечер светской жизни - [link](/blog/secular-evening/)• Написал про сильное чувство любви на ИС - [link](/blog/final-russian-lang-school-essay/)
 2020:
 • Как я определяю рефлексию - [link](/blog/chto-prinosit-napisanie-teksta-refleksii-nad-5/)
 
