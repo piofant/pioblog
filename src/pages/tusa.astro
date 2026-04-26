@@ -77,9 +77,10 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 			}
 			.talk-sources ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
 			.talk-sources li { font-size: 0.9375rem; line-height: 1.5; }
-			.talk-sources li a { color: var(--text-dark); font-weight: 600; }
-			.talk-sources li a:hover { color: var(--link); }
+			.talk-sources li .who { color: var(--text-dark); font-weight: 600; }
 			.talk-sources li .desc { color: var(--muted); margin-left: 0.4rem; font-weight: 400; }
+			.talk-sources li .desc a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+			.talk-sources li .desc a:hover { color: var(--link); text-decoration-color: var(--link); }
 		</style>
 	</head>
 	<body>
@@ -103,20 +104,20 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				<h3>Источники вдохновения</h3>
 				<ul>
 					<li>
-						<a href="https://t.me/thingsiread/7473" target="_blank" rel="noopener">@vitalypavlenko · «общая теория тус»</a>
-						<span class="desc">— t.me/thingsiread/7473</span>
+						<span class="who">@vitalypavlenko · «общая теория тус»</span>
+						<span class="desc">— <a href="https://t.me/thingsiread/7473" target="_blank" rel="noopener">t.me/thingsiread/7473</a></span>
 					</li>
 					<li>
-						<a href="https://t.me/random_random_thoughts/267" target="_blank" rel="noopener">@rikachka</a>
-						<span class="desc">— t.me/random_random_thoughts/267</span>
+						<span class="who">@rikachka</span>
+						<span class="desc">— <a href="https://t.me/random_random_thoughts/267" target="_blank" rel="noopener">t.me/random_random_thoughts/267</a></span>
 					</li>
 					<li>
-						<a href="https://t.me/explore_feel_analyse/55" target="_blank" rel="noopener">@i_m_kittah</a>
-						<span class="desc">— t.me/explore_feel_analyse/55</span>
+						<span class="who">@i_m_kittah</span>
+						<span class="desc">— <a href="https://t.me/explore_feel_analyse/55" target="_blank" rel="noopener">t.me/explore_feel_analyse/55</a></span>
 					</li>
 					<li>
-						<a href="https://t.me/pioblog/76" target="_blank" rel="noopener">@piofant</a>
-						<span class="desc">— t.me/pioblog/76</span>
+						<span class="who">@piofant</span>
+						<span class="desc">— <a href="https://t.me/pioblog/76" target="_blank" rel="noopener">t.me/pioblog/76</a></span>
 					</li>
 				</ul>
 			</aside>
