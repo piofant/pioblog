@@ -4,7 +4,8 @@ import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
 const PRES_ID = '1qZTjkXzEI71DS-xRjUyOwCUxneD2lRuS01ARNtuzPKY';
-const embedUrl = `https://docs.google.com/presentation/d/${PRES_ID}/embed?start=false&loop=false&rm=minimal`;
+// Default Google Slides embed — keeps the built-in nav controls (prev/next + fullscreen)
+const embedUrl = `https://docs.google.com/presentation/d/${PRES_ID}/embed?start=false&loop=false&delayms=3000`;
 const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=sharing`;
 ---
 
@@ -30,15 +31,15 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				font-weight: 600;
 			}
 			.talk-meta a:hover { color: var(--link); }
+			/* Container width = min(full container, available_height × 16/9)
+			   so the 16:9 iframe always fills perfectly — no black bars. */
 			.talk-frame {
-				position: relative;
-				width: 100%;
+				width: min(100%, calc((100vh - 8rem) * 16 / 9));
 				aspect-ratio: 16 / 9;
-				max-height: calc(100vh - 9rem);
+				margin: 0 auto;
 				border: 1px solid var(--border);
 				border-radius: 4px;
 				overflow: hidden;
-				background: #000;
 			}
 			.talk-frame iframe {
 				width: 100%; height: 100%;
@@ -50,7 +51,7 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 		<Header />
 		<main class="content talk">
 			<div class="talk-meta">
-				<span>презентация · стрелки внизу плеера, fullscreen в правом нижнем углу</span>
+				<span>презентация · стрелки переключения и fullscreen появляются при наведении</span>
 				<a href={editUrl} target="_blank" rel="noopener">открыть в Google Slides ↗</a>
 			</div>
 			<div class="talk-frame">
