@@ -11,38 +11,60 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 <!doctype html>
 <html lang="ru">
 	<head>
-		<BaseHead title="презентация" description={`Презентация — ${SITE_TITLE}`} />
+		<BaseHead title="как перезнакомить 40 айтишников за один вечер" description={`Доклад про контекст знакомства — ${SITE_TITLE}`} />
 		<style>
-			/* No-scroll page when sources are collapsed */
 			html, body { overflow-x: hidden; }
-			body:has(.talk-sources details:not([open])) { overflow-y: hidden; }
+			body:has(.talk-spoilers details:not([open])):not(:has(.talk-spoilers details[open])) {
+				overflow-y: hidden;
+			}
 
 			main.talk {
 				max-width: none;
-				padding: 0.75rem 1rem 1rem;
-			}
-			.talk-meta {
-				display: flex; align-items: center; justify-content: space-between;
-				gap: 1rem; flex-wrap: wrap;
+				padding: 0.6rem 1rem 1rem;
 				font-family: var(--font-ui), system-ui, sans-serif;
-				font-size: 0.875rem;
-				color: var(--muted);
-				margin: 0 0 0.6rem;
 			}
-			.talk-meta a {
+
+			/* Hero — compact title block */
+			.talk-hero {
+				width: min(100%, calc((100vh - 16rem) * 960 / 569));
+				margin: 0 auto 0.6rem;
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 1rem;
+				flex-wrap: wrap;
+			}
+			.talk-hero h1 {
+				font-family: var(--font-heading), 'Play', sans-serif;
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: var(--text-dark);
+				margin: 0;
+				line-height: 1.15;
+			}
+			.talk-hero .sub {
+				color: var(--muted);
+				font-size: 0.9375rem;
+				margin: 0.15rem 0 0;
+				line-height: 1.3;
+			}
+			.talk-hero .meta {
+				font-size: 0.8125rem;
+				color: var(--muted-2);
+				white-space: nowrap;
+			}
+			.talk-hero .meta a {
 				color: var(--text-dark);
 				font-weight: 600;
 			}
-			.talk-meta a:hover { color: var(--link); }
+			.talk-hero .meta a:hover { color: var(--link); }
 
-			/* Google Slides embed canonical aspect = 960:569 (slide 16:9 + ~29px toolbar).
-			   padding-bottom 59.27% matches it exactly — no black bars.
-			   Account for header (~60px) + meta (~30px) + page padding + sources summary (~46px). */
+			/* Iframe — 960:569 canonical aspect, no black bars */
 			.talk-frame {
 				position: relative;
-				width: min(100%, calc((100vh - 12rem) * 960 / 569));
+				width: min(100%, calc((100vh - 16rem) * 960 / 569));
 				padding-bottom: 59.27%;
-				max-height: calc(100vh - 12rem);
+				max-height: calc(100vh - 16rem);
 				height: 0;
 				margin: 0 auto;
 				border: 1px solid var(--border);
@@ -64,67 +86,107 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				pointer-events: none;
 			}
 
-			/* Sources block — collapsible <details> */
-			.talk-sources {
-				width: min(100%, calc((100vh - 12rem) * 960 / 569));
-				margin: 0.6rem auto 0;
-				font-family: var(--font-ui), system-ui, sans-serif;
+			/* Spoiler chip row */
+			.talk-spoilers {
+				width: min(100%, calc((100vh - 16rem) * 960 / 569));
+				margin: 0.75rem auto 0;
+				display: flex;
+				gap: 0.5rem;
+				flex-wrap: wrap;
 			}
-			.talk-sources details > summary {
+			.talk-spoilers details {
+				flex: 1 1 auto;
+				min-width: 0;
+			}
+			.talk-spoilers details > summary {
 				font-size: 0.8125rem;
 				text-transform: uppercase;
-				letter-spacing: 0.08em;
+				letter-spacing: 0.06em;
 				color: var(--text);
 				font-weight: 600;
 				cursor: pointer;
-				padding: 0.55rem 0.9rem;
+				padding: 0.5rem 0.85rem;
 				user-select: none;
 				list-style: none;
 				display: inline-flex;
 				align-items: center;
-				gap: 0.5rem;
+				gap: 0.4rem;
 				background: var(--border-soft);
 				border: 1px solid var(--border);
 				border-radius: 999px;
 				transition: background 0.15s, border-color 0.15s, transform 0.15s;
 			}
-			.talk-sources details > summary::-webkit-details-marker { display: none; }
-			.talk-sources details > summary::before {
+			.talk-spoilers details > summary::-webkit-details-marker { display: none; }
+			.talk-spoilers details > summary::before {
 				content: '▸';
-				font-size: 0.75rem;
+				font-size: 0.7rem;
 				color: var(--muted);
 				transition: transform 0.15s;
-				display: inline-block;
 			}
-			.talk-sources details[open] > summary::before { transform: rotate(90deg); }
-			.talk-sources details > summary:hover {
+			.talk-spoilers details[open] > summary::before { transform: rotate(90deg); }
+			.talk-spoilers details > summary:hover {
 				background: var(--bg);
 				border-color: var(--text);
-				transform: translateY(-1px);
 			}
-			.talk-sources details[open] > summary {
+			.talk-spoilers details[open] > summary {
 				background: transparent;
 				border-color: transparent;
 				padding-left: 0;
 			}
-			.talk-sources .body {
-				padding: 0.75rem 1rem 0;
+
+			/* Each spoiler body — full-width when open */
+			.talk-spoilers details[open] {
+				flex: 1 1 100%;
 			}
-			.talk-sources ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
-			.talk-sources li { font-size: 0.9375rem; line-height: 1.5; }
-			.talk-sources li .who { color: var(--text-dark); font-weight: 600; }
-			.talk-sources li .desc { color: var(--muted); margin-left: 0.4rem; font-weight: 400; }
-			.talk-sources li .desc a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
-			.talk-sources li .desc a:hover { color: var(--link); text-decoration-color: var(--link); }
+			.talk-spoilers details .body {
+				margin-top: 0.6rem;
+				padding: 1.1rem 1.3rem;
+				background: var(--border-soft);
+				border: 1px solid var(--border);
+				border-radius: 6px;
+				font-size: 0.9375rem;
+				line-height: 1.6;
+			}
+			.talk-spoilers details .body p { margin: 0 0 0.7rem; }
+			.talk-spoilers details .body p:last-child { margin-bottom: 0; }
+			.talk-spoilers details .body a { color: var(--link); font-weight: 600; }
+			.talk-spoilers details .body a:hover { color: var(--link-hover); }
+
+			/* Sources list */
+			.sources-list { list-style: none; padding: 0; margin: 0.5rem 0 0; display: grid; gap: 0.5rem; }
+			.sources-list li { font-size: 0.9375rem; line-height: 1.5; }
+			.sources-list .who { color: var(--text-dark); font-weight: 600; }
+			.sources-list .desc { color: var(--muted); margin-left: 0.4rem; font-weight: 400; }
+			.sources-list .desc a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; font-weight: 400; }
+			.sources-list .desc a:hover { color: var(--link); text-decoration-color: var(--link); }
+
+			/* CTA buttons inside «пригласить» spoiler */
+			.invite-cta { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.6rem; }
+			.invite-cta a {
+				display: inline-flex; align-items: center; gap: 0.4rem;
+				padding: 0.55rem 1rem; border-radius: 4px;
+				font-size: 0.9375rem; font-weight: 600;
+				transition: background 0.15s, color 0.15s, border-color 0.15s;
+			}
+			.invite-cta a.primary { background: var(--text-dark); color: #fff; }
+			.invite-cta a.primary:hover { background: var(--link); color: #fff; }
+			.invite-cta a.ghost { background: transparent; color: var(--text-dark); border: 1px solid var(--border); }
+			.invite-cta a.ghost:hover { border-color: var(--text-dark); }
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main class="content talk">
-			<div class="talk-meta">
-				<span>стрелки переключения и fullscreen появляются при наведении</span>
-				<a href={editUrl} target="_blank" rel="noopener">открыть в Google Slides ↗</a>
-			</div>
+			<header class="talk-hero">
+				<div>
+					<h1>как перезнакомить 40 айтишников за один вечер</h1>
+					<p class="sub">или что такое «контекст знакомства» и как его создать</p>
+				</div>
+				<span class="meta">
+					~15 мин · доклад · <a href={editUrl} target="_blank" rel="noopener">открыть в Google Slides ↗</a>
+				</span>
+			</header>
+
 			<div class="talk-frame">
 				<iframe
 					src={embedUrl}
@@ -135,11 +197,44 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				></iframe>
 			</div>
 
-			<aside class="talk-sources">
+			<div class="talk-spoilers">
+				<details>
+					<summary>о чём это</summary>
+					<div class="body">
+						<p>
+							Как из 40 случайных людей за вечер собрать тусу с настоящими знакомствами — не «визитки»,
+							а живой контакт, после которого хочется писать друг другу.
+						</p>
+						<p>
+							Концепт «контекст знакомства»: как его инженерить, какие фишки реально работают,
+							а какие — иллюзия. Из личного опыта проведения нетворкинг-тус и анализа того, что делают
+							другие хорошие хосты.
+						</p>
+						<p>
+							Для кого: организаторы тус и эвентов, тимлиды и продакты, кто хочет построить комьюнити,
+							или просто люди, которым хочется, чтобы на их домашней вечеринке было по-другому.
+						</p>
+					</div>
+				</details>
+
+				<details>
+					<summary>пригласить выступить</summary>
+					<div class="body">
+						<p>
+							Готов рассказать на твоём ивенте — конференция, корп, тусовка, что угодно.
+							Адаптирую под аудиторию.
+						</p>
+						<div class="invite-cta">
+							<a class="primary" href="https://t.me/piofant" target="_blank" rel="noopener">написать в Telegram</a>
+							<a class="ghost" href="mailto:vovalutsenko14@gmail.com">vovalutsenko14@gmail.com</a>
+						</div>
+					</div>
+				</details>
+
 				<details>
 					<summary>источники вдохновения</summary>
 					<div class="body">
-						<ul>
+						<ul class="sources-list">
 							<li>
 								<span class="who">@vitalypavlenko · «общая теория тус»</span>
 								<span class="desc">— <a href="https://t.me/thingsiread/7473" target="_blank" rel="noopener">t.me/thingsiread/7473</a></span>
@@ -159,7 +254,7 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 						</ul>
 					</div>
 				</details>
-			</aside>
+			</div>
 		</main>
 	</body>
 </html>
