@@ -50,6 +50,27 @@ for (const [tag, ids] of byTag) {
 
 const graphData = { nodes, links: [...edges.values()] };
 const graphJson = JSON.stringify(graphData);
+
+// Try to load tag-categories palette (may not exist — graceful fallback).
+// Use import.meta.glob with eager resolution: returns empty object if file is absent,
+// avoiding hard build error from a static import to a missing path.
+let tagCategoryPalette: Record<string, string> | null = null;
+try {
+	const modules = import.meta.glob('../data/tag-categories.ts', { eager: true }) as Record<string, any>;
+	const mod = Object.values(modules)[0];
+	if (mod) {
+		const candidate =
+			mod.tagColors ??
+			mod.tagCategoryColors ??
+			mod.default ??
+			null;
+		if (candidate && typeof candidate === 'object') {
+			tagCategoryPalette = candidate as Record<string, string>;
+		}
+	}
+} catch {
+	tagCategoryPalette = null;
+}
 ---
 
 <!doctype html>
@@ -67,6 +88,14 @@ const graphJson = JSON.stringify(graphData);
 			.pill button.mode.active { background: #fff; color: #111; border-color: #fff; }
 			.pill input { background: #1a1a1a; border: 1px solid #3a3a3a; color: #eee; padding: 6px 10px; border-radius: 4px; width: 240px; font: 13px inherit; }
 			.pill input::placeholder { color: #666; }
+			.pill button.dice { background: #1a1a1a; border-color: #3a3a3a; }
+			.pill button.dice:hover { background: #2a2a2a; }
+			.chips-row { position: fixed; top: 56px; left: 12px; right: 12px; z-index: 9; display: flex; gap: 6px; flex-wrap: wrap; max-width: calc(100vw - 24px); }
+			.chip { background: rgba(20,20,20,.92); border: 1px solid #333; color: #ccc; padding: 4px 10px; border-radius: 999px; font: 12px inherit; cursor: pointer; user-select: none; display: inline-flex; align-items: center; gap: 6px; transition: background .15s, border-color .15s; }
+			.chip:hover { background: rgba(40,40,40,.95); border-color: #555; }
+			.chip.active { background: rgba(255,140,0,.18); border-color: #ff8c00; color: #fff; }
+			.chip .sw { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+			.chip .count { opacity: .5; font-size: 10px; }
 			.hint { position: fixed; bottom: 12px; left: 12px; z-index: 10; font-size: 12px; color: #999; background: rgba(20,20,20,.8); padding: 8px 12px; border-radius: 6px; max-width: 540px; line-height: 1.5; }
 			.stage { position: fixed; inset: 0; }
 			.info-pill { position: fixed; top: 12px; right: 12px; z-index: 10; background: rgba(20,20,20,.95); border: 1px solid #333; padding: 12px 14px; border-radius: 8px; max-width: 400px; font-size: 13px; display: none; }
@@ -74,13 +103,10 @@ const graphJson = JSON.stringify(graphData);
 			.info-pill strong { display: block; margin-bottom: 4px; color: #fff; }
 			.info-pill .meta { color: #999; font-size: 11px; margin-top: 6px; line-height: 1.5; }
 			.info-pill a { color: #ff8c00; text-decoration: none; font-size: 11px; margin-top: 6px; display: inline-block; }
-			.legend { position: fixed; bottom: 12px; right: 12px; z-index: 10; background: rgba(20,20,20,.92); padding: 10px 12px; border-radius: 8px; font-size: 11px; border: 1px solid #333; max-width: 240px; }
-			.legend .row { display: flex; align-items: center; gap: 6px; margin: 3px 0; cursor: pointer; padding: 2px 4px; border-radius: 3px; user-select: none; }
-			.legend .row:hover { background: rgba(255,255,255,.06); }
-			.legend .row.active { background: rgba(255,140,0,0.15); }
-			.legend .row .count { margin-left: auto; opacity: .5; font-size: 10px; }
-			.legend .sw { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+			.legend { position: fixed; bottom: 12px; right: 12px; z-index: 10; background: rgba(20,20,20,.92); padding: 10px 12px; border-radius: 8px; font-size: 11px; border: 1px solid #333; max-width: 220px; color: #aaa; line-height: 1.55; }
+			.legend strong { color: #fff; font-weight: 600; }
 			.legend .title { font-weight: 600; color: #fff; margin-bottom: 6px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; opacity: .6; }
+			.legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(90deg,#ff4200,#1e40af,#10b981); vertical-align: middle; margin-right: 4px; }
 		</style>
 	</head>
 	<body>
@@ -94,19 +120,27 @@ const graphJson = JSON.stringify(graphData);
 			</div>
 			<div class="pill">
 				<input id="search" type="text" placeholder="поиск по заголовку…" />
+				<button id="dice" class="dice" title="случайный пост">🎲 случайный</button>
 				<button id="reset">сброс</button>
 			</div>
 		</div>
 
+		<div class="chips-row" id="chips"></div>
+
 		<div class="info-pill" id="info"></div>
-		<div class="legend" id="legend"></div>
+		<div class="legend" id="legend">
+			<div class="title">легенда</div>
+			<div><span class="dot"></span><strong>цвет</strong> — категория тега</div>
+			<div style="margin-top:4px;"><strong>размер ноды</strong> — число связей</div>
+			<div style="margin-top:4px; opacity:.7;">наведи — соседи подсветятся</div>
+		</div>
 		<div class="stage" id="stage"></div>
 		<div class="hint">
-			<strong>{nodes.length} постов · {graphData.links.length} связей</strong>. drag — pan · wheel — zoom · click — фокус · клик на тег (легенда) — фильтр
+			<strong>{nodes.length} постов · {graphData.links.length} связей</strong>. drag — pan · wheel — zoom · click — фокус · чипы сверху — мульти-фильтр по тегам
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/force-graph@1.49.5/dist/force-graph.min.js" is:inline></script>
-		<script define:vars={{ DATA: graphData, BASE: base }} is:inline>
+		<script define:vars={{ DATA: graphData, BASE: base, EXTERNAL_PALETTE: tagCategoryPalette }} is:inline>
 			const neighbors = new Map();
 			DATA.nodes.forEach(n => neighbors.set(n.id, new Set()));
 			DATA.links.forEach(l => {
@@ -118,7 +152,8 @@ const graphJson = JSON.stringify(graphData);
 				n.deg = neighbors.get(n.id)?.size || 0;
 				n.primaryTag = (n.tags || []).find(t => !metaTags.has(t)) || 'разное';
 			});
-			const tagPalette = [
+			// Inline fallback palette — used if EXTERNAL_PALETTE (from src/data/tag-categories.ts) is missing.
+			const fallbackPalette = [
 				['продакт','#ff4200'], ['карьера','#e11d48'], ['школа жизни','#f59e0b'],
 				['вуз','#1e40af'], ['трипы','#10b981'], ['рефлексия','#8b5cf6'],
 				['психология','#a855f7'], ['нетворкинг','#06b6d4'], ['безумие','#ec4899'],
@@ -126,16 +161,24 @@ const graphJson = JSON.stringify(graphData);
 				['боты','#22c55e'], ['танцы','#d946ef'], ['творчество','#eab308'],
 				['жизнь','#84cc16'], ['друзья','#f97316'], ['мнения','#64748b'],
 			];
-			const tagColor = new Map(tagPalette);
+			const tagColor = new Map(fallbackPalette);
+			// Layer external palette on top — its colors win when present.
+			if (EXTERNAL_PALETTE && typeof EXTERNAL_PALETTE === 'object') {
+				for (const [k, v] of Object.entries(EXTERNAL_PALETTE)) {
+					if (typeof v === 'string') tagColor.set(k, v);
+				}
+			}
 			function colorByTag(n) { return tagColor.get(n.primaryTag) || '#777'; }
 
 			const stage = document.getElementById('stage');
 			const info = document.getElementById('info');
 			const legend = document.getElementById('legend');
+			const chipsEl = document.getElementById('chips');
 			let current = null;
-			let activeFilter = null;
-			let highlightNode = null;
-			let mode = 'posts';  // 'posts' | 'tags'
+			let mode = 'posts';                    // 'posts' | 'tags'
+			const selectedTags = new Set();        // multi-select primary-tag chips
+			let searchQuery = '';                  // lowercased title query (live)
+			let hoverId = null;                    // hovered node id (for neighbor highlight)
 
 			// Build tag co-occurrence graph
 			const tagGraph = (() => {
@@ -177,86 +220,161 @@ const graphJson = JSON.stringify(graphData);
 					'<a href="' + BASE + '/blog/' + node.id + '/">открыть пост →</a>';
 				info.classList.add('show');
 			}
-			function renderLegend() {
-				const counts = new Map();
-				DATA.nodes.forEach(n => counts.set(n.primaryTag, (counts.get(n.primaryTag) || 0) + 1));
-				legend.innerHTML = '<div class="title">клик — фильтр</div>' +
-					tagPalette.filter(([t]) => counts.has(t)).map(([t, c]) =>
-						'<div class="row ' + (activeFilter === t ? 'active' : '') + '" data-tag="' + t + '">' +
-						'<span class="sw" style="background:' + c + '"></span>' + t +
-						'<span class="count">' + counts.get(t) + '</span></div>'
-					).join('');
-				legend.querySelectorAll('.row').forEach(r =>
-					r.addEventListener('click', () => applyFilter(r.dataset.tag))
-				);
-			}
-			function applyFilter(tag) {
-				if (activeFilter === tag) { clearFilter(); return; }
-				activeFilter = tag; highlightNode = null;
-				const keep = new Set();
-				DATA.nodes.forEach(n => { if (n.primaryTag === tag) keep.add(n.id); });
-				const expanded = new Set(keep);
-				DATA.links.forEach(l => {
-					const s = typeof l.source === 'object' ? l.source.id : l.source;
-					const t = typeof l.target === 'object' ? l.target.id : l.target;
-					if (keep.has(s)) expanded.add(t);
-					if (keep.has(t)) expanded.add(s);
-				});
-				render({ nodeFilter: id => expanded.has(id), primaryIds: keep });
-			}
-			function clearFilter() {
-				activeFilter = null; highlightNode = null;
-				render();
-			}
-			function focusNode(id) {
-				const neighborIds = new Set([id, ...(neighbors.get(id) || [])]);
-				highlightNode = id;
-				render({ nodeFilter: n => neighborIds.has(n), primaryIds: new Set([id]) });
-				setTimeout(() => {
-					const node = DATA.nodes.find(n => n.id === id);
-					if (node && current && current.centerAt) current.centerAt(node.x, node.y, 800).zoom(3, 800);
-				}, 300);
+
+			// Returns the set of node ids that pass the current chip+search filter.
+			// When no filters are active → returns null (meaning "all visible, normal styling").
+			function computeMatchSet() {
+				const tagsActive = selectedTags.size > 0;
+				const queryActive = searchQuery.length > 0;
+				if (!tagsActive && !queryActive) return null;
+				const out = new Set();
+				for (const n of DATA.nodes) {
+					const tagOk = !tagsActive || selectedTags.has(n.primaryTag);
+					const qOk = !queryActive || (n.title || '').toLowerCase().includes(searchQuery);
+					if (tagOk && qOk) out.add(n.id);
+				}
+				return out;
 			}
 
-			function renderPosts(opts) {
-				opts = opts || {};
-				const { nodeFilter, primaryIds } = opts;
-				const visibleNodes = nodeFilter ? DATA.nodes.filter(n => nodeFilter(n.id)) : DATA.nodes;
-				const visibleIds = new Set(visibleNodes.map(n => n.id));
-				const visibleLinks = DATA.links.filter(l => {
-					const s = typeof l.source === 'object' ? l.source.id : l.source;
-					const t = typeof l.target === 'object' ? l.target.id : l.target;
-					return visibleIds.has(s) && visibleIds.has(t);
-				}).map(l => ({
+			// Re-render the chips row from current selectedTags state.
+			function renderChips() {
+				const counts = new Map();
+				DATA.nodes.forEach(n => counts.set(n.primaryTag, (counts.get(n.primaryTag) || 0) + 1));
+				// sort: selected first, then by count desc
+				const entries = [...counts.entries()]
+					.sort((a, b) => {
+						const sa = selectedTags.has(a[0]) ? 1 : 0;
+						const sb = selectedTags.has(b[0]) ? 1 : 0;
+						if (sa !== sb) return sb - sa;
+						return b[1] - a[1];
+					});
+				chipsEl.innerHTML = entries.map(([t, c]) => {
+					const active = selectedTags.has(t) ? ' active' : '';
+					const sw = tagColor.get(t) || '#777';
+					return '<button class="chip' + active + '" data-tag="' + t.replace(/"/g, '&quot;') + '">' +
+						'<span class="sw" style="background:' + sw + '"></span>' +
+						t + '<span class="count">' + c + '</span></button>';
+				}).join('');
+				chipsEl.querySelectorAll('.chip').forEach(el => {
+					el.addEventListener('click', () => toggleTag(el.dataset.tag));
+				});
+			}
+
+			function toggleTag(tag) {
+				if (selectedTags.has(tag)) selectedTags.delete(tag);
+				else selectedTags.add(tag);
+				renderChips();
+				applyFilters();
+			}
+
+			function clearAllFilters() {
+				selectedTags.clear();
+				searchQuery = '';
+				const searchEl = document.getElementById('search');
+				if (searchEl) searchEl.value = '';
+				renderChips();
+				applyFilters();
+			}
+
+			// Apply current filter state by refreshing the existing graph's styling
+			// (no full rebuild → no layout reset, snappy UX).
+			function applyFilters() {
+				if (!current || mode !== 'posts') return;
+				current.nodeColor(nodeColorFn).linkColor(linkColorFn).linkWidth(linkWidthFn);
+				if (typeof current.refresh === 'function') current.refresh();
+			}
+
+			function focusNode(id) {
+				const node = DATA.nodes.find(n => n.id === id);
+				if (!node || !current) return;
+				if (current.centerAt && typeof node.x === 'number') {
+					current.centerAt(node.x, node.y, 800);
+					if (current.zoom) current.zoom(3, 800);
+				}
+			}
+
+			// --- styling functions (read shared state, used by both initial build and applyFilters) ---
+			function isMatch(id, matchSet) {
+				return !matchSet || matchSet.has(id);
+			}
+			function nodeColorFn(n) {
+				const matchSet = computeMatchSet();
+				const matched = isMatch(n.id, matchSet);
+				// Hover-neighbor highlight overrides filter dim only when no chip/search filter active.
+				if (hoverId) {
+					const isHover = n.id === hoverId;
+					const isNeighbor = neighbors.get(hoverId)?.has(n.id);
+					if (!isHover && !isNeighbor) return matched ? 'rgba(60,60,60,0.5)' : 'rgba(40,40,40,0.3)';
+				}
+				if (!matched) return 'rgba(60,60,60,0.35)';
+				return colorByTag(n);
+			}
+			function linkColorFn(l) {
+				const matchSet = computeMatchSet();
+				const s = typeof l.source === 'object' ? l.source.id : l.source;
+				const t = typeof l.target === 'object' ? l.target.id : l.target;
+				const sMatch = isMatch(s, matchSet);
+				const tMatch = isMatch(t, matchSet);
+				const dim = !(sMatch && tMatch);
+				if (hoverId) {
+					const touchesHover = s === hoverId || t === hoverId;
+					if (!touchesHover) return dim ? 'rgba(50,50,50,0.05)' : 'rgba(80,80,80,0.08)';
+					// hovered link
+					return l.kind === 'link' ? 'rgba(255,200,120,0.85)' : 'rgba(255,200,120,0.55)';
+				}
+				if (dim) return 'rgba(80,80,80,0.05)';
+				return l.kind === 'link' ? 'rgba(210,210,210,0.3)' : 'rgba(120,180,255,0.1)';
+			}
+			function linkWidthFn(l) {
+				const s = typeof l.source === 'object' ? l.source.id : l.source;
+				const t = typeof l.target === 'object' ? l.target.id : l.target;
+				if (hoverId && (s === hoverId || t === hoverId)) {
+					return l.kind === 'link' ? 1.4 : 1.0;
+				}
+				return l.kind === 'link' ? 0.6 : 0.2;
+			}
+
+			function renderPosts() {
+				const visibleNodes = DATA.nodes;
+				const visibleLinks = DATA.links.map(l => ({
 					source: typeof l.source === 'object' ? l.source.id : l.source,
 					target: typeof l.target === 'object' ? l.target.id : l.target,
 					kind: l.kind,
 				}));
-				function isPrimary(id) { return !primaryIds || primaryIds.has(id); }
 
-				renderLegend();
+				renderChips();
+				legend.style.display = '';
+
 				current = ForceGraph()(stage)
 					.graphData({ nodes: visibleNodes, links: visibleLinks })
 					.backgroundColor('#0a0a0a')
 					.nodeRelSize(4)
 					.nodeVal(n => 1 + Math.min(n.deg, 20) * 0.6)
-					.nodeColor(n => isPrimary(n.id) ? colorByTag(n) : '#333')
-					.linkColor(l => l.kind === 'link' ? 'rgba(210,210,210,0.3)' : 'rgba(120,180,255,0.1)')
-					.linkWidth(l => l.kind === 'link' ? 0.6 : 0.2)
+					.nodeColor(nodeColorFn)
+					.linkColor(linkColorFn)
+					.linkWidth(linkWidthFn)
 					.nodeCanvasObjectMode(() => 'after')
 					.nodeCanvasObject((node, ctx, scale) => {
-						if (!isPrimary(node.id)) return;
-						const label = node.primaryTag;  // 1-word label = тема поста
-						if (scale < 0.6 && node.deg < 3) return; // на сильном zoom-out — только хабы
+						const matchSet = computeMatchSet();
+						const matched = isMatch(node.id, matchSet);
+						if (!matched && !hoverId) return;
+						if (hoverId && node.id !== hoverId && !neighbors.get(hoverId)?.has(node.id)) return;
+						const label = node.primaryTag;
+						if (scale < 0.6 && node.deg < 3) return;
 						const fontSize = Math.min(11, 8 / scale * 1.3);
 						ctx.font = fontSize + 'px sans-serif';
-						ctx.fillStyle = '#bbb';
+						ctx.fillStyle = matched ? '#bbb' : '#666';
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						const nodeR = 4 * Math.sqrt(1 + Math.min(node.deg, 20) * 0.6);
 						ctx.fillText(label, node.x, node.y + nodeR + fontSize * 0.7);
 					})
-					.onNodeHover(showInfo)
+					.onNodeHover(node => {
+						hoverId = node ? node.id : null;
+						showInfo(node);
+						if (typeof current.refresh === 'function') current.refresh();
+						stage.style.cursor = node ? 'pointer' : 'default';
+					})
 					.onNodeClick(n => focusNode(n.id))
 					.nodeLabel(n => n.title)
 					.cooldownTicks(250)
@@ -275,6 +393,7 @@ const graphJson = JSON.stringify(graphData);
 			function renderTags() {
 				stage.innerHTML = '';
 				legend.style.display = 'none';
+				chipsEl.style.display = 'none';
 				const { nodes, links } = tagGraph;
 				current = ForceGraph()(stage)
 					.graphData({
@@ -320,34 +439,40 @@ const graphJson = JSON.stringify(graphData);
 				current.onEngineStop(() => { current.zoomToFit(500, 80); });
 			}
 
-			function render(opts) {
+			function render() {
 				stage.innerHTML = '';
 				if (mode === 'tags') return renderTags();
-				return renderPosts(opts);
+				chipsEl.style.display = '';
+				return renderPosts();
 			}
 
 			document.getElementById('search').addEventListener('input', (e) => {
-				const q = e.target.value.trim().toLowerCase();
-				if (!q) { clearFilter(); return; }
-				const matches = DATA.nodes.filter(n => n.title.toLowerCase().includes(q));
-				if (matches.length === 1) focusNode(matches[0].id);
-				else if (matches.length > 1 && matches.length < 30) {
-					const ids = new Set(matches.map(m => m.id));
-					render({ nodeFilter: id => ids.has(id), primaryIds: ids });
-				}
+				searchQuery = e.target.value.trim().toLowerCase();
+				applyFilters();
 			});
 			document.getElementById('reset').addEventListener('click', () => {
-				document.getElementById('search').value = '';
-				clearFilter();
+				clearAllFilters();
+			});
+			document.getElementById('dice').addEventListener('click', () => {
+				if (mode !== 'posts') return;
+				const matchSet = computeMatchSet();
+				const pool = matchSet
+					? DATA.nodes.filter(n => matchSet.has(n.id))
+					: DATA.nodes;
+				if (!pool.length) return;
+				const pick = pool[Math.floor(Math.random() * pool.length)];
+				window.location.href = BASE + '/blog/' + pick.id + '/';
 			});
 
 			document.getElementById('mode-posts').addEventListener('click', () => {
+				if (mode === 'posts') return;
 				mode = 'posts';
 				document.getElementById('mode-posts').classList.add('active');
 				document.getElementById('mode-tags').classList.remove('active');
-				clearFilter();
+				render();
 			});
 			document.getElementById('mode-tags').addEventListener('click', () => {
+				if (mode === 'tags') return;
 				mode = 'tags';
 				document.getElementById('mode-tags').classList.add('active');
 				document.getElementById('mode-posts').classList.remove('active');

@@ -126,7 +126,14 @@ export async function getStaticPaths() {
 		const myTags = new Set(post.data.tags || []);
 		const seriesMates = seriesParts
 			.filter((p) => p.id !== post.id)
-			.map((p) => ({ id: p.id, title: p.data.title, pubDate: p.data.pubDate }));
+			.map((p) => ({
+				id: p.id,
+				title: p.data.title,
+				subtitle: p.data.subtitle ?? '',
+				heroImage: p.data.heroImage ?? '',
+				pubDate: p.data.pubDate,
+				sharedTags: [] as string[], // series mates: общая принадлежность к серии, теги не показываем
+			}));
 		const seenIds = new Set([post.id, ...seriesMates.map((m) => m.id)]);
 
 		// Score = sum of IDF weights of shared tags (META filtered out via tagWeight=0)
@@ -135,8 +142,10 @@ export async function getStaticPaths() {
 		const tagScored = posts
 			.filter((p, j) => j !== i && !seenIds.has(p.id) && p.data.tags && p.data.tags.length)
 			.map((p) => {
-				const sharedTags = (p.data.tags || []).filter((t) => myTags.has(t));
-				const score = sharedTags.reduce((acc, t) => acc + tagWeight(t), 0);
+				const sharedTagsAll = (p.data.tags || []).filter((t) => myTags.has(t));
+				// Для UI: только не-META теги (мета-теги визуально шумят и неинформативны)
+				const sharedTags = sharedTagsAll.filter((t) => !META_TAGS.has(t));
+				const score = sharedTagsAll.reduce((acc, t) => acc + tagWeight(t), 0);
 				// Recency: разница в днях, нормализованная (макс +0.3 за свежесть)
 				const daysDiff = Math.abs((myDate - p.data.pubDate.valueOf()) / (1000 * 60 * 60 * 24));
 				const recencyBonus = Math.max(0, 0.3 - daysDiff / 1000);
@@ -144,7 +153,14 @@ export async function getStaticPaths() {
 			})
 			.filter((x) => x.score > 0)
 			.sort((a, b) => b.score - a.score || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf())
-			.map((x) => ({ id: x.post.id, title: x.post.data.title, pubDate: x.post.data.pubDate }));
+			.map((x) => ({
+				id: x.post.id,
+				title: x.post.data.title,
+				subtitle: x.post.data.subtitle ?? '',
+				heroImage: x.post.data.heroImage ?? '',
+				pubDate: x.post.data.pubDate,
+				sharedTags: x.sharedTags,
+			}));
 		const scored = [...seriesMates, ...tagScored].slice(0, 4);
 
 		// Mini-graph: 1-hop neighbors capped at 14 (+ center = 15)

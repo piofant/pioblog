@@ -4,6 +4,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+import { TAG_CATEGORIES, categoryOf, type TagCategory } from '../../data/tag-categories';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -12,15 +13,41 @@ const counts = new Map<string, number>();
 for (const p of posts) {
 	for (const t of p.data.tags ?? []) counts.set(t, (counts.get(t) || 0) + 1);
 }
-const tags = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+const totalTags = counts.size;
 const maxCount = Math.max(...counts.values(), 1);
 
-// font-size scale 0.875rem → 2rem based on count
+// Размер тега скейлится по корню частоты (как раньше),
+// но границы чуть уже — внутри группы шкала ощущается ровнее.
 function sizeFor(n: number): string {
-	const min = 0.875, max = 2.0;
+	const min = 0.875;
+	const max = 1.75;
 	const ratio = Math.sqrt(n / maxCount);
 	return (min + (max - min) * ratio).toFixed(3) + 'rem';
 }
+
+type GroupEntry = { tag: string; count: number };
+type Group = { category: TagCategory; entries: GroupEntry[] };
+
+// Раскладываем теги по категориям.
+const groups: Group[] = TAG_CATEGORIES.map((cat) => ({ category: cat, entries: [] }));
+const groupById = new Map(groups.map((g) => [g.category.id, g]));
+const orphans: GroupEntry[] = [];
+
+for (const [tag, count] of counts.entries()) {
+	const cat = categoryOf(tag);
+	if (cat) {
+		groupById.get(cat.id)!.entries.push({ tag, count });
+	} else {
+		orphans.push({ tag, count });
+	}
+}
+
+// Внутри категории — по убыванию частоты.
+for (const g of groups) g.entries.sort((a, b) => b.count - a.count);
+orphans.sort((a, b) => b.count - a.count);
+
+// Категории показываем только непустые, в порядке из taxonomy.
+const visibleGroups = groups.filter((g) => g.entries.length > 0);
 ---
 
 <!doctype html>
@@ -30,17 +57,151 @@ function sizeFor(n: number): string {
 	</head>
 	<body>
 		<Header />
-		<main class="content">
+		<main class="content tags-index">
 			<h1>Теги</h1>
-			<p style="color: var(--muted);">{tags.length} уникальных тегов · {posts.length} постов</p>
-			<div class="tag-cloud">
-				{tags.map(([t, n]) => (
-					<a href={`${base}/tags/${encodeURIComponent(t)}/`} style={`font-size: ${sizeFor(n)};`}>
-						{t}<span class="c">&nbsp;{n}</span>
-					</a>
-				))}
-			</div>
+			<p class="tags-meta">{totalTags} уникальных тегов · {posts.length} постов · {visibleGroups.length} категорий</p>
+
+			{visibleGroups.map(({ category, entries }) => (
+				<section class="tag-group" style={`--cat-color: ${category.color};`}>
+					<header class="tag-group-head">
+						<h2>
+							<span class="emoji" aria-hidden="true">{category.emoji}</span>
+							<span class="name">{category.name}</span>
+							<span class="count">{entries.length}</span>
+						</h2>
+						<p class="desc">{category.description}</p>
+					</header>
+					<div class="tag-cloud grouped">
+						{entries.map(({ tag, count }) => (
+							<a
+								href={`${base}/tags/${encodeURIComponent(tag)}/`}
+								style={`font-size: ${sizeFor(count)};`}
+								class="tag-pill"
+							>
+								{tag}<span class="c">&nbsp;{count}</span>
+							</a>
+						))}
+					</div>
+				</section>
+			))}
+
+			{orphans.length > 0 && (
+				<section class="tag-group orphans" style="--cat-color: #999;">
+					<header class="tag-group-head">
+						<h2>
+							<span class="emoji" aria-hidden="true">❓</span>
+							<span class="name">Без категории</span>
+							<span class="count">{orphans.length}</span>
+						</h2>
+						<p class="desc">Теги, не размеченные в taxonomy. Стоит добавить их в <code>src/data/tag-categories.ts</code>.</p>
+					</header>
+					<div class="tag-cloud grouped">
+						{orphans.map(({ tag, count }) => (
+							<a
+								href={`${base}/tags/${encodeURIComponent(tag)}/`}
+								style={`font-size: ${sizeFor(count)};`}
+								class="tag-pill"
+							>
+								{tag}<span class="c">&nbsp;{count}</span>
+							</a>
+						))}
+					</div>
+				</section>
+			)}
 		</main>
 		<Footer />
+
+		<style>
+			.tags-index .tags-meta {
+				color: var(--muted);
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.9375rem;
+				margin: 0 0 2rem;
+			}
+
+			.tag-group {
+				margin: 2.25rem 0;
+				padding-top: 1.25rem;
+				border-top: 1px solid var(--border);
+			}
+			.tag-group:first-of-type {
+				border-top: 0;
+				padding-top: 0;
+				margin-top: 1.5rem;
+			}
+
+			.tag-group-head {
+				margin-bottom: 1rem;
+			}
+			.tag-group-head h2 {
+				display: flex;
+				align-items: baseline;
+				gap: 0.55rem;
+				font-size: 1.375rem;
+				margin: 0 0 0.25rem;
+				color: var(--text-dark);
+			}
+			.tag-group-head h2 .emoji {
+				font-size: 1.25rem;
+				line-height: 1;
+			}
+			.tag-group-head h2 .name {
+				color: var(--text-dark);
+			}
+			.tag-group-head h2 .count {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.75rem;
+				font-weight: 500;
+				color: var(--muted);
+				background: var(--border-soft);
+				border: 1px solid var(--border);
+				padding: 0.05rem 0.5rem;
+				border-radius: 999px;
+				font-variant-numeric: tabular-nums;
+			}
+			.tag-group-head .desc {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				color: var(--muted);
+				font-size: 0.9375rem;
+				margin: 0;
+				max-width: 56ch;
+			}
+
+			.tag-cloud.grouped {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px 10px;
+				margin: 0;
+				line-height: 1.4;
+				align-items: baseline;
+			}
+			.tag-cloud.grouped .tag-pill {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-weight: 700;
+				color: var(--text-dark);
+				text-decoration: none;
+				white-space: nowrap;
+				padding: 1px 2px 3px;
+				border-bottom: 2px solid var(--cat-color);
+				transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+			}
+			.tag-cloud.grouped .tag-pill:hover {
+				color: var(--cat-color);
+				background: color-mix(in srgb, var(--cat-color) 8%, transparent);
+			}
+			.tag-cloud.grouped .tag-pill .c {
+				font-weight: 400;
+				color: var(--muted-2);
+				font-size: 0.75em;
+				margin-left: 2px;
+			}
+
+			.tag-group.orphans .tag-group-head h2 .name {
+				color: var(--muted);
+			}
+			.tag-group.orphans .desc code {
+				font-size: 0.85em;
+			}
+		</style>
 	</body>
 </html>
