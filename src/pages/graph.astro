@@ -78,34 +78,34 @@ try {
 	<head>
 		<BaseHead title="Граф" description={`Граф постов — ${SITE_TITLE}`} />
 		<style>
-			html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #0a0a0a; color: #eee; }
+			html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); }
 			body { font-family: var(--font-ui), system-ui, sans-serif !important; }
 			.site-header { display: none; }
 			.topbar { position: fixed; top: 12px; left: 12px; z-index: 10; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-			.pill { background: rgba(20,20,20,.92); padding: 6px 8px; border-radius: 8px; border: 1px solid #333; display: flex; align-items: center; gap: 6px; }
-			.pill a, .pill button { background: #222; color: #ddd; border: 1px solid #3a3a3a; padding: 6px 12px; border-radius: 4px; cursor: pointer; font: 13px inherit; text-decoration: none; }
-			.pill a.home { background: var(--bg-elevated); color: #111; border-color: #fff; font-weight: 600; }
-			.pill button.mode.active { background: var(--bg-elevated); color: #111; border-color: #fff; }
-			.pill input { background: #1a1a1a; border: 1px solid #3a3a3a; color: #eee; padding: 6px 10px; border-radius: 4px; width: 240px; font: 13px inherit; }
-			.pill input::placeholder { color: #666; }
-			.pill button.dice { background: #1a1a1a; border-color: #3a3a3a; }
-			.pill button.dice:hover { background: #2a2a2a; }
+			.pill { background: var(--bg-elevated); padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px var(--shadow-sm); }
+			.pill a, .pill button { background: var(--bg-elevated); color: var(--text); border: 1px solid var(--border); padding: 6px 12px; border-radius: 4px; cursor: pointer; font: 13px inherit; text-decoration: none; }
+			.pill a.home { background: var(--text-dark); color: var(--bg); border-color: var(--text-dark); font-weight: 600; }
+			.pill button.mode.active { background: var(--text-dark); color: var(--bg); border-color: var(--text-dark); }
+			.pill input { background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 4px; width: 240px; font: 13px inherit; }
+			.pill input::placeholder { color: var(--muted-2); }
+			.pill button.dice { background: var(--bg-elevated); border-color: var(--border); }
+			.pill button.dice:hover { background: var(--border-soft); }
 			.chips-row { position: fixed; top: 56px; left: 12px; right: 12px; z-index: 9; display: flex; gap: 6px; flex-wrap: wrap; max-width: calc(100vw - 24px); }
-			.chip { background: rgba(20,20,20,.92); border: 1px solid #333; color: #ccc; padding: 4px 10px; border-radius: 999px; font: 12px inherit; cursor: pointer; user-select: none; display: inline-flex; align-items: center; gap: 6px; transition: background .15s, border-color .15s; }
-			.chip:hover { background: rgba(40,40,40,.95); border-color: #555; }
-			.chip.active { background: rgba(255,140,0,.18); border-color: #ff8c00; color: #fff; }
+			.chip { background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text); padding: 4px 10px; border-radius: 999px; font: 12px inherit; cursor: pointer; user-select: none; display: inline-flex; align-items: center; gap: 6px; transition: background .15s, border-color .15s; }
+			.chip:hover { background: var(--border-soft); border-color: var(--muted-2); }
+			.chip.active { background: color-mix(in srgb, var(--link) 18%, transparent); border-color: var(--link); color: var(--text-dark); }
 			.chip .sw { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 			.chip .count { opacity: .5; font-size: 10px; }
-			.hint { position: fixed; bottom: 12px; left: 12px; z-index: 10; font-size: 12px; color: #999; background: rgba(20,20,20,.8); padding: 8px 12px; border-radius: 6px; max-width: 540px; line-height: 1.5; }
+			.hint { position: fixed; bottom: 12px; left: 12px; z-index: 10; font-size: 12px; color: var(--muted); background: var(--bg-elevated); padding: 8px 12px; border-radius: 6px; max-width: 540px; line-height: 1.5; border: 1px solid var(--border); }
 			.stage { position: fixed; inset: 0; }
-			.info-pill { position: fixed; top: 12px; right: 12px; z-index: 10; background: rgba(20,20,20,.95); border: 1px solid #333; padding: 12px 14px; border-radius: 8px; max-width: 400px; font-size: 13px; display: none; }
+			.info-pill { position: fixed; top: 12px; right: 12px; z-index: 10; background: var(--bg-elevated); border: 1px solid var(--border); padding: 12px 14px; border-radius: 8px; max-width: 400px; font-size: 13px; display: none; box-shadow: 0 4px 16px var(--shadow-md); }
 			.info-pill.show { display: block; }
-			.info-pill strong { display: block; margin-bottom: 4px; color: #fff; }
-			.info-pill .meta { color: #999; font-size: 11px; margin-top: 6px; line-height: 1.5; }
-			.info-pill a { color: #ff8c00; text-decoration: none; font-size: 11px; margin-top: 6px; display: inline-block; }
-			.legend { position: fixed; bottom: 12px; right: 12px; z-index: 10; background: rgba(20,20,20,.92); padding: 10px 12px; border-radius: 8px; font-size: 11px; border: 1px solid #333; max-width: 220px; color: #aaa; line-height: 1.55; }
-			.legend strong { color: #fff; font-weight: 600; }
-			.legend .title { font-weight: 600; color: #fff; margin-bottom: 6px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; opacity: .6; }
+			.info-pill strong { display: block; margin-bottom: 4px; color: var(--text-dark); }
+			.info-pill .meta { color: var(--muted); font-size: 11px; margin-top: 6px; line-height: 1.5; }
+			.info-pill a { color: var(--link); text-decoration: none; font-size: 11px; margin-top: 6px; display: inline-block; }
+			.legend { position: fixed; bottom: 12px; right: 12px; z-index: 10; background: var(--bg-elevated); padding: 10px 12px; border-radius: 8px; font-size: 11px; border: 1px solid var(--border); max-width: 220px; color: var(--muted); line-height: 1.55; }
+			.legend strong { color: var(--text-dark); font-weight: 600; }
+			.legend .title { font-weight: 600; color: var(--text-dark); margin-bottom: 6px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; opacity: .6; }
 			.legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(90deg,#ff4200,#1e40af,#10b981); vertical-align: middle; margin-right: 4px; }
 		</style>
 	</head>
