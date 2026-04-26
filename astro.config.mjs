@@ -11,8 +11,9 @@ export default defineConfig({
 	// Short-URL aliases for memorable sharing. /wiki/{slug}/ remains the
 	// canonical Notion-synced location; these are entry points that emit
 	// a static redirect HTML page.
+	// NOTE: '/CV' → '/cv/' redirect removed because it conflicts with cv.astro page
+	// (overwrites real CV page on case-insensitive FS / suppresses it on Linux).
 	redirects: {
-		'/CV': '/cv/',
 		'/value': '/wiki/about/',
 		'/cases': '/wiki/portfolio/',
 		'/mentor': '/wiki/mentoring/',
