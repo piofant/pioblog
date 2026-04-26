@@ -331,8 +331,6 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 
 .all-posts-link {
 	margin-top: 1.5rem;
-	padding-top: 1rem;
-	border-top: 1px solid var(--border);
 	font-family: var(--font-ui), system-ui, sans-serif;
 	font-size: 0.9375rem;
 }
@@ -446,8 +444,6 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 /* Local mini-graph below related-posts */
 .mini-graph-wrap {
 	margin-top: 2rem;
-	padding-top: 1.5rem;
-	border-top: 1px solid var(--border);
 	font-family: var(--font-ui), system-ui, sans-serif;
 }
 .mini-graph-wrap h3 {
@@ -514,9 +510,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 
 /* Related posts + prev/next */
 .related-posts {
-	margin-top: 3rem;
-	padding-top: 1.5rem;
-	border-top: 1px solid var(--border);
+	margin-top: 2.5rem;
 	font-family: var(--font-ui), system-ui, sans-serif;
 }
 .related-posts h3 {
@@ -547,8 +541,6 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 
 .post-nav {
 	margin-top: 2rem;
-	padding-top: 1.25rem;
-	border-top: 1px solid var(--border);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1rem;
