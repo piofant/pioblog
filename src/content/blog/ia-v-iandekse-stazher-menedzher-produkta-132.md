@@ -15,8 +15,8 @@ seriesPart: 0
 Часть 1. [Все начинается с ментора](/blog/vse-nachinaetsia-s-mentora-140/)
 Часть 2. [Как найти работу стажером/джуном продактом](/blog/kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/)
 Часть 3. [Как подготовиться к кейс-секции интервью на продакта](/blog/podgotovka-k-keis-sektsii-interviu-na-prodakta-145/)
-Часть 4. [Как я собрал свой кейс-клуб для подготовки к интервью](/blog/zapis-ot-15-aprelia-2024-146/)
-Часть 5. [Как я помогаю себе на собеседовании на продакта](/blog/zapis-ot-16-maia-2024-148/)
+Часть 4. [Как я собрал свой кейс-клуб для подготовки к интервью](/blog/kak-ia-sobral-svoi-keis-klub-dlia-podgotovki-k-interviu-147/)
+Часть 5. [Как я помогаю себе на собеседовании на продакта](/blog/kak-ia-pomogaiu-sebe-na-sobesedovanii-na-prodakta-149/)
 
 Далее. [Про что для меня работа в Яндексе](/blog/zapis-ot-26-maia-2024-150/)
 

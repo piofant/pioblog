@@ -11,7 +11,7 @@ tags: ['продакт', 'карьера']
 `-` Как найти стажировку продактом (2 способа) → [link](/blog/kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/)
 `-` Как подготовиться к кейс-интервью → [link](/blog/podgotovka-k-keis-sektsii-interviu-na-prodakta-145/)
 `-` Как подготовиться к оценке софтов → [link](/blog/kak-v-avito-i-ozon-otsenivaiut-softy-pri-naime-243/)
-`-` Как превратить монолог в диалог на собесе → [link](/blog/zapis-ot-16-maia-2024-148/)
+`-` Как превратить монолог в диалог на собесе → [link](/blog/kak-ia-pomogaiu-sebe-na-sobesedovanii-na-prodakta-149/)
 
 **Как решать тестовые**`-` Подход «Как на работе» → [link](/blog/kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/)
 `-` На чем важно сделать фокус в решении → [link](/blog/kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/)

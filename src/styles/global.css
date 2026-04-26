@@ -3,9 +3,11 @@
    ============================================================ */
 
 :root {
-	/* pure white палитра */
+	color-scheme: light;
+	/* light палитра (по умолчанию) */
 	--bg:          #ffffff;
 	--bg-navbar:   #ffffff;
+	--bg-elevated: #ffffff;     /* поднятые карточки, popover, dropdown */
 	--text:        #333333;
 	--text-dark:   #111111;
 	--muted:       #666666;
@@ -14,9 +16,41 @@
 	--border-soft: #f4f4f4;
 	--link:        #FF4200;
 	--link-hover:  #FF8c00;
+	--shadow-sm:   rgba(0, 0, 0, 0.06);
+	--shadow-md:   rgba(0, 0, 0, 0.12);
+	--code-bg:     #f2f2f2;
+	--invert:      0;            /* для светлых элементов на чёрном фоне (CV PNG, схемы) */
+	/* graph node colors — те же hue для обеих тем, на dark переопределяются */
+	--graph-text:        #222;
+	--graph-text-bg:     rgba(255, 255, 255, 0.85);
+	--graph-link:        rgba(120, 120, 120, 0.45);
+	--graph-link-strong: rgba(255, 102, 51, 0.8);
 
 	--col-narrow: 620px;
 	--col-feed:   680px;
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--bg:          #0d0d0e;
+	--bg-navbar:   #16161a;
+	--bg-elevated: #1d1d22;
+	--text:        #d4d4d4;
+	--text-dark:   #f0f0f0;
+	--muted:       #8a8a8a;
+	--muted-2:     #5a5a5a;
+	--border:      #2a2a2e;
+	--border-soft: #1a1a1e;
+	--link:        #ff6633;
+	--link-hover:  #ff9b66;
+	--shadow-sm:   rgba(0, 0, 0, 0.4);
+	--shadow-md:   rgba(0, 0, 0, 0.6);
+	--code-bg:     #1f1f23;
+	--invert:      1;
+	--graph-text:        #d4d4d4;
+	--graph-text-bg:     rgba(28, 28, 32, 0.85);
+	--graph-link:        rgba(180, 180, 180, 0.35);
+	--graph-link-strong: rgba(255, 155, 102, 0.85);
 }
 
 * { box-sizing: border-box; }
@@ -126,7 +160,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	top: 0;
 	z-index: 100;
 	background: var(--bg-navbar);
-	border-bottom: 1px solid #D9D8D7;
+	border-bottom: 1px solid var(--border);
 	padding: 0.875rem 1.25rem;
 	font-family: var(--font-brand), 'PT Sans', system-ui, sans-serif;
 	transition: padding 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
@@ -198,7 +232,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	transform: translateX(-50%);
 	margin-top: 0.4rem;
 	min-width: 200px;
-	background: #fff;
+	background: var(--bg-elevated);
 	border: 1px solid var(--border);
 	border-radius: 6px;
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -240,7 +274,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 /* FOOTER */
 .site-footer {
 	background: var(--bg-navbar);
-	border-top: 1px solid #D9D8D7;
+	border-top: 1px solid var(--border);
 	padding: 1.5rem 1rem;
 	text-align: center;
 	color: var(--muted);
@@ -770,7 +804,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	border-radius: 4px;
 	background: #fafafa;
 }
-.post-content details[open] { background: #fff; }
+.post-content details[open] { background: var(--bg-elevated); }
 .post-content summary {
 	cursor: pointer;
 	font-weight: 600;
@@ -798,7 +832,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	border-radius: 4px;
 	text-decoration: none;
 	color: var(--text-dark);
-	background: #fff;
+	background: var(--bg-elevated);
 	transition: background 0.15s;
 }
 .page-content a[href*="/wiki/cases/"]::before,

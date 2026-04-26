@@ -26,7 +26,7 @@ heroImage: '/img/posts/2024-08-10-davaite-znakomitsia-ia-vova-i-ia-meniaius-177/
 **(3) Чем могу быть полезен**
 
 🥕 Продуктовое
-→ создал комьюнити/кейс-клуб для начинающих продактов — туда можно [бесплатно вступить](/blog/zapis-ot-15-aprelia-2024-146/)
+→ создал комьюнити/кейс-клуб для начинающих продактов — туда можно [бесплатно вступить](/blog/kak-ia-sobral-svoi-keis-klub-dlia-podgotovki-k-interviu-147/)
 → [менторю](https://online-qr.ru/vova_mentor?utm_source=pioblog_whois) entry-lvl продактов за донат — помогаю с карьерными вопросами и решением кейсов
 → [подборка постов](/blog/chem-ia-mogu-byt-polezen-prodaktam-262/) для начинающих продактов
 → ищу новые челленджи в роли продакта — [CV и портфолио](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/)
