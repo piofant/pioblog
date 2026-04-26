@@ -640,36 +640,129 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .post-content a { color: var(--link); }
 .post-content a:hover { color: var(--link-hover); }
 
-.callout,
-.page-content .callout {
-	border: 1px solid var(--border);
-	border-left: 3px solid var(--muted);
-	padding: 14px 18px;
-	margin: 20px 0;
-	background: #fafafa;
-	border-radius: 3px;
+/* ===================================================================
+   Wiki pages — Notion-light styling
+   =================================================================== */
+.wiki-page {
+	font-family: var(--font-ui), 'Inter', system-ui, sans-serif;
+	color: #37352f;
+	line-height: 1.5;
 }
-.callout.insight,
-.callout.green_background { border-left-color: #1e8a4a; }
-.callout.warning,
-.callout.red_background   { border-left-color: #c0392b; }
-.callout.yellow_background { border-left-color: #e8b923; }
-.callout.blue_background   { border-left-color: #2e73ba; }
-.callout.orange_background { border-left-color: #d9730d; }
-.callout.purple_background { border-left-color: #8250df; }
-.callout.pink_background   { border-left-color: #d16ba5; }
-.callout.brown_background  { border-left-color: #8b6f47; }
-.callout.gray_background,
-.callout.gray_bg           { border-left-color: #888; background: #f6f6f6; }
+.wiki-page h1 {
+	font-family: inherit;
+	font-size: 2.25rem;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	color: #37352f;
+	line-height: 1.2;
+	margin: 0 0 1.25rem;
+}
+.wiki-page .page-content h2,
+.wiki-page .page-content h3,
+.wiki-page .page-content h4 {
+	font-family: inherit;
+	color: #37352f;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	line-height: 1.3;
+	margin: 1.75rem 0 0.4rem;
+}
+.wiki-page .page-content h2 { font-size: 1.5rem; }
+.wiki-page .page-content h3 { font-size: 1.25rem; }
+.wiki-page .page-content h4 { font-size: 1.0625rem; }
+.wiki-page .page-content h2 strong,
+.wiki-page .page-content h3 strong { font-weight: 700; }
+.wiki-page .page-content p {
+	margin: 4px 0 6px;
+}
+.wiki-page .page-content strong { font-weight: 700; color: #37352f; }
+.wiki-page .page-content a {
+	color: #37352f;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.4);
+	transition: border-color 0.12s;
+}
+.wiki-page .page-content a:hover {
+	border-bottom-color: rgba(55, 53, 47, 0.85);
+	color: #37352f;
+}
+.wiki-page .page-content blockquote {
+	border-left: 3px solid #37352f;
+	padding: 0 0 0 14px;
+	margin: 0.75rem 0;
+	color: #37352f;
+	font-style: normal;
+}
+.wiki-page .page-content blockquote p { margin: 0.25rem 0; }
+.wiki-page .page-content hr {
+	border: 0;
+	border-top: 1px solid #e8e8e7;
+	margin: 1.75rem 0;
+}
+
+/* Callout — Notion-style colored card */
+.callout,
+.wiki-page .callout,
+.page-content .callout {
+	display: flex;
+	gap: 0.7rem;
+	align-items: flex-start;
+	padding: 14px 16px;
+	margin: 14px 0;
+	background: #f1f1ef;
+	border: 0;
+	border-radius: 4px;
+	font-size: 1rem;
+	line-height: 1.5;
+}
 .callout > p:first-child { margin-top: 0; }
-.callout > p:first-child strong:first-child { color: var(--text-dark); }
 .callout > p:last-child { margin-bottom: 0; }
+.callout.green_background  { background: #ddedea; }
+.callout.red_background    { background: #fbe4e4; }
+.callout.yellow_background { background: #fbf3db; }
+.callout.blue_background   { background: #ddebf1; }
+.callout.orange_background { background: #faebdd; }
+.callout.purple_background { background: #eadff5; }
+.callout.pink_background   { background: #f4dfeb; }
+.callout.brown_background  { background: #eee0da; }
+.callout.gray_background,
+.callout.gray_bg           { background: #f1f1ef; }
 
-/* wiki заголовки — Play 700 (наследуется от глобального h) */
-.page-content h2 strong, .page-content h3 strong { font-weight: 700; }
+/* Toggle blocks — Notion-style ▶ + indented body */
+.wiki-page .page-content details {
+	margin: 0.4rem 0;
+	border: 0;
+	background: transparent;
+	padding: 0;
+}
+.wiki-page .page-content details[open] { background: transparent; }
+.wiki-page .page-content summary {
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.45rem;
+	padding: 0.15rem 0;
+	font-weight: 500;
+	color: #37352f;
+	font-family: inherit;
+}
+.wiki-page .page-content summary::-webkit-details-marker { display: none; }
+.wiki-page .page-content summary::before {
+	content: '▶';
+	font-size: 0.7em;
+	color: rgba(55, 53, 47, 0.5);
+	transition: transform 0.15s;
+	margin-top: 6px;
+	flex-shrink: 0;
+}
+.wiki-page .page-content details[open] > summary::before { transform: rotate(90deg); }
+.wiki-page .page-content details > *:not(summary) {
+	margin-left: 1.5rem;
+	padding-left: 0;
+}
 
-/* toggle blocks (Notion toggle → <details>/<summary>) */
-.page-content details,
+/* Blog post details kept untouched (unified-toggles via .post-content) */
 .post-content details {
 	margin: 0.75rem 0;
 	padding: 10px 14px;
@@ -677,11 +770,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	border-radius: 4px;
 	background: #fafafa;
 }
-.page-content details[open],
-.post-content details[open] {
-	background: #fff;
-}
-.page-content summary,
+.post-content details[open] { background: #fff; }
 .post-content summary {
 	cursor: pointer;
 	font-weight: 600;
@@ -690,12 +779,10 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	list-style: disclosure-closed;
 	font-family: var(--font-ui), system-ui, sans-serif;
 }
-.page-content details[open] > summary,
 .post-content details[open] > summary {
 	list-style: disclosure-open;
 	margin-bottom: 6px;
 }
-.page-content details > :not(summary),
 .post-content details > :not(summary) {
 	padding-left: 14px;
 	margin-top: 4px;
