@@ -45,6 +45,28 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				width: 100%; height: 100%;
 				border: 0; display: block;
 			}
+			.talk-sources {
+				width: min(100%, calc((100vh - 8rem) * 16 / 9));
+				margin: 1.5rem auto 0;
+				padding: 1.25rem 1.5rem;
+				border: 1px solid var(--border);
+				border-radius: 4px;
+				background: var(--border-soft);
+				font-family: var(--font-ui), system-ui, sans-serif;
+			}
+			.talk-sources h3 {
+				font-size: 0.8125rem;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: var(--muted);
+				font-weight: 700;
+				margin: 0 0 0.75rem;
+			}
+			.talk-sources ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+			.talk-sources li { font-size: 0.9375rem; line-height: 1.5; }
+			.talk-sources li a { color: var(--text-dark); font-weight: 600; }
+			.talk-sources li a:hover { color: var(--link); }
+			.talk-sources li .desc { color: var(--muted); margin-left: 0.4rem; font-weight: 400; }
 		</style>
 	</head>
 	<body>
@@ -63,6 +85,28 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 					title="презентация"
 				></iframe>
 			</div>
+
+			<aside class="talk-sources">
+				<h3>Источники вдохновения</h3>
+				<ul>
+					<li>
+						<a href="https://t.me/thingsiread/7473" target="_blank" rel="noopener">@vitalypavlenko · «общая теория тус»</a>
+						<span class="desc">— t.me/thingsiread/7473</span>
+					</li>
+					<li>
+						<a href="https://t.me/random_random_thoughts/267" target="_blank" rel="noopener">@rikachka</a>
+						<span class="desc">— t.me/random_random_thoughts/267</span>
+					</li>
+					<li>
+						<a href="https://t.me/explore_feel_analyse/55" target="_blank" rel="noopener">@i_m_kittah</a>
+						<span class="desc">— t.me/explore_feel_analyse/55</span>
+					</li>
+					<li>
+						<a href="https://t.me/pioblog/76" target="_blank" rel="noopener">@piofant</a>
+						<span class="desc">— t.me/pioblog/76</span>
+					</li>
+				</ul>
+			</aside>
 		</main>
 	</body>
 </html>
