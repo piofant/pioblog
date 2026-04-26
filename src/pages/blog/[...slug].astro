@@ -4,12 +4,30 @@ import BlogPost from '../../layouts/BlogPost.astro';
 import { SERIES } from '../../series';
 
 export async function getStaticPaths() {
-	const META_TAGS = new Set(['whois', 'intro', 'история', 'истории', 'жизнипост', 'мысли', 'telegram']);
+	// Мета-теги: типы постов / зонтики, не тематические — не используем для related/color
+	const META_TAGS = new Set([
+		'whois', 'telegram', 'анонс',         // тип поста
+		'жизнь', 'школа жизни',                // umbrella-теги (40+ постов каждый — слишком общие)
+		'истории',                             // мета-формат (story-style)
+		'рекомендации',                        // тип поста
+	]);
 	const primaryTagOf = (tags?: string[]): string =>
 		(tags || []).find((t) => !META_TAGS.has(t)) || 'разное';
 
 	const posts = (await getCollection('blog'))
 		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+	// IDF-веса тегов: узкий тег (мужские круги, випассана) весит больше, чем широкий
+	const tagFrequency = new Map<string, number>();
+	for (const p of posts) for (const t of p.data.tags ?? []) {
+		tagFrequency.set(t, (tagFrequency.get(t) || 0) + 1);
+	}
+	const tagWeight = (tag: string): number => {
+		if (META_TAGS.has(tag)) return 0;
+		const freq = tagFrequency.get(tag) || 1;
+		// log-scaled IDF: 2 поста → ~3.4, 10 → 2.4, 40 → 1.2, 100 → 0.5
+		return Math.log(posts.length / freq);
+	};
 
 	// Build adjacency: edges from internal links + tag co-occurrence (chain)
 	const slugSet = new Set(posts.map((p) => p.id));
@@ -32,12 +50,32 @@ export async function getStaticPaths() {
 		if (!byTag.has(t)) byTag.set(t, []);
 		byTag.get(t)!.push(p.id);
 	}
-	for (const [, ids] of byTag) {
+	// Tag co-occurrence:
+	// - Узкие теги (≤8 постов): полная связность всех постов в группе
+	// - Средние (9-20): соседи в отсортированном по pubDate списке (chain)
+	// - Широкие META-теги (жизнь, школа жизни и т.п.): пропускаем, шум
+	for (const [tag, ids] of byTag) {
 		if (ids.length <= 1) continue;
-		ids.sort();
-		for (let i = 0; i < ids.length - 1; i++) {
-			adj.get(ids[i])!.add(ids[i + 1]);
-			adj.get(ids[i + 1])!.add(ids[i]);
+		if (META_TAGS.has(tag)) continue;
+		if (ids.length <= 8) {
+			// full mesh для узкого тега
+			for (let i = 0; i < ids.length; i++) {
+				for (let j = i + 1; j < ids.length; j++) {
+					adj.get(ids[i])!.add(ids[j]);
+					adj.get(ids[j])!.add(ids[i]);
+				}
+			}
+		} else {
+			// chain для среднего тега (по дате, чтобы соседи были близкие по времени)
+			const sorted = [...ids].sort((a, b) => {
+				const ad = posts.find((p) => p.id === a)?.data.pubDate.valueOf() || 0;
+				const bd = posts.find((p) => p.id === b)?.data.pubDate.valueOf() || 0;
+				return ad - bd;
+			});
+			for (let i = 0; i < sorted.length - 1; i++) {
+				adj.get(sorted[i])!.add(sorted[i + 1]);
+				adj.get(sorted[i + 1])!.add(sorted[i]);
+			}
 		}
 	}
 	const titleById = new Map(posts.map((p) => [p.id, p.data.title]));
@@ -84,20 +122,28 @@ export async function getStaticPaths() {
 			}
 			: null;
 
-		// Related — series mates first, then tag-overlap fill (cap 4)
+		// Related — series mates first, then IDF-weighted tag-overlap (cap 4)
 		const myTags = new Set(post.data.tags || []);
 		const seriesMates = seriesParts
 			.filter((p) => p.id !== post.id)
 			.map((p) => ({ id: p.id, title: p.data.title, pubDate: p.data.pubDate }));
 		const seenIds = new Set([post.id, ...seriesMates.map((m) => m.id)]);
+
+		// Score = sum of IDF weights of shared tags (META filtered out via tagWeight=0)
+		// + small recency bonus to slightly prefer newer posts при равном score
+		const myDate = post.data.pubDate.valueOf();
 		const tagScored = posts
 			.filter((p, j) => j !== i && !seenIds.has(p.id) && p.data.tags && p.data.tags.length)
-			.map((p) => ({
-				post: p,
-				overlap: (p.data.tags || []).filter((t) => myTags.has(t)).length,
-			}))
-			.filter((x) => x.overlap > 0)
-			.sort((a, b) => b.overlap - a.overlap || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf())
+			.map((p) => {
+				const sharedTags = (p.data.tags || []).filter((t) => myTags.has(t));
+				const score = sharedTags.reduce((acc, t) => acc + tagWeight(t), 0);
+				// Recency: разница в днях, нормализованная (макс +0.3 за свежесть)
+				const daysDiff = Math.abs((myDate - p.data.pubDate.valueOf()) / (1000 * 60 * 60 * 24));
+				const recencyBonus = Math.max(0, 0.3 - daysDiff / 1000);
+				return { post: p, score: score + recencyBonus, sharedTags };
+			})
+			.filter((x) => x.score > 0)
+			.sort((a, b) => b.score - a.score || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf())
 			.map((x) => ({ id: x.post.id, title: x.post.data.title, pubDate: x.post.data.pubDate }));
 		const scored = [...seriesMates, ...tagScored].slice(0, 4);
 
