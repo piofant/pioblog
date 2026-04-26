@@ -115,6 +115,16 @@ function fixParagraphs(body) {
 	return paragraphize(splitMultilineEmphasis(body));
 }
 
+/* TG-author может писать `t.me/<id>` как сокращение «текущий канал, пост N».
+   Bot API возвращает URL как есть, и без префикса канала ссылка ломается.
+   Раскрываем в полный `t.me/<channel>/<id>`. */
+function normalizeChannelUrl(url) {
+	if (!url) return url;
+	const m = url.match(/^https?:\/\/t\.me\/(\d+)\/?$/);
+	if (m) return `https://t.me/${CHANNEL}/${m[1]}`;
+	return url;
+}
+
 function entitiesToMarkdown(text, entities) {
 	if (!entities || !entities.length) return text;
 	// Применяем с конца — чтобы offsets не смещались.
@@ -132,7 +142,7 @@ function entitiesToMarkdown(text, entities) {
 			case 'spoiler':       wrapped = `||${inner}||`; break;
 			case 'code':          wrapped = `\`${inner}\``; break;
 			case 'pre':           wrapped = `\`\`\`${e.language || ''}\n${inner}\n\`\`\``; break;
-			case 'text_link':     wrapped = `[${inner}](${e.url})`; break;
+			case 'text_link':     wrapped = `[${inner}](${normalizeChannelUrl(e.url)})`; break;
 			case 'url':           wrapped = `<${inner}>`; break;
 			case 'mention':       wrapped = `[${inner}](https://t.me/${inner.replace(/^@/, '')})`; break;
 			case 'text_mention':  wrapped = e.user?.id ? `[${inner}](tg://user?id=${e.user.id})` : inner; break;
@@ -221,6 +231,27 @@ async function processPost(msg, existing) {
 		imgRefs.push(rel);
 		if (i === 0) heroImage = rel;
 	}
+
+	// Voice (.ogg) — скачиваем и встраиваем <audio>. Bot API ограничивает getFile
+	// 20MB, голосовые pioblog обычно ≤2MB.
+	let voiceEmbed = '';
+	if (msg.voice && msg.voice.file_id) {
+		const v = msg.voice;
+		const filename = 'voice.ogg';
+		const rel = `/img/tg/${msg.message_id}/${filename}`;
+		const abs = path.join(IMAGES_DIR, String(msg.message_id), filename);
+		if (!DRY_RUN) {
+			try {
+				const info = await apiCall('getFile', { file_id: v.file_id });
+				await downloadTo(`${FILE}/${info.file_path}`, abs);
+			} catch (e) {
+				console.warn(`    ⚠ voice fail: ${e.message}`);
+			}
+		}
+		const dur = v.duration ? ` (${Math.floor(v.duration / 60)}:${String(v.duration % 60).padStart(2, '0')})` : '';
+		voiceEmbed = `<audio controls preload="metadata" src="${rel}"></audio>${dur ? `\n\n_голосовое${dur}_` : ''}`;
+	}
+
 	// Document (для video/file — не скачиваем пока, только метка)
 	// Animation/video — пропускаем, можно добавить позже
 
@@ -238,7 +269,7 @@ async function processPost(msg, existing) {
 	});
 
 	const extraImages = imgRefs.slice(1).map((r) => `![](${r})`).join('\n\n');
-	const fullBody = [body, extraImages].filter(Boolean).join('\n\n');
+	const fullBody = [body, voiceEmbed, extraImages].filter(Boolean).join('\n\n');
 	const content = `${fm}\n\n${fullBody}\n`;
 
 	const dst = path.join(POSTS_DIR, `tg-${msg.message_id}.md`);
