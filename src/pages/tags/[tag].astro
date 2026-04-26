@@ -46,14 +46,25 @@ export async function getStaticPaths() {
 		}
 	}
 
+	// «whois»-пост который определяет концепт «трипы» — пиним первым на любой
+	// странице тега, где он размечен этим тегом
+	const PINNED_FIRST_SLUG = 'chto-takoe-tripy-v-diskaveri-novogo-opyta-184';
+
 	return [...tags].map((tag) => {
-		const taggedPosts = allPosts
+		const filtered = allPosts
 			.filter((p) => (p.data.tags ?? []).includes(tag))
 			.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+		// Закреп: если pinned-пост есть в этом теге — поднять его наверх
+		const pinned = filtered.find((p) => p.id === PINNED_FIRST_SLUG);
+		const taggedPosts = pinned
+			? [pinned, ...filtered.filter((p) => p.id !== PINNED_FIRST_SLUG)]
+			: filtered;
 		const taggedIds = new Set(taggedPosts.map((p) => p.id));
 		const subNodes = taggedPosts.map((p) => ({
 			id: p.id,
 			title: p.data.title,
+			subtitle: p.data.subtitle ?? '',
+			heroImage: p.data.heroImage ?? '',
 			date: p.data.pubDate.toISOString().slice(0, 10),
 			primaryTag: primaryTagOf(p.data.tags),
 		}));

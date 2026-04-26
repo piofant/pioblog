@@ -125,12 +125,13 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 				text-decoration: none;
 				white-space: nowrap;
 				padding: 1px 2px 3px;
-				border-bottom: 2px solid var(--cat-color);
+				border-bottom: 1px solid transparent;
 				transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 			}
 			.tag-cloud.grouped .tag-pill:hover {
 				color: var(--cat-color);
-				background: color-mix(in srgb, var(--cat-color) 8%, transparent);
+				border-bottom-color: var(--cat-color);
+				background: color-mix(in srgb, var(--cat-color) 6%, transparent);
 			}
 			.tag-cloud.grouped .tag-pill .c {
 				font-weight: 400;
