@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 	const adj = new Map<string, Set<string>>();
 	for (const p of posts) adj.set(p.id, new Set());
 
-	const LINK_RE = /\]\(\/pioblog\/blog\/([a-z0-9-]+)\/?\)/g;
+	const LINK_RE = /\]\(\/blog\/([a-z0-9-]+)\/?\)/g;
 	for (const p of posts) {
 		const body = p.body || '';
 		for (const m of body.matchAll(LINK_RE)) {
