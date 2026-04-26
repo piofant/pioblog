@@ -59,14 +59,10 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 		<Header />
 		<main class="content tags-index">
 			<h1>Теги</h1>
-			<p class="tags-meta">{totalTags} уникальных тегов · {posts.length} постов · {visibleGroups.length} категорий</p>
 
 			{visibleGroups.map(({ category, entries }) => (
 				<section class="tag-group" style={`--cat-color: ${category.color};`}>
-					<h2>
-						<span class="name">{category.name}</span>
-						<span class="count">{entries.length}</span>
-					</h2>
+					<h2 class="cat-label">{category.name}</h2>
 					<div class="tag-cloud grouped">
 						{entries.map(({ tag, count }) => (
 							<a
@@ -83,10 +79,7 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 
 			{orphans.length > 0 && (
 				<section class="tag-group orphans" style="--cat-color: #999;">
-					<h2>
-						<span class="name">без категории</span>
-						<span class="count">{orphans.length}</span>
-					</h2>
+					<h2 class="cat-label">без категории</h2>
 					<div class="tag-cloud grouped">
 						{orphans.map(({ tag, count }) => (
 							<a
@@ -104,46 +97,17 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 		<Footer />
 
 		<style>
-			.tags-index .tags-meta {
-				color: var(--muted);
-				font-family: var(--font-ui), system-ui, sans-serif;
-				font-size: 0.9375rem;
-				margin: 0 0 2rem;
-			}
-
 			.tag-group {
-				margin: 2.25rem 0;
-				padding-top: 1.25rem;
-				border-top: 1px solid var(--border);
+				margin: 1rem 0 1.25rem;
 			}
-			.tag-group:first-of-type {
-				border-top: 0;
-				padding-top: 0;
-				margin-top: 1.5rem;
-			}
-
-			.tag-group h2 {
-				display: flex;
-				align-items: baseline;
-				gap: 0.55rem;
-				font-size: 1.25rem;
-				margin: 0 0 0.75rem;
-				color: var(--text-dark);
-				text-transform: lowercase;
-			}
-			.tag-group h2 .name {
-				color: var(--cat-color);
-			}
-			.tag-group h2 .count {
+			.tag-group .cat-label {
 				font-family: var(--font-ui), system-ui, sans-serif;
-				font-size: 0.75rem;
-				font-weight: 500;
-				color: var(--muted);
-				background: var(--border-soft);
-				border: 1px solid var(--border);
-				padding: 0.05rem 0.5rem;
-				border-radius: 999px;
-				font-variant-numeric: tabular-nums;
+				font-size: 0.7rem;
+				font-weight: 600;
+				color: var(--cat-color);
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				margin: 0 0 0.4rem;
 			}
 
 			.tag-cloud.grouped {
@@ -175,7 +139,7 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 				margin-left: 2px;
 			}
 
-			.tag-group.orphans h2 .name {
+			.tag-group.orphans .cat-label {
 				color: var(--muted);
 			}
 		</style>
