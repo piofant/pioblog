@@ -31,7 +31,7 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 			/* Hero — compact title block above the slides */
 			.talk-hero {
 				width: min(100%, calc((100vh - var(--talk-chrome)) * 960 / 569));
-				margin: 0 auto 0.5rem;
+				margin: 0.7rem auto 0;
 				display: flex;
 				align-items: baseline;
 				justify-content: space-between;
@@ -159,16 +159,6 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 	<body>
 		<Header />
 		<main class="content talk">
-			<header class="talk-hero">
-				<div>
-					<h1>как перезнакомить 40 айтишников за один вечер</h1>
-					<p class="sub">или что такое «контекст знакомства» и как его создать</p>
-				</div>
-				<span class="meta">
-					~15 мин · доклад · <a href={editUrl} target="_blank" rel="noopener">открыть в Google Slides ↗</a>
-				</span>
-			</header>
-
 			<div class="talk-frame">
 				<iframe
 					src={embedUrl}
@@ -178,6 +168,16 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 					title="презентация"
 				></iframe>
 			</div>
+
+			<header class="talk-hero">
+				<div>
+					<h1>как перезнакомить 40 айтишников за один вечер</h1>
+					<p class="sub">или что такое «контекст знакомства» и как его создать</p>
+				</div>
+				<span class="meta">
+					~15 мин · доклад · <a href={editUrl} target="_blank" rel="noopener">открыть в Google Slides ↗</a>
+				</span>
+			</header>
 
 			<div class="talk-spoilers">
 				<details>
