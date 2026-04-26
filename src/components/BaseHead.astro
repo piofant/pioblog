@@ -16,6 +16,16 @@ const fullTitle = title === SITE_TITLE ? SITE_TITLE : `${title} | ${SITE_TITLE}`
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<script is:inline>
+	/* Theme — anti-flicker: применяет тему ДО первой отрисовки, читая localStorage */
+	(() => {
+		try {
+			if (localStorage.getItem('theme') === 'dark') {
+				document.documentElement.setAttribute('data-theme', 'dark');
+			}
+		} catch (e) {}
+	})();
+</script>
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

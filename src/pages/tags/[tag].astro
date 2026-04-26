@@ -289,6 +289,7 @@ function excerptOf(body: string, words = 20): string {
 					});
 					DATA.nodes.forEach(n => { n.deg = deg.get(n.id) || 0; });
 
+					const getCss = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 					let highlighted = null;
 					const fg = ForceGraph()(el)
 						.graphData({ nodes: DATA.nodes.map(n => ({...n})), links: DATA.links.map(l => ({...l})) })
@@ -297,24 +298,22 @@ function excerptOf(body: string, words = 20): string {
 						.height(380)
 						.nodeRelSize(5)
 						.nodeVal(n => 1 + Math.min(n.deg, 10) * 0.6)
-						.nodeColor(n => palette[n.primaryTag] || '#aaa')
-						.linkColor(() => 'rgba(120,120,120,0.35)')
+						.nodeColor(n => palette[n.primaryTag] || getCss('--muted'))
+						.linkColor(() => getCss('--graph-link'))
 						.linkWidth(1)
 						.nodeCanvasObjectMode(() => 'after')
 						.nodeCanvasObject((node, ctx, scale) => {
 							const label = node.title.slice(0, 32);
 							const isHighlighted = node.id === highlighted;
-							// шрифт меньше у "обычных", больше при hover
 							const fontSize = Math.max(9, (isHighlighted ? 11 : 9) / Math.max(scale, 0.7));
 							ctx.font = (isHighlighted ? '600 ' : '500 ') + fontSize + 'px sans-serif';
 							ctx.textAlign = 'center';
 							ctx.textBaseline = 'middle';
 							const r = 5 * Math.sqrt(1 + Math.min(node.deg, 10) * 0.6);
-							// фон-пилюля для читаемости
 							const tw = ctx.measureText(label).width;
-							ctx.fillStyle = isHighlighted ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.82)';
+							ctx.fillStyle = getCss('--graph-text-bg');
 							ctx.fillRect(node.x - tw/2 - 4, node.y + r + 2, tw + 8, fontSize + 4);
-							ctx.fillStyle = isHighlighted ? '#111' : '#444';
+							ctx.fillStyle = isHighlighted ? getCss('--text-dark') : getCss('--graph-text');
 							ctx.fillText(label, node.x, node.y + r + 4 + fontSize * 0.5);
 						})
 						.nodeLabel(n => n.title)
@@ -334,6 +333,7 @@ function excerptOf(body: string, words = 20): string {
 					}, 50);
 					fg.onEngineStop(() => fg.zoomToFit(400, 40));
 					window.addEventListener('resize', () => fg.width(el.clientWidth));
+					window.addEventListener('themechange', () => fg.refresh());
 				</script>
 			</>
 		)}

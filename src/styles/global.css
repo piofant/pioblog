@@ -102,7 +102,7 @@ blockquote {
 blockquote p { margin: 0.5rem 0; }
 
 code {
-	background: #f2f2f2;
+	background: var(--code-bg);
 	padding: 1px 4px;
 	border-radius: 3px;
 	font-size: 0.9em;

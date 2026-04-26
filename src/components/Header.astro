@@ -44,9 +44,43 @@ const creativeMenu = [
 				</div>
 			</div>
 			<a href={`${base}/tags/`}>теги</a>
+		<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему">
+			<svg class="icon-sun"  width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<circle cx="12" cy="12" r="4"></circle>
+				<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+			</svg>
+			<svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+		</button>
 		</nav>
 	</div>
 </header>
+
+<style>
+	.theme-toggle {
+		background: none;
+		border: 1px solid var(--border);
+		color: var(--text);
+		padding: 6px 8px;
+		border-radius: 6px;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: color 0.15s, background 0.15s, border-color 0.15s;
+		margin-left: 4px;
+	}
+	.theme-toggle:hover {
+		color: var(--link-hover);
+		border-color: var(--link-hover);
+		background: color-mix(in srgb, var(--link) 8%, transparent);
+	}
+	.theme-toggle .icon-moon { display: inline-block; }
+	.theme-toggle .icon-sun  { display: none; }
+	:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+	:root[data-theme="dark"] .theme-toggle .icon-sun  { display: inline-block; }
+</style>
 
 <script is:inline>
 	(() => {
@@ -80,6 +114,24 @@ const creativeMenu = [
 				if (!e.target.closest('.nav-dd')) {
 					document.querySelectorAll('.nav-dd.tap-open').forEach((d) => d.classList.remove('tap-open'));
 				}
+			});
+		}
+
+		// Theme toggle
+		const themeBtn = document.getElementById('theme-toggle');
+		if (themeBtn) {
+			themeBtn.addEventListener('click', () => {
+				const html = document.documentElement;
+				const isDark = html.getAttribute('data-theme') === 'dark';
+				if (isDark) {
+					html.removeAttribute('data-theme');
+					try { localStorage.setItem('theme', 'light'); } catch(e) {}
+				} else {
+					html.setAttribute('data-theme', 'dark');
+					try { localStorage.setItem('theme', 'dark'); } catch(e) {}
+				}
+				// нотификация для inline-graph скриптов перерисовать палитру
+				window.dispatchEvent(new CustomEvent('themechange'));
 			});
 		}
 	})();

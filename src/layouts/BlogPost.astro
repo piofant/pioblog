@@ -154,6 +154,7 @@ const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 						'танцы':'#d946ef','творчество':'#eab308','жизнь':'#84cc16',
 						'друзья':'#f97316','мнения':'#64748b',
 					};
+					const getCss = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 					const el = document.getElementById('mini-graph');
 					const details = el.closest('details');
 					const center = DATA.nodes[0]?.id;
@@ -168,8 +169,8 @@ const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 							.height(360)
 							.nodeRelSize(5)
 							.nodeVal((n) => n.id === center ? 9 : 3)
-							.nodeColor((n) => n.id === center ? '#111' : (palette[n.primaryTag] || '#aaa'))
-							.linkColor(() => 'rgba(120,120,120,0.45)')
+							.nodeColor((n) => n.id === center ? getCss('--text-dark') : (palette[n.primaryTag] || getCss('--muted')))
+							.linkColor(() => getCss('--graph-link'))
 							.linkWidth(1)
 							.nodeCanvasObjectMode(() => 'after')
 							.nodeCanvasObject((node, ctx, scale) => {
@@ -182,9 +183,9 @@ const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 								ctx.textBaseline = 'middle';
 								const tw = ctx.measureText(label).width;
 								const r = isCenter ? 9 : 6;
-								ctx.fillStyle = 'rgba(255,255,255,0.88)';
+								ctx.fillStyle = getCss('--graph-text-bg');
 								ctx.fillRect(node.x - tw/2 - 4, node.y + r + 2, tw + 8, fontSize + 4);
-								ctx.fillStyle = isCenter ? '#111' : '#333';
+								ctx.fillStyle = isCenter ? getCss('--text-dark') : getCss('--graph-text');
 								ctx.fillText(label, node.x, node.y + r + 4 + fontSize * 0.5);
 							})
 							.nodeLabel((n) => n.title)
@@ -206,6 +207,7 @@ const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 					} else {
 						init();
 					}
+					window.addEventListener('themechange', () => { if (fg) fg.refresh(); });
 				</script>
 			</>
 		)}
