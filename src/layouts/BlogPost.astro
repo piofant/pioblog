@@ -88,26 +88,18 @@ const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 						<h3>Похожие посты</h3>
 						<div class="related-grid">
 							{related.map((r) => {
-								const initial = (r.title || '?').trim().charAt(0).toUpperCase();
 								const visibleTags = (r.sharedTags || []).slice(0, 2);
 								return (
 									<a class="related-card" href={`${base}/blog/${r.id}/`}>
-										{r.heroImage ? (
-											<span class="thumb" style={`background-image:url('${r.heroImage}')`} aria-hidden="true"></span>
-										) : (
-											<span class="thumb thumb-fallback" aria-hidden="true">{initial}</span>
-										)}
-										<span class="body">
-											<span class="ttl">{r.title}</span>
-											{r.subtitle && <span class="sub">{r.subtitle}</span>}
-											<span class="meta">
-												<span class="d"><FormattedDate date={r.pubDate} short /></span>
-												{visibleTags.length > 0 && (
-													<span class="tag-pills">
-														{visibleTags.map((t) => <span class="pill">{t}</span>)}
-													</span>
-												)}
-											</span>
+										<span class="ttl">{r.title}</span>
+										{r.subtitle && <span class="sub">{r.subtitle}</span>}
+										<span class="meta">
+											<span class="d"><FormattedDate date={r.pubDate} short /></span>
+											{visibleTags.length > 0 && (
+												<span class="tag-pills">
+													{visibleTags.map((t) => <span class="pill">{t}</span>)}
+												</span>
+											)}
 										</span>
 									</a>
 								);
@@ -246,49 +238,21 @@ const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 	}
 	.related-posts .related-card {
 		display: flex;
-		gap: 12px;
-		align-items: flex-start;
-		padding: 10px;
+		flex-direction: column;
+		gap: 4px;
+		padding: 12px 14px;
 		border: 1px solid var(--border);
 		border-radius: 6px;
 		background: #fff;
 		text-decoration: none;
 		color: var(--text);
-		transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+		transition: box-shadow .15s ease, border-color .15s ease;
 		min-width: 0;
 	}
 	.related-posts .related-card:hover {
 		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 		border-color: #d4d4d4;
 		color: var(--text);
-	}
-	.related-posts .related-card .thumb {
-		flex: 0 0 80px;
-		width: 80px;
-		height: 80px;
-		border-radius: 6px;
-		background-color: var(--border-soft);
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		display: block;
-	}
-	.related-posts .related-card .thumb-fallback {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-family: var(--font-heading), 'Play', 'Open Sans', sans-serif;
-		font-size: 2rem;
-		font-weight: 700;
-		color: var(--muted);
-		background: linear-gradient(135deg, var(--border-soft) 0%, #ececec 100%);
-	}
-	.related-posts .related-card .body {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-		min-width: 0;
-		flex: 1 1 auto;
 	}
 	.related-posts .related-card .ttl {
 		font-family: var(--font-heading), 'Play', 'Open Sans', sans-serif;

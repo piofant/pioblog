@@ -63,14 +63,10 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 
 			{visibleGroups.map(({ category, entries }) => (
 				<section class="tag-group" style={`--cat-color: ${category.color};`}>
-					<header class="tag-group-head">
-						<h2>
-							<span class="emoji" aria-hidden="true">{category.emoji}</span>
-							<span class="name">{category.name}</span>
-							<span class="count">{entries.length}</span>
-						</h2>
-						<p class="desc">{category.description}</p>
-					</header>
+					<h2>
+						<span class="name">{category.name}</span>
+						<span class="count">{entries.length}</span>
+					</h2>
 					<div class="tag-cloud grouped">
 						{entries.map(({ tag, count }) => (
 							<a
@@ -87,14 +83,10 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 
 			{orphans.length > 0 && (
 				<section class="tag-group orphans" style="--cat-color: #999;">
-					<header class="tag-group-head">
-						<h2>
-							<span class="emoji" aria-hidden="true">❓</span>
-							<span class="name">Без категории</span>
-							<span class="count">{orphans.length}</span>
-						</h2>
-						<p class="desc">Теги, не размеченные в taxonomy. Стоит добавить их в <code>src/data/tag-categories.ts</code>.</p>
-					</header>
+					<h2>
+						<span class="name">без категории</span>
+						<span class="count">{orphans.length}</span>
+					</h2>
 					<div class="tag-cloud grouped">
 						{orphans.map(({ tag, count }) => (
 							<a
@@ -130,25 +122,19 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 				margin-top: 1.5rem;
 			}
 
-			.tag-group-head {
-				margin-bottom: 1rem;
-			}
-			.tag-group-head h2 {
+			.tag-group h2 {
 				display: flex;
 				align-items: baseline;
 				gap: 0.55rem;
-				font-size: 1.375rem;
-				margin: 0 0 0.25rem;
-				color: var(--text-dark);
-			}
-			.tag-group-head h2 .emoji {
 				font-size: 1.25rem;
-				line-height: 1;
-			}
-			.tag-group-head h2 .name {
+				margin: 0 0 0.75rem;
 				color: var(--text-dark);
+				text-transform: lowercase;
 			}
-			.tag-group-head h2 .count {
+			.tag-group h2 .name {
+				color: var(--cat-color);
+			}
+			.tag-group h2 .count {
 				font-family: var(--font-ui), system-ui, sans-serif;
 				font-size: 0.75rem;
 				font-weight: 500;
@@ -158,13 +144,6 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 				padding: 0.05rem 0.5rem;
 				border-radius: 999px;
 				font-variant-numeric: tabular-nums;
-			}
-			.tag-group-head .desc {
-				font-family: var(--font-ui), system-ui, sans-serif;
-				color: var(--muted);
-				font-size: 0.9375rem;
-				margin: 0;
-				max-width: 56ch;
 			}
 
 			.tag-cloud.grouped {
@@ -196,11 +175,8 @@ const visibleGroups = groups.filter((g) => g.entries.length > 0);
 				margin-left: 2px;
 			}
 
-			.tag-group.orphans .tag-group-head h2 .name {
+			.tag-group.orphans h2 .name {
 				color: var(--muted);
-			}
-			.tag-group.orphans .desc code {
-				font-size: 0.85em;
 			}
 		</style>
 	</body>
