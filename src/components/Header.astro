@@ -2,7 +2,6 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const productMenu = [
-	{ label: 'проекты', href: `${base}/projects/` },
 	{ label: 'менторство по карьере', href: `${base}/mentor/` },
 	{ label: 'CV', href: `${base}/cv/` },
 	{ label: 'портфолио кейсов', href: `${base}/cases/` },
@@ -35,6 +34,7 @@ const creativeMenu = [
 				</div>
 			</div>
 			<a href={`${base}/value/`}>полезность</a>
+			<a href={`${base}/projects/`}>проекты</a>
 			<div class="nav-dd">
 				<button class="nav-dd-trigger" aria-haspopup="true">творчество</button>
 				<div class="nav-dd-menu">
