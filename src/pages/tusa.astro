@@ -20,7 +20,7 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 
 			/* Reserved vertical chrome around the iframe (header + hero + spoiler chip + paddings).
 			   Iframe dimensions are derived from this so the whole page fits the viewport. */
-			:root { --talk-chrome: 11rem; }
+			:root { --talk-chrome: 13.5rem; }
 
 			main.talk {
 				max-width: none;
@@ -69,16 +69,14 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				.talk-hero h1 { font-size: 1.25rem; }
 			}
 
-			/* Adaptive iframe — width derived from available height to maintain
-			   Google Slides canonical aspect (960:569 = 16:9 slide + ~29px toolbar).
-			   Always fills max available width (capped at calc).
-			   No black bars because aspect matches exactly. */
+			/* Adaptive iframe — slide aspect 16:9, toolbar overlays the bottom edge.
+			   Width = min(container, available_height × 16/9) so it grows as much as
+			   viewport allows but never overflows. Aspect-ratio 16:9 ensures no bars. */
 			.talk-frame {
 				position: relative;
-				width: min(100%, calc((100vh - var(--talk-chrome)) * 960 / 569));
-				padding-bottom: 59.27%;
+				width: min(100%, calc((100vh - var(--talk-chrome)) * 16 / 9));
+				aspect-ratio: 16 / 9;
 				max-height: calc(100vh - var(--talk-chrome));
-				height: 0;
 				margin: 0 auto;
 				border: 1px solid var(--border);
 				border-radius: 4px;
@@ -94,7 +92,7 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				content: '';
 				position: absolute;
 				right: 0; bottom: 0;
-				width: 124px; height: 40px;
+				width: 124px; height: 36px;
 				background: #f1f3f4;
 				pointer-events: none;
 			}
