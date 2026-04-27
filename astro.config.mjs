@@ -37,7 +37,7 @@ export default defineConfig({
 		'/blog/audiversiia-poslushat-kak-podkastik-331/': '/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/',
 		'/blog/pdf-prezentashka-s-lektsii-332/': '/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/',
 		'/blog/ishchu-analogichnyi-stolb-proiavlennosti-v-raione-379/': '/blog/chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/',
-		'/blog/diadia-boria-pro-otdykh-audio-34/': '/blog/I-can-not-relax-or-rest/',
+		'/blog/diadia-boria-pro-otdykh-audio-34/': '/blog/i-can-not-relax-or-rest/',
 	},
 	fonts: [
 		{

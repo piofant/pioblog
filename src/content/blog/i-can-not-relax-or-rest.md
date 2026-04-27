@@ -21,4 +21,4 @@ title: Отдыхать не получается
 
 _*Дядя Боря про отдых* (аудио)**_
 
-<audio controls preload="metadata" style="width:100%;max-width:620px"><source src="/img/posts/2021-01-06-I-can-not-relax-or-rest/audio_1.m4a" type="audio/mp4"></audio>
+<audio controls preload="metadata" style="width:100%;max-width:620px"><source src="/img/posts/2021-01-06-i-can-not-relax-or-rest/audio_1.m4a" type="audio/mp4"></audio>
