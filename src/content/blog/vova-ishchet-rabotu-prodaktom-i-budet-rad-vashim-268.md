@@ -2,6 +2,7 @@
 title: 'Вова ищет работу продактом и будет рад вашим рекомендациям 👀'
 subtitle: 'Коротко обо мне'
 pubDate: '2025-03-04'
+heroImage: '/img/posts/2025-03-04-vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/video_1@04-03-2025_11-19-05_thumb.jpg'
 tags: ['продакт', 'карьера', 'школа жизни']
 ---
 

@@ -2,6 +2,7 @@
 title: 'Запустили ИИ-генерацию саммари в контент машине с Рамиром – сколько $ принесло?'
 subtitle: 'Контекст'
 pubDate: '2026-01-13'
+heroImage: '/img/posts/2026-01-13-zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392/саммаризация_threshold_0.0100_thumb.jpg'
 tags: ['творчество']
 ---
 

@@ -1,5 +1,6 @@
 ---
 pubDate: '2024-11-19'
+heroImage: '/img/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2)_thumb.jpg'
 subtitle: первое — никому ничего не рассказывать, NDA же
 tags:
 - продакт

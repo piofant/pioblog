@@ -2,6 +2,7 @@
 title: 'Самопрезентация для собеса: как составить, что даёт и как конвертит?'
 subtitle: 'Делюсь опытом и 2-мя рефами часть 1'
 pubDate: '2025-03-12'
+heroImage: '/img/posts/2025-03-12-samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271/11.03.2025 (6) _thumb.jpg'
 tags: ['продакт', 'рефлексия', 'карьера', 'анонс']
 ---
 

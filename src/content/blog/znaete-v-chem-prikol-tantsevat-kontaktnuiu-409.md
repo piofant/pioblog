@@ -2,6 +2,7 @@
 title: 'Знаете, в чем прикол танцевать контактную импровизацию с мужчинами?'
 subtitle: 'rejection rate невероятно низкий, 5%'
 pubDate: '2026-03-19'
+heroImage: '/img/posts/2026-03-19-znaete-v-chem-prikol-tantsevat-kontaktnuiu-409/ci_thumb.jpg'
 tags: ['танцы', 'контактная импровизация']
 ---
 
