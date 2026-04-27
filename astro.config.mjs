@@ -3,11 +3,18 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
+import remarkUnwrapImages from 'remark-unwrap-images';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://piofant.github.io',
 	integrations: [mdx(), sitemap()],
+	markdown: {
+		// Markdown по умолчанию оборачивает каждую картинку в <p>,
+		// что ломает Telegram Instant View (img внутри p — запрещено)
+		// и просто не нужно — картинка это самостоятельный блок.
+		remarkPlugins: [remarkUnwrapImages],
+	},
 	// Short-URL aliases for memorable sharing. /wiki/{slug}/ remains the
 	// canonical Notion-synced location; these are entry points that emit
 	// a static redirect HTML page.
