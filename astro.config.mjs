@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import remarkUnwrapImages from 'remark-unwrap-images';
+import remarkUnwrapMedia from './scripts/lib/remark-unwrap-media.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
 		// Markdown по умолчанию оборачивает каждую картинку в <p>,
 		// что ломает Telegram Instant View (img внутри p — запрещено)
 		// и просто не нужно — картинка это самостоятельный блок.
-		remarkPlugins: [remarkUnwrapImages],
+		remarkPlugins: [remarkUnwrapImages, remarkUnwrapMedia],
 	},
 	// Short-URL aliases for memorable sharing. /wiki/{slug}/ remains the
 	// canonical Notion-synced location; these are entry points that emit

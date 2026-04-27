@@ -127,12 +127,16 @@ function entitiesToMarkdown(text, entities) {
 }
 
 async function listExistingTgIds() {
+	// Только canonical имена tg-NNN.md, которые пишет сам этот скрипт.
+	// Раньше regex был /-(\d+)\.md$/ — он ложно ловил миграционные файлы вида
+	// `lsh-logbook-den-1-431.md` (где `-431` это старый TG ID из другого канала),
+	// и новые посты с тем же ID скипались как «уже есть» — навсегда теряя их
+	// из getUpdates-очереди после ACK.
 	try {
 		const files = await readdir(POSTS_DIR);
 		const ids = new Set();
 		for (const f of files) {
-			if (!f.endsWith('.md')) continue;
-			const m = f.match(/-(\d+)\.md$/);
+			const m = f.match(/^tg-(\d+)\.md$/);
 			if (m) ids.add(Number(m[1]));
 		}
 		return ids;
