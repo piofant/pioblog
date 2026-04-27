@@ -16,6 +16,16 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }: { paginate: P
 const { page } = Astro.props as any;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
+// Random-post pool — only 2022+ entries (skip early life-tales / 2020-2021).
+const allPosts = (await getCollection('blog'))
+	.filter((p) => p.data.pubDate.getFullYear() >= 2022)
+	.map((p) => ({
+		id: p.id,
+		title: p.data.title,
+		date: p.data.pubDate.toISOString().slice(0, 10),
+		hero: p.data.heroImage ?? '',
+	}));
+
 function excerptOf(body: string, words = 20): string {
 	const text = body
 		.replace(/```[\s\S]*?```/g, '')
@@ -48,6 +58,70 @@ const pageTitle = isFirstPage ? SITE_TITLE : `${SITE_TITLE} — страница
 				<h1 class="home-title">Вова Луценко</h1>
 				<p class="home-subtitle">{SITE_DESCRIPTION}</p>
 			</section>
+		)}
+		{isFirstPage && allPosts.length > 0 && (
+			<a class="random-post" id="random-post" href="#" aria-label="Открыть случайный пост">
+				<div class="thumb" id="random-post-thumb">🎲</div>
+				<div class="body">
+					<div class="lbl">
+						рандомный пост
+						<button class="reroll" id="random-post-reroll" type="button" aria-label="перегенерировать" title="перегенерировать">⟳</button>
+					</div>
+					<div class="ttl" id="random-post-ttl">— загружается…</div>
+					<div class="meta" id="random-post-meta"></div>
+				</div>
+			</a>
+			<script
+				type="application/json"
+				id="random-post-pool"
+				set:html={JSON.stringify(allPosts)}
+			/>
+			<script is:inline>
+				(() => {
+					const card = document.getElementById('random-post');
+					const ttl = document.getElementById('random-post-ttl');
+					const meta = document.getElementById('random-post-meta');
+					const thumbEl = document.getElementById('random-post-thumb');
+					const reroll = document.getElementById('random-post-reroll');
+					const poolEl = document.getElementById('random-post-pool');
+					if (!card || !ttl || !poolEl) return;
+					let pool;
+					try { pool = JSON.parse(poolEl.textContent || '[]'); } catch { pool = []; }
+					if (!pool.length) { card.style.display = 'none'; return; }
+
+					const fmtDate = (iso) => {
+						const d = new Date(iso);
+						const months = ['янв','февр','мар','апр','мая','июн','июл','авг','сент','окт','нояб','дек'];
+						return d.getDate() + ' ' + months[d.getMonth()] + '. ' + d.getFullYear();
+					};
+					const base = (document.querySelector('a.brand')?.getAttribute('href') || '/').replace(/\/$/, '');
+
+					let lastIdx = -1;
+					function pick() {
+						let i = Math.floor(Math.random() * pool.length);
+						if (pool.length > 1 && i === lastIdx) i = (i + 1) % pool.length;
+						lastIdx = i;
+						return pool[i];
+					}
+					function render() {
+						const p = pick();
+						card.href = base + '/blog/' + p.id + '/';
+						ttl.textContent = p.title;
+						meta.textContent = fmtDate(p.date);
+						if (p.hero) {
+							thumbEl.style.backgroundImage = "url('" + p.hero + "')";
+							thumbEl.classList.add('has-image');
+							thumbEl.textContent = '';
+						} else {
+							thumbEl.style.backgroundImage = '';
+							thumbEl.classList.remove('has-image');
+							thumbEl.textContent = '🎲';
+						}
+					}
+					render();
+					reroll?.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); render(); });
+				})();
+			</script>
 		)}
 		<main class="feed">
 			<ul class="posts-list">
