@@ -2,6 +2,7 @@
 title: 'Как прошёл год безумных экспериментов Вовы'
 subtitle: 'аудио-рассказ 14:53 — от випассаны до клоунады ради внутренней опоры'
 pubDate: '2026-01-20'
+heroImage: '/img/og/gradients/kak-proshel-god-bezumnykh-eksperimentov-vovy-393.png'
 tags: ['безумие', 'рефлексия']
 ---
 

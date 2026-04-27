@@ -1,6 +1,7 @@
 ---
 title: 'Серендипность aka сверх-удача как образ жизни'
 pubDate: '2022-04-21'
+heroImage: '/img/og/gradients/serendipity.png'
 tags: ['рефлексия', 'жизнь']
 ---
 

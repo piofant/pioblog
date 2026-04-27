@@ -2,6 +2,7 @@
 title: 'Что приносит написание текста рефлексии над'
 subtitle: 'проблемой\\ситуацией\\обстоятельствами?'
 pubDate: '2020-08-12'
+heroImage: '/img/og/gradients/chto-prinosit-napisanie-teksta-refleksii-nad-5.png'
 tags: ['истории', 'рефлексия']
 ---
 

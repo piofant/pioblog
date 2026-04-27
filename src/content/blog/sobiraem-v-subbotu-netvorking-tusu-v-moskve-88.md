@@ -2,6 +2,7 @@
 title: 'Собираем в субботу нетворкинг-тусу в Москве вечером в 17-18 часов.'
 subtitle: 'Формат: точки - никто никого не знает, все имеют энергию познакомиться (ад интроверта).'
 pubDate: '2022-03-24'
+heroImage: '/img/og/gradients/sobiraem-v-subbotu-netvorking-tusu-v-moskve-88.png'
 tags: ['нетворкинг', 'школа жизни']
 draft: true
 ---

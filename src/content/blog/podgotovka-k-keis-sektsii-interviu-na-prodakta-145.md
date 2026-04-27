@@ -2,6 +2,7 @@
 title: 'Подготовка к кейс-секции интервью на продакта'
 subtitle: 'Мой путь до стажировки продактом в Яндексе. Часть 3'
 pubDate: '2024-04-12'
+heroImage: '/img/og/gradients/podgotovka-k-keis-sektsii-interviu-na-prodakta-145.png'
 tags: ['продакт', 'карьера']
 series: 'yandex-internship'
 seriesPart: 3

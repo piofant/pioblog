@@ -2,6 +2,7 @@
 title: 'Фреймворк хорошего состояния и куча ссылок на комьюнити про ННО, эпатию к себе'
 subtitle: 'и другим'
 pubDate: '2023-08-27'
+heroImage: '/img/og/gradients/freimvork-khoroshego-sostoianiia-i-kucha-ssylok-na-131.png'
 tags: ['рефлексия', 'карьера', 'школа жизни']
 ---
 

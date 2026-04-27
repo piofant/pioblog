@@ -2,6 +2,7 @@
 title: 'Странствующие в голове мысли о том, зачем все-таки поступать в норм ВУЗ -'
 subtitle: 'чтобы добиться следующий целей:'
 pubDate: '2020-09-26'
+heroImage: '/img/og/gradients/stranstvuiushchie-v-golove-mysli-o-tom-zachem-vse-18.png'
 tags: ['рефлексия', 'жизнь']
 ---
 

@@ -2,6 +2,7 @@
 title: 'Создал внутри Telegram-бота а-ля бинарную своеобразную соц-сеть BGSN 🌐 —'
 subtitle: 'Binary Grateful Social Network (хочешь, чтобы что-то взлетело - дай этому крутое название).'
 pubDate: '2022-04-17'
+heroImage: '/img/og/gradients/sozdal-vnutri-telegram-bota-a-lia-binarnuiu-97.png'
 tags: ['боты', 'творчество']
 ---
 

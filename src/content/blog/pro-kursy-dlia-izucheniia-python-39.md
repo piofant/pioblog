@@ -2,6 +2,7 @@
 title: 'Про курсы для изучения Python'
 subtitle: 'рекомендации'
 pubDate: '2021-01-04'
+heroImage: '/img/og/gradients/pro-kursy-dlia-izucheniia-python-39.png'
 tags: ['рекомендации']
 ---
 

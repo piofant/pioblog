@@ -2,6 +2,7 @@
 title: '📍 Самые популярные посты в этом канале:'
 subtitle: '2024:'
 pubDate: '2020-08-12'
+heroImage: '/img/og/gradients/samye-populiarnye-posty-v-etom-kanale-4.png'
 ---
 
 • Мой путь до стажировки продактом в Яндексе (5 частей) - [link](/blog/ia-v-iandekse-stazher-menedzher-produkta-132/)

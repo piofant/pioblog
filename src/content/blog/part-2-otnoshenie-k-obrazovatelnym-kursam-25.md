@@ -2,6 +2,7 @@
 title: 'part 2: Отношение к образовательным курсам.'
 subtitle: 'За первое полугодие я пытался брать информацию и \"типо учиться\" на нескольких курсах. Вебинары смотрел, но задачи не решал от слова совсем. Пытался успеть всё: и физику, и'
 pubDate: '2020-12-27'
+heroImage: '/img/og/gradients/part-2-otnoshenie-k-obrazovatelnym-kursam-25.png'
 tags: ['школа жизни', 'рефлексия']
 series: 'school-grade-10'
 seriesPart: 2

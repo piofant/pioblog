@@ -2,6 +2,7 @@
 title: 'В 11 класс мне все-таки как-то удалось поступить в одну школу, которую мне'
 subtitle: 'посоветовал первокур матфака ВШЭ. Далее речь будет про неё.'
 pubDate: '2021-09-05'
+heroImage: '/img/og/gradients/v-11-klass-mne-vse-taki-kak-to-udalos-postupit-v-62.png'
 tags: ['школа жизни']
 ---
 
