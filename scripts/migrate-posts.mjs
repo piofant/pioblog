@@ -118,9 +118,16 @@ async function main() {
 
 		const heroImage = rewriteHero(fm['thumbnail-img'] || fm['cover-img'] || fm['thumb-img']);
 
+		// Sanitize title/subtitle: orphan `.webp) ` / `.png) ` artifacts
+		// from half-stripped sticker links like `[🗺](stickers/file.webp)`.
+		// Pattern: `<emoji?>.<ext>) <rest>` → `<rest>`
+		const sanitize = (s) => s && String(s)
+			.replace(/^([\p{Emoji}\p{So}\p{Sk}]+\s*)?\.(webp|png|jpe?g|gif|tgs|lottie|webm)\)\s*/u, '')
+			.trim();
+
 		const newFm = {
-			title: fm.title,
-			subtitle: fm.subtitle,
+			title: sanitize(fm.title),
+			subtitle: sanitize(fm.subtitle),
 			pubDate,
 			tags: fm.tags,
 			heroImage,
