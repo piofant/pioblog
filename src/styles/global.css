@@ -983,14 +983,21 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 :root[data-theme="dark"] .callout.gray_bg           { background: #2a2a2e; color: #e0e0dc; }
 :root[data-theme="dark"] .callout a { color: inherit; }
 
-/* Toggle blocks — Notion-style ▶ + indented body */
+/* Toggle blocks — Notion-style ▶ + indented body.
+   When open: whole block (summary + body) gets soft gray bg as a card. */
 .wiki-page .page-content details {
 	margin: 0.4rem 0;
 	border: 0;
 	background: transparent;
 	padding: 0;
+	border-radius: 6px;
+	transition: background 0.15s, padding 0.15s;
 }
-.wiki-page .page-content details[open] { background: transparent; }
+.wiki-page .page-content details[open] {
+	background: var(--border-soft);
+	padding: 0.55rem 0.85rem 0.7rem 0.45rem;
+	margin: 0.5rem -0.45rem;
+}
 .wiki-page .page-content summary {
 	cursor: pointer;
 	list-style: none;
@@ -1012,9 +1019,16 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	flex-shrink: 0;
 }
 .wiki-page .page-content details[open] > summary::before { transform: rotate(90deg); }
+.wiki-page .page-content details[open] > summary {
+	padding: 0.15rem 0 0.35rem 0.5rem;
+	margin-bottom: 0.2rem;
+}
 .wiki-page .page-content details > *:not(summary) {
 	margin-left: 1.5rem;
 	padding-left: 0;
+}
+.wiki-page .page-content details[open] > *:not(summary) {
+	margin-left: 1.95rem;
 }
 
 /* Blog post details kept untouched (unified-toggles via .post-content) */
