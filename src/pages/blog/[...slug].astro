@@ -186,6 +186,10 @@ export async function getStaticPaths() {
 			}
 		}
 
+		// TG message id извлекаем из суффикса slug'а: '...-384' → 384
+		const tgMatch = post.id.match(/-(\d+)$/);
+		const tgMessageId = tgMatch ? Number(tgMatch[1]) : null;
+
 		return {
 			params: { slug: post.id },
 			props: {
@@ -195,15 +199,16 @@ export async function getStaticPaths() {
 				related: scored,
 				miniGraph: { nodes: miniNodes, links: miniEdges },
 				series: seriesData,
+				tgMessageId,
 			},
 		};
 	});
 }
 
-const { post, prev, next, related, miniGraph, series } = Astro.props;
+const { post, prev, next, related, miniGraph, series, tgMessageId } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} prev={prev} next={next} related={related} miniGraph={miniGraph} series={series}>
+<BlogPost {...post.data} prev={prev} next={next} related={related} miniGraph={miniGraph} series={series} tgMessageId={tgMessageId}>
 	<Content />
 </BlogPost>

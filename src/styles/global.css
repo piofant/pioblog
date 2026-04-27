@@ -486,6 +486,44 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	margin-top: 2rem;
 	font-family: var(--font-ui), system-ui, sans-serif;
 }
+.mini-graph-wrap .post-actions-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+}
+/* TG-pill — точный размер summary (см. .mini-graph-wrap details > summary) */
+.mini-graph-wrap .tg-pill {
+	font-size: 0.9375rem;
+	font-weight: 500;
+	color: var(--text);
+	text-decoration: none;
+	cursor: pointer;
+	padding: 0.55rem 0.9rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: var(--border-soft);
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.mini-graph-wrap .tg-pill:hover {
+	background: var(--bg);
+	border-color: #229ED9;
+	color: #229ED9;
+	transform: translateY(-1px);
+}
+:root[data-theme="dark"] .mini-graph-wrap .tg-pill:hover {
+	border-color: #4ab9ea;
+	color: #4ab9ea;
+}
+.mini-graph-wrap .tg-pill svg {
+	flex-shrink: 0;
+	color: var(--muted);
+	transition: color 0.15s ease;
+}
+.mini-graph-wrap .tg-pill:hover svg { color: inherit; }
 .mini-graph-wrap h3 {
 	font-size: 0.8125rem;
 	text-transform: uppercase;
