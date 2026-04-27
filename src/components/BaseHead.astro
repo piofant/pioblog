@@ -72,6 +72,6 @@ const ogTitle = title === SITE_TITLE ? SITE_AUTHOR_NAME : title;
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:title" content={ogTitle} />
 <meta property="twitter:description" content={description} />
 {image && <meta property="twitter:image" content={new URL(image, Astro.url)} />}
