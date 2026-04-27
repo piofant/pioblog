@@ -97,11 +97,45 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 				pointer-events: none;
 			}
 
-			/* Sources spoiler — single chip below the iframe */
+			/* Spoiler chips — single row of pill-shaped chips below the iframe */
 			.talk-spoilers {
 				width: min(100%, calc((100vh - var(--talk-chrome)) * 960 / 569));
 				margin: 0.6rem auto 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				align-items: flex-start;
 			}
+			.talk-spoilers details[open] { flex: 1 1 100%; }
+			/* External-link pill matching the spoiler summary style */
+			.talk-pill {
+				font-size: 0.8125rem;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: var(--text);
+				font-weight: 600;
+				padding: 0.5rem 0.85rem;
+				user-select: none;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				background: var(--border-soft);
+				border: 1px solid var(--border);
+				border-radius: 999px;
+				text-decoration: none;
+				transition: background 0.15s, border-color 0.15s, color 0.15s;
+			}
+			.talk-pill .ico {
+				font-size: 0.75rem;
+				color: var(--muted);
+				transition: color 0.15s;
+			}
+			.talk-pill:hover {
+				background: var(--bg);
+				border-color: var(--text);
+				color: var(--text-dark);
+			}
+			.talk-pill:hover .ico { color: var(--link); }
 			.talk-spoilers details > summary {
 				font-size: 0.8125rem;
 				text-transform: uppercase;
@@ -173,11 +207,15 @@ const editUrl = `https://docs.google.com/presentation/d/${PRES_ID}/edit?usp=shar
 					<p class="sub">или что такое «контекст знакомства» и как его создать</p>
 				</div>
 				<span class="meta">
-					~15 мин · доклад · <a href={editUrl} target="_blank" rel="noopener">открыть в Google Slides ↗</a>
+					~15 мин · доклад
 				</span>
 			</header>
 
 			<div class="talk-spoilers">
+				<a class="talk-pill" href={editUrl} target="_blank" rel="noopener">
+					<span class="ico">↗</span>
+					<span>открыть в Google Slides</span>
+				</a>
 				<details>
 					<summary>источники вдохновения</summary>
 					<div class="body">
