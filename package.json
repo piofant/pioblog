@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "build:cv": "python3 scripts/build-cv.py",
     "prebuild": "npm run build:cv",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "suggest-tags": "node scripts/suggest-tags.mjs"
@@ -20,5 +20,8 @@
     "@astrojs/sitemap": "^3.7.2",
     "astro": "^6.1.9",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.2"
   }
 }

@@ -44,6 +44,12 @@ const creativeMenu = [
 				</div>
 			</div>
 			<a href={`${base}/tags/`}>теги</a>
+		<button class="search-btn" id="search-btn" type="button" aria-label="Поиск по сайту" title="Поиск (⌘K)">
+			<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<circle cx="11" cy="11" r="7"></circle>
+				<path d="m20 20-3.5-3.5"></path>
+			</svg>
+		</button>
 		<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему">
 			<svg class="icon-sun"  width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 				<circle cx="12" cy="12" r="4"></circle>
@@ -56,6 +62,22 @@ const creativeMenu = [
 		</nav>
 	</div>
 </header>
+
+<!-- Search modal — Pagefind-powered -->
+<div class="search-modal" id="search-modal" hidden>
+	<div class="search-overlay" id="search-overlay"></div>
+	<div class="search-panel" role="dialog" aria-label="Поиск">
+		<div class="search-input-row">
+			<svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+			</svg>
+			<input type="text" id="search-input" placeholder="поиск по постам и страницам…" autocomplete="off" spellcheck="false" />
+			<kbd class="search-esc">esc</kbd>
+		</div>
+		<div class="search-results" id="search-results"></div>
+		<div class="search-hint">↑↓ навигация · ↵ открыть · esc закрыть</div>
+	</div>
+</div>
 
 <style>
 	.theme-toggle {
@@ -80,6 +102,131 @@ const creativeMenu = [
 	.theme-toggle .icon-sun  { display: none; }
 	:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 	:root[data-theme="dark"] .theme-toggle .icon-sun  { display: inline-block; }
+
+	/* === Search button === */
+	.search-btn {
+		background: none;
+		border: 1px solid var(--border);
+		color: var(--text);
+		padding: 6px 8px;
+		border-radius: 6px;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: color 0.15s, background 0.15s, border-color 0.15s;
+		margin-left: 4px;
+	}
+	.search-btn:hover {
+		color: var(--link-hover);
+		border-color: var(--link-hover);
+		background: color-mix(in srgb, var(--link) 8%, transparent);
+	}
+
+	/* === Search modal === */
+	.search-modal {
+		position: fixed; inset: 0; z-index: 200;
+		display: flex; align-items: flex-start; justify-content: center;
+		padding-top: 12vh;
+	}
+	.search-modal[hidden] { display: none !important; }
+	.search-overlay {
+		position: absolute; inset: 0;
+		background: rgba(0, 0, 0, 0.45);
+		backdrop-filter: blur(2px);
+	}
+	:root[data-theme="dark"] .search-overlay { background: rgba(0, 0, 0, 0.7); }
+	.search-panel {
+		position: relative;
+		width: min(640px, calc(100vw - 32px));
+		background: var(--bg-elevated);
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+		overflow: hidden;
+		font-family: var(--font-ui), system-ui, sans-serif;
+	}
+	.search-input-row {
+		display: flex; align-items: center; gap: 0.6rem;
+		padding: 0.85rem 1rem;
+		border-bottom: 1px solid var(--border);
+	}
+	.search-input-row .search-icon { color: var(--muted); flex-shrink: 0; }
+	.search-input-row input {
+		flex: 1;
+		background: transparent;
+		border: 0; outline: 0;
+		font-size: 1rem;
+		color: var(--text-dark);
+		font-family: inherit;
+		padding: 0;
+	}
+	.search-input-row input::placeholder { color: var(--muted-2); }
+	.search-esc {
+		font-family: var(--font-ui), system-ui, sans-serif;
+		font-size: 0.75rem;
+		color: var(--muted);
+		background: var(--border-soft);
+		border: 1px solid var(--border);
+		border-radius: 4px;
+		padding: 2px 6px;
+		text-transform: lowercase;
+	}
+	.search-results {
+		max-height: 60vh;
+		overflow-y: auto;
+	}
+	.search-results:empty { display: none; }
+	.search-result {
+		display: block;
+		padding: 0.7rem 1rem;
+		border-bottom: 1px solid var(--border-soft);
+		text-decoration: none;
+		color: var(--text);
+		transition: background 0.1s;
+	}
+	.search-result:last-child { border-bottom: 0; }
+	.search-result.active,
+	.search-result:hover {
+		background: color-mix(in srgb, var(--link) 7%, transparent);
+	}
+	.search-result .ttl {
+		color: var(--text-dark);
+		font-weight: 600;
+		font-size: 0.9375rem;
+		margin-bottom: 2px;
+		line-height: 1.3;
+	}
+	.search-result .excerpt {
+		color: var(--muted);
+		font-size: 0.8125rem;
+		line-height: 1.45;
+	}
+	.search-result mark {
+		background: color-mix(in srgb, var(--link) 30%, transparent);
+		color: var(--text-dark);
+		padding: 1px 2px;
+		border-radius: 2px;
+	}
+	.search-empty {
+		padding: 1.25rem 1rem;
+		color: var(--muted);
+		font-size: 0.875rem;
+		text-align: center;
+	}
+	.search-empty code {
+		background: var(--code-bg);
+		padding: 1px 4px;
+		border-radius: 3px;
+		font-size: 0.85em;
+	}
+	.search-hint {
+		font-size: 0.75rem;
+		color: var(--muted-2);
+		text-align: center;
+		padding: 0.5rem;
+		border-top: 1px solid var(--border-soft);
+	}
 </style>
 
 <script is:inline>
@@ -134,5 +281,109 @@ const creativeMenu = [
 				window.dispatchEvent(new CustomEvent('themechange'));
 			});
 		}
+
+		// ============ Search modal (Pagefind) ============
+		const searchBtn = document.getElementById('search-btn');
+		const modal = document.getElementById('search-modal');
+		const overlay = document.getElementById('search-overlay');
+		const input = document.getElementById('search-input');
+		const results = document.getElementById('search-results');
+		if (!searchBtn || !modal || !input || !results) return;
+
+		let pf = null;
+		let pfPromise = null;
+		const loadPagefind = () => {
+			if (pf) return Promise.resolve(pf);
+			if (pfPromise) return pfPromise;
+			pfPromise = import(/* @vite-ignore */ '/pagefind/pagefind.js')
+				.then(async (m) => {
+					await m.options({ excerptLength: 28 });
+					pf = m;
+					return m;
+				})
+				.catch((e) => {
+					results.innerHTML = '<div class="search-empty">поиск не загрузился — нужен build (pagefind/ создаётся при <code>npm run build</code>)</div>';
+					return null;
+				});
+			return pfPromise;
+		};
+
+		const openModal = () => {
+			modal.removeAttribute('hidden');
+			document.body.style.overflow = 'hidden';
+			loadPagefind();
+			setTimeout(() => input.focus(), 30);
+		};
+		const closeModal = () => {
+			modal.setAttribute('hidden', '');
+			document.body.style.overflow = '';
+			input.value = '';
+			results.innerHTML = '';
+		};
+
+		searchBtn.addEventListener('click', openModal);
+		overlay.addEventListener('click', closeModal);
+		document.addEventListener('keydown', (e) => {
+			const isModalOpen = !modal.hasAttribute('hidden');
+			if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+				e.preventDefault();
+				if (isModalOpen) closeModal(); else openModal();
+				return;
+			}
+			if (e.key === 'Escape' && isModalOpen) {
+				closeModal();
+				return;
+			}
+			if (!isModalOpen) return;
+			if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+				e.preventDefault();
+				const items = results.querySelectorAll('.search-result');
+				if (!items.length) return;
+				const current = results.querySelector('.search-result.active');
+				let idx = current ? Array.from(items).indexOf(current) : -1;
+				idx = e.key === 'ArrowDown' ? Math.min(items.length - 1, idx + 1) : Math.max(0, idx - 1);
+				items.forEach((el) => el.classList.remove('active'));
+				items[idx].classList.add('active');
+				items[idx].scrollIntoView({ block: 'nearest' });
+			}
+			if (e.key === 'Enter') {
+				const active = results.querySelector('.search-result.active') || results.querySelector('.search-result');
+				if (active) {
+					e.preventDefault();
+					window.location.href = active.getAttribute('href');
+				}
+			}
+		});
+
+		let searchTimer = null;
+		input.addEventListener('input', () => {
+			clearTimeout(searchTimer);
+			const q = input.value.trim();
+			if (!q) { results.innerHTML = ''; return; }
+			searchTimer = setTimeout(async () => {
+				const pagefind = await loadPagefind();
+				if (!pagefind) return;
+				try {
+					const search = await pagefind.search(q);
+					if (!search || !search.results.length) {
+						results.innerHTML = '<div class="search-empty">ничего не нашлось по запросу «' + q.replace(/</g, '&lt;') + '»</div>';
+						return;
+					}
+					const top = await Promise.all(search.results.slice(0, 12).map((r) => r.data()));
+					results.innerHTML = top.map((d, i) => {
+						const title = (d.meta && d.meta.title) ? d.meta.title : d.url;
+						const excerpt = (d.excerpt || '').replace(/\s+/g, ' ').slice(0, 220);
+						const url = d.url.replace(/^\/pagefind/, '').replace(/\.html$/, '/');
+						const isFirst = i === 0 ? ' active' : '';
+						return '<a href="' + url + '" class="search-result' + isFirst + '">' +
+							'<div class="ttl">' + title + '</div>' +
+							'<div class="excerpt">' + excerpt + '</div>' +
+							'</a>';
+					}).join('');
+				} catch (e) {
+					results.innerHTML = '<div class="search-empty">ошибка поиска</div>';
+				}
+			}, 120);
+		});
 	})();
 </script>
