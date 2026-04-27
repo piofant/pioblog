@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '../../../lib/blog';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
 	const primaryTagOf = (tags?: string[]): string =>
 		(tags || []).find((t) => !META_TAGS.has(t)) || 'разное';
 
-	const allPosts = await getCollection('blog');
+	const allPosts = await getPublishedPosts();
 	const tags = new Set<string>();
 	for (const p of allPosts) {
 		for (const t of p.data.tags ?? []) tags.add(t);

@@ -13,6 +13,11 @@ const blog = defineCollection({
 		heroImage: z.string().optional(),
 		series: z.string().optional(),
 		seriesPart: z.number().optional(),
+		/* Скрыть из всех листингов и поломать URL поста (Astro отдаст 404).
+		   Для шумовых постов (плейсхолдеры, тизеры, эмодзи-only) — без удаления
+		   файла из git. Фильтруется во всех getCollection-ах через хелпер из
+		   src/lib/blog.ts. */
+		draft: z.boolean().optional(),
 	}),
 });
 

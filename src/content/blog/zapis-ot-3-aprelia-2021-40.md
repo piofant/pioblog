@@ -3,6 +3,7 @@ title: 'Запись от 3 апреля 2021'
 subtitle: '🆗'
 pubDate: '2021-04-03'
 tags: ['жизнь']
+draft: true
 ---
 
 🆗

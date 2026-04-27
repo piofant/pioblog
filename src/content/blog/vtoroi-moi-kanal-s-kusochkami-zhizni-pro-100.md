@@ -3,6 +3,7 @@ title: 'Второй мой канал — кусочки жизни без пр
 subtitle: 'Лайфстайл, щитпостинг и вот это вот всё — @not_tldr'
 pubDate: '2022-05-16'
 tags: ['жизнь']
+draft: true
 ---
 
 <https://t.me/not_tldr>

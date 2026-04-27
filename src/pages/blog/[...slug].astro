@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { getPublishedPosts } from '../../../lib/blog';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { SERIES } from '../../series';
 
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
 	const primaryTagOf = (tags?: string[]): string =>
 		(tags || []).find((t) => !META_TAGS.has(t)) || 'разное';
 
-	const posts = (await getCollection('blog'))
+	const posts = (await getPublishedPosts())
 		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 	// IDF-веса тегов: узкий тег (мужские круги, випассана) весит больше, чем широкий
