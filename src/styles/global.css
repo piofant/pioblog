@@ -340,6 +340,12 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	font-weight: 400;
 	font-size: 0.9375rem;
 	margin: 0;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .post-card .card-excerpt {
 	font-family: var(--font-body), Georgia, serif;
