@@ -467,6 +467,16 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	transition: background 0.15s ease;
 }
 .series-cta:hover { background: var(--link); color: #fff; }
+:root[data-theme="dark"] .series-cta {
+	background: var(--bg-elevated);
+	color: var(--text-dark);
+	border: 1px solid var(--border);
+}
+:root[data-theme="dark"] .series-cta:hover {
+	background: var(--link);
+	color: #fff;
+	border-color: var(--link);
+}
 .series-cta .lbl {
 	font-size: 0.8125rem;
 	text-transform: uppercase;
