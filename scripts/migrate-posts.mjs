@@ -10,6 +10,7 @@
 import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, basename } from 'node:path';
+import { fixBody } from './lib/markdown.mjs';
 
 const SRC = '/Users/piofant/cursor/vedulix-blog/_posts';
 const DST = '/Users/piofant/cursor/src/content/blog';
@@ -88,7 +89,11 @@ function fixContent(body) {
 		.replace(/^(>.*)\n\s*\n\s*\n/gm, '$1\n\n')
 		// 9) несколько подряд пустых строк → максимум две
 		.replace(/\n{4,}/g, '\n\n\n');
-	return out;
+	// 10) Общий paragraphize + splitMultilineEmphasis (тот же lib что и в TG-синке).
+	//     Превращает single `\n` → `\n\n` вне code fences. Без этого
+	//     `[**label**]\nbody` рендерилось как один абзац (см. fix #1 — раньше ловил
+	//     только `**bold**SOMETHING`, но не bracketed labels).
+	return fixBody(out);
 }
 
 function rewriteHero(url) {
