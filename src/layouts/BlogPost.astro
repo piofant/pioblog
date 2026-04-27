@@ -133,12 +133,11 @@ const showTgPill = !!tgMessageId;
 					<aside class="mini-graph-wrap">
 						<div class="post-actions-row">
 							{showMini && (
-								<details>
+								<details class="conn-toggle">
 									<summary>
 										<span class="label">показать связи поста</span>
 										<span class="count">{miniCount}</span>
 									</summary>
-									<div class="mini-graph" id="mini-graph"></div>
 								</details>
 							)}
 							{showTgPill && (
@@ -148,6 +147,7 @@ const showTgPill = !!tgMessageId;
 								</a>
 							)}
 						</div>
+						{showMini && <div class="mini-graph" id="mini-graph"></div>}
 					</aside>
 				)}
 			</article>
@@ -168,7 +168,7 @@ const showTgPill = !!tgMessageId;
 					};
 					const getCss = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 					const el = document.getElementById('mini-graph');
-					const details = el.closest('details');
+					const details = document.querySelector('.mini-graph-wrap .conn-toggle');
 					const center = DATA.nodes[0]?.id;
 					let fg = null;
 
