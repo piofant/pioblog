@@ -603,8 +603,9 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	font-weight: 600;
 }
 
-/* Series CTA — inverse-colored CTA button. Auto-adapts to theme:
-   light: black bg + white text. dark: light bg + dark text. */
+/* Series CTA — soft card with accent border, hover fills with link color.
+   Не использует чёрный фон чтобы не выпадать из light-темы (где он
+   выглядит как баннер из 90-х на фоне тёплых тонов). */
 .series-cta {
 	display: flex;
 	align-items: center;
@@ -612,14 +613,22 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	gap: 1rem;
 	margin: 2.5rem 0 0;
 	padding: 1rem 1.2rem;
-	background: var(--text-dark);
-	color: var(--bg);
+	background: var(--bg-elevated);
+	color: var(--text);
+	border: 1px solid var(--border);
 	border-radius: 4px;
 	font-family: var(--font-ui), system-ui, sans-serif;
 	text-decoration: none;
-	transition: background 0.15s ease, color 0.15s ease;
+	transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-.series-cta:hover { background: var(--link); color: #fff; }
+.series-cta:hover {
+	background: var(--link);
+	color: #fff;
+	border-color: var(--link);
+}
+.series-cta:hover .lbl,
+.series-cta:hover .arrow { color: #fff; }
+.series-cta .arrow { color: var(--link); }
 .series-cta .lbl {
 	font-size: 0.8125rem;
 	text-transform: uppercase;
