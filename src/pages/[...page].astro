@@ -56,7 +56,14 @@ const pageTitle = isFirstPage ? SITE_TITLE : `${SITE_TITLE} — страница
 			<section class="home-hero">
 				<img src={`${base}/avatar_pio.png`} alt="pio" class="home-avatar" />
 				<h1 class="home-title">Вова Луценко</h1>
-				<p class="home-subtitle">{SITE_DESCRIPTION}</p>
+				<p class="home-subtitle">
+					разработчик в прошлом,
+					<a class="hidden-link" href={`${base}/tags/${encodeURIComponent('продакт')}/`}>ai-продакт</a> и
+					<a class="hidden-link" href={`${base}/tags/${encodeURIComponent('танцы')}/`}>танцор</a>
+					в настоящем, maybe
+					<a class="hidden-link" href={`${base}/tags/${encodeURIComponent('театр')}/`}>актёр</a>
+					в будущем
+				</p>
 			</section>
 		)}
 		{isFirstPage && allPosts.length > 0 && (
