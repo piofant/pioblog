@@ -9,15 +9,16 @@ interface Props {
 	image?: string;
 	ogType?: 'website' | 'article';
 	publishedTime?: Date;
+	/* Override og:title / twitter:title только для веб-превью.
+	   Используется на homepage чтобы не светить бренд "pio blog" в TG/Twitter
+	   карточках — там показываем имя автора. HTML <title> остаётся с брендом. */
+	ogTitle?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description, image, ogType = 'website', publishedTime } = Astro.props;
+const { title, description, image, ogType = 'website', publishedTime, ogTitle } = Astro.props;
 const fullTitle = title === SITE_TITLE ? SITE_TITLE : `${title} | ${SITE_TITLE}`;
-/* OG-card title — без `| pio blog` суффикса, потому что site_name уже
-   показан отдельной строкой как «Вова Луценко». Иначе в TG/Twitter превью
-   дублируется бренд. */
-const ogTitle = title === SITE_TITLE ? SITE_AUTHOR_NAME : title;
+const finalOgTitle = ogTitle ?? title;
 ---
 
 <meta charset="utf-8" />
@@ -61,7 +62,7 @@ const ogTitle = title === SITE_TITLE ? SITE_AUTHOR_NAME : title;
 
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={ogTitle} />
+<meta property="og:title" content={finalOgTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={SITE_AUTHOR_NAME} />
 {image && <meta property="og:image" content={new URL(image, Astro.url)} />}
@@ -72,6 +73,6 @@ const ogTitle = title === SITE_TITLE ? SITE_AUTHOR_NAME : title;
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={ogTitle} />
+<meta property="twitter:title" content={finalOgTitle} />
 <meta property="twitter:description" content={description} />
 {image && <meta property="twitter:image" content={new URL(image, Astro.url)} />}
