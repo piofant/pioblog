@@ -127,6 +127,13 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 		<Footer />
 
 		<style is:global>
+			/* Theme-adaptive color tokens for the photos page */
+			.photos-page {
+				--c-fg: var(--text-dark);
+				--c-accent: var(--link);
+				--c-muted: var(--muted);
+			}
+
 			/* Override the global `main.content { max-width: 620px }` for photos.
 			   Photos need horizontal real estate; copy is the rest of the site. */
 			main.content.photos-page {
@@ -165,7 +172,7 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 				font-style: normal;
 				font-weight: 700;
 				color: var(--c-fg, #1a1a1a);
-				background: linear-gradient(180deg, transparent 62%, rgba(140, 140, 140, 0.28) 62%);
+				background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--text-dark) 18%, transparent) 62%);
 				padding: 0 2px;
 			}
 			.album-hero .meta {
