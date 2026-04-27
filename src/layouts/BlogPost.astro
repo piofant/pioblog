@@ -85,6 +85,16 @@ const showTgPill = !!tgMessageId;
 					<slot />
 				</div>
 
+				{series && series.nextSibling && (
+					<a href={`${base}/blog/${series.nextSibling.id}/`} class="series-cta">
+						<div>
+							<div class="lbl">{series.currentPart === 0 ? 'Начать с части 1' : 'Следующая часть в серии'}</div>
+							<div class="ttl">{series.nextSibling.title}</div>
+						</div>
+						<span class="arrow">→</span>
+					</a>
+				)}
+
 				{related && related.length > 0 && (
 					<aside class="related-posts">
 						<h3>Похожие посты</h3>
@@ -115,16 +125,6 @@ const showTgPill = !!tgMessageId;
 							})}
 						</div>
 					</aside>
-				)}
-
-				{series && series.nextSibling && (
-					<a href={`${base}/blog/${series.nextSibling.id}/`} class="series-cta">
-						<div>
-							<div class="lbl">{series.currentPart === 0 ? 'Начать с части 1' : 'Следующая часть в серии'}</div>
-							<div class="ttl">{series.nextSibling.title}</div>
-						</div>
-						<span class="arrow">→</span>
-					</a>
 				)}
 
 				{/* prev/next временно скрыты — навигация через related/archive/tags */}
