@@ -411,7 +411,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	border-radius: 999px;
 	text-decoration: none;
 }
-.post-tags a:hover { background: var(--text-dark); color: #fff; }
+.post-tags a:hover { background: var(--text-dark); color: var(--bg); }
 
 .post-content p { margin: 0 0 15px; }
 
@@ -446,12 +446,13 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .series-nav a.pill:hover { border-color: var(--text-dark); color: var(--text-dark); }
 .series-nav .pill.current {
 	background: var(--text-dark);
-	color: #fff;
+	color: var(--bg);
 	border-color: var(--text-dark);
 	font-weight: 600;
 }
 
-/* Series CTA — bold dark next-in-series button */
+/* Series CTA — inverse-colored CTA button. Auto-adapts to theme:
+   light: black bg + white text. dark: light bg + dark text. */
 .series-cta {
 	display: flex;
 	align-items: center;
@@ -460,23 +461,13 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	margin: 2.5rem 0 0;
 	padding: 1rem 1.2rem;
 	background: var(--text-dark);
-	color: #fff;
+	color: var(--bg);
 	border-radius: 4px;
 	font-family: var(--font-ui), system-ui, sans-serif;
 	text-decoration: none;
-	transition: background 0.15s ease;
+	transition: background 0.15s ease, color 0.15s ease;
 }
 .series-cta:hover { background: var(--link); color: #fff; }
-:root[data-theme="dark"] .series-cta {
-	background: var(--bg-elevated);
-	color: var(--text-dark);
-	border: 1px solid var(--border);
-}
-:root[data-theme="dark"] .series-cta:hover {
-	background: var(--link);
-	color: #fff;
-	border-color: var(--link);
-}
 .series-cta .lbl {
 	font-size: 0.8125rem;
 	text-transform: uppercase;
@@ -880,7 +871,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	padding: 10px 14px;
 	border: 1px solid var(--border);
 	border-radius: 4px;
-	background: #fafafa;
+	background: var(--border-soft);
 }
 .post-content details[open] { background: var(--bg-elevated); }
 .post-content summary {

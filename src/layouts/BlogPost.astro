@@ -252,8 +252,8 @@ const showTgPill = !!tgMessageId;
 		min-width: 0;
 	}
 	.related-posts .related-card:hover {
-		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-		border-color: #d4d4d4;
+		box-shadow: 0 4px 14px var(--shadow-sm);
+		border-color: var(--text);
 		color: var(--text);
 	}
 	.related-posts .related-card .thumb {
@@ -275,7 +275,7 @@ const showTgPill = !!tgMessageId;
 		font-size: 1.75rem;
 		font-weight: 700;
 		color: var(--muted);
-		background: linear-gradient(135deg, var(--border-soft) 0%, #ececec 100%);
+		background: linear-gradient(135deg, var(--border-soft) 0%, var(--border) 100%);
 	}
 	.related-posts .related-card .body {
 		display: flex;
