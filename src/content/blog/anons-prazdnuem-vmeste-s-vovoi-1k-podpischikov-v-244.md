@@ -1,9 +1,12 @@
 ---
-title: '[анонс] празднуем вместе с Вовой 1К подписчиков в @pioblog — в это воскресенье'
-subtitle: 'енье в 12:00 в зуме! 🎉'
+heroImage: /img/posts/2024-12-19-anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov-v-244/photo_121@19-12-2024_20-29-23.jpg
 pubDate: '2024-12-19'
-tags: ['whois', 'психология', 'анонс']
-heroImage: '/img/posts/2024-12-19-anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov-v-244/photo_121@19-12-2024_20-29-23.jpg'
+subtitle: "енье в 12:00 в зуме! \U0001F389"
+tags:
+- whois
+- психология
+- анонс
+title: '[анонс] празднуем вместе с Вовой 1К подписчиков в @pioblog — в это воскресенье'
 ---
 
 что будет:
@@ -17,3 +20,9 @@ heroImage: '/img/posts/2024-12-19-anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov
 (3) в вс 22.12 в 12:00 зайти на [конфу в zoom 📞](https://zoom.us/j/82540748882?pwd=QWhyU3JNN21kaEJwdWRaWTRDRnQvdz09) и улыбнуться
 
 ![](/img/posts/2024-12-19-anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov-v-244/photo_121@19-12-2024_20-29-23.jpg)
+
+---
+
+_уже празднуем и знакомимся с подписчиками_
+
+![](/img/posts/2024-12-19-anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov-v-244/photo_122@22-12-2024_12-07-34.jpg)

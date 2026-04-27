@@ -1,9 +1,14 @@
 ---
-title: 'Лекция про мой первый опыт автостопа: с результатами и впечатлениями'
-subtitle: 'Рассказывал её ребятам на снс-тусе у Юры в июле, а вот и запись подоспела'
+heroImage: /img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg
 pubDate: '2025-08-19'
-heroImage: '/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg'
-tags: ['нетворкинг', 'трипы', 'психология', 'анонс', 'автостоп']
+subtitle: Рассказывал её ребятам на снс-тусе у Юры в июле, а вот и запись подоспела
+tags:
+- нетворкинг
+- трипы
+- психология
+- анонс
+- автостоп
+title: 'Лекция про мой первый опыт автостопа: с результатами и впечатлениями'
 ---
 
 Внутри:
@@ -24,3 +29,15 @@ tags: ['нетворкинг', 'трипы', 'психология', 'анонс
 [Оригинал в Telegram →](https://t.me/pioblog/329)
 
 ![](/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg)
+
+---
+
+_аудиверсия послушать как подкастик_
+
+<audio controls preload="metadata" style="width:100%;max-width:620px"><source src="/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/audio_1.m4a" type="audio/mp4"></audio>
+
+---
+
+_pdf презенташка с лекции_
+
+**[📄 Скачать PDF презентации](/img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/document_1.pdf)**

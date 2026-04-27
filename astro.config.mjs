@@ -24,6 +24,20 @@ export default defineConfig({
 		'/value': '/wiki/about/',
 		'/cases': '/wiki/portfolio/',
 		'/mentor': '/wiki/mentoring/',
+		/* Merged addendum posts → их parent. Когда два TG-сообщения логически
+		   были одним постом (текст + видео-версия / аудио-версия / PDF-версия),
+		   мерджим контент в parent. Старые URL → 301 на parent, чтобы форварды
+		   из ТГ не ломались. */
+		'/blog/tekstovaia-versiia-dlia-tekh-kto-v-metro-239/': '/blog/chto-delat-esli-ty-prodakt-antifroda-avito-238/',
+		'/blog/u-tebia-vsegda-est-shans-vse-perepisat-28/': '/blog/seichas-ia-nedavno-uvidel-sleduiushchii-videorolik-kotoryi-27/',
+		'/blog/riadom-s-kompami-stoiat-servaki-vot-eto-da-51/': '/blog/po-priezde-domoi-ia-chuvstvoval-grust-ot-togo-chto-vse-50/',
+		'/blog/vyiasnitsia-chto-uchitelnitsa-to-byla-nuzhna-ne-74/': '/blog/popytka-nauchitsia-liubit-sebia-75/',
+		'/blog/eshche-ia-tam-vstretil-znakomogo-vypusknika-iz-bioklassa-i-96/': '/blog/priglasili-na-mental-hour-udivitelno-krinzhovo-94/',
+		'/blog/my-v-zume-prisoediniaites-po-ssylke-246/': '/blog/anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov-v-244/',
+		'/blog/audiversiia-poslushat-kak-podkastik-331/': '/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/',
+		'/blog/pdf-prezentashka-s-lektsii-332/': '/blog/lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/',
+		'/blog/ishchu-analogichnyi-stolb-proiavlennosti-v-raione-379/': '/blog/chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/',
+		'/blog/diadia-boria-pro-otdykh-audio-34/': '/blog/I-can-not-relax-or-rest/',
 	},
 	fonts: [
 		{

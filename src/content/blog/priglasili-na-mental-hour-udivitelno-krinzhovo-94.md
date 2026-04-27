@@ -1,9 +1,10 @@
 ---
-title: 'Пригласили на mental hour: удивительно, кринжово, спокойно, открыто, чиллово'
-subtitle: 'жизнипост'
+heroImage: /img/posts/2022-04-06-priglasili-na-mental-hour-udivitelno-krinzhovo-94/photo_23@06-04-2022_19-24-32.jpg
 pubDate: '2022-04-06'
-tags: ['жизнь']
-heroImage: '/img/posts/2022-04-06-priglasili-na-mental-hour-udivitelno-krinzhovo-94/photo_23@06-04-2022_19-24-32.jpg'
+subtitle: жизнипост
+tags:
+- жизнь
+title: 'Пригласили на mental hour: удивительно, кринжово, спокойно, открыто, чиллово'
 ---
 
 Короче. Да, это прям **очень** необычно, но имеет свои бенефиты и даёт некоторые возможности.
@@ -12,3 +13,7 @@ heroImage: '/img/posts/2022-04-06-priglasili-na-mental-hour-udivitelno-krinzhovo
 ![](/img/posts/2022-04-06-priglasili-na-mental-hour-udivitelno-krinzhovo-94/photo_23@06-04-2022_19-24-32.jpg)
 
 ![](/img/posts/2022-04-06-priglasili-na-mental-hour-udivitelno-krinzhovo-94/photo_24@06-04-2022_19-24-32.jpg)
+
+---
+
+_Ещё я там встретил знакомого выпускника из биокласса. И для меня это было как будто бы даже слегка ожидаемо, я не то что бы сильно удивился._
