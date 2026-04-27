@@ -172,7 +172,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	display: flex;
 	gap: 0.85rem;
 	align-items: flex-start;
-	max-width: var(--col-feed);
+	max-width: 480px;
 	margin: 0.5rem auto 0.25rem;
 	padding: 0.7rem 0.85rem;
 	border: 1px dashed var(--border);
@@ -215,19 +215,25 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	font-weight: 600;
 }
 .random-post .reroll {
-	background: none;
-	border: 0;
+	background: var(--border-soft);
+	border: 1px solid var(--border);
 	cursor: pointer;
-	font-size: 0.875rem;
-	color: var(--muted-2);
-	padding: 2px 4px;
-	border-radius: 4px;
+	font-size: 1.125rem;
+	color: var(--muted);
+	width: 28px;
+	height: 28px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
 	line-height: 1;
-	transition: color 0.15s, background 0.15s, transform 0.3s;
+	padding: 0;
+	transition: color 0.15s, background 0.15s, border-color 0.15s, transform 0.3s;
 }
 .random-post .reroll:hover {
-	color: var(--link);
-	background: var(--border-soft);
+	color: var(--bg);
+	background: var(--link);
+	border-color: var(--link);
 	transform: rotate(180deg);
 }
 .random-post .ttl {
