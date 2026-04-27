@@ -7,6 +7,7 @@ tags: ['нетворкинг', 'анонс']
 ---
 
 **sns-туса — это когда**
+
 максимальный onboarding в social mode: поменьше pre-existing connections, но все заранее dropают свои whois в чат тусы, на входе клеят на себя тег-стикеры с interests & talking points, и весь setup — про soft intro, low-barrier коммуникацию, embedded context of знакомства и organic social graph building прямо на месте
 
 - **что будет**: кефир, апельсины

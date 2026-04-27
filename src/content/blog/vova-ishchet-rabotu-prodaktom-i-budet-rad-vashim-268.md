@@ -22,11 +22,13 @@ tags: ['продакт', 'карьера', 'школа жизни']
 - Оценивать можно только действия человека и результат, а не самого человека
 
 **Явки, пароли**
+
 [Резюме](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/) и [портфолио кейсов](/blog/vova-ishchet-rabotu-prodaktom-i-budet-rad-vashim-268/) / [сильные стороны](/blog/moi-silnye-storony-i-chem-oni-polezny-248/) / [результаты менти](http://online-qr.ru/vova_mentor?utm_source=pioblog_open_to_work)
 
 **Акция** 🔥
 *Переведу 40% от первой ЗП тому, кто порекомендует меня на позицию, по которой я выйду на работу — перешлите этот пост знакомым продакт-лидам и hr*
 **Где кнопка**
+
 Напишите мне [@piofant](https://t.me/piofant), если создается ощущение, что мы можем заколлаборировать + буду рад реферам
 
 <video controls preload="metadata" style="width:100%;max-width:620px">
