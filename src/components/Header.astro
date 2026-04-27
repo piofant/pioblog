@@ -126,7 +126,12 @@ const creativeMenu = [
 	.search-modal {
 		position: fixed; inset: 0; z-index: 200;
 		display: flex; align-items: flex-start; justify-content: center;
-		padding-top: 12vh;
+		padding: 12vh 16px 0;
+	}
+	@media (max-width: 640px) {
+		.search-modal { padding: 6vh 12px 0; }
+		.search-panel { width: 100%; }
+		.search-results { max-height: 70vh; }
 	}
 	.search-modal[hidden] { display: none !important; }
 	.search-overlay {

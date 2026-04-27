@@ -154,6 +154,13 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 .home-hero + .feed { padding-top: 1rem; }
 
+@media (max-width: 640px) {
+	.home-hero { padding: 1.5rem 1rem 0.75rem; }
+	.home-title { font-size: 2rem; }
+	.home-avatar { width: 76px; height: 76px; }
+	.home-subtitle { font-size: 0.9375rem; }
+}
+
 /* Невидимая ссылка — наследует цвет окружающего текста, без подчёркивания.
    Подсвечивается только на hover. */
 .hidden-link {
@@ -252,6 +259,19 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	font-size: 0.8125rem;
 	margin-top: 2px;
 }
+@media (max-width: 640px) {
+	.random-post {
+		max-width: calc(100% - 1.5rem);
+		margin: 0.4rem 0.75rem 0.25rem;
+		padding: 0.55rem 0.7rem;
+		padding-right: 2.5rem;
+		gap: 0.6rem;
+	}
+	.random-post .thumb { width: 42px; height: 42px; flex-basis: 42px; font-size: 1.25rem; }
+	.random-post .reroll { width: 26px; height: 26px; font-size: 1rem; top: 6px; right: 6px; }
+	.random-post .ttl { font-size: 0.875rem; }
+	.random-post .meta { font-size: 0.75rem; }
+}
 
 /* HEADER — sticky-fixed top, shrinks on scroll (beautiful-jekyll-style) */
 .site-header {
@@ -298,6 +318,44 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	display: flex;
 	gap: 18px;
 	align-items: center;
+}
+
+/* === Mobile: header collapses brand + buttons to one row, nav wraps to second === */
+@media (max-width: 760px) {
+	.site-header { padding: 0.6rem 0.85rem; }
+	.site-header .inner {
+		flex-wrap: wrap;
+		gap: 0.4rem 0.6rem;
+		align-items: center;
+	}
+	.site-header .brand span { font-size: 1.05rem; }
+	.site-header .brand img { width: 26px; height: 26px; }
+	.site-header nav {
+		order: 10;
+		flex-basis: 100%;
+		margin-left: 0;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 6px 12px;
+		row-gap: 6px;
+	}
+	.site-header nav > a,
+	.site-header nav .nav-dd-trigger {
+		font-size: 0.75rem;
+		letter-spacing: 0.03em;
+	}
+	.site-header nav .nav-dd-menu {
+		left: 0;
+		transform: none;
+		min-width: 180px;
+	}
+	/* keep search + theme on the right of brand row */
+	.search-btn, .theme-toggle { margin-left: 0; }
+}
+@media (max-width: 380px) {
+	.site-header nav { gap: 4px 8px; }
+	.site-header nav > a,
+	.site-header nav .nav-dd-trigger { font-size: 0.7rem; }
 }
 .site-header nav > a,
 .site-header nav .nav-dd-trigger {
