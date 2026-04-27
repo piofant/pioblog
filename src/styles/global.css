@@ -374,12 +374,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .site-header nav > a:hover,
 .site-header nav .nav-dd-trigger:hover { color: var(--link-hover); }
 .site-header nav .nav-dd { position: relative; }
-.site-header nav .nav-dd-trigger::after {
-	content: ' ▾';
-	font-size: 0.65em;
-	opacity: 0.45;
-	margin-left: 2px;
-}
+.site-header nav .nav-dd-trigger::after { content: none; }
 .site-header nav .nav-dd:hover .nav-dd-trigger,
 .site-header nav .nav-dd.tap-open .nav-dd-trigger { color: var(--link-hover); }
 .site-header nav .nav-dd-menu {
