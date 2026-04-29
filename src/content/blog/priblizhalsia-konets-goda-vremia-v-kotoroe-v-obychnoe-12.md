@@ -1,6 +1,7 @@
 ---
 title: 'Приближался конец года, время, в которое в обычное школьное время у нас'
 pubDate: '2020-08-22'
+tags: ['школа жизни', 'рефлексия', 'истории', 'творчество', 'боты']
 heroImage: '/img/og/gradients/priblizhalsia-konets-goda-vremia-v-kotoroe-v-obychnoe-12.png'
 ---
 

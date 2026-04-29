@@ -1,6 +1,7 @@
 ---
 title: 'ЛШ logbook, день 4'
 pubDate: '2024-08-06'
+tags: ['психология']
 heroImage: '/img/posts/2024-08-06-lsh-logbook-den-4-454/photo_1.jpg'
 ---
 

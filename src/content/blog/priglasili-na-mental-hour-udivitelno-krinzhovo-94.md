@@ -1,8 +1,7 @@
 ---
 heroImage: /img/posts/2022-04-06-priglasili-na-mental-hour-udivitelno-krinzhovo-94/photo_23@06-04-2022_19-24-32.jpg
 pubDate: '2022-04-06'
-tags:
-- жизнь
+tags: ['психология', 'жизнь', 'продакт', 'нетворкинг', 'школа жизни']
 title: 'Пригласили на mental hour: удивительно, кринжово, спокойно, открыто, чиллово'
 ---
 

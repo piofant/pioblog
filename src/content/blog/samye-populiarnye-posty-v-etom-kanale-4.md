@@ -1,6 +1,7 @@
 ---
 title: '📍 Самые популярные посты в этом канале:'
 pubDate: '2020-08-12'
+tags: ['нетворкинг', 'рефлексия', 'школа жизни', 'продакт', 'контактная импровизация']
 heroImage: '/img/og/gradients/samye-populiarnye-posty-v-etom-kanale-4.png'
 ---
 

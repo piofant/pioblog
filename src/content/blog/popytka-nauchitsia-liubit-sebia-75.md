@@ -1,10 +1,7 @@
 ---
 pubDate: '2022-01-17'
 heroImage: '/img/og/gradients/popytka-nauchitsia-liubit-sebia-75.png'
-tags:
-- психология
-- карьера
-- боты
+tags: ['жизнь', 'рефлексия', 'психология', 'карьера', 'школа жизни']
 title: Попытка научиться любить себя
 ---
 

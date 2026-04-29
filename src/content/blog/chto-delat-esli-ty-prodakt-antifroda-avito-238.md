@@ -1,10 +1,7 @@
 ---
 pubDate: '2024-11-19'
 heroImage: '/img/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2)_thumb.jpg'
-tags:
-- продакт
-- рефлексия
-- карьера
+tags: ['продакт', 'карьера', 'рефлексия']
 title: Что делать если ты продакт антифрода Авито??
 ---
 

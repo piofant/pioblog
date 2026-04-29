@@ -131,7 +131,9 @@ function setTags(yaml, tags) {
     ? 'tags: []'
     : `tags: [${tags.map((t) => `'${t}'`).join(', ')}]`;
   if (yaml.match(/^tags:/m)) {
-    return yaml.replace(/^tags:.*$/m, tagsLine);
+    // Также вычищаем block-style продолжение (`- item` строки),
+    // иначе после inline-замены остаются висящие list-items и YAML битый.
+    return yaml.replace(/^tags:[^\n]*(\n[ \t]*-[^\n]+)*/m, tagsLine);
   }
   return yaml.replace(/^(pubDate:.*)$/m, `$1\n${tagsLine}`);
 }
@@ -248,11 +250,13 @@ function reasonLabel(s) {
 
 function parseArgs(argv) {
   const args = argv.slice(2);
-  const flags = { apply: false, json: false };
+  const flags = { apply: false, json: false, allMissing: false, autoApply: false };
   const positional = [];
   for (const a of args) {
     if (a === '--apply') flags.apply = true;
     else if (a === '--json') flags.json = true;
+    else if (a === '--all-missing') flags.allMissing = true;
+    else if (a === '--auto-apply') flags.autoApply = true;
     else if (a === '--help' || a === '-h') flags.help = true;
     else positional.push(a);
   }
@@ -261,13 +265,18 @@ function parseArgs(argv) {
 
 function usage() {
   return `Usage: node scripts/suggest-tags.mjs <path-to-md-file> [--apply] [--json]
+       node scripts/suggest-tags.mjs --all-missing --auto-apply
 
 Suggests 3-7 tags from inventory based on slug patterns + body keywords + co-occurrence.
 
 Options:
-  --apply   Rewrite frontmatter with suggested tags (interactive confirm)
-  --json    Output JSON (for scripting)
-  -h        Show this help`;
+  --apply         Rewrite frontmatter with suggested tags (interactive confirm)
+  --auto-apply    Same as --apply but non-interactive (no y/N prompt)
+  --all-missing   Process ALL posts without tags in src/content/blog/
+                  (skips posts that already have tags). Use with --auto-apply
+                  in CI to backfill new posts.
+  --json          Output JSON (for scripting)
+  -h              Show this help`;
 }
 
 async function confirm(question) {
@@ -285,8 +294,67 @@ function diffTags(current, suggested) {
   return { add, remove };
 }
 
+/**
+ * Batch-режим — пройти по всем постам без тегов в BLOG_DIR и применить
+ * предложения. Используется в CI (sync-telegram.yml) для авто-тегирования
+ * свеже-импортированных постов. Идемпотентно: посты с уже существующими
+ * тегами пропускаются.
+ */
+async function processAllMissing({ autoApply }) {
+  const files = (await fs.readdir(BLOG_DIR))
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => path.join(BLOG_DIR, f));
+
+  let scanned = 0;
+  let skipped = 0;     // уже есть теги
+  let tagged = 0;      // успешно проставили
+  let noSuggestions = 0; // не нашли сигналов
+
+  for (const fullPath of files) {
+    scanned++;
+    const content = await fs.readFile(fullPath, 'utf8');
+    const fm = parseFrontmatter(content);
+    if (!fm) continue;
+    const currentTags = parseTags(fm.yaml) || [];
+    if (currentTags.length > 0) { skipped++; continue; }
+
+    const slug = path.basename(fullPath, '.md');
+    const title = parseTitle(fm.yaml);
+    const body = fm.body || '';
+    // В batch-режиме строже: меньше тегов и выше порог чтоб не размазывать false-positives.
+    // Пользователь всё равно сможет вручную добавить недостающие.
+    const suggestions = rankSuggestions(scoreTags(slug, body, title), { min: 2, max: 5, threshold: 1.5 });
+    const suggestedTags = suggestions.map((s) => s.tag);
+
+    if (suggestedTags.length === 0) {
+      console.log(`  · ${slug} — нет сигналов, пропуск`);
+      noSuggestions++;
+      continue;
+    }
+    if (autoApply) {
+      const newYaml = setTags(fm.yaml, suggestedTags);
+      await fs.writeFile(fullPath, `---\n${newYaml}\n---\n${fm.body}`);
+      console.log(`  ✓ ${slug} — [${suggestedTags.join(', ')}]`);
+      tagged++;
+    } else {
+      console.log(`  ? ${slug} — would tag: [${suggestedTags.join(', ')}]`);
+    }
+  }
+
+  console.log(`\nScanned: ${scanned} · Tagged: ${tagged} · Already tagged: ${skipped} · No signals: ${noSuggestions}`);
+  return { scanned, tagged, skipped, noSuggestions };
+}
+
 async function main() {
   const { flags, positional } = parseArgs(process.argv);
+
+  // Batch mode
+  if (flags.allMissing) {
+    if (flags.help) { console.log(usage()); return; }
+    await processAllMissing({ autoApply: flags.autoApply });
+    return;
+  }
+
   if (flags.help || positional.length === 0) {
     console.log(usage());
     process.exit(positional.length === 0 ? 1 : 0);
@@ -374,16 +442,18 @@ async function main() {
     console.log(`Diff: ${parts.join(' ')}`);
   }
 
-  if (flags.apply) {
+  if (flags.apply || flags.autoApply) {
     if (suggestedTags.length === 0) {
       console.log(`\n⚠️  Нет тегов для применения, пропуск.`);
       return;
     }
-    console.log('');
-    const ok = await confirm(`Перезаписать frontmatter тегами [${suggestedTags.join(', ')}]?`);
-    if (!ok) {
-      console.log('Отменено.');
-      return;
+    if (!flags.autoApply) {
+      console.log('');
+      const ok = await confirm(`Перезаписать frontmatter тегами [${suggestedTags.join(', ')}]?`);
+      if (!ok) {
+        console.log('Отменено.');
+        return;
+      }
     }
     const newYaml = setTags(fm.yaml, suggestedTags);
     const newContent = `---\n${newYaml}\n---\n${fm.body}`;

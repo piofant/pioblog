@@ -1,6 +1,7 @@
 ---
 title: 'Две истории коннекта на этой неделе'
 pubDate: '2022-11-04'
+tags: ['школа жизни', 'нетворкинг', 'творчество', 'истории', 'мужские круги']
 heroImage: '/img/og/gradients/dve-istorii-konnekta-na-etoi-nedele-112.png'
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: 'Сейчас на стыке 9-10 класса я всё так же не понимаю, нравится ли мне физика с'
 pubDate: '2020-08-12'
+tags: ['школа жизни', 'боты']
 heroImage: '/img/og/gradients/seichas-na-styke-9-10-klassa-ia-vse-tak-zhe-ne-ponimaiu-8.png'
 ---
 

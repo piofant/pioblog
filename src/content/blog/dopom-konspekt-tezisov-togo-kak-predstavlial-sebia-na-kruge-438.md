@@ -1,6 +1,7 @@
 ---
 title: 'Допом конспект тезисов того, как представлял себя на круге знакомств:'
 pubDate: '2024-07-12'
+tags: ['нетворкинг', 'мужские круги', 'whois', 'продакт', 'трипы']
 heroImage: '/img/posts/2024-07-12-dopom-konspekt-tezisov-togo-kak-predstavlial-sebia-na-kruge-438/photo_1.jpg'
 ---
 

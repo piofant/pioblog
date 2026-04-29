@@ -34,6 +34,11 @@ jobs:
           TG_CHANNEL: pioblog
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
         run: cd scripts && node sync-telegram.js
+      - name: Auto-tag posts without tags
+        # Идемпотентно: пропускает посты у которых tags уже есть.
+        # Применяется к свеже-синканутым TG-постам (а также к любым старым
+        # без тегов, если такие появились). Безопасно запускать каждый sync.
+        run: cd scripts && node suggest-tags.mjs --all-missing --auto-apply
       - name: Commit new posts
         id: commit
         run: |
