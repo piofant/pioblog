@@ -1,6 +1,5 @@
 ---
 title: 'Как я собрал свой кейс-клуб для подготовки к интервью'
-subtitle: 'Мой путь до стажировки продактом в Яндексе. Часть 4 — комьюнити для разбора кейсов peer-to-peer'
 pubDate: '2024-04-15'
 tags: ['продакт', 'карьера', 'нетворкинг']
 heroImage: '/img/posts/2024-04-15-kak-ia-sobral-svoi-keis-klub-dlia-podgotovki-k-interviu-147/photo_keisery.jpg'

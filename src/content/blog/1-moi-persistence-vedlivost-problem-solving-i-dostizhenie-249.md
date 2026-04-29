@@ -1,6 +1,5 @@
 ---
 title: '(1) мой persistence + въедливость = problem solving и достижение результата'
-subtitle: 'Это про "давить потолок снизу" и мою упорность: для решения проблемы разбираюсь до конца, пытаюсь понять контекст вокруг, задаю вопросы и…'
 pubDate: '2025-01-06'
 heroImage: '/img/posts/2025-01-06-1-moi-persistence-vedlivost-problem-solving-i-dostizhenie-249/photo_1.jpg'
 ---
@@ -14,7 +13,5 @@ heroImage: '/img/posts/2025-01-06-1-moi-persistence-vedlivost-problem-solving-i-
 Ещё не боюсь доходить до любых людей, чтоб узнать нужную инфу или опыт других людей\компаний**
 
 `>` **Ценность силы**: помогает разобраться в непонятной фигне, найти нужные вводные для принятия решения и достичь результата
-
-![](/img/posts/2025-01-06-1-moi-persistence-vedlivost-problem-solving-i-dostizhenie-249/photo_1.jpg)
 
 [Оригинал в Telegram →](https://t.me/pioblog/249)

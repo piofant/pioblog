@@ -1,6 +1,5 @@
 ---
 title: 'Про меня и физику'
-subtitle: 'истории'
 pubDate: '2021-01-02'
 heroImage: '/img/og/gradients/pro-menia-i-fiziku-29.png'
 tags: ['истории', 'школа жизни']

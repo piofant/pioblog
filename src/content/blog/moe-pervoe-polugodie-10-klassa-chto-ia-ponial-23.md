@@ -1,6 +1,5 @@
 ---
 title: 'Моё первое полугодие 10 класса: что я понял.'
-subtitle: 'истории'
 pubDate: '2020-12-27'
 heroImage: '/img/og/gradients/moe-pervoe-polugodie-10-klassa-chto-ia-ponial-23.png'
 tags: ['истории', 'школа жизни', 'вуз']

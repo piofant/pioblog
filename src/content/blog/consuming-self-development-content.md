@@ -1,6 +1,5 @@
 ---
 title: 'Как я потребляю контент по саморазвитию'
-subtitle: 'Или история создания проекта Edulix'
 pubDate: '2022-07-17'
 tags: ['истории', 'боты']
 heroImage: '/img/edulix_logo.png'

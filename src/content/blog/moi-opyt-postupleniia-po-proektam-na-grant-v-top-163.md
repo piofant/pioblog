@@ -1,6 +1,5 @@
 ---
 title: 'Мой опыт поступления по проектам на грант в топ-ВУЗы: МФТИ, МИФИ, ИТМО,'
-subtitle: 'Иннополис'
 pubDate: '2024-06-12'
 tags: ['жизнь', 'школа жизни', 'анонс', 'вуз']
 heroImage: '/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_65@12-06-2024_19-10-58.jpg'
@@ -28,8 +27,6 @@ heroImage: '/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-t
 🔗 **Стрим**: <https://youtube.com/watch?v=jX9L7UDlQks>
 
 📅 16 июня, 12:00 по МСК
-
-![](/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_65@12-06-2024_19-10-58.jpg)
 
 ![](/img/posts/2024-06-12-moi-opyt-postupleniia-po-proektam-na-grant-v-top-163/photo_66@12-06-2024_19-10-58.jpg)
 

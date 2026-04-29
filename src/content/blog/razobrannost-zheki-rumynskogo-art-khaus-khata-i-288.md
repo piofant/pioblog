@@ -1,6 +1,5 @@
 ---
 title: 'Разобранность Жеки Румынского, арт-хаус хата и контакт'
-subtitle: 'Мне нравится рассказывать историю нашего знакомства'
 pubDate: '2025-05-11'
 heroImage: '/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_154@11-05-2025_15-25-01.jpg'
 tags: ['нетворкинг', 'психология', 'школа жизни']
@@ -34,8 +33,6 @@ tags: ['нетворкинг', 'психология', 'школа жизни']
 А иногда не замечает, и я не замечаю, и наше внимание направлено вовне и получается проживать моменты в настоящем
 
 [канал Жеки](https://t.me/e_rumynskiy) • [его картины](https://t.me/color_of_shape) (купить можно через личку)
-
-![](/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_154@11-05-2025_15-25-01.jpg)
 
 ![](/img/posts/2025-05-11-razobrannost-zheki-rumynskogo-art-khaus-khata-i-288/photo_155@11-05-2025_15-25-02.jpg)
 

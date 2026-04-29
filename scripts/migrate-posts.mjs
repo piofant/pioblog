@@ -2,7 +2,6 @@
 // Frontmatter:
 //   layout: post      → удаляем
 //   title             → title
-//   subtitle          → subtitle
 //   tags: [...]       → tags
 //   thumbnail-img / cover-img / thumb-img → heroImage
 //   Дата из имени файла YYYY-MM-DD-slug.md → pubDate
@@ -118,7 +117,7 @@ async function main() {
 
 		const heroImage = rewriteHero(fm['thumbnail-img'] || fm['cover-img'] || fm['thumb-img']);
 
-		// Sanitize title/subtitle: orphan `.webp) ` / `.png) ` artifacts
+		// Sanitize title: orphan `.webp) ` / `.png) ` artifacts
 		// from half-stripped sticker links like `[🗺](stickers/file.webp)`.
 		// Pattern: `<emoji?>.<ext>) <rest>` → `<rest>`
 		const sanitize = (s) => s && String(s)
@@ -127,7 +126,6 @@ async function main() {
 
 		const newFm = {
 			title: sanitize(fm.title),
-			subtitle: sanitize(fm.subtitle),
 			pubDate,
 			tags: fm.tags,
 			heroImage,

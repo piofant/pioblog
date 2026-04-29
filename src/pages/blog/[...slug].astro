@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import { getPublishedPosts } from '../../lib/blog';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { SERIES } from '../../series';
+import { excerptOf } from '../../lib/excerpt';
 
 export async function getStaticPaths() {
 	// Мета-теги: типы постов / зонтики, не тематические — не используем для related/color
@@ -106,7 +107,6 @@ export async function getStaticPaths() {
 		const seriesNodes = seriesParts.map((p) => ({
 			id: p.id,
 			title: p.data.title,
-			subtitle: p.data.subtitle ?? '',
 			part: p.data.seriesPart ?? 0,
 		}));
 		const myPart = post.data.seriesPart ?? 0;
@@ -130,7 +130,6 @@ export async function getStaticPaths() {
 			.map((p) => ({
 				id: p.id,
 				title: p.data.title,
-				subtitle: p.data.subtitle ?? '',
 				heroImage: p.data.heroImage ?? '',
 				pubDate: p.data.pubDate,
 				sharedTags: [] as string[], // series mates: общая принадлежность к серии, теги не показываем
@@ -157,7 +156,6 @@ export async function getStaticPaths() {
 			.map((x) => ({
 				id: x.post.id,
 				title: x.post.data.title,
-				subtitle: x.post.data.subtitle ?? '',
 				heroImage: x.post.data.heroImage ?? '',
 				pubDate: x.post.data.pubDate,
 				sharedTags: x.sharedTags,
@@ -201,15 +199,16 @@ export async function getStaticPaths() {
 				miniGraph: { nodes: miniNodes, links: miniEdges },
 				series: seriesData,
 				tgMessageId,
+				excerpt: excerptOf(post.body || '', 28),
 			},
 		};
 	});
 }
 
-const { post, prev, next, related, miniGraph, series, tgMessageId } = Astro.props;
+const { post, prev, next, related, miniGraph, series, tgMessageId, excerpt } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} prev={prev} next={next} related={related} miniGraph={miniGraph} series={series} tgMessageId={tgMessageId}>
+<BlogPost {...post.data} prev={prev} next={next} related={related} miniGraph={miniGraph} series={series} tgMessageId={tgMessageId} excerpt={excerpt}>
 	<Content />
 </BlogPost>

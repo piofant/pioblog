@@ -1,6 +1,5 @@
 ---
 title: 'culture fit yandex as I feel it или Яндекс — это про:'
-subtitle: '1. Открытость + отзывчивость + большое количество разной экспертизы = супер возможности для развития. В Яндексе к любому можно прийти с…'
 pubDate: '2024-05-26'
 heroImage: '/img/og/gradients/culture-fit-yandex-as-i-feel-it-ili-iandeks-eto-pro-156.png'
 ---

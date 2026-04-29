@@ -1,6 +1,5 @@
 ---
 title: 'трип на зимнюю школу по клоунаде'
-subtitle: '4 дня под Зеленоградом, 6 часов ношения клоунского носа в день, очередь за манной кашей, лифт из fallout и куча игр на импровизацию'
 pubDate: '2025-02-26'
 heroImage: '/img/posts/2025-02-26-trip-na-zimniuiu-shkolu-po-klounade-263/photo_137@26-02-2025_22-18-58.jpg'
 tags: ['трипы', 'безумие', 'клоунада', 'летняя школа', 'театр']
@@ -33,8 +32,6 @@ as always, на таких эвентах фокус на исследовани
 **[gratitudes]**
 
 эта лаба — некоммерческая, спасибо [Кате Мироновой](https://t.me/clown_s_diplomom), [мастерской живого театра](https://t.me/zhivoyteatr) и [ЛШ](https://t.me/lsh_potok)
-
-![](/img/posts/2025-02-26-trip-na-zimniuiu-shkolu-po-klounade-263/photo_137@26-02-2025_22-18-58.jpg)
 
 ![](/img/posts/2025-02-26-trip-na-zimniuiu-shkolu-po-klounade-263/photo_138@26-02-2025_22-18-58.jpg)
 

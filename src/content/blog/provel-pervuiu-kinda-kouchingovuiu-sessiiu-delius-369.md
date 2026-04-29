@@ -1,6 +1,5 @@
 ---
 title: 'Провел первую kinda коучинговую сессию, делюсь впечатлениями'
-subtitle: 'Контекст'
 pubDate: '2025-10-18'
 heroImage: '/img/posts/2025-10-18-provel-pervuiu-kinda-kouchingovuiu-sessiiu-delius-369/photo_221@18-10-2025_15-42-19.jpg'
 tags: ['продакт', 'менторство']
@@ -35,4 +34,3 @@ tags: ['продакт', 'менторство']
 
 поэтому.. если вы коучите или хотите попробовать - [го коучить друг друга 1-1](http://t.me/piofant)
 
-![](/img/posts/2025-10-18-provel-pervuiu-kinda-kouchingovuiu-sessiiu-delius-369/photo_221@18-10-2025_15-42-19.jpg)

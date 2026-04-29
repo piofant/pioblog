@@ -1,6 +1,5 @@
 ---
 title: 'Как я решаю тестовые на продакта? Подход «Как на работе» [часть 1\\2]'
-subtitle: 'Этим подходом со мной поделился Паша, когда я решал тестовое для Яндекс.Доставки, и я решил зафиксировать его здесь себе в будущее, чтоб не забывать'
 pubDate: '2024-10-04'
 heroImage: '/img/posts/2024-10-04-kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/photo_90@04-10-2024_18-01-07.jpg'
 tags: ['продакт', 'карьера']
@@ -27,8 +26,6 @@ seriesPart: 1
 👇 Поделитесь в комментах, что думаете про такой подход? Особенно будут полезны комменты от лидов с опытом найма — насколько такой подход упрощает оценку кандидата?
 
 [Часть 2](/blog/kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/)
-
-![](/img/posts/2024-10-04-kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/photo_90@04-10-2024_18-01-07.jpg)
 
 ![](/img/posts/2024-10-04-kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/photo_91@04-10-2024_18-01-07.jpg)
 

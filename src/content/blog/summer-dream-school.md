@@ -57,8 +57,6 @@ heroImage: '/img/summer_dream1.jpg'
 
 Фоточки из Академии Цифровых Технологий:
 
-![1](/img/summer_dream1.jpg)
-
 ![2](/img/summer_dream2.jpg)
 
 ![3](/img/summer_dream3.jpg)

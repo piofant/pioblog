@@ -1,6 +1,5 @@
 ---
 title: 'Про меня и информатику (программирование)'
-subtitle: 'истории'
 pubDate: '2021-01-02'
 heroImage: '/img/og/gradients/pro-menia-i-informatiku-programmirovanie-35.png'
 tags: ['истории', 'школа жизни']

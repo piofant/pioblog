@@ -1,6 +1,5 @@
 ---
 title: 'Топ-8 причин почему я поеду на продукт кемп весна 2024'
-subtitle: 'утилизировать выходные с пользой'
 pubDate: '2024-04-03'
 heroImage: '/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg'
 tags: ['продакт', 'нетворкинг', 'трипы', 'карьера']
@@ -18,4 +17,3 @@ tags: ['продакт', 'нетворкинг', 'трипы', 'карьера']
 
 Если вы тоже едете на продукт кемп — пишите мне ([@piofant](https://t.me/piofant)), увидимся!
 
-![](/img/posts/2024-04-03-top-8-prichin-pochemu-ia-poedu-na-produkt-kemp-144/photo_51@03-04-2024_19-55-20.jpg)

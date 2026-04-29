@@ -1,6 +1,5 @@
 ---
 title: 'Практика благодарности с эволюционной точки зрения'
-subtitle: 'Разработал TG-бота для развития gratitude practice'
 pubDate: '2022-01-17'
 heroImage: '/img/og/gradients/gratitude-practice.png'
 tags: ['истории', 'психология', 'карьера', 'боты']

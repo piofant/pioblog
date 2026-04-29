@@ -1,8 +1,6 @@
 ---
 pubDate: '2022-01-17'
 heroImage: '/img/og/gradients/popytka-nauchitsia-liubit-sebia-75.png'
-subtitle: Разработал Telegram-бота для развития практики благодарности вместе со Львом
-  Левицким
 tags:
 - психология
 - карьера

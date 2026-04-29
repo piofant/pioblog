@@ -1,7 +1,6 @@
 ---
 heroImage: /img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg
 pubDate: '2025-08-19'
-subtitle: Рассказывал её ребятам на снс-тусе у Юры в июле, а вот и запись подоспела
 tags:
 - нетворкинг
 - трипы

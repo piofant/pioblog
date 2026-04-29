@@ -1,7 +1,6 @@
 ---
 heroImage: /img/posts/2024-12-19-anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov-v-244/photo_121@19-12-2024_20-29-23.jpg
 pubDate: '2024-12-19'
-subtitle: "енье в 12:00 в зуме! \U0001F389"
 tags:
 - whois
 - психология

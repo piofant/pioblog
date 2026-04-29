@@ -1,6 +1,5 @@
 ---
 title: 'random-coffee боты как способ знакомиться с интересными людьми'
-subtitle: '+1 опция неодиночества — оффлайн и онлайн встречи через подбор случайных пар'
 pubDate: '2022-12-09'
 heroImage: '/img/og/gradients/random-coffee-boty-kak-sposob-znakomitsia-s-interesnymi-114.png'
 tags: ['нетворкинг']

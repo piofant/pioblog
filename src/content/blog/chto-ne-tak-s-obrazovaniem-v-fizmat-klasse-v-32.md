@@ -1,6 +1,5 @@
 ---
 title: 'Что не так с образованием в физмат классе, в котором я учусь or Почему мой'
-subtitle: 'физмат класс не сильный?#истории'
 pubDate: '2021-01-02'
 heroImage: '/img/og/gradients/chto-ne-tak-s-obrazovaniem-v-fizmat-klasse-v-32.png'
 tags: ['истории', 'карьера', 'школа жизни']

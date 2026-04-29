@@ -1,6 +1,5 @@
 ---
 title: 'Как найти работу стажером/джуном продактом'
-subtitle: 'Мой путь до стажировки продактом в Яндексе. Часть 2'
 pubDate: '2024-03-01'
 heroImage: '/img/posts/2024-03-01-kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/photo_50@01-03-2024_17-28-26.jpg'
 tags: ['продакт', 'карьера']
@@ -27,4 +26,3 @@ seriesPart: 2
 
 допом: пост с саммари доклада Глеба Кудрявцева про текущий рынок продактов со стороны кандидата и нанимающего <https://t.me/not_tldr/413>
 
-![](/img/posts/2024-03-01-kak-naiti-rabotu-stazherom-dzhunom-prodaktom-142/photo_50@01-03-2024_17-28-26.jpg)

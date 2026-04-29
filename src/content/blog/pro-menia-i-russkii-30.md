@@ -1,6 +1,5 @@
 ---
 title: 'Про меня и русский'
-subtitle: 'истории'
 pubDate: '2021-01-02'
 heroImage: '/img/og/gradients/pro-menia-i-russkii-30.png'
 tags: ['истории']

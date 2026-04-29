@@ -1,6 +1,5 @@
 ---
 title: 'Сегодня мне 19'
-subtitle: 'Напишите мне или в комментах, с чем я у вас ассоциируюсь, какой я для вас? 🧑🏼‍🦱'
 pubDate: '2023-06-07'
 heroImage: '/img/og/gradients/segodnia-mne-19-128.png'
 ---

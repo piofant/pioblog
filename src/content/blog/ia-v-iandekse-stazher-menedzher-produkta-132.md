@@ -1,6 +1,5 @@
 ---
 title: 'Я в Яндексе, стажёр менеджер продукта'
-subtitle: 'Почему я вижу себя в роли продакта — рассказывал здесь, а в следующих постах поделюсь мыслями про путь до стажера-джуна продакта'
 pubDate: '2023-10-07'
 heroImage: '/img/posts/2023-10-07-ia-v-iandekse-stazher-menedzher-produkta-132/photo_41@07-10-2023_20-22-09.jpg'
 tags: ['продакт', 'карьера']
@@ -19,8 +18,6 @@ seriesPart: 0
 Часть 5. [Как я помогаю себе на собеседовании на продакта](/blog/kak-ia-pomogaiu-sebe-na-sobesedovanii-na-prodakta-149/)
 
 Далее. [Про что для меня работа в Яндексе](/blog/zapis-ot-26-maia-2024-150/)
-
-![](/img/posts/2023-10-07-ia-v-iandekse-stazher-menedzher-produkta-132/photo_41@07-10-2023_20-22-09.jpg)
 
 ![](/img/posts/2023-10-07-ia-v-iandekse-stazher-menedzher-produkta-132/photo_42@07-10-2023_20-22-09.jpg)
 

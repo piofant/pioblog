@@ -1,6 +1,5 @@
 ---
 title: 'я сходил на 5+ мужских кругов и почувствовал радость, близость, объединение'
-subtitle: 'что это'
 pubDate: '2025-03-22'
 heroImage: '/img/posts/2025-03-22-ia-skhodil-na-5-muzhskikh-krugov-i-pochuvstvoval-276/photo_145@22-03-2025_20-19-51.jpg'
 tags: ['психология', 'мужские круги']
@@ -30,4 +29,3 @@ tags: ['психология', 'мужские круги']
 
 *\* еще один пост про круги -* </blog/muzhskie-krugi-stali-chastiu-moei-zhizni-i-vot-333-2025-08-28/>
 
-![](/img/posts/2025-03-22-ia-skhodil-na-5-muzhskikh-krugov-i-pochuvstvoval-276/photo_145@22-03-2025_20-19-51.jpg)

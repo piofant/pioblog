@@ -1,6 +1,5 @@
 ---
 title: 'возможность увидеть блогера вживую в питере'
-subtitle: 'чат, привет, буду завтра вечером 14 февраля читать микродоклад на домашней конференции'
 pubDate: '2026-02-13'
 heroImage: '/img/posts/2026-02-13-vozmozhnost-uvidet-blogera-vzhivuiu-v-pitere-408/photo_257@13-02-2026_15-58-30.jpg'
 tags: ['нетворкинг', 'анонс', 'автостоп']
@@ -16,4 +15,3 @@ tags: ['нетворкинг', 'анонс', 'автостоп']
 
 [регистрация вотъ](https://t.me/homeconference/505), приходите
 
-![](/img/posts/2026-02-13-vozmozhnost-uvidet-blogera-vzhivuiu-v-pitere-408/photo_257@13-02-2026_15-58-30.jpg)

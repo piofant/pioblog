@@ -1,6 +1,5 @@
 ---
 title: 'Давайте знакомиться — я Вова, и я меняюсь ☀️'
-subtitle: 'whois #intro'
 pubDate: '2024-08-10'
 tags: ['whois', 'продакт', 'рефлексия', 'карьера', 'школа жизни', 'боты', 'вуз']
 heroImage: '/img/posts/2024-08-10-davaite-znakomitsia-ia-vova-i-ia-meniaius-177/photo_76@10-08-2024_13-52-57.jpg'
@@ -43,8 +42,6 @@ heroImage: '/img/posts/2024-08-10-davaite-znakomitsia-ia-vova-i-ia-meniaius-177/
 [👨‍💻 LinkedIn](https://www.linkedin.com/in/lutsenko-vladimir/)
 [🧃 Картинки](https://www.instagram.com/piofant/)
 [💬 Чат канала](https://t.me/+RyFr2H70oImq2wP3)
-
-![](/img/posts/2024-08-10-davaite-znakomitsia-ia-vova-i-ia-meniaius-177/photo_76@10-08-2024_13-52-57.jpg)
 
 ![](/img/posts/2024-08-10-davaite-znakomitsia-ia-vova-i-ia-meniaius-177/photo_77@10-08-2024_13-52-58.jpg)
 

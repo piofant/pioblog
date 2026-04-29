@@ -1,6 +1,5 @@
 ---
 title: 'Про хаб-хаб: для кого, какую проблему решает и в чем ценность'
-subtitle: 'TG-бот для развития полезных привычек в комьюнити единомышленников — кейсы, цифры, и почему это лучше трекеров'
 pubDate: '2024-01-21'
 tags: ['проекты', 'продакт', 'боты']
 heroImage: '/img/posts/2024-01-21-pro-hab-hab-dlia-kogo-kakuiu-problemu-reshaet-i-v-chem-tsennost/photo_1.png'
@@ -36,8 +35,6 @@ heroImage: '/img/posts/2024-01-21-pro-hab-hab-dlia-kogo-kakuiu-problemu-reshaet-
 Ссылка на бот (можно создать свой хаб по своей привычке и пригласить друзей): [@hub_hub_bot](https://t.me/hub_hub_bot)
 
 **Скрины:**
-
-![](/img/posts/2024-01-21-pro-hab-hab-dlia-kogo-kakuiu-problemu-reshaet-i-v-chem-tsennost/photo_1.png)
 
 ![](/img/posts/2024-01-21-pro-hab-hab-dlia-kogo-kakuiu-problemu-reshaet-i-v-chem-tsennost/photo_2.png)
 

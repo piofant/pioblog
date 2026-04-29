@@ -1,6 +1,5 @@
 ---
 title: 'у Вовы осталось 2 месяца и 27 дней студенческой подписки на курсор чтоб'
-subtitle: 'навайбкодить диплом'
 pubDate: '2026-02-10'
 heroImage: '/img/posts/2026-02-10-u-vovy-ostalos-2-mesiatsa-i-27-dnei-studencheskoi-404/photo_253@10-02-2026_12-48-23.jpg'
 tags: ['ии', 'школа жизни', 'творчество', 'вуз']
@@ -13,4 +12,3 @@ tags: ['ии', 'школа жизни', 'творчество', 'вуз']
 i'm gonna trying to do my best ^
 о результатах расскажу летом
 
-![](/img/posts/2026-02-10-u-vovy-ostalos-2-mesiatsa-i-27-dnei-studencheskoi-404/photo_253@10-02-2026_12-48-23.jpg)

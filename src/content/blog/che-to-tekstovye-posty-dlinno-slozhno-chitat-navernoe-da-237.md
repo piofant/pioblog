@@ -1,6 +1,5 @@
 ---
 title: 'че-то текстовые посты длинно-сложно-читать, наверное, да?'
-subtitle: 'го завтра несалатный видео-пост? вместо текста запитчу на пять минут мысль про то, что делать если ты продакт в антифроде'
 pubDate: '2024-11-18'
 heroImage: '/img/og/gradients/che-to-tekstovye-posty-dlinno-slozhno-chitat-navernoe-da-237.png'
 draft: true

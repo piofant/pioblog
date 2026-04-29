@@ -1,6 +1,5 @@
 ---
 title: 'Все начинается с ментора'
-subtitle: 'Мой путь до стажировки продактом в Яндексе. Часть 1'
 pubDate: '2024-02-03'
 heroImage: '/img/og/gradients/vse-nachinaetsia-s-mentora-140.png'
 tags: ['продакт', 'карьера', 'менторство']

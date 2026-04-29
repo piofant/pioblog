@@ -64,7 +64,6 @@ export async function getStaticPaths() {
 		const subNodes = taggedPosts.map((p) => ({
 			id: p.id,
 			title: p.data.title,
-			subtitle: p.data.subtitle ?? '',
 			heroImage: p.data.heroImage ?? '',
 			date: p.data.pubDate.toISOString().slice(0, 10),
 			primaryTag: primaryTagOf(p.data.tags),
@@ -212,10 +211,7 @@ function excerptOf(body: string, words = 20): string {
 					<li class="post-card">
 						<p class="card-date"><FormattedDate date={post.data.pubDate} short /></p>
 						<a class="card-link" href={`${base}/blog/${post.id}/`}>{post.data.title}</a>
-						{post.data.subtitle && <p class="card-sub">{post.data.subtitle}</p>}
-						{!post.data.subtitle && post.body && (
-							<p class="card-excerpt">{excerptOf(post.body)}</p>
-						)}
+						{post.body && <p class="card-excerpt">{excerptOf(post.body)}</p>}
 						{post.data.heroImage && (
 							<a class="card-image" href={`${base}/blog/${post.id}/`} aria-label={post.data.title}>
 								<img src={post.data.heroImage} alt="" />
@@ -270,7 +266,7 @@ function excerptOf(body: string, words = 20): string {
 						const dt = new Date(node.date);
 						popupDate.textContent = dt.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' });
 						popupTitle.textContent = node.title;
-						popupSub.textContent = node.subtitle || '';
+						popupSub.textContent = '';
 						popupCta.href = BASE + '/blog/' + node.id + '/';
 						popup.hidden = false;
 					}

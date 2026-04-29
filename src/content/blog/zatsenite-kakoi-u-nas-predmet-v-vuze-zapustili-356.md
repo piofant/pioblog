@@ -1,6 +1,5 @@
 ---
 title: 'Зацените, какой у нас предмет в ВУЗе запустили — ''Создание продуктов на основе'
-subtitle: 'ИИ'''
 pubDate: '2025-10-05'
 heroImage: '/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_211@05-10-2025_09-18-16.jpg'
 tags: ['продакт', 'ии', 'творчество']
@@ -31,8 +30,6 @@ tags: ['продакт', 'ии', 'творчество']
 [🔗 PRD сервиса](https://tender-show-a65.notion.site/AI-Product-Discovery-by-2071c921005b8090adbfe65d6f5a2728) с ИИ по результатам дискавери по CIRCLES (учимся продуктовым защитам)
 
 *> А какие ИИ-продукты то в итоге создали?*Это осталось на самостоятельное изучение, см. в следующих сериях..
-
-![](/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_211@05-10-2025_09-18-16.jpg)
 
 ![](/img/posts/2025-10-05-zatsenite-kakoi-u-nas-predmet-v-vuze-zapustili-356/photo_212@05-10-2025_09-18-16.jpg)
 

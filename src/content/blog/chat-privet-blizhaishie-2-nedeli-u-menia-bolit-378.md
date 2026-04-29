@@ -1,8 +1,6 @@
 ---
 heroImage: /img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/photo_229@03-11-2025_12-36-43.jpg
 pubDate: '2025-11-03'
-subtitle: активно ресёрчу best practices, как с помощью ИИ\\ИИ-агентов персонализировать
-  триггерные коммуникации, улучшать их перфоманс и экономить время и ресурсы
 tags:
 - продакт
 - ии

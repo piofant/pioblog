@@ -1,6 +1,5 @@
 ---
 title: 'я всё ещё не придумал, куда поехать на новый год. может, у вас есть спальное'
-subtitle: 'местечко в какой-то тусовке?'
 pubDate: '2025-12-23'
 heroImage: '/img/posts/2025-12-23-ia-vse-eshche-ne-pridumal-kuda-poekhat-na-novyi-385/photo_236@23-12-2025_21-52-50.jpg'
 ---
@@ -11,4 +10,3 @@ heroImage: '/img/posts/2025-12-23-ia-vse-eshche-ne-pridumal-kuda-poekhat-na-novy
 
 [@piofant](https://t.me/piofant)
 
-![](/img/posts/2025-12-23-ia-vse-eshche-ne-pridumal-kuda-poekhat-na-novyi-385/photo_236@23-12-2025_21-52-50.jpg)

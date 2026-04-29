@@ -1,6 +1,5 @@
 ---
 title: 'В чем ИИ эффективен для продуктового дискавери, а в чем не очень? Результаты'
-subtitle: 'моих pop-it''ок'
 pubDate: '2025-07-31'
 heroImage: '/img/posts/2025-07-31-v-chem-ii-effektiven-dlia-produktovogo-diskaveri-a-325/photo_188@31-07-2025_20-27-52.jpg'
 tags: ['ии']
@@ -30,4 +29,3 @@ tags: ['ии']
 
 ❓ А как вы делаете продуктовое дискавери с помощью ИИ: для чего и как используете ИИ, а что делаете по-старинке?
 
-![](/img/posts/2025-07-31-v-chem-ii-effektiven-dlia-produktovogo-diskaveri-a-325/photo_188@31-07-2025_20-27-52.jpg)

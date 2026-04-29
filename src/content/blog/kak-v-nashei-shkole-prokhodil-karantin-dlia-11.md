@@ -1,6 +1,5 @@
 ---
 title: 'Как в нашей школе проходил карантин (для понимания полной истории можно не'
-subtitle: 'читать, советую вернуться к содержанию)'
 pubDate: '2020-08-22'
 heroImage: '/img/og/gradients/kak-v-nashei-shkole-prokhodil-karantin-dlia-11.png'
 tags: ['истории', 'школа жизни']

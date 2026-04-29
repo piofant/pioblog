@@ -1,6 +1,5 @@
 ---
 title: 'неопределенность порождает разобранность, как я пробовал с ней справляться? 4'
-subtitle: 'способа'
 pubDate: '2025-05-20'
 heroImage: '/img/posts/2025-05-20-neopredelennost-porozhdaet-razobrannost-kak-ia-294/photo_159@20-05-2025_01-09-37.jpg'
 tags: ['рефлексия', 'школа жизни', 'жизнь']
@@ -47,4 +46,3 @@ tags: ['рефлексия', 'школа жизни', 'жизнь']
 
 // а как вы справляетесь с неопределенностью?
 
-![](/img/posts/2025-05-20-neopredelennost-porozhdaet-razobrannost-kak-ia-294/photo_159@20-05-2025_01-09-37.jpg)

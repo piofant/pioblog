@@ -17,8 +17,6 @@ heroImage: 'https://telegra.ph/file/4bf4286daa72f6c8dd635.png'
 
 Короче, мне meetup'ы очень зашли. Это регулярное общение с новыми и старыми собеседниками - целых два раза в неделю - по *пятницам и понедельникам в 20:30*, не успеваешь заскучать с прошлой встречи, а уже вновь встречаешься и общаешься с людьми. Регулярно говоришь на английском и слушаешь речи разных людей (иногда даже native speaker'ов) - прокачкачиваешь speaking и listening.
 
-![img](https://telegra.ph/file/4bf4286daa72f6c8dd635.png)
-
 
 Join: [@MIPT_Meetup_Inviter_bot](http://t.me/MIPT_Meetup_Inviter_bot)
 
