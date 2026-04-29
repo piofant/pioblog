@@ -4,19 +4,42 @@ import Page from '../../layouts/Page.astro';
 
 export async function getStaticPaths() {
 	const pages = await getCollection('pages');
+
+	// Кандидаты для блока «другие странички вики» — все нерутовые
+	const candidates = pages
+		.filter((p) => !(p.data.isRoot === 'true' || p.id === 'wiki'))
+		.sort((a, b) => {
+			const ta = a.data.notion_last_edited ? Date.parse(a.data.notion_last_edited) : 0;
+			const tb = b.data.notion_last_edited ? Date.parse(b.data.notion_last_edited) : 0;
+			return tb - ta;
+		});
+
 	return pages.map((page) => {
 		// wiki.md → /wiki/, остальные → /wiki/<id>/
 		const isRoot = page.data.isRoot === 'true' || page.id === 'wiki';
 		const slug = isRoot ? undefined : page.id;
-		return { params: { slug }, props: page };
+		// На root скрываем блок (там и так список), на остальных показываем
+		// все другие страницы (кроме самой себя), отсортированные по дате
+		const relatedWiki = isRoot
+			? []
+			: candidates
+					.filter((p) => p.id !== page.id)
+					.map((p) => ({ id: p.id, title: p.data.title }));
+		return {
+			params: { slug },
+			props: { page, relatedWiki },
+		};
 	});
 }
 
-type Props = CollectionEntry<'pages'>;
-const page = Astro.props;
+type Props = {
+	page: CollectionEntry<'pages'>;
+	relatedWiki: { id: string; title: string }[];
+};
+const { page, relatedWiki } = Astro.props;
 const { Content } = await render(page);
 ---
 
-<Page title={page.data.title}>
+<Page title={page.data.title} relatedWiki={relatedWiki}>
 	<Content />
 </Page>
