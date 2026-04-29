@@ -43,7 +43,35 @@ export function paragraphize(body) {
 	}).join('');
 }
 
-/* Master fix — apply both transforms to a post body. */
+/* Orphan `[label]` на отдельной строке — это kicker-маркеры из TG
+   (автор так выделяет подразделы). Markdown их сам не стилизует, рендерит
+   как `<p>[label]</p>` с лишними скобками. Конвертим в `**label**` —
+   получаем bold-абзац, который визуально работает как kicker.
+
+   Кейсы:
+     [foo]              → **foo**
+     [**foo**]          → **foo**
+     [**foo** bar]      → **foo bar** (внутренние ** убираем чтобы не было ****)
+     **[foo]**          → **foo**
+
+   Не трогает реальные ссылки `[text](url)` — у тех `]` сразу следует `(`. */
+export function unwrapBracketKickers(body) {
+	const parts = body.split(/(```[\s\S]*?```)/g);
+	return parts.map((part, i) => {
+		if (i % 2 === 1) return part;
+		// Сначала: **[label]** → [label] (выпрямляем внешний bold)
+		let out = part.replace(/^\*\*\[([^\[\]\n]+)\]\*\*$/gm, '[$1]');
+		// Потом: [label] на отдельной строке → **label** (без вложенных **)
+		out = out.replace(/^\[([^\[\]\n]+)\]$/gm, (_, inner) => {
+			// Убираем все ** внутри чтоб не получить ****foo**bar**
+			const cleaned = inner.replace(/\*\*/g, '').trim();
+			return `**${cleaned}**`;
+		});
+		return out;
+	}).join('');
+}
+
+/* Master fix — apply all transforms to a post body. */
 export function fixBody(body) {
-	return paragraphize(splitMultilineEmphasis(body));
+	return paragraphize(splitMultilineEmphasis(unwrapBracketKickers(body)));
 }
