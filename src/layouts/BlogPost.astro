@@ -54,11 +54,11 @@ const showHero = heroImage && !heroImage.startsWith('/img/og/gradients/');
 		<main class="content">
 			<article data-pagefind-body>
 				<header class="post-header">
+					<h1>{title}</h1>
 					<div class="post-date">
 						<FormattedDate date={pubDate} />
 						{updatedDate && <span> · обновлено <FormattedDate date={updatedDate} /></span>}
 					</div>
-					<h1>{title}</h1>
 					{tags && tags.length > 0 && (
 						<div class="post-tags">
 							{tags.map((tag) => (
@@ -81,15 +81,15 @@ const showHero = heroImage && !heroImage.startsWith('/img/og/gradients/');
 					</aside>
 				)}
 
+				<div class="post-content">
+					<slot />
+				</div>
+
 				{showHero && (
 					<figure class="post-hero">
 						<img src={heroImage} alt="" loading="eager" />
 					</figure>
 				)}
-
-				<div class="post-content">
-					<slot />
-				</div>
 
 				{series && series.nextSibling && (
 					<a href={`${base}/blog/${series.nextSibling.id}/`} class="series-cta">
@@ -236,15 +236,17 @@ const showHero = heroImage && !heroImage.startsWith('/img/og/gradients/');
 	/* Hero-image на странице поста — единая точка правды для картинки.
 	   Раньше hero дублировался первым ![]() в body; теперь body чистое,
 	   а картинка показывается тут. Не показываем для градиентных fallback. */
+	/* Hero теперь не сверху, а в конце поста перед related-блоком —
+	   как заключительная иллюстрация, не доминирует на первом экране. */
 	.post-hero {
-		margin: 2.5rem 0 1.5rem;
+		margin: 2rem 0 0;
 		padding: 0;
 	}
 	.post-hero img {
 		display: block;
 		width: 100%;
 		height: auto;
-		max-height: 50vh;
+		max-height: 35vh;
 		object-fit: cover;
 		border-radius: 6px;
 		background: var(--border-soft);
