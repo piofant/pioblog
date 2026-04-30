@@ -453,12 +453,11 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .post-card > * { grid-column: 1; min-width: 0; }
 .post-card .card-date    { grid-row: 1; }
 .post-card .card-link    { grid-row: 2; }
-.post-card .card-sub     { grid-row: 3; }
-.post-card .card-excerpt { grid-row: 4; }
+.post-card .card-excerpt { grid-row: 3; }
 
 .post-card .card-image {
 	grid-column: 2;
-	grid-row: 1 / span 4;
+	grid-row: 1 / span 3;
 	width: 7rem; height: 7rem;
 	align-self: start;
 	border-radius: 2px;
@@ -518,7 +517,6 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.post-card:has(.card-sub) .card-excerpt { display: none; }
 
 @media (max-width: 640px) {
 	.post-card { grid-template-columns: 1fr; }
@@ -529,8 +527,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	}
 	.post-card .card-date    { grid-row: 2; }
 	.post-card .card-link    { grid-row: 3; }
-	.post-card .card-sub     { grid-row: 4; }
-	.post-card .card-excerpt { grid-row: 5; }
+	.post-card .card-excerpt { grid-row: 4; }
 }
 
 .all-posts-link {
