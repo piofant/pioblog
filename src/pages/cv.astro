@@ -55,10 +55,9 @@ const links = linksData as LinkRect[];
 	<body>
 		<Header />
 		<main class="content cv-page">
-			<h1>CV</h1>
-			<p class="meta">Vova Lutsenko · Product Manager · март 2026 · 1 страница, 184 KB · {links.length} кликабельных ссылок</p>
+			<p class="meta">CV · Vladimir Lutsenko · Product Manager · 2026 · 1 страница · {links.length} кликабельных ссылок</p>
 			<div class="actions">
-				<a class="btn btn-primary" href={pdfPath} download>⤓ скачать PDF</a>
+				<a class="btn btn-primary" href={pdfPath} download="Lutsenko Vladimir AI Product Manager CV.pdf">⤓ скачать PDF</a>
 				<a class="btn btn-ghost" href={pdfPath} target="_blank" rel="noopener">открыть в новой вкладке ↗</a>
 			</div>
 			<div class="cv-img-clickable">
