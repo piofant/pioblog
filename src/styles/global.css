@@ -303,7 +303,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 .site-header .brand span {
 	font-weight: 800;
-	font-size: 1.4375rem;
+	font-size: 1.375rem;
 	letter-spacing: -0.01em;
 }
 .site-header .brand img {
