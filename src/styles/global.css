@@ -578,6 +578,12 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .post-tags a:hover { background: var(--text-dark); color: var(--bg); }
 
 .post-content p { margin: 0 0 15px; }
+.post-content ul,
+.post-content ol {
+	margin: 0.4em 0 1em;
+	padding-left: 1.5em;
+}
+.post-content li { margin: 0.15em 0; }
 
 /* Series widget — pill row above content */
 .series-nav {
