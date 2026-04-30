@@ -1131,3 +1131,119 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	flex-shrink: 0;
 }
 .archive-list a { font-size: 0.9375rem; line-height: 1.3; }
+
+/* ============================================
+   Related-posts cards (used by BlogPost + Page/Wiki)
+   Was inside BlogPost <style is:global>, but Astro
+   only injects component styles when component renders,
+   so wiki-pages didn't see them. Moved here for global reach.
+   ============================================ */
+.related-posts .related-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+@media (max-width: 720px) {
+	.related-posts .related-grid {
+		grid-template-columns: 1fr;
+	}
+}
+.related-posts .related-card {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+	padding: 10px;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	background: var(--bg-elevated);
+	text-decoration: none;
+	color: var(--text);
+	transition: box-shadow .15s ease, border-color .15s ease;
+	min-width: 0;
+}
+.related-posts .related-card:hover {
+	box-shadow: 0 4px 14px var(--shadow-sm);
+	border-color: var(--text);
+	color: var(--text);
+}
+.related-posts .related-card .thumb {
+	flex: 0 0 70px;
+	width: 70px;
+	height: 70px;
+	border-radius: 6px;
+	background-color: var(--border-soft);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: block;
+}
+.related-posts .related-card .thumb-fallback {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-heading), 'Play', sans-serif;
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: var(--muted);
+	background: linear-gradient(135deg, var(--border-soft) 0%, var(--border) 100%);
+}
+.related-posts .related-card .body {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+	flex: 1 1 auto;
+}
+.related-posts .related-card .ttl {
+	font-family: var(--font-heading), 'Play', 'Open Sans', sans-serif;
+	font-size: 0.95rem;
+	line-height: 1.3;
+	font-weight: 700;
+	color: var(--text-dark);
+	transition: color .15s ease;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.related-posts .related-card:hover .ttl {
+	color: var(--link);
+}
+.related-posts .related-card .sub {
+	font-family: var(--font-ui), system-ui, sans-serif;
+	font-size: 0.8125rem;
+	line-height: 1.35;
+	color: var(--muted);
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.related-posts .related-card .meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin-top: 2px;
+	font-family: var(--font-ui), system-ui, sans-serif;
+	font-size: 0.72rem;
+	color: var(--muted-2);
+}
+.related-posts .related-card .meta .d {
+	color: var(--muted-2);
+}
+.related-posts .related-card .tag-pills {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+.related-posts .related-card .pill {
+	display: inline-block;
+	padding: 1px 7px;
+	border-radius: 999px;
+	background: var(--border-soft);
+	color: var(--muted);
+	font-size: 0.7rem;
+	line-height: 1.5;
+	border: 1px solid var(--border);
+}
