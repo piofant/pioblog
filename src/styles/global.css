@@ -445,7 +445,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	column-gap: 1rem;
 	row-gap: 4px;
 	align-items: start;
-	padding: 1.25rem 0;
+	padding: 1.75rem 0;
 	border-bottom: 1px solid var(--border);
 }
 .post-card:last-child { border-bottom: 0; }
