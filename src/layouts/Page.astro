@@ -6,6 +6,7 @@ import Header from '../components/Header.astro';
 type RelatedWiki = {
 	id: string;
 	title: string;
+	thumbStyle?: string;
 };
 
 interface Props {
@@ -34,17 +35,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				<aside class="related-posts wiki-related">
 					<h3>Другие странички вики</h3>
 					<div class="related-grid">
-						{relatedWiki.map((r) => {
-							const initial = (r.title || '?').trim().charAt(0).toUpperCase();
-							return (
-								<a class="related-card" href={`${base}/wiki/${r.id}/`}>
-									<span class="thumb thumb-fallback" aria-hidden="true">{initial}</span>
-									<span class="body">
-										<span class="ttl">{r.title}</span>
-									</span>
-								</a>
-							);
-						})}
+						{relatedWiki.map((r) => (
+							<a class="related-card" href={`${base}/wiki/${r.id}/`}>
+								<span class="thumb" aria-hidden="true" style={r.thumbStyle}></span>
+								<span class="body">
+									<span class="ttl">{r.title}</span>
+								</span>
+							</a>
+						))}
 					</div>
 				</aside>
 			)}

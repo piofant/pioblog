@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import Page from '../../layouts/Page.astro';
+import { gradientStyle } from '../../lib/gradient';
 
 export async function getStaticPaths() {
 	const pages = await getCollection('pages');
@@ -19,12 +20,18 @@ export async function getStaticPaths() {
 		const isRoot = page.data.isRoot === 'true' || page.id === 'wiki';
 		const slug = isRoot ? undefined : page.id;
 		// На root скрываем блок (там и так список), на остальных показываем
-		// все другие страницы (кроме самой себя), отсортированные по дате
+		// все другие страницы (кроме самой себя), отсортированные по дате.
+		// Каждой странице — уникальный градиент (детерминированный hash от slug),
+		// чтобы карточки выглядели как у блог-постов без heroImage.
 		const relatedWiki = isRoot
 			? []
 			: candidates
 					.filter((p) => p.id !== page.id)
-					.map((p) => ({ id: p.id, title: p.data.title }));
+					.map((p) => ({
+						id: p.id,
+						title: p.data.title,
+						thumbStyle: gradientStyle(p.id),
+					}));
 		return {
 			params: { slug },
 			props: { page, relatedWiki },
@@ -34,7 +41,7 @@ export async function getStaticPaths() {
 
 type Props = {
 	page: CollectionEntry<'pages'>;
-	relatedWiki: { id: string; title: string }[];
+	relatedWiki: { id: string; title: string; thumbStyle: string }[];
 };
 const { page, relatedWiki } = Astro.props;
 const { Content } = await render(page);
