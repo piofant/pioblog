@@ -27,3 +27,9 @@ scripts/node_modules/
 
 # Original photo dump (processed copies live in public/img/photos/)
 *.zip
+
+# TG MTProto session — НЕ КОММИТИТЬ. Это полный доступ ко всему аккаунту.
+# Если случайно появилось в репо — terminate session в TG → Settings → Devices.
+.tg-session*
+tg_session*
+*.session
