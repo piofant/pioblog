@@ -978,13 +978,13 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	margin: 1.75rem 0;
 }
 
-/* Callout — Notion-style colored card */
+/* Callout — Notion-style colored card. Block-layout (не flex), потому что
+   callout может содержать несколько параграфов / списков как контейнер.
+   При flex дети встали бы в строку, ломая раскладку (см. wiki/vova). */
 .callout,
 .wiki-page .callout,
 .page-content .callout {
-	display: flex;
-	gap: 0.7rem;
-	align-items: flex-start;
+	display: block;
 	padding: 14px 16px;
 	margin: 14px 0;
 	background: var(--border-soft);
@@ -994,6 +994,10 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	font-size: 1rem;
 	line-height: 1.5;
 }
+.callout > *:first-child { margin-top: 0; }
+.callout > *:last-child { margin-bottom: 0; }
+/* Параграфы внутри callout получают чуть более плотные отступы */
+.callout > p { margin: 0.4rem 0; }
 .callout > p:first-child { margin-top: 0; }
 .callout > p:last-child { margin-bottom: 0; }
 .callout.green_background  { background: #ddedea; color: #1c3a32; }
