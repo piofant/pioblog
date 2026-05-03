@@ -136,25 +136,20 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 					applyData(pick()); // initial без анимации
 					resetFill();       // заливка стартует с 0%
 
-					/* Auto-rotate каждые 8 сек. Пауза если:
-					   - hover/focus (читаешь),
-					   - пользователь взаимодействовал (клик ⟳),
-					   - вкладка скрыта (visibilityState). */
+					/* Авто-смена поста синхронизирована с CSS-заливкой через
+					   `animationend`. Никакого параллельного setInterval — иначе
+					   рассинхрон (анимация и таймер дрейфуют). Когда заливка
+					   достигла 100% → событие → render() → resetFill() → новый цикл.
+					   Пауза: hover/focus/visibility-hidden ставит animation на паузу
+					   через CSS, и event просто не фаерится пока не отпаузим. */
 					const ROTATE_MS = 7000;
-					/* Прокидываем длительность в CSS, чтобы ::before-fill animation
-					   совпадала с JS-таймером по продолжительности. */
 					card.style.setProperty('--rotate-ms', ROTATE_MS + 'ms');
-					let timer = null;
 					let userPaused = false;
+					const stop = () => { card.classList.add('paused'); };
 					const start = () => {
-						card.classList.remove('paused');
-						if (timer || userPaused) return;
+						if (userPaused) return;
 						if (document.visibilityState === 'hidden') return;
-						timer = setInterval(render, ROTATE_MS);
-					};
-					const stop = () => {
-						card.classList.add('paused');
-						if (timer) { clearInterval(timer); timer = null; }
+						card.classList.remove('paused');
 					};
 
 					card.addEventListener('mouseenter', stop);
@@ -165,13 +160,16 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 						if (document.visibilityState === 'hidden') stop(); else start();
 					});
 
-					reroll?.addEventListener('click', (e) => {
-						e.preventDefault(); e.stopPropagation();
-						render(); // ручной reroll сбрасывает таймер и заливку
-						stop(); start();
+					/* Заливка дошла до 100% → меняем пост. Событие animationend
+					   bubblится с ::before на родителя. */
+					card.addEventListener('animationend', (e) => {
+						if (e.animationName === 'random-post-fill') render();
 					});
 
-					start();
+					reroll?.addEventListener('click', (e) => {
+						e.preventDefault(); e.stopPropagation();
+						render();
+					});
 				})();
 			</script>
 		)}

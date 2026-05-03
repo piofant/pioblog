@@ -194,15 +194,17 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	transition: border-color 0.15s ease, background 0.15s ease;
 }
 /* Прогресс-заливка снизу вверх — таймер до следующего рандомного поста.
-   На hover пауза (читаешь). После manual reroll или auto-swap JS дёргает
-   класс `fill-reset` чтобы рестартануть keyframes с 0%. */
+   1 итерация + forwards: заливка идёт 0→100% за var(--rotate-ms), потом
+   ВИСИТ на 100% пока JS не дёрнет render(). Это убирает рассинхрон
+   когда CSS infinite уже стартовала новый цикл, а JS ещё не сделал swap. */
 .random-post::before {
 	content: '';
 	position: absolute;
 	left: 0; bottom: 0; right: 0;
 	height: 0%;
-	background: color-mix(in srgb, var(--link) 7%, transparent);
-	animation: random-post-fill var(--rotate-ms, 7s) linear infinite;
+	/* Голубая заливка — «стакан воды». Чуть плотнее на тёмной теме */
+	background: color-mix(in srgb, #4a9eff 12%, transparent);
+	animation: random-post-fill var(--rotate-ms, 7s) linear 1 forwards;
 	pointer-events: none;
 	z-index: 0;
 }
@@ -213,9 +215,11 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .random-post:hover::before,
 .random-post.paused::before { animation-play-state: paused; }
 .random-post.fill-reset::before { animation: none; }
+/* z-index только — чтоб контент был ПОВЕРХ заливки. position не трогаем,
+   .reroll должна остаться absolute, .thumb/.body — flex-items без position. */
 .random-post .thumb,
-.random-post .body,
-.random-post .reroll { position: relative; z-index: 1; }
+.random-post .body { z-index: 1; position: relative; }
+.random-post .reroll { z-index: 2; }
 .random-post:hover {
 	border-style: solid;
 	border-color: var(--link);
