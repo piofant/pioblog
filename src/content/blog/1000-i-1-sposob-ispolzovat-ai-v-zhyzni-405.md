@@ -3,7 +3,7 @@ title: '1000 и 1 способ использовать ai в жызни'
 pubDate: '2026-02-11'
 tgMessageId: 405
 heroImage: '/img/posts/2026-02-11-1000-i-1-sposob-ispolzovat-ai-v-zhyzni-405/photo_254@11-02-2026_13-53-49.jpg'
-tags: ['ии', 'жизнь']
+tags: ['ии']
 ---
 
 **how to**

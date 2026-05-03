@@ -1,7 +1,6 @@
 ---
 pubDate: '2021-07-07'
 tgMessageId: 50
-tags: ['психология', 'жизнь']
 heroImage: '/img/og/gradients/po-priezde-domoi-ia-chuvstvoval-grust-ot-togo-chto-vse-50.png'
 title: По приезде домой я чувствовал грусть от того, что всё закончилось. Я буквально
 ---

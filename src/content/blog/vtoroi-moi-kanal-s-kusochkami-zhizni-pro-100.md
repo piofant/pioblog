@@ -4,7 +4,7 @@ pubDate: '2022-05-16'
 tgMessageId: 100
 heroImage: '/img/og/gradients/vtoroi-moi-kanal-s-kusochkami-zhizni-pro-100.png'
 draft: true
-tags: ['жизнь']
+
 ---
 
 <https://t.me/not_tldr>

@@ -1,7 +1,7 @@
 ---
 pubDate: '2021-01-06'
 heroImage: '/img/og/gradients/i-can-not-relax-or-rest.png'
-tags: ['друзья', 'психология', 'жизнь']
+tags: ['друзья', 'психология', 'анонс']
 title: Отдыхать не получается
 ---
 

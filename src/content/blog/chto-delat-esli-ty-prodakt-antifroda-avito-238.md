@@ -2,7 +2,7 @@
 pubDate: '2024-11-19'
 tgMessageId: 238
 heroImage: '/img/posts/2024-11-19-chto-delat-esli-ty-prodakt-antifroda-avito-238/18.11.2024 (2)_thumb.jpg'
-tags: ['продакт', 'театр']
+tags: ['продакт']
 title: Что делать если ты продакт антифрода Авито??
 ---
 

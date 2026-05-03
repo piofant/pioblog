@@ -3,7 +3,7 @@ title: 'Путешествия в режиме наблюдателя [за жи
 pubDate: '2025-10-28'
 tgMessageId: 372
 heroImage: '/img/posts/2025-10-28-puteshestviia-v-rezhime-nabliudatelia-za-zhizniu-i-372/photo_223@28-10-2025_17-41-01.jpg'
-tags: ['трипы', 'жизнь']
+tags: ['трипы']
 series: 'observer-travels'
 seriesPart: 1
 ---

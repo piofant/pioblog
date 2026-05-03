@@ -3,7 +3,7 @@ title: 'Продукт кемп лето 2023 это какой-то трип н
 pubDate: '2023-08-21'
 tgMessageId: 130
 heroImage: '/img/og/gradients/produkt-kemp-leto-2023-eto-kakoi-to-trip-na-2-dnia-130.png'
-tags: ['школа', 'нетворкинг', 'трипы', 'жизнь']
+tags: ['школа', 'нетворкинг', 'трипы']
 ---
 
 - Открытые люди и приятные, полезные знакомства
