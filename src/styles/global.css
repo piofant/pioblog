@@ -187,11 +187,35 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	border: 1px dashed var(--border);
 	border-radius: 8px;
 	background: var(--bg-elevated);
+	overflow: hidden; /* clip ::before fill bar */
 	text-decoration: none;
 	color: var(--text);
 	font-family: var(--font-ui), system-ui, sans-serif;
 	transition: border-color 0.15s ease, background 0.15s ease;
 }
+/* Прогресс-заливка снизу вверх — таймер до следующего рандомного поста.
+   На hover пауза (читаешь). После manual reroll или auto-swap JS дёргает
+   класс `fill-reset` чтобы рестартануть keyframes с 0%. */
+.random-post::before {
+	content: '';
+	position: absolute;
+	left: 0; bottom: 0; right: 0;
+	height: 0%;
+	background: color-mix(in srgb, var(--link) 7%, transparent);
+	animation: random-post-fill var(--rotate-ms, 7s) linear infinite;
+	pointer-events: none;
+	z-index: 0;
+}
+@keyframes random-post-fill {
+	from { height: 0%; }
+	to   { height: 100%; }
+}
+.random-post:hover::before,
+.random-post.paused::before { animation-play-state: paused; }
+.random-post.fill-reset::before { animation: none; }
+.random-post .thumb,
+.random-post .body,
+.random-post .reroll { position: relative; z-index: 1; }
 .random-post:hover {
 	border-style: solid;
 	border-color: var(--link);

@@ -115,6 +115,14 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 							thumbEl.textContent = '🎲';
 						}
 					}
+					/* Сброс прогресс-заливки (CSS ::before) — toggle класса перезапускает
+					   keyframes с 0%. void offsetWidth форсит reflow, иначе браузер
+					   сольёт add/remove в один кадр и анимация не рестартанётся. */
+					function resetFill() {
+						card.classList.add('fill-reset');
+						void card.offsetWidth;
+						card.classList.remove('fill-reset');
+					}
 					/* render с лёгкой fade-out → swap → fade-in анимацией */
 					function render() {
 						const p = pick();
@@ -122,23 +130,32 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 						setTimeout(() => {
 							applyData(p);
 							card.classList.remove('rotating');
+							resetFill();
 						}, 220);
 					}
 					applyData(pick()); // initial без анимации
+					resetFill();       // заливка стартует с 0%
 
 					/* Auto-rotate каждые 8 сек. Пауза если:
 					   - hover/focus (читаешь),
 					   - пользователь взаимодействовал (клик ⟳),
 					   - вкладка скрыта (visibilityState). */
 					const ROTATE_MS = 7000;
+					/* Прокидываем длительность в CSS, чтобы ::before-fill animation
+					   совпадала с JS-таймером по продолжительности. */
+					card.style.setProperty('--rotate-ms', ROTATE_MS + 'ms');
 					let timer = null;
 					let userPaused = false;
 					const start = () => {
+						card.classList.remove('paused');
 						if (timer || userPaused) return;
 						if (document.visibilityState === 'hidden') return;
 						timer = setInterval(render, ROTATE_MS);
 					};
-					const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+					const stop = () => {
+						card.classList.add('paused');
+						if (timer) { clearInterval(timer); timer = null; }
+					};
 
 					card.addEventListener('mouseenter', stop);
 					card.addEventListener('mouseleave', start);
@@ -150,7 +167,7 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 
 					reroll?.addEventListener('click', (e) => {
 						e.preventDefault(); e.stopPropagation();
-						render(); // ручной reroll сбрасывает таймер
+						render(); // ручной reroll сбрасывает таймер и заливку
 						stop(); start();
 					});
 
