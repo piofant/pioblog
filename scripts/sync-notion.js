@@ -161,7 +161,22 @@ function createN2M(pageSlug, imageTasks, subPageIdByTitle) {
 		let icon = '';
 		if (c.icon?.type === 'emoji') icon = c.icon.emoji;
 		const text = richText(c.rich_text);
-		return `<div class="callout ${color}">\n\n${icon} ${text}\n\n</div>\n\n`;
+		const head = `${icon} ${text}`.trim();
+		// Notion callout — это контейнер: своя строка + nested children blocks
+		// (параграфы, списки, заголовки). Раньше дети молча терялись —
+		// теперь рекурсивно рендерим их в тело callout под заголовком.
+		let childInner = '';
+		if (block.has_children) {
+			try {
+				const children = await fetchAllChildren(block.id);
+				const childMd = await n2m.blocksToMarkdown(children);
+				childInner = (n2m.toMarkdownString(childMd).parent || '').trim();
+			} catch (e) {
+				console.warn(`  ⚠ callout ${block.id}: failed to render children`, e.message);
+			}
+		}
+		const inner = childInner ? `${head}\n\n${childInner}` : head;
+		return `<div class="callout ${color}">\n\n${inner}\n\n</div>\n\n`;
 	});
 
 	/* Toggle: не трогаем кастом (ломает вложение в списки); пост-процессим. */
