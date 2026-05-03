@@ -1,0 +1,53 @@
+name: Generate Stats Charts
+
+on:
+  schedule:
+    - cron: '0 5 * * 0'   # каждое воскресенье 05:00 UTC
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+concurrency:
+  group: gen-stats-charts
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  charts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: scripts/package.json
+      - name: Install deps
+        working-directory: scripts
+        run: npm install --no-audit --no-fund
+      - name: Generate charts
+        run: cd scripts && node gen-stats-charts.mjs
+      - name: Commit if changed
+        id: commit
+        run: |
+          git config user.name "stats-charts-bot"
+          git config user.email "stats-charts-bot@users.noreply.github.com"
+          git add public/img/stats/ || true
+          if git diff --cached --quiet; then
+            echo "::notice::No chart changes"
+            echo "changed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          git commit -m "stats charts: $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push
+          echo "changed=true" >> $GITHUB_OUTPUT
+      - name: Trigger Pages deploy
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run "Deploy to GitHub Pages" --repo ${{ github.repository }} --ref main

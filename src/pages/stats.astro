@@ -157,24 +157,24 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 						</div>
 					</section>
 
-					{topReactionEmojis.length > 0 && (
-						<section class="reactions-summary">
-							<h2>Топ-реакции</h2>
-							<div class="reaction-bars">
-								{topReactionEmojis.map(([emoji, count]) => {
-									const max = topReactionEmojis[0][1];
-									const pct = Math.round((count / max) * 100);
-									return (
-										<div class="reaction-bar">
-											<span class="emoji">{emoji}</span>
-											<span class="bar"><span class="fill" style={`width:${pct}%`}></span></span>
-											<span class="count">{formatCount(count)}</span>
-										</div>
-									);
-								})}
-							</div>
-						</section>
-					)}
+					<section class="charts-grid">
+						<figure class="chart">
+							<figcaption>Топ-реакции</figcaption>
+							<img src={`${base}/img/stats/reactions-pie.svg`} alt="Распределение реакций" loading="lazy" />
+						</figure>
+						<figure class="chart">
+							<figcaption>Постов в месяц</figcaption>
+							<img src={`${base}/img/stats/posts-per-month.svg`} alt="Активность постинга" loading="lazy" />
+						</figure>
+						<figure class="chart wide">
+							<figcaption>ERR по тегам · средний по постам ≥100 просмотров (мин. 3 поста на тег)</figcaption>
+							<img src={`${base}/img/stats/err-by-tag.svg`} alt="ERR по тегам" loading="lazy" />
+						</figure>
+						<figure class="chart wide">
+							<figcaption>Топ-10 по просмотрам</figcaption>
+							<img src={`${base}/img/stats/top-views.svg`} alt="Топ постов по просмотрам" loading="lazy" />
+						</figure>
+					</section>{/* убрано: всё что было в .reactions-summary заменено на graph */}
 
 					<section class="all-posts-stats">
 						<div class="filter-bar">
@@ -385,6 +385,42 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 				color: var(--muted);
 				font-variant-numeric: tabular-nums;
 				font-size: 0.8125rem;
+			}
+
+			.charts-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 12px;
+				margin: 1.5rem 0;
+			}
+			.charts-grid .chart {
+				margin: 0;
+				padding: 12px;
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				background: var(--bg-elevated);
+				min-width: 0;
+			}
+			.charts-grid .chart.wide { grid-column: span 2; }
+			@media (max-width: 720px) {
+				.charts-grid { grid-template-columns: 1fr; }
+				.charts-grid .chart.wide { grid-column: span 1; }
+			}
+			.charts-grid .chart figcaption {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.8125rem;
+				font-weight: 600;
+				color: var(--muted);
+				margin: 0 0 8px;
+			}
+			.charts-grid .chart img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+			:root[data-theme="dark"] .charts-grid .chart img {
+				/* SVG генерится со светлым фоном — на dark инвертируем для читабельности */
+				filter: invert(0.92) hue-rotate(180deg);
 			}
 
 			.reactions-summary {
