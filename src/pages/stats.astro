@@ -1,0 +1,533 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getPublishedPosts } from '../lib/blog';
+import { formatCount, formatErr } from '../lib/format';
+import metricsData from '../data/metrics.json';
+
+type PostMetrics = {
+	views: number;
+	forwards: number;
+	replies: number;
+	reactions: { emoji: string; count: number }[];
+	err: number | null;
+	last_updated: string;
+};
+
+const metrics: Record<string, PostMetrics> = metricsData as any;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Собираем посты + метрики в одну таблицу
+type Row = {
+	id: string;
+	title: string;
+	pubDate: Date;
+	tags: string[];
+	tg_id: number | null;
+	views: number;
+	reactions: number;
+	forwards: number;
+	err: number | null;
+};
+
+const posts = await getPublishedPosts();
+const rows: Row[] = posts
+	.map((p) => {
+		const tg_id = (p.data as any).tgMessageId ?? null;
+		const m = tg_id ? metrics[String(tg_id)] : null;
+		const reactions = m ? m.reactions.reduce((s, r) => s + r.count, 0) : 0;
+		return {
+			id: p.id,
+			title: p.data.title,
+			pubDate: p.data.pubDate,
+			tags: p.data.tags ?? [],
+			tg_id,
+			views: m?.views ?? 0,
+			reactions,
+			forwards: m?.forwards ?? 0,
+			err: m?.err ?? null,
+		};
+	})
+	.filter((r) => r.tg_id != null && (r.views > 0 || r.reactions > 0 || r.forwards > 0));
+
+// 4 топа
+const topByViews = [...rows].sort((a, b) => b.views - a.views).slice(0, 5);
+const topByReactions = [...rows].sort((a, b) => b.reactions - a.reactions).slice(0, 5);
+const topByForwards = [...rows].sort((a, b) => b.forwards - a.forwards).slice(0, 5);
+const topByErr = [...rows]
+	.filter((r) => r.err != null && r.views >= 100) // фильтр шума: посты с views < 100 имеют завышенный ERR
+	.sort((a, b) => (b.err ?? 0) - (a.err ?? 0))
+	.slice(0, 5);
+
+// Default sort для таблицы — by views desc
+const tableRows = [...rows].sort((a, b) => b.views - a.views);
+
+// Все теги для фильтра — top-20 по частоте
+const tagFreq = new Map<string, number>();
+for (const r of rows) for (const t of r.tags) tagFreq.set(t, (tagFreq.get(t) || 0) + 1);
+const allTags = [...tagFreq.entries()].sort((a, b) => b[1] - a[1]).map(([t]) => t);
+
+// Aggregate по реакциям для placeholder pie-chart (когда графиков ещё нет)
+const reactionTotals = new Map<string, number>();
+for (const r of rows) {
+	const m = r.tg_id ? metrics[String(r.tg_id)] : null;
+	if (!m) continue;
+	for (const reaction of m.reactions) {
+		reactionTotals.set(reaction.emoji, (reactionTotals.get(reaction.emoji) || 0) + reaction.count);
+	}
+}
+const topReactionEmojis = [...reactionTotals.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+const totalPostsWithMetrics = rows.length;
+const totalViews = rows.reduce((s, r) => s + r.views, 0);
+const totalReactions = rows.reduce((s, r) => s + r.reactions, 0);
+const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title="Статистика" description="Метрики постов pio blog" />
+	</head>
+	<body>
+		<Header />
+		<main class="content stats-page">
+			<header class="stats-hero">
+				<h1>Статистика</h1>
+				<p class="meta">
+					{totalPostsWithMetrics} постов · {formatCount(totalViews)} 👁 ·
+					{formatCount(totalReactions)} 🐳 · {formatCount(totalForwards)} ↗
+				</p>
+			</header>
+
+			{rows.length === 0 ? (
+				<p class="empty">
+					Метрики ещё не загружены. Запусти workflow «Sync TG Metrics»
+					в GitHub Actions или подожди до 04:00 UTC завтра.
+				</p>
+			) : (
+				<>
+					<section class="top-grid">
+						<div class="top-card" style="--c:#2563eb;">
+							<h3>👁 Топ-5 по просмотрам</h3>
+							<ol>
+								{topByViews.map((r) => (
+									<li>
+										<a href={`${base}/blog/${r.id}/`}>{r.title}</a>
+										<span class="num">{formatCount(r.views)}</span>
+									</li>
+								))}
+							</ol>
+						</div>
+						<div class="top-card" style="--c:#db2777;">
+							<h3>🐳 Топ-5 по реакциям</h3>
+							<ol>
+								{topByReactions.map((r) => (
+									<li>
+										<a href={`${base}/blog/${r.id}/`}>{r.title}</a>
+										<span class="num">{formatCount(r.reactions)}</span>
+									</li>
+								))}
+							</ol>
+						</div>
+						<div class="top-card" style="--c:#ea580c;">
+							<h3>↗ Топ-5 по пересылкам</h3>
+							<ol>
+								{topByForwards.map((r) => (
+									<li>
+										<a href={`${base}/blog/${r.id}/`}>{r.title}</a>
+										<span class="num">{formatCount(r.forwards)}</span>
+									</li>
+								))}
+							</ol>
+						</div>
+						<div class="top-card" style="--c:#7c3aed;">
+							<h3>📊 Топ-5 по ERR</h3>
+							<p class="card-meta">только посты с ≥100 просмотров</p>
+							<ol>
+								{topByErr.map((r) => (
+									<li>
+										<a href={`${base}/blog/${r.id}/`}>{r.title}</a>
+										<span class="num">{formatErr(r.err)}</span>
+									</li>
+								))}
+							</ol>
+						</div>
+					</section>
+
+					{topReactionEmojis.length > 0 && (
+						<section class="reactions-summary">
+							<h2>Топ-реакции</h2>
+							<div class="reaction-bars">
+								{topReactionEmojis.map(([emoji, count]) => {
+									const max = topReactionEmojis[0][1];
+									const pct = Math.round((count / max) * 100);
+									return (
+										<div class="reaction-bar">
+											<span class="emoji">{emoji}</span>
+											<span class="bar"><span class="fill" style={`width:${pct}%`}></span></span>
+											<span class="count">{formatCount(count)}</span>
+										</div>
+									);
+								})}
+							</div>
+						</section>
+					)}
+
+					<section class="all-posts-stats">
+						<div class="filter-bar">
+							<input
+								type="text"
+								id="stats-search"
+								placeholder="поиск по заголовку…"
+								autocomplete="off"
+							/>
+							<details class="tag-filter">
+								<summary>фильтр по тегам</summary>
+								<div class="tag-pills">
+									{allTags.slice(0, 24).map((t) => (
+										<label class="tag-pill">
+											<input type="checkbox" value={t} />
+											<span>{t}</span>
+										</label>
+									))}
+								</div>
+							</details>
+						</div>
+
+						<table class="stats-table" id="stats-table">
+							<thead>
+								<tr>
+									<th data-sort="title">Заголовок</th>
+									<th data-sort="date" class="num-col">Дата</th>
+									<th data-sort="views" class="num-col sorted desc">👁</th>
+									<th data-sort="reactions" class="num-col">🐳</th>
+									<th data-sort="forwards" class="num-col">↗</th>
+									<th data-sort="err" class="num-col">ERR</th>
+								</tr>
+							</thead>
+							<tbody>
+								{tableRows.map((r) => (
+									<tr
+										data-tags={r.tags.join('|')}
+										data-title={r.title.toLowerCase()}
+										data-views={r.views}
+										data-reactions={r.reactions}
+										data-forwards={r.forwards}
+										data-err={r.err ?? -1}
+										data-date={r.pubDate.getTime()}
+									>
+										<td><a href={`${base}/blog/${r.id}/`}>{r.title}</a></td>
+										<td class="num-col"><FormattedDate date={r.pubDate} short /></td>
+										<td class="num-col">{formatCount(r.views)}</td>
+										<td class="num-col">{formatCount(r.reactions)}</td>
+										<td class="num-col">{formatCount(r.forwards)}</td>
+										<td class="num-col">{formatErr(r.err)}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</section>
+				</>
+			)}
+		</main>
+		<Footer />
+
+		<script>
+			// Client-side: фильтр по тегам + поиск + сортировка
+			(() => {
+				const table = document.getElementById('stats-table') as HTMLTableElement | null;
+				const search = document.getElementById('stats-search') as HTMLInputElement | null;
+				const tagInputs = document.querySelectorAll<HTMLInputElement>('.tag-filter input[type="checkbox"]');
+				if (!table) return;
+				const tbody = table.querySelector('tbody') as HTMLTableSectionElement;
+
+				function applyFilters() {
+					const q = (search?.value || '').trim().toLowerCase();
+					const selectedTags = [...tagInputs].filter((i) => i.checked).map((i) => i.value);
+					tbody.querySelectorAll('tr').forEach((row) => {
+						const title = row.dataset.title || '';
+						const tags = (row.dataset.tags || '').split('|');
+						const matchSearch = !q || title.includes(q);
+						const matchTags = selectedTags.length === 0 || selectedTags.every((t) => tags.includes(t));
+						(row as HTMLElement).style.display = matchSearch && matchTags ? '' : 'none';
+					});
+				}
+
+				function sortBy(key: string, asc: boolean) {
+					const rows = [...tbody.querySelectorAll<HTMLTableRowElement>('tr')];
+					rows.sort((a, b) => {
+						let av: any, bv: any;
+						if (key === 'title') {
+							av = a.dataset.title || '';
+							bv = b.dataset.title || '';
+							return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+						}
+						av = Number(a.dataset[key] || 0);
+						bv = Number(b.dataset[key] || 0);
+						return asc ? av - bv : bv - av;
+					});
+					rows.forEach((r) => tbody.appendChild(r));
+				}
+
+				const headers = table.querySelectorAll<HTMLTableCellElement>('th[data-sort]');
+				headers.forEach((th) => {
+					th.style.cursor = 'pointer';
+					th.addEventListener('click', () => {
+						const key = th.dataset.sort!;
+						const wasDesc = th.classList.contains('desc');
+						const wasSorted = th.classList.contains('sorted');
+						headers.forEach((h) => h.classList.remove('sorted', 'asc', 'desc'));
+						const newDesc = wasSorted ? !wasDesc : true; // default new sort = desc
+						th.classList.add('sorted', newDesc ? 'desc' : 'asc');
+						sortBy(key, !newDesc);
+					});
+				});
+
+				search?.addEventListener('input', applyFilters);
+				tagInputs.forEach((i) => i.addEventListener('change', applyFilters));
+			})();
+		</script>
+
+		<style is:global>
+			.stats-page { max-width: 920px; }
+			.stats-hero { margin-bottom: 1.5rem; }
+			.stats-hero .meta {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				color: var(--muted);
+				font-size: 0.9375rem;
+			}
+			.empty {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				color: var(--muted);
+				padding: 2rem;
+				border: 1px dashed var(--border);
+				border-radius: 8px;
+				text-align: center;
+			}
+
+			.top-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 12px;
+				margin: 1.5rem 0;
+			}
+			@media (max-width: 720px) {
+				.top-grid { grid-template-columns: 1fr; }
+			}
+			.top-card {
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				padding: 14px 16px;
+				background: var(--bg-elevated);
+				border-top: 3px solid var(--c);
+			}
+			.top-card h3 {
+				margin: 0 0 8px;
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.8125rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: var(--c);
+			}
+			.top-card .card-meta {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.7rem;
+				color: var(--muted-2);
+				margin: -4px 0 6px;
+			}
+			.top-card ol {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				counter-reset: top;
+			}
+			.top-card li {
+				display: flex;
+				align-items: baseline;
+				gap: 8px;
+				padding: 5px 0;
+				border-top: 1px solid var(--border-soft);
+				font-size: 0.875rem;
+				font-family: var(--font-ui), system-ui, sans-serif;
+			}
+			.top-card li:first-child { border-top: 0; padding-top: 0; }
+			.top-card li::before {
+				counter-increment: top;
+				content: counter(top);
+				color: var(--muted-2);
+				font-variant-numeric: tabular-nums;
+				min-width: 14px;
+			}
+			.top-card li a {
+				flex: 1;
+				color: var(--text-dark);
+				text-decoration: none;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.top-card li a:hover { color: var(--c); }
+			.top-card li .num {
+				color: var(--muted);
+				font-variant-numeric: tabular-nums;
+				font-size: 0.8125rem;
+			}
+
+			.reactions-summary {
+				margin: 2rem 0;
+				padding: 1rem 1.25rem;
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				background: var(--bg-elevated);
+			}
+			.reactions-summary h2 {
+				margin: 0 0 12px;
+				font-size: 1rem;
+				font-family: var(--font-ui), system-ui, sans-serif;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: var(--muted);
+			}
+			.reaction-bars {
+				display: grid;
+				gap: 6px;
+			}
+			.reaction-bar {
+				display: grid;
+				grid-template-columns: 24px 1fr 50px;
+				gap: 10px;
+				align-items: center;
+				font-family: var(--font-ui), system-ui, sans-serif;
+			}
+			.reaction-bar .emoji { font-size: 1.125rem; text-align: center; }
+			.reaction-bar .bar {
+				height: 10px;
+				background: var(--border-soft);
+				border-radius: 999px;
+				overflow: hidden;
+			}
+			.reaction-bar .fill {
+				display: block;
+				height: 100%;
+				background: linear-gradient(90deg, #db2777, #ea580c);
+				border-radius: 999px;
+			}
+			.reaction-bar .count {
+				font-size: 0.8125rem;
+				color: var(--muted);
+				font-variant-numeric: tabular-nums;
+				text-align: right;
+			}
+
+			.all-posts-stats { margin-top: 2rem; }
+			.filter-bar {
+				display: flex;
+				gap: 12px;
+				margin-bottom: 12px;
+				flex-wrap: wrap;
+				align-items: center;
+				font-family: var(--font-ui), system-ui, sans-serif;
+			}
+			.filter-bar input[type="text"] {
+				flex: 1;
+				min-width: 200px;
+				padding: 6px 10px;
+				border: 1px solid var(--border);
+				border-radius: 6px;
+				background: var(--bg-elevated);
+				color: var(--text);
+				font-size: 0.875rem;
+				font-family: inherit;
+			}
+			.tag-filter > summary {
+				font-size: 0.875rem;
+				color: var(--muted);
+				cursor: pointer;
+				padding: 6px 12px;
+				border: 1px solid var(--border);
+				border-radius: 6px;
+				list-style: none;
+			}
+			.tag-filter > summary::-webkit-details-marker { display: none; }
+			.tag-filter > summary::before { content: '▸ '; font-size: 0.7rem; }
+			.tag-filter[open] > summary::before { content: '▾ '; }
+			.tag-filter[open] {
+				width: 100%;
+			}
+			.tag-pills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 6px;
+				margin-top: 8px;
+			}
+			.tag-pill {
+				display: inline-flex;
+				align-items: center;
+				cursor: pointer;
+			}
+			.tag-pill input { display: none; }
+			.tag-pill span {
+				font-size: 0.75rem;
+				padding: 2px 8px;
+				border: 1px solid var(--border);
+				color: var(--muted);
+				border-radius: 999px;
+			}
+			.tag-pill input:checked + span {
+				background: var(--text-dark);
+				color: var(--bg);
+				border-color: var(--text-dark);
+			}
+
+			.stats-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.875rem;
+			}
+			.stats-table th, .stats-table td {
+				padding: 8px 10px;
+				border-bottom: 1px solid var(--border-soft);
+				text-align: left;
+				vertical-align: top;
+			}
+			.stats-table th {
+				font-size: 0.75rem;
+				color: var(--muted);
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				border-bottom: 1px solid var(--border);
+				background: var(--bg-elevated);
+				position: sticky;
+				top: 0;
+				user-select: none;
+			}
+			.stats-table th:hover { color: var(--text-dark); }
+			.stats-table th.sorted { color: var(--text-dark); }
+			.stats-table th.sorted.desc::after { content: ' ↓'; }
+			.stats-table th.sorted.asc::after { content: ' ↑'; }
+			.stats-table .num-col {
+				text-align: right;
+				font-variant-numeric: tabular-nums;
+				white-space: nowrap;
+				width: 1%;
+			}
+			.stats-table td a {
+				color: var(--text-dark);
+				text-decoration: none;
+			}
+			.stats-table td a:hover { color: var(--link); }
+			.stats-table tr:hover td { background: var(--border-soft); }
+
+			@media (max-width: 720px) {
+				.stats-table th:nth-child(2),
+				.stats-table td:nth-child(2) { display: none; } /* скрываем дату на мобиле */
+				.stats-table th, .stats-table td { padding: 6px 6px; font-size: 0.8125rem; }
+			}
+		</style>
+	</body>
+</html>
