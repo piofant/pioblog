@@ -154,6 +154,25 @@ const img = (name: string) => `${base}/img/projects/${name}`;
 				margin: 0 0 10px;
 			}
 			.tile .sections p:last-child { margin-bottom: 0; }
+
+			/* Мобильный лейаут: уменьшаем avatar, сжимаем gap, дропаем
+			   .meta (служебная техно-метка) — на маленьком экране это шум. */
+			@media (max-width: 640px) {
+				.tile {
+					grid-template-columns: 56px 1fr;
+					gap: 12px;
+					padding: 18px 4px 22px;
+				}
+				.tile .avatar-link { width: 56px; height: 56px; }
+				.tile .meta { display: none; }
+				.tile .title { font-size: 1rem; margin-bottom: 4px; }
+				.tile .tagline { font-size: 0.8125rem; line-height: 1.45; }
+				.tile .metrics { font-size: 0.75rem; }
+				.tile .pill-btn { font-size: 0.7rem; padding: 4px 10px; }
+				.tile .sections p { font-size: 0.8125rem; }
+				.projects-page h1 { font-size: 1.5rem; }
+				.page-sub { font-size: 0.875rem; }
+			}
 		</style>
 	</head>
 	<body>
