@@ -33,3 +33,4 @@ scripts/node_modules/
 .tg-session*
 tg_session*
 *.session
+src/pages/fonts-demo.astro

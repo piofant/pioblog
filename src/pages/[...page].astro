@@ -123,6 +123,11 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 						void card.offsetWidth;
 						card.classList.remove('fill-reset');
 					}
+					/* Длительность цикла. Объявляем ДО первого использования
+					   в scheduleBackup — иначе TDZ ReferenceError убьёт весь init. */
+					const ROTATE_MS = 8000;
+					card.style.setProperty('--rotate-ms', ROTATE_MS + 'ms');
+
 					let rendering = false;
 					let backupTimer = null;
 					/* render с лёгкой fade-out → swap → fade-in анимацией.
@@ -144,20 +149,15 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 					}
 					function scheduleBackup() {
 						if (backupTimer) clearTimeout(backupTimer);
-						backupTimer = setTimeout(render, ROTATE_MS + 500); // запас на случай если animationend не пришёл
+						backupTimer = setTimeout(render, ROTATE_MS + 500);
 					}
 					applyData(pick()); // initial без анимации
 					resetFill();       // заливка стартует с 0%
 					scheduleBackup();
 
 					/* Авто-смена поста синхронизирована с CSS-заливкой через
-					   `animationend`. Никакого параллельного setInterval — иначе
-					   рассинхрон (анимация и таймер дрейфуют). Когда заливка
-					   достигла 100% → событие → render() → resetFill() → новый цикл.
-					   Пауза: hover/focus/visibility-hidden ставит animation на паузу
-					   через CSS, и event просто не фаерится пока не отпаузим. */
-					const ROTATE_MS = 8000;
-					card.style.setProperty('--rotate-ms', ROTATE_MS + 'ms');
+					   `animationend`. Когда заливка достигла 100% → событие →
+					   render() → resetFill() → новый цикл. */
 					let userPaused = false;
 					const stop = () => { card.classList.add('paused'); };
 					const start = () => {
