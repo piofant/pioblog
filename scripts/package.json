@@ -14,8 +14,11 @@
 	},
 	"dependencies": {
 		"@notionhq/client": "2.2.15",
+		"@observablehq/plot": "^0.6.17",
 		"cheerio": "1.0.0",
+		"d3-format": "^3.1.2",
 		"input": "^1.0.1",
+		"jsdom": "^29.1.1",
 		"notion-to-md": "3.1.9",
 		"telegram": "^2.26.22"
 	}
