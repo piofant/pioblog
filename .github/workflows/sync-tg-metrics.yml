@@ -51,7 +51,10 @@ jobs:
           git push
           echo "changed=true" >> $GITHUB_OUTPUT
       - name: Trigger Pages deploy
+        # Не блокируем основной workflow если token не имеет права (HTTP 403).
+        # GH Pages всё равно перерендерится при следующем push в main.
         if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run "Deploy to GitHub Pages" --repo ${{ github.repository }} --ref main
