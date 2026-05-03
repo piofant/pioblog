@@ -2,7 +2,7 @@
 title: 'ЛШ logbook, день 2'
 pubDate: '2024-07-12'
 tgMessageId: 440
-tags: ['школа жизни', 'вуз', 'рефлексия']
+tags: ['школа жизни', 'вуз', 'рефлексия', 'летняя школа']
 heroImage: '/img/posts/2024-07-12-lsh-logbook-den-2-440/photo_1.jpg'
 ---
 

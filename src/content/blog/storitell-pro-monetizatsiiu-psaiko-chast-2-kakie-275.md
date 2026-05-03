@@ -3,7 +3,7 @@ title: '#сторителл про монетизацию Псайко, част
 pubDate: '2025-03-20'
 tgMessageId: 275
 heroImage: '/img/og/gradients/storitell-pro-monetizatsiiu-psaiko-chast-2-kakie-275.png'
-tags: ['рефлексия', 'психология', 'истории']
+tags: ['рефлексия', 'психология', 'боты', 'истории']
 series: 'psaiko-monetization'
 seriesPart: 2
 ---

@@ -3,7 +3,7 @@ title: '6 дней с рандомами в лесу или жизнь в нас
 pubDate: '2025-07-13'
 tgMessageId: 313
 heroImage: '/img/posts/2025-07-13-6-dnei-s-randomami-v-lesu-ili-zhizn-v-313/photo_178@13-07-2025_19-57-38.jpg'
-tags: ['трипы', 'автостоп']
+tags: ['психология', 'трипы', 'автостоп', 'жизнь']
 ---
 
 после [трипа в автостоп](/blog/moi-pervyi-opyt-avtostopa-proverka-na-prochnost-i-307/) мы отправились с Юрцом на один некоммерческий фестиваль в подмосковном лесу

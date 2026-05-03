@@ -1,7 +1,7 @@
 ---
 pubDate: '2020-12-27'
 tgMessageId: 27
-tags: ['школа жизни']
+tags: ['школа жизни', 'жизнь']
 heroImage: '/img/posts/2020-12-27-seichas-ia-nedavno-uvidel-sleduiushchii-videorolik-kotoryi-27/video_1_thumb.jpg'
 title: Сейчас я недавно увидел следующий видеоролик, который прикреплен к посту ниже.
 ---

@@ -2,7 +2,7 @@
 title: 'На следующий день до раздачи всем командам кейсов я решил, что ограничиваться'
 pubDate: '2021-07-07'
 tgMessageId: 48
-tags: ['школа жизни', 'нетворкинг']
+tags: ['карьера', 'школа жизни', 'вуз', 'менторство', 'нетворкинг', 'летняя школа', 'боты', 'анонс']
 heroImage: '/img/og/gradients/na-sleduiushchii-den-do-razdachi-vsem-komandam-keisov-ia-48.png'
 ---
 

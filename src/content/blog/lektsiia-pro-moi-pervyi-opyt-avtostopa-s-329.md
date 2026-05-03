@@ -2,7 +2,7 @@
 heroImage: /img/posts/2025-08-19-lektsiia-pro-moi-pervyi-opyt-avtostopa-s-329/photo_192@19-08-2025_20-26-14.jpg
 pubDate: '2025-08-19'
 tgMessageId: 329
-tags: ['психология', 'трипы', 'автостоп', 'whois']
+tags: ['психология', 'трипы', 'автостоп', 'анонс', 'whois']
 title: 'Лекция про мой первый опыт автостопа: с результатами и впечатлениями'
 ---
 

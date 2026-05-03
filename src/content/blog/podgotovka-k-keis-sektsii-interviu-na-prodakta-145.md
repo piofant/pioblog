@@ -3,7 +3,7 @@ title: 'Подготовка к кейс-секции интервью на пр
 pubDate: '2024-04-12'
 tgMessageId: 145
 heroImage: '/img/og/gradients/podgotovka-k-keis-sektsii-interviu-na-prodakta-145.png'
-tags: ['продакт', 'карьера']
+tags: ['продакт', 'карьера', 'школа жизни', 'анонс']
 series: 'yandex-internship'
 seriesPart: 3
 ---

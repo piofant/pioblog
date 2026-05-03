@@ -2,7 +2,7 @@
 title: 'Далее поехал на лифтах на последние этажи и побродил там, увидел таблички'
 pubDate: '2021-08-03'
 tgMessageId: 53
-tags: ['анонс']
+tags: ['школа жизни', 'вуз', 'нетворкинг', 'анонс']
 heroImage: '/img/og/gradients/dalee-poekhal-na-liftakh-na-poslednie-etazhi-i-pobrodil-tam-53.png'
 ---
 

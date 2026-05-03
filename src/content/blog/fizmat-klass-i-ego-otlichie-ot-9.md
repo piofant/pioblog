@@ -3,7 +3,7 @@ title: 'Физмат класс и его отличие от общеобраз
 pubDate: '2020-08-13'
 tgMessageId: 9
 heroImage: '/img/og/gradients/fizmat-klass-i-ego-otlichie-ot-9.png'
-tags: ['школа жизни', 'менторство', 'истории']
+tags: ['школа жизни', 'боты', 'истории']
 ---
 
 #истории

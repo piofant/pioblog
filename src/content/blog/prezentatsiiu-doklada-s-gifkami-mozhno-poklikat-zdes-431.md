@@ -4,6 +4,7 @@ pubDate: '2026-04-27'
 tgMessageId: 431
 heroImage: '/img/og/gradients/tg-431.png'
 draft: true
+tags: ['анонс']
 ---
 
 презентацию доклада с гифками можно покликать здесь: [piofant.github.io/tusa](/tusa/) 🔗

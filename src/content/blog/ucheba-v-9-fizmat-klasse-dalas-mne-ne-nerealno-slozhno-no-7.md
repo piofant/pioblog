@@ -2,7 +2,7 @@
 title: 'Учёба в 9 физмат классе далась мне не нереально сложно, но достаточно не'
 pubDate: '2020-08-12'
 tgMessageId: 7
-tags: ['школа жизни']
+tags: ['школа жизни', 'боты']
 heroImage: '/img/og/gradients/ucheba-v-9-fizmat-klasse-dalas-mne-ne-nerealno-slozhno-no-7.png'
 ---
 

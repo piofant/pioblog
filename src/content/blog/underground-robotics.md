@@ -1,7 +1,7 @@
 ---
 title: 'Навестил парней из Underground Robotics с ПМ МИСиС'
 pubDate: '2022-02-02'
-tags: ['школа жизни', 'ии']
+tags: ['школа жизни', 'вуз', 'ии']
 heroImage: '/img/UR2.jpg'
 ---
 

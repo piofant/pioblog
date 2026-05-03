@@ -2,7 +2,7 @@
 title: 'culture fit yandex as I feel it или Яндекс — это про:'
 pubDate: '2024-05-26'
 tgMessageId: 156
-tags: ['продакт', 'карьера', 'менторство']
+tags: ['продакт', 'карьера', 'психология']
 heroImage: '/img/og/gradients/culture-fit-yandex-as-i-feel-it-ili-iandeks-eto-pro-156.png'
 ---
 

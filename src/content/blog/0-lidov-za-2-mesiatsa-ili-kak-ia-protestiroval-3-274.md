@@ -2,7 +2,7 @@
 title: '0 лидов за 2 месяца или как я протестировал 3 гипотезы монетизации пет-проекта'
 pubDate: '2025-03-19'
 tgMessageId: 274
-tags: ['продакт', 'менторство', 'боты', 'истории']
+tags: ['продакт', 'менторство', 'трипы', 'творчество', 'боты', 'истории']
 heroImage: '/img/posts/2025-03-19-0-lidov-za-2-mesiatsa-ili-kak-ia-protestiroval-3-274/photo_144@19-03-2025_20-48-41.jpg'
 series: 'psaiko-monetization'
 seriesPart: 1

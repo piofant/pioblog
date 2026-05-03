@@ -2,7 +2,7 @@
 title: 'Теперь я уже больше года потребляю контент по саморазвитию с помощью своего же'
 pubDate: '2022-07-17'
 tgMessageId: 110
-tags: ['ии', 'боты']
+tags: ['друзья', 'ии', 'боты', 'жизнь']
 heroImage: '/img/posts/2022-07-17-teper-ia-uzhe-bolshe-goda-potrebliaiu-kontent-po-110/photo_1.jpg'
 ---
 

@@ -3,6 +3,7 @@ title: 'кусочки лш'
 pubDate: '2024-08-20'
 tgMessageId: 461
 heroImage: '/img/posts/2024-08-20-kusochki-lsh-461/video_1_thumb.jpg'
+tags: ['летняя школа']
 ---
 
 кусочки лш

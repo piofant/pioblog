@@ -2,7 +2,7 @@
 title: 'Немного про кайфовость условий проживания. Комната была очень даже норм, с'
 pubDate: '2021-07-07'
 tgMessageId: 49
-tags: ['школа жизни', 'нетворкинг', 'творчество']
+tags: ['школа жизни', 'нетворкинг', 'летняя школа', 'творчество']
 heroImage: '/img/og/gradients/nemnogo-pro-kaifovost-uslovii-prozhivaniia-komnata-byla-49.png'
 ---
 

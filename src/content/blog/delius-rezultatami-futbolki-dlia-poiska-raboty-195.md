@@ -3,7 +3,7 @@ title: 'Делюсь результатами футболки для поиск
 pubDate: '2024-09-05'
 tgMessageId: 195
 heroImage: '/img/posts/2024-09-05-delius-rezultatami-futbolki-dlia-poiska-raboty-195/photo_87@05-09-2024_17-32-21.jpg'
-tags: ['продакт', 'карьера', 'творчество']
+tags: ['продакт', 'карьера', 'школа жизни', 'творчество', 'боты', 'анонс']
 ---
 
 100+ запусков [@hire\_vova\_bot](http://t.me/hire_vova_bot?start=pioblog_2), из которых только 8 по QR с футболки → 3 касания с нанимающими → feedback pending (пока зиро офферов), детальнее воронку смотрите на фотке

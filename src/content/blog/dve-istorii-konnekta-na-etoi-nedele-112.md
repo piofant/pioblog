@@ -2,7 +2,7 @@
 title: 'Две истории коннекта на этой неделе'
 pubDate: '2022-11-04'
 tgMessageId: 112
-tags: ['школа жизни', 'театр', 'истории']
+tags: ['школа жизни', 'театр', 'жизнь', 'истории']
 heroImage: '/img/og/gradients/dve-istorii-konnekta-na-etoi-nedele-112.png'
 ---
 

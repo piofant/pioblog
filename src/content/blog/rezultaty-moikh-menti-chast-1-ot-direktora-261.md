@@ -3,7 +3,7 @@ title: '📍 Результаты моих менти [часть 1] → от д
 pubDate: '2025-01-21'
 tgMessageId: 261
 heroImage: '/img/posts/2025-01-21-rezultaty-moikh-menti-chast-1-ot-direktora-261/photo_135@21-01-2025_16-47-45.jpg'
-tags: ['продакт', 'карьера', 'менторство']
+tags: ['продакт', 'карьера', 'менторство', 'театр', 'анонс']
 series: 'mentees-results'
 seriesPart: 1
 ---

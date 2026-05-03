@@ -3,7 +3,7 @@ title: 'Мои сильные стороны и чем они полезны'
 pubDate: '2025-01-06'
 tgMessageId: 248
 heroImage: '/img/posts/2025-01-06-moi-silnye-storony-i-chem-oni-polezny-248/photo_124@06-01-2025_21-41-45.jpg'
-tags: ['продакт', 'рефлексия']
+tags: ['продакт', 'карьера', 'менторство', 'рефлексия']
 series: 'my-strengths'
 seriesPart: 1
 ---
