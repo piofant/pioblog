@@ -1334,17 +1334,29 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 /* Скрываем h3 у wiki-related (заменён на summary-кнопку) */
 .wiki-related h3 { display: none; }
 
-/* === Post metrics — компактная строка под hero, перед related === */
+/* === Post metrics — компактная строка перед related, кликабельная.
+   Ведёт на /stats/post/{tg_id}/ с детальной статой по этому посту. === */
 .post-metrics {
-	display: flex;
+	display: inline-flex;
 	flex-wrap: wrap;
 	gap: 0.4rem 1rem;
+	align-items: center;
 	margin: 1.5rem 0 0;
-	padding: 0;
+	padding: 8px 14px;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	background: var(--bg-elevated);
 	font-family: var(--font-ui), system-ui, sans-serif;
 	font-size: 0.8125rem;
 	color: var(--muted);
 	letter-spacing: 0.02em;
+	text-decoration: none;
+	transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.post-metrics:hover {
+	border-color: var(--text);
+	color: var(--text-dark);
+	background: var(--border-soft);
 }
 .post-metrics .m {
 	display: inline-flex;
@@ -1356,4 +1368,14 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	content: '·';
 	margin-right: 1em;
 	color: var(--muted-2);
+}
+.post-metrics .arrow {
+	color: var(--muted-2);
+	font-size: 0.875rem;
+	margin-left: 0.25em;
+	transition: color 0.15s, transform 0.15s;
+}
+.post-metrics:hover .arrow {
+	color: var(--link);
+	transform: translateX(2px);
 }

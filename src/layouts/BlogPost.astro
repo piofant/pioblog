@@ -123,7 +123,7 @@ const topReactions = postMetrics
 				)}
 
 				{postMetrics && (
-					<aside class="post-metrics" aria-label="метрики поста">
+					<a class="post-metrics" href={`${base}/stats/post/${tgMessageId}/`} aria-label="детальная статистика поста">
 						<span class="m" title={`${postMetrics.views} просмотров`}>{formatCount(postMetrics.views)} 👁</span>
 						{reactionsTotal > 0 && (
 							<span class="m" title={topReactions}>{formatCount(reactionsTotal)} 🐳</span>
@@ -134,7 +134,8 @@ const topReactions = postMetrics
 						{postMetrics.err != null && (
 							<span class="m" title="(реакции + пересылки + ответы) / просмотры">ERR {formatErr(postMetrics.err)}</span>
 						)}
-					</aside>
+						<span class="arrow">→</span>
+					</a>
 				)}
 
 				{related && related.length > 0 && (
