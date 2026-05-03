@@ -222,8 +222,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 .random-post .reroll { z-index: 2; }
 .random-post:hover {
 	border-style: solid;
-	border-color: var(--link);
-	background: color-mix(in srgb, var(--link) 4%, transparent);
+	border-color: #4a9eff;
 }
 .random-post .thumb {
 	flex: 0 0 50px;
@@ -250,8 +249,9 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 .random-post .reroll {
 	position: absolute;
-	top: 8px;
-	right: 8px;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
 	background: var(--border-soft);
 	border: 1px solid var(--border);
 	cursor: pointer;
@@ -268,10 +268,11 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	transition: color 0.15s, background 0.15s, border-color 0.15s, transform 0.3s;
 }
 .random-post .reroll:hover {
-	color: var(--bg);
-	background: var(--link);
-	border-color: var(--link);
-	transform: rotate(180deg);
+	color: #fff;
+	background: #4a9eff;
+	border-color: #4a9eff;
+	/* Сохраняем translateY(-50%) из base + крутим. Иначе кнопка прыгнет вниз. */
+	transform: translateY(-50%) rotate(180deg);
 }
 .random-post .ttl {
 	color: var(--text-dark);
