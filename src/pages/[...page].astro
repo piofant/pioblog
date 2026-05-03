@@ -61,13 +61,13 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 			<a class="random-post" id="random-post" href="#" aria-label="Открыть случайный пост">
 				<div class="thumb" id="random-post-thumb">🎲</div>
 				<div class="body">
-					<div class="lbl">
-						рандомный пост
-						<button class="reroll" id="random-post-reroll" type="button" aria-label="перегенерировать" title="перегенерировать">⟳</button>
-					</div>
+					<div class="lbl">рандомный пост</div>
 					<div class="ttl" id="random-post-ttl">— загружается…</div>
 					<div class="meta" id="random-post-meta"></div>
 				</div>
+				{/* reroll — direct child of .random-post (не внутри .body!), чтобы
+				    `right: 8px` отсчитывался от карточки, а не от body. */}
+				<button class="reroll" id="random-post-reroll" type="button" aria-label="перегенерировать" title="перегенерировать">⟳</button>
 			</a>
 			<script
 				type="application/json"
