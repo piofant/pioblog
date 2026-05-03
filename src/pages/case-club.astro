@@ -18,16 +18,25 @@ const TARGET = 'https://v0-kasem-club-website.vercel.app/';
 			image="/avatar_pio.png"
 		/>
 		<style>
-			html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+			/* Flex layout: bar (auto height) + iframe (flex:1 заполняет остаток).
+			   Надёжнее чем position:fixed — iframe гарантированно получает
+			   реальную высоту, не upewn'utь от 100vh-багов в Safari/iOS. */
+			html, body {
+				margin: 0; padding: 0;
+				height: 100%; min-height: 100dvh;
+				overflow: hidden;
+				background: #f57436; /* fallback пока iframe грузится */
+				color-scheme: light only; /* подсказка iframe не уходить в dark */
+			}
+			body { display: flex; flex-direction: column; }
 			.cc-bar {
-				position: fixed; top: 0; left: 0; right: 0; height: 36px;
+				flex: 0 0 36px;
 				display: flex; align-items: center; justify-content: space-between;
 				padding: 0 14px;
 				background: #f57436;
 				color: #fff;
 				font-family: var(--font-ui), system-ui, sans-serif;
 				font-size: 0.8125rem;
-				z-index: 10;
 			}
 			.cc-bar a { color: #fff; text-decoration: none; }
 			.cc-bar a:hover { opacity: 0.85; color: #fff; }
@@ -40,9 +49,12 @@ const TARGET = 'https://v0-kasem-club-website.vercel.app/';
 				.cc-right { display: none; }
 			}
 			.cc-frame {
-				position: fixed; top: 36px; left: 0; right: 0; bottom: 0;
+				flex: 1 1 auto;
+				display: block;
 				width: 100%;
+				min-height: 0;
 				border: 0;
+				background: #fff;
 			}
 		</style>
 	</head>
