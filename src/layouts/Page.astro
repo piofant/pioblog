@@ -53,5 +53,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			)}
 		</main>
 		<Footer />
+		<script is:inline>
+			/* Внешние ссылки в notion-контенте — в новой вкладке.
+			   Внутренние (тот же host) оставляем как есть, чтоб не плодить вкладки
+			   при навигации по вики. */
+			document.querySelectorAll('.page-content a[href]').forEach((a) => {
+				const href = a.getAttribute('href');
+				if (!href || !/^https?:\/\//i.test(href)) return;
+				try {
+					if (new URL(href).host !== location.host) {
+						a.setAttribute('target', '_blank');
+						a.setAttribute('rel', 'noopener noreferrer');
+					}
+				} catch {}
+			});
+		</script>
 	</body>
 </html>
