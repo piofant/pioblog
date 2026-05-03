@@ -71,7 +71,10 @@ export function unwrapBracketKickers(body) {
 	}).join('');
 }
 
-/* Master fix — apply all transforms to a post body. */
+/* Master fix — apply all transforms to a post body.
+   NB: `unwrapBracketKickers` намеренно НЕ применяется. В TG автор пишет
+   подразделы как `[**label**]` — скобки видны и в TG-клиенте, и должны
+   оставаться видимыми на сайте. Удаление скобок ломало визуальную форму. */
 export function fixBody(body) {
-	return paragraphize(splitMultilineEmphasis(unwrapBracketKickers(body)));
+	return paragraphize(splitMultilineEmphasis(body));
 }
