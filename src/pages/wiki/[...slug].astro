@@ -25,13 +25,24 @@ export async function getStaticPaths() {
 		// чтобы карточки выглядели как у блог-постов без heroImage.
 		const relatedWiki = isRoot
 			? []
-			: candidates
-					.filter((p) => p.id !== page.id)
-					.map((p) => ({
-						id: p.id,
-						title: p.data.title,
-						thumbStyle: gradientStyle(p.id),
-					}));
+			: [
+					...candidates
+						.filter((p) => p.id !== page.id)
+						.map((p) => ({
+							id: p.id,
+							title: p.data.title,
+							thumbStyle: gradientStyle(p.id),
+						})),
+					/* Не-вики страница «Проекты» — добавляется во ВСЕ wiki-related
+					   блоки кроме root, чтоб попасть в навигацию по сторонним
+					   разделам сайта. Уникальный градиент через namespaced id. */
+					{
+						id: 'projects',
+						title: 'Проекты',
+						thumbStyle: gradientStyle('non-wiki:projects'),
+						href: '/projects/',
+					},
+				];
 		return {
 			params: { slug },
 			props: { page, relatedWiki },
@@ -41,7 +52,7 @@ export async function getStaticPaths() {
 
 type Props = {
 	page: CollectionEntry<'pages'>;
-	relatedWiki: { id: string; title: string; thumbStyle: string }[];
+	relatedWiki: { id: string; title: string; thumbStyle: string; href?: string }[];
 };
 const { page, relatedWiki } = Astro.props;
 const { Content } = await render(page);
