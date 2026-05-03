@@ -1,1 +1,2394 @@
-{}
+{
+  "4": {
+    "views": 4465,
+    "forwards": 53,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 3
+      }
+    ],
+    "err": 1.25,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "5": {
+    "views": 2257,
+    "forwards": 11,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 1
+      }
+    ],
+    "err": 0.53,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "6": {
+    "views": 1275,
+    "forwards": 9,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.71,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "7": {
+    "views": 961,
+    "forwards": 8,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.83,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "8": {
+    "views": 890,
+    "forwards": 5,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.56,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "9": {
+    "views": 856,
+    "forwards": 4,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.47,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "11": {
+    "views": 707,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.42,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "12": {
+    "views": 1342,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.22,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "13": {
+    "views": 1286,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.23,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "14": {
+    "views": 1284,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.23,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "15": {
+    "views": 769,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.39,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "16": {
+    "views": 719,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.42,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "17": {
+    "views": 699,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.43,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "18": {
+    "views": 660,
+    "forwards": 8,
+    "replies": 0,
+    "reactions": [],
+    "err": 1.21,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "20": {
+    "views": 583,
+    "forwards": 6,
+    "replies": 0,
+    "reactions": [],
+    "err": 1.03,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "22": {
+    "views": 554,
+    "forwards": 4,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.72,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "23": {
+    "views": 565,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.53,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "25": {
+    "views": 519,
+    "forwards": 2,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.39,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "26": {
+    "views": 507,
+    "forwards": 2,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.39,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "27": {
+    "views": 518,
+    "forwards": 2,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.39,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "29": {
+    "views": 493,
+    "forwards": 5,
+    "replies": 0,
+    "reactions": [],
+    "err": 1.01,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "30": {
+    "views": 500,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.6,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "31": {
+    "views": 497,
+    "forwards": 4,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.8,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "32": {
+    "views": 566,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.53,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "35": {
+    "views": 631,
+    "forwards": 5,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.79,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "36": {
+    "views": 638,
+    "forwards": 4,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.63,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "37": {
+    "views": 597,
+    "forwards": 2,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.34,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "39": {
+    "views": 1086,
+    "forwards": 28,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 1
+      }
+    ],
+    "err": 2.67,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "40": {
+    "views": 618,
+    "forwards": 5,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.81,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "48": {
+    "views": 560,
+    "forwards": 1,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.18,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "49": {
+    "views": 582,
+    "forwards": 4,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.69,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "50": {
+    "views": 599,
+    "forwards": 2,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.33,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "53": {
+    "views": 723,
+    "forwards": 2,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.28,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "62": {
+    "views": 948,
+    "forwards": 1,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.11,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "73": {
+    "views": 1496,
+    "forwards": 7,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "😢",
+        "count": 9
+      }
+    ],
+    "err": 1.07,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "75": {
+    "views": 2156,
+    "forwards": 13,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 9
+      },
+      {
+        "emoji": "👍",
+        "count": 1
+      }
+    ],
+    "err": 1.07,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "77": {
+    "views": 1792,
+    "forwards": 8,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 5
+      }
+    ],
+    "err": 0.73,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "88": {
+    "views": 1514,
+    "forwards": 8,
+    "replies": 33,
+    "reactions": [],
+    "err": 2.71,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "89": {
+    "views": 1546,
+    "forwards": 9,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 7
+      }
+    ],
+    "err": 1.03,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "94": {
+    "views": 1586,
+    "forwards": 6,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 7
+      }
+    ],
+    "err": 1.01,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "97": {
+    "views": 1830,
+    "forwards": 6,
+    "replies": 4,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 8
+      },
+      {
+        "emoji": "❤",
+        "count": 6
+      }
+    ],
+    "err": 1.31,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "99": {
+    "views": 2176,
+    "forwards": 2,
+    "replies": 2,
+    "reactions": [],
+    "err": 0.18,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "100": {
+    "views": 1941,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 2
+      }
+    ],
+    "err": 0.26,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "101": {
+    "views": 2952,
+    "forwards": 12,
+    "replies": 4,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 5
+      },
+      {
+        "emoji": "👍",
+        "count": 2
+      }
+    ],
+    "err": 0.78,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "106": {
+    "views": 3992,
+    "forwards": 31,
+    "replies": 11,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 2
+      }
+    ],
+    "err": 1.1,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "107": {
+    "views": 3439,
+    "forwards": 6,
+    "replies": 22,
+    "reactions": [
+      {
+        "emoji": "🎉",
+        "count": 13
+      },
+      {
+        "emoji": "👍",
+        "count": 1
+      }
+    ],
+    "err": 1.22,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "110": {
+    "views": 4251,
+    "forwards": 11,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 6
+      },
+      {
+        "emoji": "👍",
+        "count": 5
+      },
+      {
+        "emoji": "❤",
+        "count": 2
+      },
+      {
+        "emoji": "🤬",
+        "count": 1
+      },
+      {
+        "emoji": "🤡",
+        "count": 1
+      }
+    ],
+    "err": 0.61,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "111": {
+    "views": 2487,
+    "forwards": 0,
+    "replies": 0,
+    "reactions": [],
+    "err": 0,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "112": {
+    "views": 3397,
+    "forwards": 14,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 11
+      },
+      {
+        "emoji": "🔥",
+        "count": 4
+      },
+      {
+        "emoji": "❤",
+        "count": 3
+      },
+      {
+        "emoji": "🥰",
+        "count": 2
+      },
+      {
+        "emoji": "🌚",
+        "count": 2
+      }
+    ],
+    "err": 1.06,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "113": {
+    "views": 3098,
+    "forwards": 5,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.16,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "114": {
+    "views": 5801,
+    "forwards": 240,
+    "replies": 18,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 10
+      },
+      {
+        "emoji": "👍",
+        "count": 4
+      },
+      {
+        "emoji": "🔥",
+        "count": 4
+      },
+      {
+        "emoji": "⚡",
+        "count": 1
+      },
+      {
+        "emoji": "🤡",
+        "count": 1
+      }
+    ],
+    "err": 4.79,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "115": {
+    "views": 3933,
+    "forwards": 0,
+    "replies": 0,
+    "reactions": [],
+    "err": 0,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "116": {
+    "views": 3217,
+    "forwards": 12,
+    "replies": 10,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 31
+      },
+      {
+        "emoji": "❤",
+        "count": 3
+      },
+      {
+        "emoji": "❤‍🔥",
+        "count": 1
+      },
+      {
+        "emoji": "🤡",
+        "count": 1
+      }
+    ],
+    "err": 1.8,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "120": {
+    "views": 4405,
+    "forwards": 55,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 14
+      },
+      {
+        "emoji": "🤡",
+        "count": 1
+      },
+      {
+        "emoji": "🐳",
+        "count": 1
+      }
+    ],
+    "err": 1.75,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "126": {
+    "views": 5432,
+    "forwards": 52,
+    "replies": 4,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 5
+      },
+      {
+        "emoji": "👎",
+        "count": 2
+      }
+    ],
+    "err": 1.16,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "127": {
+    "views": 4423,
+    "forwards": 1,
+    "replies": 3,
+    "reactions": [],
+    "err": 0.09,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "128": {
+    "views": 4046,
+    "forwards": 7,
+    "replies": 11,
+    "reactions": [],
+    "err": 0.44,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "129": {
+    "views": 3393,
+    "forwards": 12,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.35,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "130": {
+    "views": 4490,
+    "forwards": 13,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.29,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "131": {
+    "views": 4889,
+    "forwards": 28,
+    "replies": 6,
+    "reactions": [],
+    "err": 0.7,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "132": {
+    "views": 5376,
+    "forwards": 89,
+    "replies": 9,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 28
+      },
+      {
+        "emoji": "❤",
+        "count": 7
+      },
+      {
+        "emoji": "👍",
+        "count": 4
+      },
+      {
+        "emoji": "👎",
+        "count": 2
+      }
+    ],
+    "err": 2.59,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "140": {
+    "views": 4456,
+    "forwards": 46,
+    "replies": 5,
+    "reactions": [],
+    "err": 1.14,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "141": {
+    "views": 2756,
+    "forwards": 3,
+    "replies": 2,
+    "reactions": [],
+    "err": 0.18,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "142": {
+    "views": 4593,
+    "forwards": 77,
+    "replies": 1,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 4
+      }
+    ],
+    "err": 1.79,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "144": {
+    "views": 3356,
+    "forwards": 16,
+    "replies": 3,
+    "reactions": [],
+    "err": 0.57,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "145": {
+    "views": 4277,
+    "forwards": 175,
+    "replies": 2,
+    "reactions": [],
+    "err": 4.14,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "147": {
+    "views": 4841,
+    "forwards": 65,
+    "replies": 5,
+    "reactions": [],
+    "err": 1.45,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "149": {
+    "views": 3156,
+    "forwards": 34,
+    "replies": 2,
+    "reactions": [],
+    "err": 1.14,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "150": {
+    "views": 2487,
+    "forwards": 1,
+    "replies": 0,
+    "reactions": [],
+    "err": 0.04,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "156": {
+    "views": 3391,
+    "forwards": 18,
+    "replies": 1,
+    "reactions": [],
+    "err": 0.56,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "157": {
+    "views": 3085,
+    "forwards": 8,
+    "replies": 15,
+    "reactions": [],
+    "err": 0.75,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "163": {
+    "views": 6555,
+    "forwards": 52,
+    "replies": 2,
+    "reactions": [],
+    "err": 0.82,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "167": {
+    "views": 3636,
+    "forwards": 36,
+    "replies": 5,
+    "reactions": [],
+    "err": 1.13,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "168": {
+    "views": 2885,
+    "forwards": 9,
+    "replies": 15,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 2
+      }
+    ],
+    "err": 0.9,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "170": {
+    "views": 3716,
+    "forwards": 21,
+    "replies": 10,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 1
+      }
+    ],
+    "err": 0.86,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "177": {
+    "views": 6211,
+    "forwards": 88,
+    "replies": 4,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 23
+      },
+      {
+        "emoji": "❤",
+        "count": 19
+      },
+      {
+        "emoji": "😁",
+        "count": 5
+      },
+      {
+        "emoji": "🐳",
+        "count": 2
+      }
+    ],
+    "err": 2.27,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "184": {
+    "views": 4395,
+    "forwards": 19,
+    "replies": 5,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 8
+      },
+      {
+        "emoji": "🔥",
+        "count": 3
+      }
+    ],
+    "err": 0.8,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "190": {
+    "views": 3793,
+    "forwards": 45,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 37
+      },
+      {
+        "emoji": "👏",
+        "count": 8
+      },
+      {
+        "emoji": "😁",
+        "count": 8
+      },
+      {
+        "emoji": "❤",
+        "count": 6
+      },
+      {
+        "emoji": "👎",
+        "count": 2
+      }
+    ],
+    "err": 2.87,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "195": {
+    "views": 4073,
+    "forwards": 58,
+    "replies": 11,
+    "reactions": [
+      {
+        "emoji": "😁",
+        "count": 17
+      },
+      {
+        "emoji": "❤",
+        "count": 13
+      },
+      {
+        "emoji": "👍",
+        "count": 13
+      },
+      {
+        "emoji": "🔥",
+        "count": 8
+      },
+      {
+        "emoji": "🎉",
+        "count": 2
+      }
+    ],
+    "err": 3,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "199": {
+    "views": 3498,
+    "forwards": 21,
+    "replies": 4,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 9
+      },
+      {
+        "emoji": "🔥",
+        "count": 6
+      }
+    ],
+    "err": 1.14,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "202": {
+    "views": 2344,
+    "forwards": 53,
+    "replies": 5,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 10
+      },
+      {
+        "emoji": "🔥",
+        "count": 7
+      },
+      {
+        "emoji": "👍",
+        "count": 2
+      }
+    ],
+    "err": 3.28,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "207": {
+    "views": 2133,
+    "forwards": 34,
+    "replies": 12,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 51
+      },
+      {
+        "emoji": "👍",
+        "count": 11
+      },
+      {
+        "emoji": "😁",
+        "count": 7
+      },
+      {
+        "emoji": "❤",
+        "count": 1
+      }
+    ],
+    "err": 5.44,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "210": {
+    "views": 2181,
+    "forwards": 19,
+    "replies": 10,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 25
+      },
+      {
+        "emoji": "😢",
+        "count": 23
+      },
+      {
+        "emoji": "👍",
+        "count": 9
+      }
+    ],
+    "err": 3.94,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "211": {
+    "views": 2206,
+    "forwards": 37,
+    "replies": 15,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 30
+      },
+      {
+        "emoji": "👍",
+        "count": 10
+      },
+      {
+        "emoji": "❤",
+        "count": 5
+      }
+    ],
+    "err": 4.4,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "216": {
+    "views": 2248,
+    "forwards": 7,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 28
+      },
+      {
+        "emoji": "👍",
+        "count": 5
+      },
+      {
+        "emoji": "❤",
+        "count": 2
+      },
+      {
+        "emoji": "👎",
+        "count": 1
+      }
+    ],
+    "err": 1.91,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "218": {
+    "views": 1823,
+    "forwards": 1,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 4
+      },
+      {
+        "emoji": "🔥",
+        "count": 1
+      }
+    ],
+    "err": 0.33,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "220": {
+    "views": 2596,
+    "forwards": 17,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 15
+      },
+      {
+        "emoji": "❤",
+        "count": 4
+      },
+      {
+        "emoji": "👍",
+        "count": 3
+      }
+    ],
+    "err": 1.58,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "227": {
+    "views": 2392,
+    "forwards": 11,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 14
+      },
+      {
+        "emoji": "🔥",
+        "count": 8
+      },
+      {
+        "emoji": "❤",
+        "count": 6
+      }
+    ],
+    "err": 1.63,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "235": {
+    "views": 2775,
+    "forwards": 49,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 18
+      },
+      {
+        "emoji": "❤",
+        "count": 2
+      }
+    ],
+    "err": 2.56,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "237": {
+    "views": 2315,
+    "forwards": 1,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "❤‍🔥",
+        "count": 5
+      },
+      {
+        "emoji": "❤",
+        "count": 3
+      },
+      {
+        "emoji": "👍",
+        "count": 1
+      },
+      {
+        "emoji": "👎",
+        "count": 1
+      }
+    ],
+    "err": 0.56,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "238": {
+    "views": 2688,
+    "forwards": 23,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 18
+      },
+      {
+        "emoji": "🔥",
+        "count": 9
+      },
+      {
+        "emoji": "👍",
+        "count": 5
+      },
+      {
+        "emoji": "🥰",
+        "count": 1
+      }
+    ],
+    "err": 2.19,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "240": {
+    "views": 2292,
+    "forwards": 12,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 19
+      },
+      {
+        "emoji": "❤",
+        "count": 8
+      }
+    ],
+    "err": 1.96,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "241": {
+    "views": 2727,
+    "forwards": 4,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 11
+      },
+      {
+        "emoji": "🥰",
+        "count": 5
+      },
+      {
+        "emoji": "🤝",
+        "count": 2
+      }
+    ],
+    "err": 0.88,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "243": {
+    "views": 2870,
+    "forwards": 68,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 18
+      },
+      {
+        "emoji": "🔥",
+        "count": 8
+      },
+      {
+        "emoji": "❤",
+        "count": 4
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 3.66,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "244": {
+    "views": 2564,
+    "forwards": 9,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "⚡",
+        "count": 10
+      },
+      {
+        "emoji": "🔥",
+        "count": 3
+      },
+      {
+        "emoji": "😐",
+        "count": 3
+      },
+      {
+        "emoji": "❤",
+        "count": 2
+      },
+      {
+        "emoji": "👍",
+        "count": 2
+      }
+    ],
+    "err": 1.21,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "245": {
+    "views": 2373,
+    "forwards": 0,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 2
+      },
+      {
+        "emoji": "🔥",
+        "count": 2
+      }
+    ],
+    "err": 0.17,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "247": {
+    "views": 2032,
+    "forwards": 4,
+    "replies": 13,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 13
+      }
+    ],
+    "err": 1.48,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "248": {
+    "views": 1653,
+    "forwards": 5,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 5
+      },
+      {
+        "emoji": "🤔",
+        "count": 3
+      },
+      {
+        "emoji": "👍",
+        "count": 1
+      },
+      {
+        "emoji": "🔥",
+        "count": 1
+      }
+    ],
+    "err": 0.91,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "249": {
+    "views": 1817,
+    "forwards": 11,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 5
+      },
+      {
+        "emoji": "🔥",
+        "count": 5
+      },
+      {
+        "emoji": "🥰",
+        "count": 4
+      }
+    ],
+    "err": 1.54,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "250": {
+    "views": 1825,
+    "forwards": 9,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 11
+      }
+    ],
+    "err": 1.1,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "251": {
+    "views": 1953,
+    "forwards": 4,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 7
+      },
+      {
+        "emoji": "👍",
+        "count": 1
+      }
+    ],
+    "err": 0.61,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "252": {
+    "views": 2077,
+    "forwards": 3,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 8
+      },
+      {
+        "emoji": "🔥",
+        "count": 3
+      },
+      {
+        "emoji": "❤",
+        "count": 2
+      },
+      {
+        "emoji": "👎",
+        "count": 2
+      }
+    ],
+    "err": 0.87,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "253": {
+    "views": 1963,
+    "forwards": 11,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 6
+      },
+      {
+        "emoji": "❤",
+        "count": 3
+      },
+      {
+        "emoji": "👎",
+        "count": 1
+      },
+      {
+        "emoji": "🥰",
+        "count": 1
+      }
+    ],
+    "err": 1.22,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "257": {
+    "views": 2921,
+    "forwards": 40,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 10
+      },
+      {
+        "emoji": "🔥",
+        "count": 4
+      },
+      {
+        "emoji": "❤",
+        "count": 3
+      }
+    ],
+    "err": 2.16,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "261": {
+    "views": 3611,
+    "forwards": 13,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 15
+      },
+      {
+        "emoji": "🔥",
+        "count": 6
+      },
+      {
+        "emoji": "❤",
+        "count": 3
+      },
+      {
+        "emoji": "😁",
+        "count": 2
+      },
+      {
+        "emoji": "👎",
+        "count": 1
+      }
+    ],
+    "err": 1.16,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "262": {
+    "views": 4264,
+    "forwards": 92,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 20
+      },
+      {
+        "emoji": "❤‍🔥",
+        "count": 5
+      },
+      {
+        "emoji": "👍",
+        "count": 4
+      }
+    ],
+    "err": 2.88,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "263": {
+    "views": 2409,
+    "forwards": 27,
+    "replies": 5,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 19
+      },
+      {
+        "emoji": "🤡",
+        "count": 12
+      },
+      {
+        "emoji": "👍",
+        "count": 8
+      },
+      {
+        "emoji": "🔥",
+        "count": 2
+      },
+      {
+        "emoji": "😐",
+        "count": 1
+      }
+    ],
+    "err": 3.07,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "268": {
+    "views": 2919,
+    "forwards": 36,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "❤",
+        "count": 13
+      },
+      {
+        "emoji": "🔥",
+        "count": 9
+      },
+      {
+        "emoji": "🍓",
+        "count": 7
+      },
+      {
+        "emoji": "😁",
+        "count": 2
+      }
+    ],
+    "err": 2.4,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "271": {
+    "views": 2026,
+    "forwards": 27,
+    "replies": 8,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 17
+      }
+    ],
+    "err": 2.57,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "272": {
+    "views": 2036,
+    "forwards": 13,
+    "replies": 8,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 26
+      }
+    ],
+    "err": 2.31,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "274": {
+    "views": 1890,
+    "forwards": 5,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 19
+      }
+    ],
+    "err": 1.27,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "275": {
+    "views": 2362,
+    "forwards": 4,
+    "replies": 11,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 4
+      }
+    ],
+    "err": 0.8,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "276": {
+    "views": 3153,
+    "forwards": 79,
+    "replies": 16,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 14
+      }
+    ],
+    "err": 3.46,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "278": {
+    "views": 2690,
+    "forwards": 17,
+    "replies": 10,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 9
+      }
+    ],
+    "err": 1.34,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "280": {
+    "views": 2521,
+    "forwards": 24,
+    "replies": 5,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 17
+      }
+    ],
+    "err": 1.82,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "281": {
+    "views": 2364,
+    "forwards": 13,
+    "replies": 9,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 10
+      }
+    ],
+    "err": 1.35,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "282": {
+    "views": 2600,
+    "forwards": 25,
+    "replies": 12,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 13
+      }
+    ],
+    "err": 1.92,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "283": {
+    "views": 2153,
+    "forwards": 12,
+    "replies": 12,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 33
+      }
+    ],
+    "err": 2.65,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "284": {
+    "views": 2264,
+    "forwards": 23,
+    "replies": 25,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 22
+      }
+    ],
+    "err": 3.09,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "288": {
+    "views": 2019,
+    "forwards": 7,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 12
+      }
+    ],
+    "err": 1.09,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "293": {
+    "views": 2187,
+    "forwards": 13,
+    "replies": 16,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 19
+      }
+    ],
+    "err": 2.19,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "294": {
+    "views": 2556,
+    "forwards": 22,
+    "replies": 12,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 11
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 1.8,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "295": {
+    "views": 2417,
+    "forwards": 14,
+    "replies": 10,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 11
+      }
+    ],
+    "err": 1.45,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "299": {
+    "views": 2376,
+    "forwards": 42,
+    "replies": 11,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 20
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 3.11,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "302": {
+    "views": 2703,
+    "forwards": 5,
+    "replies": 12,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 19
+      },
+      {
+        "emoji": "?",
+        "count": 2
+      }
+    ],
+    "err": 1.41,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "306": {
+    "views": 2743,
+    "forwards": 18,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 13
+      }
+    ],
+    "err": 1.2,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "307": {
+    "views": 2602,
+    "forwards": 13,
+    "replies": 7,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 32
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 2.04,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "313": {
+    "views": 2036,
+    "forwards": 26,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 11
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 2.16,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "319": {
+    "views": 1870,
+    "forwards": 15,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 19
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 2.19,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "325": {
+    "views": 1874,
+    "forwards": 21,
+    "replies": 5,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 12
+      }
+    ],
+    "err": 2.03,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "326": {
+    "views": 1855,
+    "forwards": 8,
+    "replies": 1,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 24
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 1.83,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "329": {
+    "views": 1514,
+    "forwards": 8,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 9
+      }
+    ],
+    "err": 1.25,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "333": {
+    "views": 2058,
+    "forwards": 25,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 22
+      }
+    ],
+    "err": 2.28,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "334": {
+    "views": 2068,
+    "forwards": 10,
+    "replies": 11,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 21
+      }
+    ],
+    "err": 2.03,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "340": {
+    "views": 1625,
+    "forwards": 6,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 16
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 1.78,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "347": {
+    "views": 1479,
+    "forwards": 7,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 25
+      }
+    ],
+    "err": 2.3,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "353": {
+    "views": 2731,
+    "forwards": 20,
+    "replies": 4,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 12
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 1.35,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "355": {
+    "views": 2116,
+    "forwards": 23,
+    "replies": 19,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 8
+      }
+    ],
+    "err": 2.36,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "356": {
+    "views": 2916,
+    "forwards": 13,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 15
+      }
+    ],
+    "err": 1.06,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "363": {
+    "views": 1709,
+    "forwards": 12,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 35
+      }
+    ],
+    "err": 2.93,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "369": {
+    "views": 1679,
+    "forwards": 2,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 8
+      }
+    ],
+    "err": 0.6,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "371": {
+    "views": 1893,
+    "forwards": 12,
+    "replies": 5,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 14
+      }
+    ],
+    "err": 1.64,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "372": {
+    "views": 1499,
+    "forwards": 2,
+    "replies": 1,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 14
+      }
+    ],
+    "err": 1.13,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "375": {
+    "views": 1906,
+    "forwards": 2,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 10
+      }
+    ],
+    "err": 0.79,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "378": {
+    "views": 2708,
+    "forwards": 17,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 5
+      }
+    ],
+    "err": 0.81,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "380": {
+    "views": 2689,
+    "forwards": 25,
+    "replies": 1,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 6
+      }
+    ],
+    "err": 1.19,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "384": {
+    "views": 2159,
+    "forwards": 13,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 31
+      }
+    ],
+    "err": 2.18,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "385": {
+    "views": 2435,
+    "forwards": 26,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 19
+      },
+      {
+        "emoji": "?",
+        "count": 5
+      }
+    ],
+    "err": 2.18,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "386": {
+    "views": 1514,
+    "forwards": 3,
+    "replies": 12,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 2
+      }
+    ],
+    "err": 1.12,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "387": {
+    "views": 1810,
+    "forwards": 12,
+    "replies": 4,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 19
+      }
+    ],
+    "err": 1.93,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "392": {
+    "views": 2134,
+    "forwards": 21,
+    "replies": 7,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 15
+      }
+    ],
+    "err": 2.01,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "393": {
+    "views": 1636,
+    "forwards": 8,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 7
+      }
+    ],
+    "err": 1.1,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "394": {
+    "views": 1225,
+    "forwards": 26,
+    "replies": 3,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 10
+      }
+    ],
+    "err": 3.18,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "395": {
+    "views": 1144,
+    "forwards": 5,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 16
+      }
+    ],
+    "err": 2.01,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "404": {
+    "views": 1316,
+    "forwards": 6,
+    "replies": 11,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 18
+      }
+    ],
+    "err": 2.66,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "405": {
+    "views": 1639,
+    "forwards": 25,
+    "replies": 8,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 16
+      },
+      {
+        "emoji": "?",
+        "count": 1
+      }
+    ],
+    "err": 3.05,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "408": {
+    "views": 1775,
+    "forwards": 9,
+    "replies": 2,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 7
+      }
+    ],
+    "err": 1.01,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "409": {
+    "views": 958,
+    "forwards": 27,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 8
+      }
+    ],
+    "err": 4.28,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "411": {
+    "views": 1006,
+    "forwards": 9,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "🤡",
+        "count": 14
+      },
+      {
+        "emoji": "🐳",
+        "count": 8
+      }
+    ],
+    "err": 3.68,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "413": {
+    "views": 759,
+    "forwards": 0,
+    "replies": 20,
+    "reactions": [],
+    "err": 2.64,
+    "last_updated": "2026-05-03T16:58:09.873Z"
+  },
+  "414": {
+    "views": 661,
+    "forwards": 4,
+    "replies": 9,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 9
+      }
+    ],
+    "err": 3.33,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "419": {
+    "views": 830,
+    "forwards": 6,
+    "replies": 6,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 5
+      }
+    ],
+    "err": 2.05,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "420": {
+    "views": 830,
+    "forwards": 1,
+    "replies": 8,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 9
+      }
+    ],
+    "err": 2.17,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "421": {
+    "views": 810,
+    "forwards": 12,
+    "replies": 5,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 8
+      }
+    ],
+    "err": 3.09,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "424": {
+    "views": 1083,
+    "forwards": 7,
+    "replies": 5,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 8
+      },
+      {
+        "emoji": "?",
+        "count": 5
+      }
+    ],
+    "err": 2.31,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "425": {
+    "views": 799,
+    "forwards": 3,
+    "replies": 1,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 4
+      }
+    ],
+    "err": 1,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "426": {
+    "views": 812,
+    "forwards": 10,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 3
+      }
+    ],
+    "err": 1.6,
+    "last_updated": "2026-05-03T16:58:09.874Z"
+  },
+  "431": {
+    "views": 512,
+    "forwards": 1,
+    "replies": 4,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 3
+      }
+    ],
+    "err": 1.56,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "432": {
+    "views": 485,
+    "forwards": 7,
+    "replies": 8,
+    "reactions": [],
+    "err": 3.09,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  },
+  "434": {
+    "views": 142,
+    "forwards": 1,
+    "replies": 0,
+    "reactions": [
+      {
+        "emoji": "🐳",
+        "count": 3
+      }
+    ],
+    "err": 2.82,
+    "last_updated": "2026-05-03T16:58:10.896Z"
+  }
+}
