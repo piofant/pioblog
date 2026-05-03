@@ -33,17 +33,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 			{relatedWiki.length > 0 && (
 				<aside class="related-posts wiki-related">
-					<h3>Другие странички вики</h3>
-					<div class="related-grid">
-						{relatedWiki.map((r) => (
-							<a class="related-card" href={`${base}/wiki/${r.id}/`}>
-								<span class="thumb" aria-hidden="true" style={r.thumbStyle}></span>
-								<span class="body">
-									<span class="ttl">{r.title}</span>
-								</span>
-							</a>
-						))}
-					</div>
+					<details class="wiki-related-toggle">
+						<summary>
+							<span class="label">другие странички вики</span>
+							<span class="count">{relatedWiki.length}</span>
+						</summary>
+						<div class="related-grid">
+							{relatedWiki.map((r) => (
+								<a class="related-card" href={`${base}/wiki/${r.id}/`}>
+									<span class="thumb" aria-hidden="true" style={r.thumbStyle}></span>
+									<span class="body">
+										<span class="ttl">{r.title}</span>
+									</span>
+								</a>
+							))}
+						</div>
+					</details>
 				</aside>
 			)}
 		</main>

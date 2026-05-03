@@ -259,6 +259,19 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	font-size: 0.8125rem;
 	margin-top: 2px;
 }
+
+/* Auto-rotate: лёгкая fade-out → swap → fade-in анимация при смене поста */
+.random-post .thumb,
+.random-post .ttl,
+.random-post .meta {
+	transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.random-post.rotating .thumb,
+.random-post.rotating .ttl,
+.random-post.rotating .meta {
+	opacity: 0;
+	transform: translateY(-3px);
+}
 @media (max-width: 640px) {
 	.random-post {
 		max-width: calc(100% - 1.5rem);
@@ -1262,3 +1275,61 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	line-height: 1.5;
 	border: 1px solid var(--border);
 }
+
+/* ============================================
+   Wiki related — круглая кнопка-кат
+   Аналогично .mini-graph-wrap details, но для блока
+   "Другие странички вики" на wiki/notion-страницах.
+   ============================================ */
+.wiki-related-toggle { display: inline-block; }
+.wiki-related-toggle > summary {
+	font-size: 0.9375rem;
+	color: var(--text);
+	font-weight: 500;
+	cursor: pointer;
+	padding: 0.55rem 0.9rem;
+	user-select: none;
+	list-style: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: var(--border-soft);
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+	font-family: var(--font-ui), system-ui, sans-serif;
+}
+.wiki-related-toggle > summary::-webkit-details-marker { display: none; }
+.wiki-related-toggle > summary::before {
+	content: '▸';
+	font-size: 0.75rem;
+	color: var(--muted);
+	transition: transform 0.15s ease;
+	display: inline-block;
+}
+.wiki-related-toggle[open] > summary::before { transform: rotate(90deg); }
+.wiki-related-toggle > summary:hover {
+	background: var(--bg);
+	border-color: var(--text);
+	transform: translateY(-1px);
+}
+.wiki-related-toggle > summary .count {
+	font-variant-numeric: tabular-nums;
+	color: var(--muted);
+	font-size: 0.8125rem;
+	background: var(--bg);
+	border: 1px solid var(--border);
+	padding: 0.05rem 0.45rem;
+	border-radius: 999px;
+	margin-left: 0.15rem;
+}
+.wiki-related-toggle[open] > summary {
+	background: transparent;
+	border-color: transparent;
+	padding-left: 0;
+}
+.wiki-related-toggle > .related-grid {
+	margin-top: 0.75rem;
+}
+/* Скрываем h3 у wiki-related (заменён на summary-кнопку) */
+.wiki-related h3 { display: none; }

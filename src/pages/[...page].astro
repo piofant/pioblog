@@ -101,8 +101,7 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 						lastIdx = i;
 						return pool[i];
 					}
-					function render() {
-						const p = pick();
+					function applyData(p) {
 						card.href = base + '/blog/' + p.id + '/';
 						ttl.textContent = p.title;
 						meta.textContent = fmtDate(p.date);
@@ -116,8 +115,46 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 							thumbEl.textContent = '🎲';
 						}
 					}
-					render();
-					reroll?.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); render(); });
+					/* render с лёгкой fade-out → swap → fade-in анимацией */
+					function render() {
+						const p = pick();
+						card.classList.add('rotating');
+						setTimeout(() => {
+							applyData(p);
+							card.classList.remove('rotating');
+						}, 220);
+					}
+					applyData(pick()); // initial без анимации
+
+					/* Auto-rotate каждые 8 сек. Пауза если:
+					   - hover/focus (читаешь),
+					   - пользователь взаимодействовал (клик ⟳),
+					   - вкладка скрыта (visibilityState). */
+					const ROTATE_MS = 8000;
+					let timer = null;
+					let userPaused = false;
+					const start = () => {
+						if (timer || userPaused) return;
+						if (document.visibilityState === 'hidden') return;
+						timer = setInterval(render, ROTATE_MS);
+					};
+					const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+					card.addEventListener('mouseenter', stop);
+					card.addEventListener('mouseleave', start);
+					card.addEventListener('focusin', stop);
+					card.addEventListener('focusout', start);
+					document.addEventListener('visibilitychange', () => {
+						if (document.visibilityState === 'hidden') stop(); else start();
+					});
+
+					reroll?.addEventListener('click', (e) => {
+						e.preventDefault(); e.stopPropagation();
+						render(); // ручной reroll сбрасывает таймер
+						stop(); start();
+					});
+
+					start();
 				})();
 			</script>
 		)}
