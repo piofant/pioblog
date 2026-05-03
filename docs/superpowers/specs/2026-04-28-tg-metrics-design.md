@@ -82,7 +82,7 @@ err = (Σ reactions.count + forwards + replies) / views * 100
 
 ### 4. UI — внизу страницы поста
 
-**Где:** в `BlogPost.astro` после `<.post-content>`, перед `<figure class="post-hero">`.
+**Где:** в `BlogPost.astro` сразу перед блоком `<aside class="related-posts">` (т.е. после `.post-content` и `.post-hero`).
 
 **Только если у поста есть `telegram_id` И есть запись в `metrics.json`.**
 

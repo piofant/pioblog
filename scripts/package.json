@@ -14,7 +14,9 @@
 	},
 	"dependencies": {
 		"@notionhq/client": "2.2.15",
+		"cheerio": "1.0.0",
+		"input": "^1.0.1",
 		"notion-to-md": "3.1.9",
-		"cheerio": "1.0.0"
+		"telegram": "^2.26.22"
 	}
 }

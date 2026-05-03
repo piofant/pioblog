@@ -6,12 +6,16 @@ const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
 		title: z.string(),
+		subtitle: z.string().optional(),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		tags: z.array(z.string()).optional(),
 		heroImage: z.string().optional(),
 		series: z.string().optional(),
 		seriesPart: z.number().optional(),
+		/* Источник: TG message_id в @pioblog. Записывается sync-telegram'ом, нужен
+		   для дедупа при повторных синках. На сайте используется для link «читать в Telegram». */
+		tgMessageId: z.coerce.number().optional(),
 		/* Скрыть из всех листингов и поломать URL поста (Astro отдаст 404).
 		   Для шумовых постов (плейсхолдеры, тизеры, эмодзи-only) — без удаления
 		   файла из git. Фильтруется во всех getCollection-ах через хелпер из

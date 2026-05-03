@@ -126,21 +126,55 @@ function entitiesToMarkdown(text, entities) {
 	return text;
 }
 
+/* Транслитерация → латиница для slug'а filename'а. GOST 7.79 (~ISO9). */
+const TRANSLIT = {
+	а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'e',ж:'zh',з:'z',и:'i',й:'i',
+	к:'k',л:'l',м:'m',н:'n',о:'o',п:'p',р:'r',с:'s',т:'t',у:'u',ф:'f',
+	х:'kh',ц:'ts',ч:'ch',ш:'sh',щ:'shch',ъ:'',ы:'y',ь:'',э:'e',ю:'iu',я:'ia',
+};
+function slugify(title, maxLen = 60) {
+	let s = (title || '').toLowerCase();
+	s = s.split('').map((c) => (TRANSLIT[c] !== undefined ? TRANSLIT[c] : c)).join('');
+	s = s.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+	if (s.length > maxLen) {
+		// don't break in the middle of a word — trim back to last `-`
+		s = s.slice(0, maxLen).replace(/-[^-]*$/, '');
+	}
+	return s || 'tg';
+}
+
+import { open as fsOpen } from 'node:fs/promises';
+
 async function listExistingTgIds() {
-	// Только canonical имена tg-NNN.md, которые пишет сам этот скрипт.
-	// Раньше regex был /-(\d+)\.md$/ — он ложно ловил миграционные файлы вида
-	// `lsh-logbook-den-1-431.md` (где `-431` это старый TG ID из другого канала),
-	// и новые посты с тем же ID скипались как «уже есть» — навсегда теряя их
-	// из getUpdates-очереди после ACK.
+	// Дедуп по двум источникам:
+	//   1. Legacy: filename `tg-NNN.md` (тот самый паттерн, что писал этот скрипт раньше)
+	//   2. Новый: frontmatter поле `tgMessageId: NNN` — пишется в новые файлы
+	//      с осмысленным slug'ом `{slug}-{msg_id}.md`.
+	// Раньше regex `-(\d+)\.md$` ложно ловил миграционные файлы из других каналов
+	// (типа `lsh-logbook-den-1-431.md` где `-431` — TG ID из другого канала) и
+	// скипал новые посты с совпадающими ID — навсегда теряя их из getUpdates после ACK.
+	const ids = new Set();
 	try {
 		const files = await readdir(POSTS_DIR);
-		const ids = new Set();
 		for (const f of files) {
-			const m = f.match(/^tg-(\d+)\.md$/);
-			if (m) ids.add(Number(m[1]));
+			if (!f.endsWith('.md')) continue;
+			const legacy = f.match(/^tg-(\d+)\.md$/);
+			if (legacy) { ids.add(Number(legacy[1])); continue; }
+			try {
+				const fh = await fsOpen(path.join(POSTS_DIR, f), 'r');
+				const buf = Buffer.alloc(800);
+				await fh.read(buf, 0, 800, 0);
+				await fh.close();
+				const txt = buf.toString('utf8');
+				const fm = txt.match(/^---\n([\s\S]*?)\n---/);
+				if (fm) {
+					const idMatch = fm[1].match(/^tgMessageId:\s*(\d+)/m);
+					if (idMatch) ids.add(Number(idMatch[1]));
+				}
+			} catch {}
 		}
-		return ids;
-	} catch { return new Set(); }
+	} catch {}
+	return ids;
 }
 
 function escapeYaml(s) { return (s || '').replace(/'/g, "''").replace(/[\r\n]+/g, ' ').trim(); }
@@ -263,6 +297,7 @@ async function processPost(msg, existing) {
 		title,
 		subtitle: subtitle || undefined,
 		pubDate,
+		tgMessageId: msg.message_id,
 		heroImage,
 	});
 
@@ -270,7 +305,8 @@ async function processPost(msg, existing) {
 	const fullBody = [body, voiceEmbed, extraImages].filter(Boolean).join('\n\n');
 	const content = `${fm}\n\n${fullBody}\n`;
 
-	const dst = path.join(POSTS_DIR, `tg-${msg.message_id}.md`);
+	const slug = slugify(title);
+	const dst = path.join(POSTS_DIR, `${slug}-${msg.message_id}.md`);
 	if (DRY_RUN) {
 		console.log(`  [DRY] would write ${dst}\n    ${title.slice(0, 60)}`);
 	} else {

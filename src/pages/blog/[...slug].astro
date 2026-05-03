@@ -185,9 +185,11 @@ export async function getStaticPaths() {
 			}
 		}
 
-		// TG message id извлекаем из суффикса slug'а: '...-384' → 384
-		const tgMatch = post.id.match(/-(\d+)$/);
-		const tgMessageId = tgMatch ? Number(tgMatch[1]) : null;
+		// TG message_id берём ТОЛЬКО из frontmatter (его пишет sync-telegram).
+		// Старая логика «извлечь из суффикса -NNN» ловила и миграционные файлы
+		// (типа `lsh-logbook-den-1-431.md`), где `-431` — TG ID из ДРУГОГО канала,
+		// и pill «читать в Telegram» вёл на чужой пост.
+		const tgMessageId = post.data.tgMessageId ?? null;
 
 		return {
 			params: { slug: post.id },
