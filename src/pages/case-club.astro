@@ -1,0 +1,66 @@
+---
+/* /case-club — proxy-page для v0-сайта Кейс-клуба «Кейсеры». На странице
+   узкая верхняя полоска (цвет совпадает с акцентом v0-сайта #f57436) с back-
+   линком, под ней full-height iframe рендерит сам v0-сайт. URL остаётся наш,
+   контент тянется с vercel автоматически. */
+import BaseHead from '../components/BaseHead.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const TARGET = 'https://v0-kasem-club-website.vercel.app/';
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead
+			title="Кейсеры — кейс-клуб для продактов"
+			description="Разбираем вместе продуктовые кейсы на встречах в зуме, готовимся к собесам"
+			image="/avatar_pio.png"
+		/>
+		<style>
+			html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+			.cc-bar {
+				position: fixed; top: 0; left: 0; right: 0; height: 36px;
+				display: flex; align-items: center; justify-content: space-between;
+				padding: 0 14px;
+				background: #f57436;
+				color: #fff;
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.8125rem;
+				z-index: 10;
+			}
+			.cc-bar a { color: #fff; text-decoration: none; }
+			.cc-bar a:hover { opacity: 0.85; color: #fff; }
+			.cc-back { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+			.cc-back img { width: 22px; height: 22px; border-radius: 50%; }
+			.cc-right { font-size: 0.75rem; opacity: 0.95; letter-spacing: 0.02em; text-transform: uppercase; }
+			@media (max-width: 480px) {
+				.cc-bar { padding: 0 10px; font-size: 0.75rem; }
+				.cc-back img { width: 20px; height: 20px; }
+				.cc-right { display: none; }
+			}
+			.cc-frame {
+				position: fixed; top: 36px; left: 0; right: 0; bottom: 0;
+				width: 100%;
+				border: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cc-bar">
+			<a class="cc-back" href={`${base}/`}>
+				<img src={`${base}/avatar_pio.png`} alt="" />
+				<span>← Вова Луценко</span>
+			</a>
+			<a class="cc-right" href={`${base}/projects/`}>проекты →</a>
+		</div>
+		<iframe
+			class="cc-frame"
+			src={TARGET}
+			title="Кейс-клуб «Кейсеры»"
+			loading="eager"
+			referrerpolicy="no-referrer-when-downgrade"
+			allow="fullscreen"
+		></iframe>
+	</body>
+</html>
