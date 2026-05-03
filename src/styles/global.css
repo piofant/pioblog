@@ -459,7 +459,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	row-gap: 4px;
 	align-items: start;
 	padding: 1.75rem 0;
-	border-bottom: 1px solid var(--border);
+	border-bottom: 1px solid color-mix(in srgb, var(--text-dark) 18%, transparent);
 }
 .post-card:last-child { border-bottom: 0; }
 
