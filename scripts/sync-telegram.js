@@ -168,7 +168,7 @@ async function processPost(msg, existing) {
 	}
 	const text = msg.text || msg.caption || '';
 	const entities = msg.entities || msg.caption_entities || [];
-	const body = fixParagraphs(entitiesToMarkdown(text, entities));
+	let body = fixParagraphs(entitiesToMarkdown(text, entities));
 
 	// Photo: собираем либо из msg._photos (media_group merged), либо из msg.photo (одиночный)
 	const imgRefs = [];
@@ -228,13 +228,40 @@ async function processPost(msg, existing) {
 
 	const date = new Date(msg.date * 1000);
 	const pubDate = date.toISOString().slice(0, 10);
-	// Для title берём первую строку из ПЛЕЙНОГО текста (без markdown-разметки),
-	// иначе title начнётся с *bold* или подобного маркера.
+	// Title — первая строка ПЛЕЙНОГО текста. Если она заканчивается на kicker
+	// `[часть N]` / `[N/M]` / `[анонс]` etc. — отрезаем его в subtitle.
+	// Это убирает мусор типа `[часть 1\n]` из title и даёт visual subtitle.
 	const plain = text || '';
-	const firstLine = (plain.split('\n')[0] || '').slice(0, 120) || `Запись ${msg.message_id}`;
+	const rawFirstLine = (plain.split('\n')[0] || '').slice(0, 200);
+	let title = rawFirstLine;
+	let subtitle = '';
+	const kickerMatch = rawFirstLine.match(/^(.*?)\s*\[([^\[\]]{1,40})\]\s*$/);
+	if (kickerMatch && kickerMatch[1].trim()) {
+		title = kickerMatch[1].trim();
+		// Чистим литеральные `\n` / `\r` / лишние пробелы — авторы иногда так
+		// маркируют незавершённую серию (`часть 1\n` — где N это placeholder).
+		subtitle = kickerMatch[2].replace(/\\[nrt]/g, '').replace(/\s+/g, ' ').trim();
+	}
+	if (!title.trim()) title = `Запись ${msg.message_id}`;
+	title = title.slice(0, 120);
+
+	// Если первый параграф body дублирует title (с/без markdown-обрамления и
+	// kicker-скобок) — выкидываем его, чтоб title не повторялся в excerpt'e.
+	const cleanForCompare = (s) => s
+		.replace(/\*+/g, '')
+		.replace(/\\[nrt]/g, '')
+		.replace(/\[[^\[\]]{1,40}\]/g, '')
+		.replace(/\s+/g, ' ')
+		.trim()
+		.toLowerCase();
+	const firstBodyPara = (body.split(/\n{2,}/)[0] || '').trim();
+	if (firstBodyPara && cleanForCompare(firstBodyPara).startsWith(cleanForCompare(title).slice(0, 40))) {
+		body = body.replace(/^[\s\S]*?(\n{2,}|$)/, '').trimStart();
+	}
 
 	const fm = buildFrontmatter({
-		title: firstLine,
+		title,
+		subtitle: subtitle || undefined,
 		pubDate,
 		heroImage,
 	});
@@ -245,10 +272,10 @@ async function processPost(msg, existing) {
 
 	const dst = path.join(POSTS_DIR, `tg-${msg.message_id}.md`);
 	if (DRY_RUN) {
-		console.log(`  [DRY] would write ${dst}\n    ${firstLine.slice(0, 60)}`);
+		console.log(`  [DRY] would write ${dst}\n    ${title.slice(0, 60)}`);
 	} else {
 		await writeFile(dst, content, 'utf8');
-		console.log(`  ✓ tg-${msg.message_id}.md — ${firstLine.slice(0, 40)}`);
+		console.log(`  ✓ tg-${msg.message_id}.md — ${title.slice(0, 40)}`);
 	}
 	existing.add(msg.message_id);
 	return true;
