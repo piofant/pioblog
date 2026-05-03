@@ -1,8 +1,9 @@
 ---
 title: 'Все начинается с ментора'
 pubDate: '2024-02-03'
+tgMessageId: 140
 heroImage: '/img/og/gradients/vse-nachinaetsia-s-mentora-140.png'
-tags: ['продакт', 'карьера', 'менторство']
+tags: ['продакт']
 series: 'yandex-internship'
 seriesPart: 1
 ---

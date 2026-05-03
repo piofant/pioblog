@@ -1333,3 +1333,27 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 /* Скрываем h3 у wiki-related (заменён на summary-кнопку) */
 .wiki-related h3 { display: none; }
+
+/* === Post metrics — компактная строка под hero, перед related === */
+.post-metrics {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem 1rem;
+	margin: 1.5rem 0 0;
+	padding: 0;
+	font-family: var(--font-ui), system-ui, sans-serif;
+	font-size: 0.8125rem;
+	color: var(--muted);
+	letter-spacing: 0.02em;
+}
+.post-metrics .m {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	white-space: nowrap;
+}
+.post-metrics .m + .m::before {
+	content: '·';
+	margin-right: 1em;
+	color: var(--muted-2);
+}

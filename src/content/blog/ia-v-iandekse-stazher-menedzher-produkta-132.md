@@ -1,6 +1,7 @@
 ---
 title: 'Я в Яндексе, стажёр менеджер продукта'
 pubDate: '2023-10-07'
+tgMessageId: 132
 heroImage: '/img/posts/2023-10-07-ia-v-iandekse-stazher-menedzher-produkta-132/photo_41@07-10-2023_20-22-09.jpg'
 tags: ['продакт', 'карьера']
 series: 'yandex-internship'

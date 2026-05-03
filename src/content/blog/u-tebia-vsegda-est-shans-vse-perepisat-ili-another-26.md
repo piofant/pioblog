@@ -1,8 +1,9 @@
 ---
 title: '\"У тебя всегда есть шанс всё переписать\" или another my way (про меня и биохим'
 pubDate: '2020-12-27'
+tgMessageId: 26
 heroImage: '/img/og/gradients/u-tebia-vsegda-est-shans-vse-perepisat-ili-another-26.png'
-tags: ['истории', 'школа жизни']
+tags: ['школа жизни', 'истории']
 ---
 
 #истории

@@ -1,0 +1,57 @@
+name: Sync TG Metrics
+
+on:
+  schedule:
+    - cron: '0 4 * * *'   # раз в день в 04:00 UTC
+  workflow_dispatch:       # можно запустить вручную из Actions UI
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+concurrency:
+  group: sync-tg-metrics
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: scripts/package.json
+      - name: Install deps
+        working-directory: scripts
+        run: npm install --no-audit --no-fund
+      - name: Pull metrics via MTProto
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION_STRING: ${{ secrets.TG_SESSION_STRING }}
+          TG_CHANNEL: pioblog
+        run: cd scripts && node sync-tg-metrics.mjs
+      - name: Commit if changed
+        id: commit
+        run: |
+          git config user.name "tg-metrics-bot"
+          git config user.email "tg-metrics-bot@users.noreply.github.com"
+          git add src/data/metrics.json || true
+          if git diff --cached --quiet; then
+            echo "::notice::No metric changes"
+            echo "changed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          git commit -m "metrics: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin main
+          git push
+          echo "changed=true" >> $GITHUB_OUTPUT
+      - name: Trigger Pages deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run "Deploy to GitHub Pages" --repo ${{ github.repository }} --ref main

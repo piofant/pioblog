@@ -1,7 +1,8 @@
 ---
 title: 'ЛШ logbook, день 1'
 pubDate: '2024-07-12'
-tags: ['нетворкинг', 'трипы', 'психология', 'жизнь', 'театр']
+tgMessageId: 431
+tags: ['нетворкинг', 'театр']
 heroImage: '/img/posts/2024-07-12-lsh-logbook-den-1-431/photo_1.jpg'
 ---
 

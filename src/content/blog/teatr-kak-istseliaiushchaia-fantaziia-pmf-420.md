@@ -1,8 +1,9 @@
 ---
 title: 'Театр как «исцеляющая фантазия» – PMF актёрства с эмоциональными'
 pubDate: '2026-03-27'
+tgMessageId: 420
 heroImage: '/img/posts/2026-03-27-teatr-kak-istseliaiushchaia-fantaziia-pmf-420/photo_265@27-03-2026_18-42-01.jpg'
-tags: ['театр', 'продакт', 'рефлексия']
+tags: ['продакт', 'рефлексия', 'психология', 'театр']
 ---
 
 Заметили, сколько в [предыдущем посте](/blog/chem-menia-tak-zatsepila-eta-ideia-postupleniia-na-419/) эмоциональных потребностей? Целый салатик 🥗

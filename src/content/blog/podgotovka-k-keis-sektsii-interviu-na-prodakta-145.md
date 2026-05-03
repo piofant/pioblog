@@ -1,6 +1,7 @@
 ---
 title: 'Подготовка к кейс-секции интервью на продакта'
 pubDate: '2024-04-12'
+tgMessageId: 145
 heroImage: '/img/og/gradients/podgotovka-k-keis-sektsii-interviu-na-prodakta-145.png'
 tags: ['продакт', 'карьера']
 series: 'yandex-internship'

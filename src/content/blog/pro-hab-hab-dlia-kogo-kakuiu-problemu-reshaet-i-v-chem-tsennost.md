@@ -1,7 +1,7 @@
 ---
 title: 'Про хаб-хаб: для кого, какую проблему решает и в чем ценность'
 pubDate: '2024-01-21'
-tags: ['проекты', 'продакт', 'боты']
+tags: ['психология', 'анонс', 'проекты']
 heroImage: '/img/posts/2024-01-21-pro-hab-hab-dlia-kogo-kakuiu-problemu-reshaet-i-v-chem-tsennost/photo_1.png'
 ---
 

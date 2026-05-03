@@ -1,8 +1,9 @@
 ---
 title: 'Пройти первый в жизни кейс-собес и отобраться в ШМЯ / Результаты моих менти'
 pubDate: '2025-04-08'
+tgMessageId: 280
 heroImage: '/img/posts/2025-04-08-proiti-pervyi-v-zhizni-keis-sobes-i-otobratsia-v-280/photo_148@08-04-2025_19-28-42.jpg'
-tags: ['продакт', 'карьера', 'школа жизни', 'жизнь']
+tags: ['продакт', 'карьера', 'школа жизни', 'менторство', 'анонс']
 series: 'mentees-results'
 seriesPart: 2
 ---

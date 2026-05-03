@@ -1,8 +1,9 @@
 ---
 title: 'Как поступить в топ-ВУЗы по проектам, а не ЕГЭ/олимпиадам'
 pubDate: '2024-06-16'
+tgMessageId: 167
 heroImage: '/img/og/gradients/kak-postupit-v-top-vuzy-po-proektam-a-ne-ege-167.png'
-tags: ['школа жизни', 'вуз']
+tags: ['продакт', 'карьера', 'школа жизни', 'вуз']
 ---
 
 **Про Вову и ценность пет-проектов:**

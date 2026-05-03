@@ -1,8 +1,9 @@
 ---
 title: 'Физмат класс и его отличие от общеобразовательного класса. История'
 pubDate: '2020-08-13'
+tgMessageId: 9
 heroImage: '/img/og/gradients/fizmat-klass-i-ego-otlichie-ot-9.png'
-tags: ['истории', 'школа жизни']
+tags: ['школа жизни', 'менторство', 'истории']
 ---
 
 #истории

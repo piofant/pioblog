@@ -1,8 +1,9 @@
 ---
 title: 'random-coffee боты как способ знакомиться с интересными людьми'
 pubDate: '2022-12-09'
+tgMessageId: 114
 heroImage: '/img/og/gradients/random-coffee-boty-kak-sposob-znakomitsia-s-interesnymi-114.png'
-tags: ['нетворкинг']
+tags: ['продакт', 'школа жизни', 'нетворкинг', 'боты']
 ---
 
 **В чём идея random-coffee?** Каждый понедельник Telegram-бот подбирает случайную пару из бота. За эту неделю нужно списаться с этим человеком и поставить онлайн-созвон или сходить оффлайн выпить кофе.

@@ -1,7 +1,8 @@
 ---
 title: 'Единственное, что вызывает у меня сомнение, это актуальность знаний для'
 pubDate: '2021-01-02'
-tags: ['карьера', 'школа жизни', 'боты']
+tgMessageId: 31
+tags: ['школа жизни']
 heroImage: '/img/og/gradients/edinstvennoe-chto-vyzyvaet-u-menia-somnenie-eto-aktualnost-31.png'
 ---
 

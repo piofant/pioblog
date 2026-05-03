@@ -1,8 +1,9 @@
 ---
 title: 'Я сделал презентацию про нетворкинг тусы: как перезнакомить группу людей, что'
 pubDate: '2023-03-12'
+tgMessageId: 120
 heroImage: '/img/posts/2023-03-12-ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/photo_37@12-03-2023_18-23-11.jpg'
-tags: ['нетворкинг', 'анонс']
+tags: ['нетворкинг']
 ---
 
 Вышло 30 слайдов про:

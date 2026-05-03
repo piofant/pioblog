@@ -1,6 +1,7 @@
 ---
 title: 'В чем ИИ эффективен для продуктового дискавери, а в чем не очень? Результаты'
 pubDate: '2025-07-31'
+tgMessageId: 325
 heroImage: '/img/posts/2025-07-31-v-chem-ii-effektiven-dlia-produktovogo-diskaveri-a-325/photo_188@31-07-2025_20-27-52.jpg'
 tags: ['ии']
 ---

@@ -1,8 +1,9 @@
 ---
 title: '#сторителл про монетизацию Псайко, часть 2 / Какие были гипотезы и как я их'
 pubDate: '2025-03-20'
+tgMessageId: 275
 heroImage: '/img/og/gradients/storitell-pro-monetizatsiiu-psaiko-chast-2-kakie-275.png'
-tags: ['истории', 'рефлексия', 'психология', 'карьера']
+tags: ['рефлексия', 'психология', 'истории']
 series: 'psaiko-monetization'
 seriesPart: 2
 ---

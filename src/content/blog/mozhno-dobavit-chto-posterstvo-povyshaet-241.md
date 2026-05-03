@@ -1,8 +1,9 @@
 ---
 title: 'можно добавить, что «постерство» повышает visibility, а оно влияет на'
 pubDate: '2024-12-03'
+tgMessageId: 241
 heroImage: '/img/og/gradients/mozhno-dobavit-chto-posterstvo-povyshaet-241.png'
-tags: ['анонс', 'творчество']
+tags: ['творчество', 'анонс']
 ---
 
 serendipity — вероятность удачи, про него [давно писал тут](/blog/serendipity/)

@@ -1,8 +1,9 @@
 ---
 title: '🗺 Зарешать кейс и отобраться на джуна продакта в MIRO — результаты моих менти'
 pubDate: '2025-05-14'
+tgMessageId: 293
 heroImage: '/img/posts/2025-05-14-zareshat-keis-i-otobratsia-na-dzhuna-prodakta-v-293/photo_158@14-05-2025_19-08-55.jpg'
-tags: ['продакт', 'менторство']
+tags: ['продакт', 'менторство', 'мнения', 'анонс']
 series: 'mentees-results'
 seriesPart: 3
 ---

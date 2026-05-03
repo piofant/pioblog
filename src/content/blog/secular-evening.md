@@ -1,7 +1,7 @@
 ---
 title: 'Прожил один вечер светской жизни'
 pubDate: '2021-10-03'
-tags: ['жизнь', 'театр']
+tags: ['школа жизни', 'театр']
 heroImage: '/img/secular_evening.jpg'
 ---
 

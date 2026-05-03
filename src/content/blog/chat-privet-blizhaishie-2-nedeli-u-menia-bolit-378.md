@@ -1,7 +1,8 @@
 ---
 heroImage: /img/posts/2025-11-03-chat-privet-blizhaishie-2-nedeli-u-menia-bolit-378/photo_229@03-11-2025_12-36-43.jpg
 pubDate: '2025-11-03'
-tags: ['продакт', 'ии', 'менторство']
+tgMessageId: 378
+tags: ['продакт', 'менторство', 'ии']
 title: чат, привет, ближайшие 2 недели у меня болит голова про ИИ в коммуникациях
 ---
 

@@ -1,8 +1,9 @@
 ---
 title: 'pov: на hr-скрининге тебя спросили \"чем сейчас занимаешься?\"'
 pubDate: '2024-10-30'
+tgMessageId: 227
 heroImage: '/img/posts/2024-10-30-pov-na-hr-skrininge-tebia-sprosili-chem-seichas-227/photo_110@30-10-2024_15-04-49.jpg'
-tags: ['театр', 'нетворкинг', 'боты']
+tags: ['менторство', 'театр', 'боты']
 ---
 
 дальше как в [сериале](https://t.me/not_tldr/472) про убер, варианты ти-кея:

@@ -1,8 +1,9 @@
 ---
 title: 'Путешествия в режиме наблюдателя, часть 2'
 pubDate: '2025-10-29'
+tgMessageId: 375
 heroImage: '/img/posts/2025-10-29-puteshestviia-v-rezhime-nabliudatelia-chast-2-375/photo_226@29-10-2025_17-19-01.jpg'
-tags: ['рефлексия', 'трипы', 'школа жизни', 'автостоп']
+tags: ['школа жизни', 'рефлексия', 'трипы']
 series: 'observer-travels'
 seriesPart: 2
 ---

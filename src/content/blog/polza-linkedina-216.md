@@ -1,8 +1,8 @@
 ---
 title: 'Польза линкедина'
 pubDate: '2024-10-21'
+tgMessageId: 216
 heroImage: '/img/posts/2024-10-21-polza-linkedina-216/photo_102@21-10-2024_12-27-49.jpg'
-tags: ['анонс']
 series: 'linkedin-value'
 seriesPart: 1
 ---

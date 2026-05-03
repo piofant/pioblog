@@ -1,6 +1,7 @@
 ---
 title: 'Как я устроился велокурьером, чтобы сделать тестовое на продакта в Доставку'
 pubDate: '2024-10-09'
+tgMessageId: 207
 heroImage: '/img/posts/2024-10-09-kak-ia-ustroilsia-velokurerom-chtoby-sdelat-207/photo_94@09-10-2024_15-22-47.jpg'
 tags: ['продакт', 'карьера']
 ---

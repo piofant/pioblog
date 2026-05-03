@@ -1,8 +1,9 @@
 ---
 title: 'Вов, откуда у тебя столько подписчиков в @pioblog?'
 pubDate: '2025-04-18'
+tgMessageId: 281
 heroImage: '/img/posts/2025-04-18-vov-otkuda-u-tebia-stolko-podpischikov-v-pioblog-281/16.04.2025 (2)_thumb.jpg'
-tags: ['нетворкинг']
+tags: ['нетворкинг', 'боты']
 ---
 
 Детально с примерами разложил в коротком видосике, а если текстом, то

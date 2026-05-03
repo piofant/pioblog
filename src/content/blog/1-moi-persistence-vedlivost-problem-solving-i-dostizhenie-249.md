@@ -1,7 +1,7 @@
 ---
 title: '(1) мой persistence + въедливость = problem solving и достижение результата'
 pubDate: '2025-01-06'
-tags: ['карьера', 'школа жизни', 'мужские круги']
+tgMessageId: 249
 heroImage: '/img/posts/2025-01-06-1-moi-persistence-vedlivost-problem-solving-i-dostizhenie-249/photo_1.jpg'
 ---
 

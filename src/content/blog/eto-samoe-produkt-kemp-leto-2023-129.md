@@ -1,8 +1,9 @@
 ---
 title: 'Это самое, продукт кемп лето 2023?'
 pubDate: '2023-08-15'
+tgMessageId: 129
 heroImage: '/img/og/gradients/eto-samoe-produkt-kemp-leto-2023-129.png'
-tags: ['нетворкинг', 'творчество']
+tags: ['нетворкинг', 'творчество', 'боты']
 ---
 
 Я еду с [докладом](/blog/ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/) про нетворк тусы в группе волонтёров по нетворкингу, мы будем:

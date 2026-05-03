@@ -1,8 +1,9 @@
 ---
 title: 'польза линкедина [часть 2] — internet friends и visibility'
 pubDate: '2024-12-03'
+tgMessageId: 240
 heroImage: '/img/posts/2024-12-03-polza-linkedina-chast-2-internet-friends-i-240/photo_119@03-12-2024_23-15-43.jpg'
-tags: ['жизнь']
+tags: ['карьера']
 series: 'linkedin-value'
 seriesPart: 2
 ---

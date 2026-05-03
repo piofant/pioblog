@@ -1,7 +1,8 @@
 ---
 pubDate: '2022-01-17'
+tgMessageId: 75
 heroImage: '/img/og/gradients/popytka-nauchitsia-liubit-sebia-75.png'
-tags: ['жизнь', 'рефлексия', 'психология', 'карьера', 'школа жизни']
+tags: ['психология', 'жизнь', 'мнения']
 title: Попытка научиться любить себя
 ---
 

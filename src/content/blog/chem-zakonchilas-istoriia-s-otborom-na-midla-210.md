@@ -1,6 +1,7 @@
 ---
 title: 'Чем закончилась история с отбором на мидла продакта в Доставку'
 pubDate: '2024-10-12'
+tgMessageId: 210
 heroImage: '/img/posts/2024-10-12-chem-zakonchilas-istoriia-s-otborom-na-midla-210/photo_97@12-10-2024_13-44-27.jpg'
 tags: ['продакт', 'карьера']
 ---

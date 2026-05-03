@@ -1,6 +1,7 @@
 ---
 title: 'я сходил на 5+ мужских кругов и почувствовал радость, близость, объединение'
 pubDate: '2025-03-22'
+tgMessageId: 276
 heroImage: '/img/posts/2025-03-22-ia-skhodil-na-5-muzhskikh-krugov-i-pochuvstvoval-276/photo_145@22-03-2025_20-19-51.jpg'
 tags: ['психология', 'мужские круги']
 ---

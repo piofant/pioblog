@@ -1,7 +1,8 @@
 ---
 title: 'Сегодня мне 19'
 pubDate: '2023-06-07'
-tags: ['психология', 'истории', 'творчество']
+tgMessageId: 128
+tags: ['истории']
 heroImage: '/img/og/gradients/segodnia-mne-19-128.png'
 ---
 

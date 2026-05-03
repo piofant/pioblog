@@ -1,8 +1,9 @@
 ---
 title: 'Как я решаю тестовые на продакта [2 часть]'
 pubDate: '2024-11-13'
+tgMessageId: 235
 heroImage: '/img/posts/2024-11-13-kak-ia-reshaiu-testovye-na-prodakta-2-chast-235/photo_118@13-11-2024_13-27-32.jpg'
-tags: ['продакт', 'рефлексия']
+tags: ['продакт']
 series: 'pm-take-home'
 seriesPart: 2
 ---

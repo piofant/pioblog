@@ -1,8 +1,9 @@
 ---
 title: '(2) живой ум + чуткость = client problem definition'
 pubDate: '2025-01-07'
+tgMessageId: 250
 heroImage: '/img/posts/2025-01-07-2-zhivoi-um-chutkost-client-problem-definition-250/photo_125@07-01-2025_18-59-58.jpg'
-tags: ['продакт', 'рефлексия', 'психология']
+tags: ['продакт', 'психология']
 series: 'my-strengths'
 seriesPart: 2
 ---

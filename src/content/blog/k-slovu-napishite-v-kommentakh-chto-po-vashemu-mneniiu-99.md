@@ -1,6 +1,7 @@
 ---
 title: 'К слову, напишите в комментах, что по вашему мнению может повысить'
 pubDate: '2022-04-21'
+tgMessageId: 99
 heroImage: '/img/og/gradients/k-slovu-napishite-v-kommentakh-chto-po-vashemu-mneniiu-99.png'
 draft: true
 ---

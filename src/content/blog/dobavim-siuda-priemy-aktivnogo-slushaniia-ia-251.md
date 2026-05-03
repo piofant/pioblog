@@ -1,6 +1,7 @@
 ---
 title: 'Добавим сюда приемы активного слушания, я чаще всего органически использую'
 pubDate: '2025-01-08'
+tgMessageId: 251
 heroImage: '/img/posts/2025-01-08-dobavim-siuda-priemy-aktivnogo-slushaniia-ia-251/photo_126@08-01-2025_11-30-01.jpg'
 tags: ['психология']
 ---

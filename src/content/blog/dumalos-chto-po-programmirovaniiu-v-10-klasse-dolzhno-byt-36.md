@@ -1,7 +1,7 @@
 ---
 title: 'Думалось, что по программированию в 10 классе должно быть что-то крутое. Я'
 pubDate: '2021-01-02'
-tags: ['школа жизни', 'контактная импровизация', 'рефлексия', 'танцы', 'карьера']
+tgMessageId: 36
 heroImage: '/img/og/gradients/dumalos-chto-po-programmirovaniiu-v-10-klasse-dolzhno-byt-36.png'
 ---
 

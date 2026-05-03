@@ -1,8 +1,9 @@
 ---
 title: 'Создал внутри Telegram-бота а-ля бинарную своеобразную соц-сеть BGSN 🌐 —'
 pubDate: '2022-04-17'
+tgMessageId: 97
 heroImage: '/img/og/gradients/sozdal-vnutri-telegram-bota-a-lia-binarnuiu-97.png'
-tags: ['боты', 'творчество']
+tags: ['психология', 'боты']
 ---
 
 Ранее [писал](/blog/popytka-nauchitsia-liubit-sebia-75/) о том, что разрабатываю TG-бота. Там же писал, что Telegram-API даёт безграничные возможности по разработке ботов. Отправлять видео-кружочки, голосовые сообщения, да вообще все что угодно. Это меня заинтересовало.

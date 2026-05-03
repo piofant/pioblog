@@ -1,8 +1,9 @@
 ---
 title: 'Как в нашей школе проходил карантин (для понимания полной истории можно не'
 pubDate: '2020-08-22'
+tgMessageId: 11
 heroImage: '/img/og/gradients/kak-v-nashei-shkole-prokhodil-karantin-dlia-11.png'
-tags: ['истории', 'школа жизни']
+tags: ['школа жизни', 'истории']
 ---
 
 читать, советую вернуться к [содержанию](/blog/samye-populiarnye-posty-v-etom-kanale-4/))

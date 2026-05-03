@@ -1,8 +1,9 @@
 ---
 title: 'Как я решаю тестовые на продакта? Подход «Как на работе» [часть 1\\2]'
 pubDate: '2024-10-04'
+tgMessageId: 202
 heroImage: '/img/posts/2024-10-04-kak-ia-reshaiu-testovye-na-prodakta-podkhod-kak-na-202/photo_90@04-10-2024_18-01-07.jpg'
-tags: ['продакт', 'карьера']
+tags: ['продакт', 'карьера', 'творчество']
 series: 'pm-take-home'
 seriesPart: 1
 ---

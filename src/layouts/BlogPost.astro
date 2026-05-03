@@ -4,6 +4,18 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import metricsData from '../data/metrics.json';
+import { formatCount, formatErr } from '../lib/format';
+
+type PostMetrics = {
+	views: number;
+	forwards: number;
+	replies: number;
+	reactions: { emoji: string; count: number }[];
+	err: number | null;
+	last_updated: string;
+};
+const metrics: Record<string, PostMetrics> = metricsData as any;
 
 type Neighbor = { id: string; title: string; pubDate: Date } | null;
 type MiniGraph = {
@@ -42,6 +54,15 @@ const showMini = miniGraph && miniGraph.nodes.length > 1;
 const miniCount = showMini ? miniGraph.nodes.length - 1 : 0;
 const showTgPill = !!tgMessageId;
 const showHero = heroImage && !heroImage.startsWith('/img/og/gradients/');
+
+// Метрики по tgMessageId — рендерим если есть запись в metrics.json
+const postMetrics = tgMessageId ? metrics[String(tgMessageId)] : null;
+const reactionsTotal = postMetrics
+	? postMetrics.reactions.reduce((s, r) => s + r.count, 0)
+	: 0;
+const topReactions = postMetrics
+	? postMetrics.reactions.slice(0, 3).map((r) => `${r.emoji} ${r.count}`).join(' · ')
+	: '';
 ---
 
 <!doctype html>
@@ -99,6 +120,21 @@ const showHero = heroImage && !heroImage.startsWith('/img/og/gradients/');
 						</div>
 						<span class="arrow">→</span>
 					</a>
+				)}
+
+				{postMetrics && (
+					<aside class="post-metrics" aria-label="метрики поста">
+						<span class="m" title={`${postMetrics.views} просмотров`}>{formatCount(postMetrics.views)} 👁</span>
+						{reactionsTotal > 0 && (
+							<span class="m" title={topReactions}>{formatCount(reactionsTotal)} 🐳</span>
+						)}
+						{postMetrics.forwards > 0 && (
+							<span class="m" title={`${postMetrics.forwards} пересылок`}>{formatCount(postMetrics.forwards)} ↗</span>
+						)}
+						{postMetrics.err != null && (
+							<span class="m" title="(реакции + пересылки + ответы) / просмотры">ERR {formatErr(postMetrics.err)}</span>
+						)}
+					</aside>
 				)}
 
 				{related && related.length > 0 && (

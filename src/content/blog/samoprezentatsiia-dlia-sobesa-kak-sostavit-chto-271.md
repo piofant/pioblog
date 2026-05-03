@@ -1,8 +1,9 @@
 ---
 title: 'Самопрезентация для собеса: как составить, что даёт и как конвертит?'
 pubDate: '2025-03-12'
+tgMessageId: 271
 heroImage: '/img/posts/2025-03-12-samoprezentatsiia-dlia-sobesa-kak-sostavit-chto-271/11.03.2025 (6) _thumb.jpg'
-tags: ['продакт', 'рефлексия', 'карьера', 'анонс']
+tags: ['продакт', 'карьера']
 ---
 
 **Чтобы что**

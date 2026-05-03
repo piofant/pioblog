@@ -1,7 +1,8 @@
 ---
 title: 'ЛШ logbook, день 2'
 pubDate: '2024-07-12'
-tags: ['школа жизни', 'рефлексия', 'психология', 'творчество', 'вуз']
+tgMessageId: 440
+tags: ['школа жизни', 'вуз', 'рефлексия']
 heroImage: '/img/posts/2024-07-12-lsh-logbook-den-2-440/photo_1.jpg'
 ---
 

@@ -1,8 +1,9 @@
 ---
 title: '(3) рефлексия + сбор фидбека + тяга к структуре = выводы на будущее'
 pubDate: '2025-01-10'
+tgMessageId: 252
 heroImage: '/img/posts/2025-01-10-3-refleksiia-sbor-fidbeka-tiaga-k-strukture-vyvody-252/photo_127@10-01-2025_21-28-22.jpg'
-tags: ['рефлексия']
+tags: ['менторство', 'рефлексия']
 series: 'my-strengths'
 seriesPart: 3
 ---

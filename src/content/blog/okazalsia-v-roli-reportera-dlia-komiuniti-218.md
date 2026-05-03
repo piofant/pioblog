@@ -1,6 +1,7 @@
 ---
 title: 'Оказался в роли репортёра для комьюнити продактов Яндекса на epic growth'
 pubDate: '2024-10-25'
+tgMessageId: 218
 heroImage: '/img/og/gradients/okazalsia-v-roli-reportera-dlia-komiuniti-218.png'
 tags: ['продакт', 'карьера']
 ---

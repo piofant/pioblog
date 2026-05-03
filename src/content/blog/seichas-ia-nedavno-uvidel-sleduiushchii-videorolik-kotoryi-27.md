@@ -1,6 +1,7 @@
 ---
 pubDate: '2020-12-27'
-tags: ['школа жизни', 'контактная импровизация', 'рефлексия', 'танцы', 'творчество']
+tgMessageId: 27
+tags: ['школа жизни']
 heroImage: '/img/posts/2020-12-27-seichas-ia-nedavno-uvidel-sleduiushchii-videorolik-kotoryi-27/video_1_thumb.jpg'
 title: Сейчас я недавно увидел следующий видеоролик, который прикреплен к посту ниже.
 ---

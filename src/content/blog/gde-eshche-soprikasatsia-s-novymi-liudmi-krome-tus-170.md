@@ -1,8 +1,9 @@
 ---
 title: 'Где ещё соприкасаться с новыми людьми, кроме тус с контекстом знакомства?'
 pubDate: '2024-07-22'
+tgMessageId: 170
 heroImage: '/img/posts/2024-07-22-gde-eshche-soprikasatsia-s-novymi-liudmi-krome-tus-170/photo_71@22-07-2024_17-59-36.jpg'
-tags: ['нетворкинг', 'анонс', 'творчество']
+tags: ['нетворкинг']
 ---
 
 Добавил в [доклад](/blog/ia-sdelal-prezentatsiiu-pro-netvorking-tusy-kak-120/) про нетворк-тусы три новых слайда, делюсь:

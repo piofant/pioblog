@@ -1,8 +1,9 @@
 ---
 title: 'Запустили ИИ-генерацию саммари в контент машине с Рамиром – сколько $ принесло?'
 pubDate: '2026-01-13'
+tgMessageId: 392
 heroImage: '/img/posts/2026-01-13-zapustili-ii-generatsiiu-sammari-v-kontent-mashine-392/саммаризация_threshold_0.0100_thumb.jpg'
-tags: ['творчество']
+
 ---
 
 Пилю контент-машину для тг-каналов, монетизирую через рекламу, см. [предыдущий пост](/blog/ia-ne-umru-s-golodu-384/)

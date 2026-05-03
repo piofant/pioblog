@@ -2,7 +2,7 @@
 title: 'Написал стихотворение про учёбу на дистанте'
 pubDate: '2021-11-12'
 heroImage: '/img/og/gradients/poem-about-remote-education.png'
-tags: ['жизнь']
+
 ---
 
 > Душа ещё не поняла,

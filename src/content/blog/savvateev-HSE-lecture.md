@@ -1,7 +1,7 @@
 ---
 title: 'Как я сходил на ФКН ВШЭ на лекцию к Савватееву'
 pubDate: '2021-07-01'
-tags: ['жизнь']
+tags: ['театр', 'анонс']
 heroImage: 'https://telegra.ph/file/d6e7b0af9d9e2941e819d.jpg'
 ---
 

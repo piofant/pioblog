@@ -1,8 +1,8 @@
 ---
 title: 'part 2: Отношение к образовательным курсам.'
 pubDate: '2020-12-27'
+tgMessageId: 25
 heroImage: '/img/og/gradients/part-2-otnoshenie-k-obrazovatelnym-kursam-25.png'
-tags: ['школа жизни', 'рефлексия']
 series: 'school-grade-10'
 seriesPart: 2
 ---

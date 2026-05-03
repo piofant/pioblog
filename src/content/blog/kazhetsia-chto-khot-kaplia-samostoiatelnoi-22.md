@@ -1,8 +1,8 @@
 ---
 title: 'Кажется, что хоть капля самостоятельной познавательной активности может'
 pubDate: '2020-12-19'
+tgMessageId: 22
 heroImage: '/img/og/gradients/kazhetsia-chto-khot-kaplia-samostoiatelnoi-22.png'
-tags: ['рефлексия']
 draft: true
 ---
 

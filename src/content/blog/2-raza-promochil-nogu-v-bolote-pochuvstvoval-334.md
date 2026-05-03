@@ -1,8 +1,9 @@
 ---
 title: '2 раза промочил ногу в болоте & почувствовал спокойность Белого моря'
 pubDate: '2025-09-01'
+tgMessageId: 334
 heroImage: '/img/posts/2025-09-01-2-raza-promochil-nogu-v-bolote-pochuvstvoval-334/photo_194@01-09-2025_15-57-30.jpg'
-tags: ['нетворкинг', 'трипы']
+tags: ['трипы']
 ---
 
 Мы познакомились на снс-тусе у [Юры](/blog/znakomtes-iura-moi-partner-po-avtostopu-326/), потом вместе пили чай на [Бессоннице](/blog/trip-na-bessonnitsu-telesnye-praktiki-poliamory-i-319/)
