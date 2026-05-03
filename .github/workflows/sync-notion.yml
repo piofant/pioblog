@@ -60,7 +60,10 @@ jobs:
             exit 0
           fi
           git commit -m "sync: notion $(date -u +%Y-%m-%dT%H:%MZ)"
+          # stash any leftover unstaged (npm/log noise) so rebase doesn't refuse
+          git stash --include-untracked --quiet || true
           git pull --rebase origin main
+          git stash pop --quiet 2>/dev/null || true
           git push
           echo "changed=true" >> $GITHUB_OUTPUT
       - name: Trigger Pages deploy
