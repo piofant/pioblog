@@ -2,7 +2,7 @@
 title: 'Приближался конец года, время, в которое в обычное школьное время у нас'
 pubDate: '2020-08-22'
 tgMessageId: 12
-tags: ['школа жизни', 'боты', 'истории']
+tags: ['школа', 'боты', 'истории']
 heroImage: '/img/og/gradients/priblizhalsia-konets-goda-vremia-v-kotoroe-v-obychnoe-12.png'
 ---
 

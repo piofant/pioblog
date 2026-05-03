@@ -3,7 +3,7 @@ title: 'Про курсы для изучения Python'
 pubDate: '2021-01-04'
 tgMessageId: 39
 heroImage: '/img/og/gradients/pro-kursy-dlia-izucheniia-python-39.png'
-tags: ['школа жизни', 'рекомендации']
+tags: ['рекомендации']
 ---
 
 Для изучения Python с начального уровня:

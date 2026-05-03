@@ -197,6 +197,7 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 							</details>
 						</div>
 
+						<div class="table-wrap">
 						<table class="stats-table" id="stats-table">
 							<thead>
 								<tr>
@@ -229,6 +230,7 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 								))}
 							</tbody>
 						</table>
+						</div>
 					</section>
 				</>
 			)}
@@ -292,7 +294,15 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 		</script>
 
 		<style is:global>
-			.stats-page { max-width: 920px; }
+			/* Защита от горизонтального overflow — на узких экранах
+			   широкая таблица или длинные заголовки могут растянуть body
+			   и сместить sticky header. */
+			html, body { overflow-x: hidden; }
+			.stats-page {
+				max-width: 920px;
+				min-width: 0;
+			}
+			.stats-page * { min-width: 0; }
 			.stats-hero { margin-bottom: 1.5rem; }
 			.stats-hero .meta {
 				font-family: var(--font-ui), system-ui, sans-serif;
@@ -483,11 +493,26 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 				border-color: var(--text-dark);
 			}
 
+			.table-wrap {
+				/* Защита от длинных заголовков, которые могут растянуть страницу.
+				   На узких экранах появится горизонтальный скролл только у таблицы. */
+				overflow-x: auto;
+				margin: 0 -4px;
+			}
 			.stats-table {
 				width: 100%;
 				border-collapse: collapse;
 				font-family: var(--font-ui), system-ui, sans-serif;
 				font-size: 0.875rem;
+				table-layout: fixed;
+			}
+			.stats-table td:first-child,
+			.stats-table th:first-child {
+				/* Длинные заголовки обрезать ellipsis'ом, не переносить */
+				max-width: 0;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 			}
 			.stats-table th, .stats-table td {
 				padding: 8px 10px;
