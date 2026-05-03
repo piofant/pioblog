@@ -249,9 +249,8 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 }
 .random-post .reroll {
 	position: absolute;
-	top: 50%;
-	right: 10px;
-	transform: translateY(-50%);
+	top: 8px;
+	right: 8px;
 	background: var(--border-soft);
 	border: 1px solid var(--border);
 	cursor: pointer;
@@ -271,8 +270,7 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	color: #fff;
 	background: #4a9eff;
 	border-color: #4a9eff;
-	/* Сохраняем translateY(-50%) из base + крутим. Иначе кнопка прыгнет вниз. */
-	transform: translateY(-50%) rotate(180deg);
+	transform: rotate(180deg);
 }
 .random-post .ttl {
 	color: var(--text-dark);

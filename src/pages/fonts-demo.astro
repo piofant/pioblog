@@ -1,0 +1,133 @@
+---
+/* Демо-страница для сравнения сан-серифов с поддержкой кириллицы.
+   Все блоки рендерят один и тот же текст, чтобы визуально сравнить.
+   Шрифты грузятся отдельно (preconnect google fonts), чтоб не зависеть
+   от глобальной типографики сайта. */
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const fonts = [
+	{ name: 'Onest',           gf: 'Onest:wght@400;500;700',          stack: "'Onest', system-ui, sans-serif",          note: 'мой топ-выбор. Cyrillic-first дизайн, очень близко к Asap по пропорциям' },
+	{ name: 'Geist Sans',      gf: 'Geist:wght@400;500;700',          stack: "'Geist', system-ui, sans-serif",          note: 'Vercel-овский, современный, аккуратный' },
+	{ name: 'Wix Madefor Text', gf: 'Wix+Madefor+Text:wght@400;500;700', stack: "'Wix Madefor Text', system-ui, sans-serif", note: 'мягкие формы, академически-нейтральный' },
+	{ name: 'Inter',           gf: 'Inter:wght@400;500;700',          stack: "'Inter', system-ui, sans-serif",          note: 'универсальный, проверенный — у тебя уже подключён как --font-ui' },
+	{ name: 'IBM Plex Sans',   gf: 'IBM+Plex+Sans:wght@400;500;700',  stack: "'IBM Plex Sans', system-ui, sans-serif",  note: 'технический вибе, гуманистический' },
+	{ name: 'Manrope',         gf: 'Manrope:wght@400;500;700',        stack: "'Manrope', system-ui, sans-serif",        note: 'геометричный, чуть скруглённый' },
+	{ name: 'Golos Text',      gf: 'Golos+Text:wght@400;500;700',     stack: "'Golos Text', system-ui, sans-serif",     note: 'от Яндекса, оптимизирован под Cyrillic' },
+	{ name: 'PT Sans',         gf: 'PT+Sans:wght@400;700',            stack: "'PT Sans', system-ui, sans-serif",        note: 'классика русского веба, у тебя уже как --font-brand' },
+];
+const cssImport = fonts.map(f => `family=${f.gf}`).join('&');
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title="Шрифты-демо" description="Сравнение сан-серифов с кириллицей" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href={`https://fonts.googleapis.com/css2?${cssImport}&display=swap`} rel="stylesheet" />
+		<style>
+			.fonts-demo {
+				max-width: 760px;
+				margin: 0 auto;
+				padding: 1.5rem 1rem 4rem;
+			}
+			.fonts-demo h1 {
+				font-family: var(--font-hero), 'Forum', Georgia, serif;
+				margin: 0 0 0.5rem;
+			}
+			.fonts-demo > .lead {
+				color: var(--muted);
+				margin: 0 0 2.5rem;
+				font-family: var(--font-ui), system-ui, sans-serif;
+			}
+			.font-block {
+				margin: 0 0 2.5rem;
+				padding: 1.25rem 1.5rem;
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				background: var(--bg-elevated);
+			}
+			.font-block .meta {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: var(--muted-2);
+				margin-bottom: 4px;
+				font-weight: 600;
+			}
+			.font-block .name {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.875rem;
+				color: var(--muted);
+				margin-bottom: 1rem;
+				font-style: italic;
+			}
+			/* Стили которые используют конкретный шрифт — наследуются от .sample */
+			.sample h2 {
+				font-size: 1.6rem;
+				font-weight: 500;
+				line-height: 1.3;
+				margin: 0 0 0.4rem;
+				color: var(--text-dark);
+			}
+			.sample h3 {
+				font-size: 1rem;
+				font-weight: 500;
+				line-height: 1.4;
+				margin: 1rem 0 0.3rem;
+				color: var(--text-dark);
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.sample p {
+				font-size: 1rem;
+				line-height: 1.5;
+				margin: 0 0 0.6rem;
+				color: var(--text);
+			}
+			.sample p strong { font-weight: 700; color: var(--text-dark); }
+			.sample p a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+			.sample ul { margin: 0.4rem 0 0.6rem 1.2rem; padding: 0; color: var(--text); }
+			.sample li { margin: 0.15rem 0; line-height: 1.5; }
+			.sample code {
+				font-family: ui-monospace, monospace;
+				background: var(--border-soft);
+				padding: 1px 4px;
+				border-radius: 3px;
+				font-size: 0.9em;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main class="content fonts-demo">
+			<h1>Шрифты-демо</h1>
+			<p class="lead">Один и тот же текст в 8 кандидатах с поддержкой кириллицы. Сравни и скажи какой нравится.</p>
+
+			{fonts.map((f) => (
+				<section class="font-block">
+					<div class="meta">{f.name}</div>
+					<div class="name">{f.note}</div>
+					<div class="sample" style={`font-family: ${f.stack};`}>
+						<h2>Чтобы лучше понимать Вову</h2>
+						<h3>Взаимодействие</h3>
+						<p>
+							<strong>Я зануда.</strong> Задаю вопросы вокруг проблемы, чтобы лучше понять контекст и построить картинку. Меня можно остановить, если времени мало и вопросы не фокусные. Подробнее — в <a href="#">тред-посте про feedback loops</a>.
+						</p>
+						<p>Иногда возникает страх назначать встречу или страх уже перед самой встречей. Однако в большинстве случаев страх пропадает в начале, и разговор проходит медитативно-интересно.</p>
+						<ul>
+							<li>200 юзеров (онли органика)</li>
+							<li>40 созданных хабов</li>
+							<li>NPS 70%</li>
+						</ul>
+						<p>Курсивом: <em>«Helicopter view» — возможность посмотреть и оценить проблему в глобальном контексте</em>. Кодом: <code>npm run build</code>.</p>
+					</div>
+				</section>
+			))}
+		</main>
+		<Footer />
+	</body>
+</html>

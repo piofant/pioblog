@@ -144,7 +144,7 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 					}
 					function scheduleBackup() {
 						if (backupTimer) clearTimeout(backupTimer);
-						backupTimer = setTimeout(render, 7500); // 7s + запас
+						backupTimer = setTimeout(render, ROTATE_MS + 500); // запас на случай если animationend не пришёл
 					}
 					applyData(pick()); // initial без анимации
 					resetFill();       // заливка стартует с 0%
@@ -156,7 +156,7 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 					   достигла 100% → событие → render() → resetFill() → новый цикл.
 					   Пауза: hover/focus/visibility-hidden ставит animation на паузу
 					   через CSS, и event просто не фаерится пока не отпаузим. */
-					const ROTATE_MS = 7000;
+					const ROTATE_MS = 8000;
 					card.style.setProperty('--rotate-ms', ROTATE_MS + 'ms');
 					let userPaused = false;
 					const stop = () => { card.classList.add('paused'); };
