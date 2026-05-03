@@ -123,18 +123,32 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 						void card.offsetWidth;
 						card.classList.remove('fill-reset');
 					}
-					/* render с лёгкой fade-out → swap → fade-in анимацией */
+					let rendering = false;
+					let backupTimer = null;
+					/* render с лёгкой fade-out → swap → fade-in анимацией.
+					   Lock на rendering чтобы дубли animationend не сваливались
+					   в гонку; backupTimer стрелит если animationend не пришёл. */
 					function render() {
+						if (rendering) return;
+						rendering = true;
+						if (backupTimer) clearTimeout(backupTimer);
 						const p = pick();
 						card.classList.add('rotating');
 						setTimeout(() => {
 							applyData(p);
 							card.classList.remove('rotating');
 							resetFill();
+							rendering = false;
+							scheduleBackup();
 						}, 220);
+					}
+					function scheduleBackup() {
+						if (backupTimer) clearTimeout(backupTimer);
+						backupTimer = setTimeout(render, 7500); // 7s + запас
 					}
 					applyData(pick()); // initial без анимации
 					resetFill();       // заливка стартует с 0%
+					scheduleBackup();
 
 					/* Авто-смена поста синхронизирована с CSS-заливкой через
 					   `animationend`. Никакого параллельного setInterval — иначе
