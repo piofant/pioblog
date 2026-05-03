@@ -1,0 +1,266 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import { getPublishedPosts } from '../../../lib/blog';
+import { formatCount, formatErr } from '../../../lib/format';
+import metricsData from '../../../data/metrics.json';
+
+type PostMetrics = {
+	views: number;
+	forwards: number;
+	replies: number;
+	reactions: { emoji: string; count: number }[];
+	err: number | null;
+	last_updated: string;
+};
+const metrics: Record<string, PostMetrics> = metricsData as any;
+
+export async function getStaticPaths() {
+	const posts = await getPublishedPosts();
+	return Object.keys(metricsData).map((tg_id) => {
+		const post = posts.find((p) => String((p.data as any).tgMessageId) === tg_id);
+		return {
+			params: { tg_id },
+			props: { post },
+		};
+	}).filter((x) => x.props.post != null);
+}
+
+const { post } = Astro.props;
+const tg_id = Astro.params.tg_id!;
+const m = metrics[tg_id];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Все посты с метриками для расчёта рангов
+const posts = await getPublishedPosts();
+const allWithMetrics = posts
+	.map((p) => {
+		const id = (p.data as any).tgMessageId;
+		const mm = id ? metrics[String(id)] : null;
+		if (!mm) return null;
+		const reactions = mm.reactions.reduce((s, r) => s + r.count, 0);
+		return { id: p.id, title: p.data.title, tg_id: id, ...mm, reactionsTotal: reactions };
+	})
+	.filter(Boolean) as Array<{ id: string; title: string; tg_id: number; views: number; forwards: number; replies: number; reactions: any[]; err: number | null; last_updated: string; reactionsTotal: number }>;
+
+const reactionsTotal = m.reactions.reduce((s, r) => s + r.count, 0);
+
+function rankBy(key: 'views' | 'forwards' | 'reactionsTotal' | 'err'): { rank: number; total: number } {
+	const sorted = [...allWithMetrics].sort((a, b) => (Number(b[key] ?? 0) - Number(a[key] ?? 0)));
+	const idx = sorted.findIndex((p) => p.tg_id === Number(tg_id));
+	return { rank: idx + 1, total: sorted.length };
+}
+function median(arr: number[]): number {
+	const sorted = [...arr].sort((a, b) => a - b);
+	const mid = Math.floor(sorted.length / 2);
+	return sorted.length % 2 ? sorted[mid] : Math.round((sorted[mid - 1] + sorted[mid]) / 2);
+}
+function ratio(value: number, baseline: number): string {
+	if (!baseline) return '—';
+	const r = value / baseline;
+	if (r >= 1) return `×${r.toFixed(r >= 10 ? 0 : 1)} от медианы`;
+	return `${Math.round(r * 100)}% от медианы`;
+}
+
+const medianViews = median(allWithMetrics.map((p) => p.views));
+const medianReactions = median(allWithMetrics.map((p) => p.reactionsTotal));
+const medianForwards = median(allWithMetrics.map((p) => p.forwards));
+const medianErr = median(allWithMetrics.map((p) => p.err ?? 0).filter((x) => x > 0));
+
+const rViews = rankBy('views');
+const rReactions = rankBy('reactionsTotal');
+const rForwards = rankBy('forwards');
+const rErr = rankBy('err');
+
+const updatedAt = new Date(m.last_updated);
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title={`Статистика · ${post!.data.title}`} description={`Метрики поста в @pioblog`} />
+	</head>
+	<body>
+		<Header />
+		<main class="content stats-detail">
+			<a class="back-link" href={`${base}/stats/`}>← вся статистика</a>
+			<h1>{post!.data.title}</h1>
+			<p class="meta">
+				<a href={`${base}/blog/${post!.id}/`}>читать пост</a>
+				· <FormattedDate date={post!.data.pubDate} />
+				· <a href={`https://t.me/pioblog/${tg_id}`} target="_blank" rel="noopener">в Telegram ↗</a>
+			</p>
+
+			<section class="big-stats">
+				<div class="stat">
+					<span class="num">{formatCount(m.views)}</span>
+					<span class="lbl">👁 просмотров</span>
+					<span class="rank">#{rViews.rank} из {rViews.total} · {ratio(m.views, medianViews)}</span>
+				</div>
+				<div class="stat">
+					<span class="num">{formatCount(reactionsTotal)}</span>
+					<span class="lbl">🐳 реакций</span>
+					<span class="rank">#{rReactions.rank} · {ratio(reactionsTotal, medianReactions)}</span>
+				</div>
+				<div class="stat">
+					<span class="num">{formatCount(m.forwards)}</span>
+					<span class="lbl">↗ пересылок</span>
+					<span class="rank">#{rForwards.rank} · {ratio(m.forwards, medianForwards)}</span>
+				</div>
+				<div class="stat">
+					<span class="num">{formatErr(m.err)}</span>
+					<span class="lbl">📊 ERR</span>
+					<span class="rank">{m.err != null ? `#${rErr.rank} · ${ratio(m.err, medianErr)}` : '—'}</span>
+				</div>
+			</section>
+
+			{m.reactions.length > 0 && (
+				<section class="reactions-detail">
+					<h2>Все реакции</h2>
+					<div class="reaction-bars">
+						{m.reactions.map((r) => {
+							const max = m.reactions[0].count;
+							const pct = Math.round((r.count / max) * 100);
+							return (
+								<div class="reaction-bar">
+									<span class="emoji">{r.emoji}</span>
+									<span class="bar"><span class="fill" style={`width:${pct}%`}></span></span>
+									<span class="count">{r.count}</span>
+								</div>
+							);
+						})}
+					</div>
+				</section>
+			)}
+
+			{m.replies > 0 && (
+				<p class="replies">💬 {m.replies} {m.replies === 1 ? 'комментарий' : 'комментариев'} в обсуждении</p>
+			)}
+
+			<p class="updated">
+				Метрики обновлены {updatedAt.toLocaleDateString('ru', { day: 'numeric', month: 'long', year: 'numeric' })}
+				, {updatedAt.toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' })}.
+				Обновляются раз в день автоматически.
+			</p>
+		</main>
+		<Footer />
+
+		<style is:global>
+			html, body { overflow-x: hidden; }
+			.stats-detail { max-width: 760px; }
+			.stats-detail .back-link {
+				display: inline-block;
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.8125rem;
+				color: var(--muted);
+				text-decoration: none;
+				margin-bottom: 0.5rem;
+			}
+			.stats-detail .back-link:hover { color: var(--text-dark); }
+			.stats-detail h1 { font-size: 1.625rem; line-height: 1.2; margin: 0.25rem 0 0.5rem; }
+			.stats-detail .meta {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				color: var(--muted);
+				font-size: 0.875rem;
+				margin: 0 0 1.5rem;
+			}
+			.stats-detail .meta a { color: var(--text-dark); text-decoration: none; border-bottom: 1px dashed var(--border); }
+			.stats-detail .meta a:hover { color: var(--link); border-bottom-color: var(--link); }
+
+			.big-stats {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 12px;
+				margin: 1.5rem 0;
+			}
+			.big-stats .stat {
+				padding: 18px 20px;
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				background: var(--bg-elevated);
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+			}
+			.big-stats .stat .num {
+				font-family: var(--font-heading), system-ui, sans-serif;
+				font-size: 2rem;
+				font-weight: 700;
+				color: var(--text-dark);
+				line-height: 1.1;
+				font-variant-numeric: tabular-nums;
+			}
+			.big-stats .stat .lbl {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.875rem;
+				color: var(--muted);
+			}
+			.big-stats .stat .rank {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.75rem;
+				color: var(--muted-2);
+				margin-top: 2px;
+			}
+
+			.reactions-detail { margin: 2rem 0; }
+			.reactions-detail h2 {
+				font-size: 0.9375rem;
+				font-family: var(--font-ui), system-ui, sans-serif;
+				color: var(--muted);
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				margin: 0 0 12px;
+			}
+			.reactions-detail .reaction-bar {
+				display: grid;
+				grid-template-columns: 28px 1fr 50px;
+				gap: 10px;
+				align-items: center;
+				padding: 4px 0;
+			}
+			.reactions-detail .reaction-bar .emoji { font-size: 1.25rem; text-align: center; }
+			.reactions-detail .reaction-bar .bar {
+				height: 10px;
+				background: var(--border-soft);
+				border-radius: 999px;
+				overflow: hidden;
+			}
+			.reactions-detail .reaction-bar .fill {
+				display: block;
+				height: 100%;
+				background: linear-gradient(90deg, #db2777, #ea580c);
+				border-radius: 999px;
+			}
+			.reactions-detail .reaction-bar .count {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.875rem;
+				color: var(--text-dark);
+				font-variant-numeric: tabular-nums;
+				text-align: right;
+				font-weight: 600;
+			}
+
+			.stats-detail .replies {
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.9375rem;
+				color: var(--text);
+				margin: 1rem 0;
+			}
+			.stats-detail .updated {
+				margin-top: 2rem;
+				padding-top: 1rem;
+				border-top: 1px solid var(--border);
+				font-family: var(--font-ui), system-ui, sans-serif;
+				font-size: 0.75rem;
+				color: var(--muted-2);
+			}
+
+			@media (max-width: 640px) {
+				.big-stats { grid-template-columns: 1fr; gap: 8px; }
+				.big-stats .stat .num { font-size: 1.75rem; }
+			}
+		</style>
+	</body>
+</html>

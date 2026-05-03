@@ -530,8 +530,8 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 			}
 
 			.table-wrap {
-				/* Защита от длинных заголовков, которые могут растянуть страницу.
-				   На узких экранах появится горизонтальный скролл только у таблицы. */
+				/* Длинные заголовки могут растянуть таблицу — даём ей скроллиться
+				   горизонтально внутри обёртки, не растягивая страницу. */
 				overflow-x: auto;
 				margin: 0 -4px;
 			}
@@ -540,15 +540,15 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 				border-collapse: collapse;
 				font-family: var(--font-ui), system-ui, sans-serif;
 				font-size: 0.875rem;
-				table-layout: fixed;
 			}
-			.stats-table td:first-child,
-			.stats-table th:first-child {
-				/* Длинные заголовки обрезать ellipsis'ом, не переносить */
-				max-width: 0;
+			.stats-table td:first-child a {
+				/* Title — wrap по словам, но не растягивать колонку */
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				line-clamp: 2;
+				-webkit-box-orient: vertical;
 				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
+				word-break: break-word;
 			}
 			.stats-table th, .stats-table td {
 				padding: 8px 10px;
@@ -575,7 +575,8 @@ const totalForwards = rows.reduce((s, r) => s + r.forwards, 0);
 				text-align: right;
 				font-variant-numeric: tabular-nums;
 				white-space: nowrap;
-				width: 1%;
+				/* width: 1% убран — он конфликтовал с table-layout:fixed,
+				   из-за чего числа в колонках наезжали друг на друга. */
 			}
 			.stats-table td a {
 				color: var(--text-dark);
