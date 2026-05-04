@@ -202,12 +202,17 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	position: absolute;
 	left: 0; bottom: 0; right: 0;
 	height: 0%;
-	/* Голубая заливка — «стакан воды». Чуть плотнее на тёмной теме */
+	/* Голубая заливка — «стакан воды». По умолчанию НЕВИДИМАЯ —
+	   проявляется только когда юзер бездействует 10+ сек (.idle на карточке).
+	   Это убирает визуальный шум в момент активного юзера. */
 	background: color-mix(in srgb, #4a9eff 12%, transparent);
-	animation: random-post-fill var(--rotate-ms, 7s) linear 1 forwards;
+	animation: random-post-fill var(--rotate-ms, 8s) linear 1 forwards;
+	opacity: 0;
+	transition: opacity 0.4s ease;
 	pointer-events: none;
 	z-index: 0;
 }
+.random-post.idle::before { opacity: 1; }
 @keyframes random-post-fill {
 	from { height: 0%; }
 	to   { height: 100%; }

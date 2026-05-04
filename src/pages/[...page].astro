@@ -123,67 +123,69 @@ const ogPageTitle = isFirstPage ? SITE_AUTHOR_NAME : `${SITE_AUTHOR_NAME} — с
 						void card.offsetWidth;
 						card.classList.remove('fill-reset');
 					}
-					/* Длительность цикла. Объявляем ДО первого использования
-					   в scheduleBackup — иначе TDZ ReferenceError убьёт весь init. */
 					const ROTATE_MS = 8000;
+					const IDLE_MS = 10000; // показывать заливку после 10с бездействия
 					card.style.setProperty('--rotate-ms', ROTATE_MS + 'ms');
 
 					let rendering = false;
-					let backupTimer = null;
-					/* render с лёгкой fade-out → swap → fade-in анимацией.
-					   Lock на rendering чтобы дубли animationend не сваливались
-					   в гонку; backupTimer стрелит если animationend не пришёл. */
+					/* render с лёгкой fade-out → swap → fade-in. Lock на rendering
+					   чтоб дубли (manual reroll + interval) не сваливались в гонку. */
 					function render() {
 						if (rendering) return;
 						rendering = true;
-						if (backupTimer) clearTimeout(backupTimer);
 						const p = pick();
 						card.classList.add('rotating');
 						setTimeout(() => {
 							applyData(p);
 							card.classList.remove('rotating');
-							resetFill();
+							resetFill(); // рестарт анимации заливки чтоб совпадала с тиком
 							rendering = false;
-							scheduleBackup();
 						}, 220);
 					}
-					function scheduleBackup() {
-						if (backupTimer) clearTimeout(backupTimer);
-						backupTimer = setTimeout(render, ROTATE_MS + 500);
+					applyData(pick());
+					resetFill();
+
+					/* Always-on setInterval: посты меняются каждые 8с независимо
+					   от того, видна заливка или нет. Заливка — отдельный визуал,
+					   управляется .idle-классом (см. activity tracker ниже). */
+					let timer = null;
+					function startTimer() {
+						if (timer || document.visibilityState === 'hidden') return;
+						timer = setInterval(render, ROTATE_MS);
 					}
-					applyData(pick()); // initial без анимации
-					resetFill();       // заливка стартует с 0%
-					scheduleBackup();
+					function stopTimer() {
+						if (timer) { clearInterval(timer); timer = null; }
+					}
 
-					/* Авто-смена поста синхронизирована с CSS-заливкой через
-					   `animationend`. Когда заливка достигла 100% → событие →
-					   render() → resetFill() → новый цикл. */
-					let userPaused = false;
-					const stop = () => { card.classList.add('paused'); };
-					const start = () => {
-						if (userPaused) return;
-						if (document.visibilityState === 'hidden') return;
-						card.classList.remove('paused');
-					};
-
-					card.addEventListener('mouseenter', stop);
-					card.addEventListener('mouseleave', start);
-					card.addEventListener('focusin', stop);
-					card.addEventListener('focusout', start);
+					/* Hover/focus паузит и таймер, и анимацию (CSS :hover) */
+					card.addEventListener('mouseenter', () => { card.classList.add('paused'); stopTimer(); });
+					card.addEventListener('mouseleave', () => { card.classList.remove('paused'); startTimer(); });
+					card.addEventListener('focusin',  () => { card.classList.add('paused'); stopTimer(); });
+					card.addEventListener('focusout', () => { card.classList.remove('paused'); startTimer(); });
 					document.addEventListener('visibilitychange', () => {
-						if (document.visibilityState === 'hidden') stop(); else start();
-					});
-
-					/* Заливка дошла до 100% → меняем пост. Событие animationend
-					   bubblится с ::before на родителя. */
-					card.addEventListener('animationend', (e) => {
-						if (e.animationName === 'random-post-fill') render();
+						if (document.visibilityState === 'hidden') stopTimer(); else startTimer();
 					});
 
 					reroll?.addEventListener('click', (e) => {
 						e.preventDefault(); e.stopPropagation();
 						render();
 					});
+
+					startTimer();
+
+					/* Idle detection — после 10с без mousemove/scroll/keydown/touch
+					   карточка получает .idle → заливка проявляется (CSS opacity 1).
+					   На любую активность .idle снимается → заливка скрывается. */
+					let idleTimer = null;
+					function resetIdle() {
+						card.classList.remove('idle');
+						if (idleTimer) clearTimeout(idleTimer);
+						idleTimer = setTimeout(() => card.classList.add('idle'), IDLE_MS);
+					}
+					['mousemove', 'scroll', 'keydown', 'touchstart', 'click'].forEach((ev) => {
+						document.addEventListener(ev, resetIdle, { passive: true });
+					});
+					resetIdle();
 				})();
 			</script>
 		)}
