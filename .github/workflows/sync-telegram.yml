@@ -28,7 +28,7 @@ jobs:
           cache-dependency-path: scripts/package.json
       - name: Install deps
         working-directory: scripts
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
       - name: Pull channel updates via Bot API
         env:
           TG_CHANNEL: pioblog
@@ -44,6 +44,9 @@ jobs:
         run: |
           git config user.name "tg-sync-bot"
           git config user.email "tg-sync-bot@users.noreply.github.com"
+          # Восстанавливаем любые случайные правки вне sync-зоны (lock-файлы и т.п.),
+          # иначе rebase ниже падает с "You have unstaged changes".
+          git checkout -- . 2>/dev/null || true
           git add src/content/blog/ public/img/tg/ || true
           if git diff --cached --quiet; then
             echo "::notice::No new TG posts"

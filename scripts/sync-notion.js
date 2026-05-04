@@ -370,7 +370,14 @@ async function main() {
 		}
 	}
 	console.log(`\n📊 ${pageCount - failed}/${pageCount} pages OK, ${totalImages} imgs, ${totalSubPages} sub-pages`);
-	if (failed > 0) process.exit(1);
+	// Не падаем на частичных ошибках — Notion API часто таймаутит, успешные
+	// страницы можно закоммитить, а упавшие подтянутся следующим запуском (cron 30m).
+	// Падаем только если ВСЁ упало (значит, проблема не в одной странице).
+	if (failed === pageCount && pageCount > 0) {
+		console.error('💥 all pages failed — likely auth/network issue');
+		process.exit(1);
+	}
+	if (failed > 0) console.warn(`::warning::Notion sync: ${failed}/${pageCount} pages failed (will retry next run)`);
 }
 
 main().catch((e) => { console.error('💥', e); process.exit(1); });
