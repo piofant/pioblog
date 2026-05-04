@@ -131,6 +131,11 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 		<Footer />
 
 		<style is:global>
+			/* На /photos/ контент идёт до 1400px — расширяем хедер чтоб бренд+nav
+			   оказались на той же сетке. Скоупим через :has() чтобы остальные
+			   страницы сайта остались с дефолтным 1100px. */
+			body:has(main.photos-page) .site-header .inner { max-width: 1400px; }
+
 			/* Theme-adaptive color tokens for the photos page */
 			.photos-page {
 				--c-fg: var(--text-dark);
