@@ -187,14 +187,21 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 			}
 			.chapter-section:first-of-type { margin-top: 24px; }
 			.chapter-section .ch-header {
-				max-width: 60ch;
+				/* Header row занимает полную ширину страницы (как и masonry-сетка
+				   ниже), чтобы «открыть главу» было справа на краю. Текст внутри
+				   — отдельно ограничен по ширине для читаемости. */
 				margin-bottom: 16px;
 				display: flex;
 				align-items: baseline;
 				gap: 16px;
 				flex-wrap: wrap;
 			}
-			.chapter-section .ch-header .text { flex: 1 1 auto; min-width: 0; }
+			.chapter-section .ch-header .text {
+				flex: 1 1 auto;
+				min-width: 0;
+				max-width: 60ch;
+			}
+			.chapter-section .ch-header .reveal-link { margin-left: auto; }
 			.chapter-section .ch-header .num {
 				font-family: var(--font-heading, Play, system-ui, sans-serif);
 				font-size: 0.75rem;
