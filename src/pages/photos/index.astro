@@ -176,7 +176,10 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 				padding: 0 2px;
 			}
 			.album-hero .meta {
-				font-size: 0.875rem;
+				/* UI-meta — sans-serif (как kicker), не serif body */
+				font-family: var(--font-heading, Play, system-ui, sans-serif);
+				font-size: 0.8125rem;
+				letter-spacing: 0.04em;
 				color: var(--muted);
 			}
 
@@ -251,8 +254,12 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 				color: var(--c-accent, #FF4200);
 			}
 			.chapter-section .reveal-link {
+				/* UI-action — sans-serif, чтоб не мешалось с serif блюрбом рядом */
+				font-family: var(--font-heading, Play, system-ui, sans-serif);
+				font-size: 0.75rem;
+				letter-spacing: 0.06em;
+				text-transform: uppercase;
 				flex: 0 0 auto;
-				font-size: 0.875rem;
 				color: var(--muted);
 				text-decoration: none;
 				border-bottom: 1px solid transparent;
@@ -323,8 +330,12 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 				function applyVisualBlur(grid) {
 					const items = Array.from(grid.querySelectorAll('a'));
 					if (items.length === 0) return;
+					/* Min blur даже для первой строки, чтоб «открыть главу»
+					   ВСЕГДА давало видимый эффект — иначе у глав с ≤3 фото
+					   (все в первом ряду) клик ничего не менял визуально. */
+					const MIN_BLUR = 5;
 					if (items.length === 1) {
-						items[0].style.setProperty('--blur', '0px');
+						items[0].style.setProperty('--blur', MIN_BLUR + 'px');
 						return;
 					}
 					const tops = items.map((el) => el.offsetTop);
@@ -337,10 +348,11 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 						else rest.push({ el: el, top: tops[i], left: el.offsetLeft });
 					});
 					rest.sort((a, b) => (a.top - b.top) || (a.left - b.left));
-					firstRow.forEach((el) => el.style.setProperty('--blur', '0px'));
+					firstRow.forEach((el) => el.style.setProperty('--blur', MIN_BLUR + 'px'));
 					rest.forEach((r, i) => {
 						const t = rest.length === 1 ? 1 : (i + 1) / rest.length;
-						r.el.style.setProperty('--blur', (t * MAX_BLUR).toFixed(1) + 'px');
+						const px = MIN_BLUR + t * (MAX_BLUR - MIN_BLUR);
+						r.el.style.setProperty('--blur', px.toFixed(1) + 'px');
 					});
 				}
 
