@@ -89,12 +89,14 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 
 		<main class="content photos-page">
 			<section class="album-hero">
-				<p class="kicker">Альбом</p>
+				<div class="hero-top-row">
+					<p class="kicker">Альбом</p>
+					<p class="meta">{album.total} фотографий · {album.chapters.length} глав</p>
+				</div>
 				<h1>{album.title}</h1>
 				<p class="subtitle">
 					Перформансы, спонтанная импровизация, тело в пространстве, как способ <em class="emph">просто быть</em>. В настоящем.
 				</p>
-				<p class="meta">{album.total} фотографий · {album.chapters.length} глав</p>
 			</section>
 
 			<div id="gallery">
@@ -104,13 +106,15 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 							<div class="text">
 								<p class="num">Глава {String(idx + 1).padStart(2, '0')}</p>
 								<h2 class="title-toggle" data-target={ch.slug}>
-									{ch.title} <span class="h2-arrow">↓</span>
+									{ch.title}{ch.photos.length > 3 && <span class="h2-arrow"> ↓</span>}
 								</h2>
 								<p class="blurb" set:html={ch.blurb}></p>
 							</div>
-							<a class="reveal-link" data-target={ch.slug}>
-								<span class="arrow">↓</span> <span class="label">открыть главу</span>
-							</a>
+							{ch.photos.length > 3 && (
+								<a class="reveal-link" data-target={ch.slug}>
+									<span class="arrow">↓</span> <span class="label">открыть главу</span>
+								</a>
+							)}
 						</div>
 						<div class="masonry" id={`grid-${ch.slug}`}>
 							{ch.photos.map((p) => (
@@ -148,7 +152,16 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 				margin: 0 auto;
 				padding: 40px 0 8px;
 			}
-			.album-hero > * { max-width: 60ch; }
+			.album-hero > h1, .album-hero > .subtitle { max-width: 60ch; }
+			.hero-top-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				gap: 16px;
+				flex-wrap: wrap;
+				margin: 0 0 8px;
+			}
+			.hero-top-row > .kicker, .hero-top-row > .meta { margin: 0; }
 			.album-hero .kicker {
 				font-family: var(--font-heading, Play, system-ui, sans-serif);
 				font-size: 0.75rem;
@@ -330,12 +343,8 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 				function applyVisualBlur(grid) {
 					const items = Array.from(grid.querySelectorAll('a'));
 					if (items.length === 0) return;
-					/* Min blur даже для первой строки, чтоб «открыть главу»
-					   ВСЕГДА давало видимый эффект — иначе у глав с ≤3 фото
-					   (все в первом ряду) клик ничего не менял визуально. */
-					const MIN_BLUR = 5;
 					if (items.length === 1) {
-						items[0].style.setProperty('--blur', MIN_BLUR + 'px');
+						items[0].style.setProperty('--blur', '0px');
 						return;
 					}
 					const tops = items.map((el) => el.offsetTop);
@@ -348,11 +357,10 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 						else rest.push({ el: el, top: tops[i], left: el.offsetLeft });
 					});
 					rest.sort((a, b) => (a.top - b.top) || (a.left - b.left));
-					firstRow.forEach((el) => el.style.setProperty('--blur', MIN_BLUR + 'px'));
+					firstRow.forEach((el) => el.style.setProperty('--blur', '0px'));
 					rest.forEach((r, i) => {
 						const t = rest.length === 1 ? 1 : (i + 1) / rest.length;
-						const px = MIN_BLUR + t * (MAX_BLUR - MIN_BLUR);
-						r.el.style.setProperty('--blur', px.toFixed(1) + 'px');
+						r.el.style.setProperty('--blur', (t * MAX_BLUR).toFixed(1) + 'px');
 					});
 				}
 
