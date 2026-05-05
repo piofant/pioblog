@@ -40,6 +40,9 @@ jobs:
         run: |
           git config user.name "tg-metrics-bot"
           git config user.email "tg-metrics-bot@users.noreply.github.com"
+          # Восстанавливаем любые случайные правки вне sync-зоны (lock-файлы и т.п.),
+          # иначе rebase ниже падает с "You have unstaged changes".
+          git checkout -- . 2>/dev/null || true
           git add src/data/metrics.json || true
           if git diff --cached --quiet; then
             echo "::notice::No metric changes"
