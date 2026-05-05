@@ -133,8 +133,14 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 		<style is:global>
 			/* На /photos/ контент идёт до 1400px — расширяем хедер чтоб бренд+nav
 			   оказались на той же сетке. Скоупим через :has() чтобы остальные
-			   страницы сайта остались с дефолтным 1100px. */
-			body:has(main.photos-page) .site-header .inner { max-width: 1400px; }
+			   страницы сайта остались с дефолтным 1100px.
+			   Padding обоих контейнеров приводим к 1.25rem (20px), чтобы контент
+			   и хедер выравнивались по левой/правой границе колонки. */
+			body:has(main.photos-page) .site-header .inner {
+				max-width: 1400px;
+				padding-left: 0; padding-right: 0;
+				/* paddings on .site-header itself give the gutter — 1.25rem horizontal */
+			}
 
 			/* Theme-adaptive color tokens for the photos page */
 			.photos-page {
@@ -144,11 +150,13 @@ const album: { title: string; total: number; chapters: Chapter[] } = {
 			}
 
 			/* Override the global `main.content { max-width: 620px }` for photos.
-			   Photos need horizontal real estate; copy is the rest of the site. */
+			   Photos need horizontal real estate; copy is the rest of the site.
+			   Horizontal padding 1.25rem (20px) совпадает с .site-header → бренд
+			   и контент колонки выравниваются по одной вертикальной линии. */
 			main.content.photos-page {
 				max-width: 1400px;
-				padding-left: 24px;
-				padding-right: 24px;
+				padding-left: 1.25rem;
+				padding-right: 1.25rem;
 				padding-top: 0;
 			}
 
