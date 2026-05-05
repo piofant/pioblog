@@ -6,6 +6,9 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
+permissions:
+  contents: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -20,3 +23,22 @@ jobs:
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_SESSION_STRING: ${{ secrets.TG_SESSION_STRING }}
         run: cd scripts && node check-recent-tg.mjs
+      - name: Backfill missing posts
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION_STRING: ${{ secrets.TG_SESSION_STRING }}
+        run: cd scripts && node backfill-missing-tg.mjs
+      - name: Commit if changed
+        run: |
+          git config user.name "tg-backfill-bot"
+          git config user.email "tg-backfill-bot@users.noreply.github.com"
+          git checkout -- . 2>/dev/null || true
+          git add src/content/blog/ public/img/tg/ || true
+          if git diff --cached --quiet; then
+            echo "::notice::No backfilled posts"
+            exit 0
+          fi
+          git commit -m "backfill: missing TG posts ($(date -u +%Y-%m-%d))"
+          git pull --rebase origin main
+          git push
