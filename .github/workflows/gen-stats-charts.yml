@@ -35,6 +35,9 @@ jobs:
         run: |
           git config user.name "stats-charts-bot"
           git config user.email "stats-charts-bot@users.noreply.github.com"
+          # Восстанавливаем случайные правки вне зоны (npm install / lock-файлы)
+          # перед rebase — иначе падает с "You have unstaged changes".
+          git checkout -- . 2>/dev/null || true
           git add public/img/stats/ || true
           if git diff --cached --quiet; then
             echo "::notice::No chart changes"
