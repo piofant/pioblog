@@ -1,7 +1,7 @@
 ---
 title: 'Второй мой канал — кусочки жизни без правок и редактуры'
 pubDate: '2022-05-16'
-tags: ['жизнь', 'контактная импровизация']
+tags: ['whois']
 tgMessageId: 100
 heroImage: '/img/og/gradients/vtoroi-moi-kanal-s-kusochkami-zhizni-pro-100.png'
 draft: true

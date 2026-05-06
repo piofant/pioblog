@@ -2,7 +2,7 @@
 title: 'Какой эффект от чтения мантры год спустя'
 pubDate: '2026-04-12'
 tgMessageId: 425
-tags: ['психология']
+tags: ['психология', 'рефлексия']
 heroImage: '/img/posts/2025-04-22-ia-chitaiu-mantru-uzhe-god-kakoi-effekt-i-chto-282/photo_149@22-04-2025_19-23-22.jpg'
 ---
 

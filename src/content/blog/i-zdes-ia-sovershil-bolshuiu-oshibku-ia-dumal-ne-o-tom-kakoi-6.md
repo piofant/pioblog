@@ -2,7 +2,7 @@
 title: 'И здесь я совершил большую ошибку. Я думал не о том, какой из этих профилей'
 pubDate: '2020-08-12'
 tgMessageId: 6
-tags: ['школа']
+tags: ['школа', 'истории', 'рефлексия']
 heroImage: '/img/og/gradients/i-zdes-ia-sovershil-bolshuiu-oshibku-ia-dumal-ne-o-tom-kakoi-6.png'
 ---
 

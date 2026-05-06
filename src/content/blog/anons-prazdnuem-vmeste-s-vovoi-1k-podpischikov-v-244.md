@@ -2,7 +2,7 @@
 heroImage: /img/posts/2024-12-19-anons-prazdnuem-vmeste-s-vovoi-1k-podpischikov-v-244/photo_121@19-12-2024_20-29-23.jpg
 pubDate: '2024-12-19'
 tgMessageId: 244
-tags: ['психология', 'анонс']
+tags: ['анонс', 'нетворкинг']
 title: '[анонс] празднуем вместе с Вовой 1К подписчиков в @pioblog — в это воскресенье'
 ---
 

@@ -21,7 +21,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			.scene-stage {
 				position: fixed; inset: 0;
 				z-index: 0;
-				background: radial-gradient(ellipse at center, #0d1218 0%, #000 80%);
+				background: #0a0a0a;
 			}
 			canvas { display: block; }
 
@@ -179,7 +179,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<p>Цифровая 3D-личность · хасл · фристайл</p>
 			<p><a href={`${base}/`}>← на сайт</a></p>
 			<button class="hero-play" id="cp-play-hero" aria-label="play / pause">▶ play</button>
-			<div class="specs">three.js · gltf · avaturn.me</div>
 		</header>
 
 		<div class="cp-audio" id="cp-audio">
@@ -210,6 +209,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			import * as THREE from 'three';
 			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 			const loader = document.getElementById('cp-loader');
 			const bar = document.getElementById('cp-bar');
@@ -231,10 +231,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 			const stageRoot = document.getElementById('cp-stage-root');
 			const scene = new THREE.Scene();
-			scene.background = null;
+			scene.background = new THREE.Color(0x0a0a0a);
 
-			const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
-			camera.position.set(0, 1.5, 3.6);
+			// Camera: точно как у автора mein3d (FOV 45, [0, 1.5, 3.5])
+			const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+			camera.position.set(0, 1.5, 3.5);
 
 			// Mobile-aware antialias и pixelRatio: на узких экранах рендерим
 			// чуть проще, чтобы FPS на телефоне был ровным.
@@ -244,27 +245,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			renderer.outputColorSpace = THREE.SRGBColorSpace;
 			renderer.toneMapping = THREE.ACESFilmicToneMapping;
-			renderer.toneMappingExposure = 1.7;
+			renderer.toneMappingExposure = 1.0;
 			stageRoot.appendChild(renderer.domElement);
 
-			// Освещение: сильный front + ambient, лицо хорошо читается;
-			// сзади cyber-rim в зелёный/розовый — для атмосферы.
-			const hemi = new THREE.HemisphereLight(0xdfe9ff, 0x303338, 1.4);
-			scene.add(hemi);
-			const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+			// Environment: эквивалент <Environment preset="city" /> из drei у
+			// автора mein3d. RoomEnvironment — встроенный procedural HDRI без
+			// внешних загрузок, даёт PBR-материалам красивый ambient/reflection.
+			const pmrem = new THREE.PMREMGenerator(renderer);
+			scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+			// Свет — точно по схеме автора:
+			// 1) AmbientLight 0.4 — убирает «чёрные провалы» в тенях
+			const ambient = new THREE.AmbientLight(0xffffff, 0.4);
 			scene.add(ambient);
-			// Key spotlight спереди-сверху — направлен прямо на лицо
-			const key = new THREE.DirectionalLight(0xffffff, 2.8);
-			key.position.set(1.5, 3.2, 3.5);
+			// 2) Key — основной софтбокс спереди-сверху
+			const key = new THREE.DirectionalLight(0xffffff, 1.2);
+			key.position.set(2, 4, 3);
 			scene.add(key);
-			// Front fill — снимает контраст теней на лице/торсе
-			const frontFill = new THREE.DirectionalLight(0xffffff, 1.4);
-			frontFill.position.set(0, 1.6, 4);
-			scene.add(frontFill);
-			// Side fill слева, чуть прохладный
-			const sideFill = new THREE.DirectionalLight(0xeaf2ff, 1.0);
-			sideFill.position.set(-2.5, 2.2, 2);
-			scene.add(sideFill);
+			// 3) Холодный contre-jour сзади-слева — даёт объём
+			const fillCool = new THREE.DirectionalLight(0x8899ff, 0.4);
+			fillCool.position.set(-2, 2, -2);
+			scene.add(fillCool);
 			// Cyber rim сзади — атмосфера
 			const rim1 = new THREE.PointLight(0x00ff90, 1.8, 10);
 			rim1.position.set(-1.8, 1.6, -1.4);

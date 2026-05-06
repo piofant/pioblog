@@ -3,7 +3,7 @@ title: 'В чем ИИ эффективен для продуктового ди
 pubDate: '2025-07-31'
 tgMessageId: 325
 heroImage: '/img/posts/2025-07-31-v-chem-ii-effektiven-dlia-produktovogo-diskaveri-a-325/photo_188@31-07-2025_20-27-52.jpg'
-tags: ['школа', 'ии']
+tags: ['ии', 'продакт']
 ---
 
 **Коротко, что сделал**

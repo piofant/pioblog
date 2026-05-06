@@ -2,7 +2,7 @@
 title: 'че-то текстовые посты длинно-сложно-читать, наверное, да?'
 pubDate: '2024-11-18'
 tgMessageId: 237
-tags: ['продакт']
+tags: ['продакт', 'анонс']
 heroImage: '/img/og/gradients/che-to-tekstovye-posty-dlinno-slozhno-chitat-navernoe-da-237.png'
 draft: true
 ---

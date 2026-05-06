@@ -34,11 +34,13 @@ jobs:
           TG_CHANNEL: pioblog
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
         run: cd scripts && node sync-telegram.js
-      - name: Auto-tag posts without tags
+      - name: Auto-tag posts without tags (LLM)
         # Идемпотентно: пропускает посты у которых tags уже есть.
-        # Применяется к свеже-синканутым TG-постам (а также к любым старым
-        # без тегов, если такие появились). Безопасно запускать каждый sync.
-        run: cd scripts && node suggest-tags.mjs --all-missing --auto-apply
+        # LLM-теггер заменил regex-suggest-tags.mjs — тот ставил ложноположительные
+        # теги на упоминания в перечислении (см. llm-tag.mjs header).
+        env:
+          OR_LLM_API_KEY: ${{ secrets.OR_LLM_API_KEY }}
+        run: node scripts/llm-tag.mjs --all-missing
       - name: Commit new posts
         id: commit
         run: |

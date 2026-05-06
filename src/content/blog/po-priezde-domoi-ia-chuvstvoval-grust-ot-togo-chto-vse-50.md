@@ -1,6 +1,6 @@
 ---
 pubDate: '2021-07-07'
-tags: ['школа жизни', 'психология', 'жизнь', 'контактная импровизация']
+tags: ['рефлексия', 'друзья', 'школа']
 tgMessageId: 50
 heroImage: '/img/og/gradients/po-priezde-domoi-ia-chuvstvoval-grust-ot-togo-chto-vse-50.png'
 title: По приезде домой я чувствовал грусть от того, что всё закончилось. Я буквально

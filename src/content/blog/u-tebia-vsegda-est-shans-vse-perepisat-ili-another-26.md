@@ -3,7 +3,7 @@ title: '\"У тебя всегда есть шанс всё переписать
 pubDate: '2020-12-27'
 tgMessageId: 26
 heroImage: '/img/og/gradients/u-tebia-vsegda-est-shans-vse-perepisat-ili-another-26.png'
-tags: ['карьера', 'вуз', 'школа', 'истории']
+tags: ['школа', 'истории', 'рефлексия']
 ---
 
 #истории

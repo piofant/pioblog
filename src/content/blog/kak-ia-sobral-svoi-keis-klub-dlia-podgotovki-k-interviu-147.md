@@ -2,7 +2,7 @@
 title: 'Как я собрал свой кейс-клуб для подготовки к интервью'
 pubDate: '2024-04-15'
 tgMessageId: 147
-tags: ['продакт', 'карьера']
+tags: ['продакт', 'карьера', 'нетворкинг']
 heroImage: '/img/posts/2024-04-15-kak-ia-sobral-svoi-keis-klub-dlia-podgotovki-k-interviu-147/photo_keisery.jpg'
 series: 'yandex-internship'
 seriesPart: 4

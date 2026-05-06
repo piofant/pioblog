@@ -3,7 +3,7 @@ title: 'Театр как «исцеляющая фантазия» – PMF ак
 pubDate: '2026-03-27'
 tgMessageId: 420
 heroImage: '/img/posts/2026-03-27-teatr-kak-istseliaiushchaia-fantaziia-pmf-420/photo_265@27-03-2026_18-42-01.jpg'
-tags: ['продакт', 'рефлексия', 'психология', 'театр']
+tags: ['театр', 'рефлексия', 'психология']
 ---
 
 Заметили, сколько в [предыдущем посте](/blog/chem-menia-tak-zatsepila-eta-ideia-postupleniia-na-419/) эмоциональных потребностей? Целый салатик 🥗

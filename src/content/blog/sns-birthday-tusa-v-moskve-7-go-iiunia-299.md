@@ -3,7 +3,7 @@ title: 'sns-birthday-туса в Москве 7-го июня'
 pubDate: '2025-06-04'
 tgMessageId: 299
 heroImage: '/img/posts/2025-06-04-sns-birthday-tusa-v-moskve-7-go-iiunia-299/photo_164@04-06-2025_16-26-11.jpg'
-tags: ['вуз', 'нетворкинг', 'ии']
+tags: ['нетворкинг', 'анонс']
 ---
 
 **sns-туса — это когда**

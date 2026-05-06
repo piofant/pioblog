@@ -2,7 +2,7 @@
 title: '📍 Самые популярные посты в этом канале:'
 pubDate: '2020-08-12'
 tgMessageId: 4
-tags: ['продакт', 'карьера', 'вуз', 'школа', 'нетворкинг', 'рефлексия', 'трипы', 'летняя школа', 'боты', 'жизнь']
+tags: ['whois', 'продакт', 'проекты']
 heroImage: '/img/og/gradients/samye-populiarnye-posty-v-etom-kanale-4.png'
 ---
 

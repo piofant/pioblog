@@ -1,6 +1,7 @@
 ---
 title: 'Импортнул несколько старых Telegram-каналов с большим количеством длиннопостов'
 pubDate: '2022-03-30'
+tags: ['проекты']
 tgMessageId: 89
 heroImage: '/img/posts/2022-03-30-importnul-neskolko-starykh-telegram-kanalov-s-89/photo_18@30-03-2022_19-48-35.jpg'
 draft: true

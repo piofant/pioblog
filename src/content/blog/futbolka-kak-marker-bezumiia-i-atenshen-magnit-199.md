@@ -3,7 +3,7 @@ title: 'Футболка как маркер безумия и атеншен-м
 pubDate: '2024-09-15'
 tgMessageId: 199
 heroImage: '/img/posts/2024-09-15-futbolka-kak-marker-bezumiia-i-atenshen-magnit-199/photo_88@15-09-2024_16-07-06.jpg'
-tags: ['карьера', 'творчество', 'безумие']
+tags: ['творчество', 'безумие', 'продакт']
 ---
 
 На самом деле, эта [история](/blog/delius-rezultatami-futbolki-dlia-poiska-raboty-195/) с футболкой была больше по фану, как и углубление метрики чтоб посчитать её эффективность

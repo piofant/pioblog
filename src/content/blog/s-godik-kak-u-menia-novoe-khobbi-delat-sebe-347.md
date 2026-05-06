@@ -3,7 +3,7 @@ title: 'С годик как у меня новое хобби — делать 
 pubDate: '2025-09-22'
 tgMessageId: 347
 heroImage: '/img/posts/2025-09-22-s-godik-kak-u-menia-novoe-khobbi-delat-sebe-347/photo_206@22-09-2025_22-34-59.jpg'
-tags: ['продакт', 'творчество', 'безумие']
+tags: ['творчество', 'whois']
 ---
 
 • я Вова 🔵

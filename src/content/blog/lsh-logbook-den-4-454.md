@@ -3,7 +3,7 @@ title: 'ЛШ logbook, день 4'
 pubDate: '2024-08-06'
 tgMessageId: 454
 heroImage: '/img/posts/2024-08-06-lsh-logbook-den-4-454/photo_1.jpg'
-tags: ['летняя школа']
+tags: ['летняя школа', 'рефлексия']
 ---
 
 ЛШ logbook, день 4

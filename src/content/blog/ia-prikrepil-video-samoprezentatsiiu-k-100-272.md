@@ -3,7 +3,7 @@ title: 'Я прикрепил видео-самопрезентацию к 100+ 
 pubDate: '2025-03-13'
 tgMessageId: 272
 heroImage: '/img/posts/2025-03-13-ia-prikrepil-video-samoprezentatsiiu-k-100-272/photo_142@13-03-2025_18-00-48.jpg'
-tags: ['продакт', 'карьера']
+tags: ['карьера', 'продакт']
 ---
 
 **Результаты и выводы**

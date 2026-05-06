@@ -3,7 +3,7 @@ title: 'Как в Авито и Ozon оценивают софты при най
 pubDate: '2024-12-15'
 tgMessageId: 243
 heroImage: '/img/posts/2024-12-15-kak-v-avito-i-ozon-otsenivaiut-softy-pri-naime-243/photo_120@15-12-2024_20-28-52.jpg'
-tags: ['продакт', 'карьера', 'вуз', 'рефлексия']
+tags: ['карьера', 'продакт', 'истории']
 ---
 
 Этой весной я сходил на:
