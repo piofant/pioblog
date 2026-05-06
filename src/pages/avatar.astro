@@ -152,14 +152,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 		<header class="cp-hero">
 			<h1>&gt; Vova Lutsenko · v1</h1>
-			<p>Моя цифровая 3D-личность. Танцую shuffle под трек из Cyberpunk 2077.</p>
-			<p><a href={`${base}/blog/`}>← в блог</a> · <a href={`${base}/`}>главная</a></p>
-			<div class="specs">three.js · gltf · avaturn.me · 4.8K триангуляций</div>
+			<p>Цифровая 3D-личность · хасл · фристайл</p>
+			<p><a href={`${base}/blog/`}>← в блог</a></p>
+			<div class="specs">three.js · gltf · avaturn.me</div>
 		</header>
 
-		<div class="cp-audio" id="cp-audio" hidden>
-			<button id="cp-play" aria-label="Включить звук">▶ play</button>
-			<span class="track" id="cp-track">— track</span>
+		<div class="cp-audio" id="cp-audio">
+			<button id="cp-play" aria-label="Запустить танец и музыку">▶ play</button>
+			<span class="track" id="cp-track">— Rat Boy & IBDY · Who's Ready for Tomorrow</span>
 		</div>
 
 		<a class="cp-back" href={`${base}/`}>← back</a>
@@ -217,20 +217,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			renderer.outputColorSpace = THREE.SRGBColorSpace;
 			renderer.toneMapping = THREE.ACESFilmicToneMapping;
-			renderer.toneMappingExposure = 1.1;
+			renderer.toneMappingExposure = 1.45;
 			stageRoot.appendChild(renderer.domElement);
 
-			// Освещение — мягкий fill + cyber-rim
-			const hemi = new THREE.HemisphereLight(0xb8d4ff, 0x101820, 0.45);
+			// Освещение — поярче чтобы лицо/тело хорошо читались + cyber-rim сзади
+			const hemi = new THREE.HemisphereLight(0xcfe2ff, 0x202428, 0.95);
 			scene.add(hemi);
-			const key = new THREE.DirectionalLight(0xffffff, 1.4);
-			key.position.set(2, 4, 3);
+			const key = new THREE.DirectionalLight(0xffffff, 2.4);
+			key.position.set(2.5, 4, 4);
 			scene.add(key);
-			const rim1 = new THREE.PointLight(0x00ff90, 1.4, 8);
-			rim1.position.set(-1.8, 1.5, -1.2);
+			const fill = new THREE.DirectionalLight(0xffffff, 1.0);
+			fill.position.set(-2, 2, 3);
+			scene.add(fill);
+			const rim1 = new THREE.PointLight(0x00ff90, 2.0, 10);
+			rim1.position.set(-1.8, 1.6, -1.4);
 			scene.add(rim1);
-			const rim2 = new THREE.PointLight(0xff3380, 1.0, 8);
-			rim2.position.set(1.8, 1.0, -1.5);
+			const rim2 = new THREE.PointLight(0xff3380, 1.4, 10);
+			rim2.position.set(1.8, 1.0, -1.6);
 			scene.add(rim2);
 
 			// Sci-fi ground — простая сетка
@@ -253,6 +256,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			controls.autoRotateSpeed = 0.6;
 
 			let mixer = null;
+			let danceAction = null;
 			const clock = new THREE.Clock();
 
 			setProgress(5, 'fetching model.glb...');
@@ -270,10 +274,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 						avatar.position.y -= box.min.y;
 						scene.add(avatar);
 
-						// Анимация (если есть в GLB)
+						// Анимация — играем по кнопке, не сразу. Включаем mixer
+						// чтобы Three.js перерисовывал bind-pose, но action в pause.
 						if (gltf.animations && gltf.animations.length) {
 							mixer = new THREE.AnimationMixer(avatar);
-							mixer.clipAction(gltf.animations[0]).play();
+							danceAction = mixer.clipAction(gltf.animations[0]);
+							danceAction.play();
+							danceAction.paused = true;
 						}
 
 						setProgress(100, 'ready');
@@ -314,29 +321,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			}
 			tick();
 
-			// === Audio ===
-			// GitHub Pages отдаёт 200 на 404 (fallback на 404.html), поэтому HEAD
-			// недостаточно — проверяем content-type. Только audio/* активирует плеер.
-			const trackPath = '/audio/cyberpunk-shuffle.mp3';
-			fetch(trackPath, { method: 'HEAD' }).then((r) => {
-				if (!r.ok) return;
-				const ct = (r.headers.get('content-type') || '').toLowerCase();
-				if (!ct.startsWith('audio/')) return;
-				audioEl.src = trackPath;
-				audioCtl.hidden = false;
-				trackEl.textContent = '— Cyberpunk shuffle';
-				let playing = false;
-				playBtn.addEventListener('click', () => {
-					if (playing) {
-						audioEl.pause();
-						playBtn.textContent = '▶ play';
-					} else {
-						audioEl.play().catch(() => {});
-						playBtn.textContent = '❚❚ pause';
-					}
-					playing = !playing;
-				});
-			}).catch(() => {});
+			// === Play button — стартует и танец, и музыку синхронно ===
+			audioEl.src = '/audio/cyberpunk-shuffle.mp3';
+			let playing = false;
+			playBtn.addEventListener('click', () => {
+				if (playing) {
+					if (danceAction) danceAction.paused = true;
+					audioEl.pause();
+					playBtn.textContent = '▶ play';
+					controls.autoRotate = true;
+				} else {
+					if (danceAction) danceAction.paused = false;
+					audioEl.play().catch((e) => console.warn('audio play blocked:', e));
+					playBtn.textContent = '❚❚ pause';
+					controls.autoRotate = false; // когда танцует — не крутим, чтоб видно было движения
+				}
+				playing = !playing;
+			});
 		</script>
 	</body>
 </html>
