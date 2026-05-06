@@ -1,0 +1,345 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_TITLE } from '../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead
+			title="Личный Кабинет · v2"
+			description={`Личный Кабинет v2 — ${SITE_TITLE}`}
+			image="/avatar_pio.png"
+		/>
+		<style>
+			* { box-sizing: border-box; }
+			html, body { margin: 0; padding: 0; height: 100%; background: #050608; color: #eaeaea; font-family: ui-monospace, 'SF Mono', Monaco, monospace; overflow: hidden; }
+			body { overscroll-behavior: none; }
+
+			.scene-stage {
+				position: fixed; inset: 0;
+				z-index: 0;
+				background: #0a0a0a;
+			}
+			canvas { display: block; }
+
+			.cp-loader {
+				position: fixed; inset: 0; z-index: 50;
+				background: #050608;
+				display: flex; align-items: center; justify-content: center;
+				transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+			}
+			.cp-loader.done { opacity: 0; visibility: hidden; }
+			.cp-loader .panel {
+				font-family: monospace;
+				font-size: 13px;
+				color: #00ff90;
+				text-shadow: 0 0 8px #00ff90;
+				display: flex; flex-direction: column; align-items: flex-start;
+				padding: 32px 40px;
+				border: 1px solid #00ff90;
+				box-shadow: 0 0 12px rgba(0, 255, 144, 0.35);
+				background: rgba(0, 0, 0, 0.6);
+				min-width: 320px;
+			}
+			.cp-loader .panel > div { margin-bottom: 14px; }
+			.cp-loader .panel > div:last-child { margin-bottom: 0; }
+			.cp-loader .bar { font-variant-numeric: tabular-nums; }
+			.cursor { display: inline-block; animation: blink 1s step-end infinite; }
+			@keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
+			/* Variant A — две floating-кнопки в углах:
+			   ▶ play  (top-right)   ← кабинет (bottom-left).
+			   Идентично на desktop и mobile. */
+			.cp-play-pill,
+			.cp-back {
+				position: fixed; z-index: 10;
+				font-family: monospace;
+				font-size: 13px;
+				padding: 10px 18px;
+				border-radius: 999px;
+				background: rgba(0, 0, 0, 0.6);
+				border: 1px solid rgba(0, 255, 144, 0.4);
+				color: #00ff90;
+				backdrop-filter: blur(4px);
+				cursor: pointer;
+				text-decoration: none;
+				transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+			}
+			.cp-play-pill:hover,
+			.cp-back:hover {
+				background: #00ff90;
+				color: #000;
+				border-color: #00ff90;
+			}
+			.cp-play-pill:active,
+			.cp-back:active { transform: scale(0.97); }
+
+			/* play — снизу-слева, кабинет — сверху-слева. Обе кнопки на одной
+			   стороне, не пересекаются с моделью на правой части сцены. */
+			.cp-play-pill {
+				bottom: 18px; left: 18px;
+				min-width: 110px;
+				text-align: center;
+				font-weight: 600;
+				letter-spacing: 0.04em;
+			}
+			.cp-back {
+				top: 18px; left: 18px;
+				font-size: 12px;
+				padding: 8px 14px;
+			}
+
+			.cp-error {
+				position: fixed; inset: 0; z-index: 60;
+				display: none; align-items: center; justify-content: center;
+				background: rgba(0, 0, 0, 0.85);
+				color: #ff5566;
+				font-family: monospace;
+				font-size: 14px;
+				text-align: center;
+				padding: 32px;
+			}
+			.cp-error.show { display: flex; }
+
+			@media (max-width: 640px) {
+				/* На мобиле — те же 2 кнопки слева, чуть компактнее */
+				.cp-play-pill {
+					bottom: 12px; left: 12px;
+					font-size: 12px;
+					padding: 8px 16px;
+					min-width: 96px;
+				}
+				.cp-back {
+					top: 12px; left: 12px;
+					font-size: 11px;
+					padding: 7px 12px;
+				}
+				.cp-loader .panel { min-width: 240px; padding: 20px 22px; font-size: 12px; }
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cp-loader" id="cp-loader">
+			<div class="panel">
+				<div>&gt; LOADING SCENE...</div>
+				<div class="bar">[<span id="cp-bar">░░░░░░░░░░░░░░░░░░░░</span>] <span id="cp-pct">0</span>%<span class="cursor">_</span></div>
+				<div id="cp-stage">&gt; init...</div>
+			</div>
+		</div>
+
+		<div class="scene-stage" id="cp-stage-root"></div>
+
+		<button class="cp-play-pill" id="cp-play" aria-label="play / pause">♫ ▶ play</button>
+		<a class="cp-back" href={`${base}/`}>← кабинет</a>
+
+		<div class="cp-error" id="cp-error">
+			<div>
+				<div>&gt; ERROR: failed to load avatar2.glb</div>
+				<div style="margin-top:12px;font-size:11px;opacity:0.7">проверь /3d/avatar2.glb и refresh</div>
+			</div>
+		</div>
+
+		<audio id="cp-audio-el" loop preload="auto"></audio>
+
+		<script type="importmap" is:inline>
+			{
+				"imports": {
+					"three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+					"three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+				}
+			}
+		</script>
+
+		<script type="module" is:inline>
+			import * as THREE from 'three';
+			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+			const loader = document.getElementById('cp-loader');
+			const bar = document.getElementById('cp-bar');
+			const pct = document.getElementById('cp-pct');
+			const stageMsg = document.getElementById('cp-stage');
+			const errorEl = document.getElementById('cp-error');
+			const playBtn = document.getElementById('cp-play');
+			const audioEl = document.getElementById('cp-audio-el');
+
+			function setProgress(p, msg) {
+				p = Math.max(0, Math.min(100, p));
+				const filled = Math.round((p / 100) * 20);
+				bar.textContent = '█'.repeat(filled) + '░'.repeat(20 - filled);
+				pct.textContent = String(Math.round(p));
+				if (msg) stageMsg.textContent = '> ' + msg;
+			}
+
+			const stageRoot = document.getElementById('cp-stage-root');
+			const scene = new THREE.Scene();
+			scene.background = new THREE.Color(0x0a0a0a);
+
+			// Mobile-aware antialias, pixelRatio И камера: на узких экранах
+			// чуть отодвигаем камеру (4.4 vs 3.5) — иначе аватар обрезается
+			// бутом в 50% экрана из-за вертикального аспекта.
+			const isMobile = window.innerWidth < 640 || /Android|iPhone|iPad/i.test(navigator.userAgent);
+			const cameraZ = isMobile ? 4.4 : 3.5;
+
+			// Camera: те же FOV/высота что у автора mein3d, Z варьируем по платформе
+			const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+			camera.position.set(0, 1.5, cameraZ);
+
+			const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: true });
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.outputColorSpace = THREE.SRGBColorSpace;
+			renderer.toneMapping = THREE.ACESFilmicToneMapping;
+			renderer.toneMappingExposure = 1.0;
+			stageRoot.appendChild(renderer.domElement);
+
+			// Environment: эквивалент <Environment preset="city" /> из drei у
+			// автора mein3d. RoomEnvironment — встроенный procedural HDRI без
+			// внешних загрузок, даёт PBR-материалам красивый ambient/reflection.
+			const pmrem = new THREE.PMREMGenerator(renderer);
+			scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+			// Свет — точно по схеме автора:
+			// 1) AmbientLight 0.4 — убирает «чёрные провалы» в тенях
+			const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+			scene.add(ambient);
+			// 2) Key — основной софтбокс спереди-сверху
+			const key = new THREE.DirectionalLight(0xffffff, 1.2);
+			key.position.set(2, 4, 3);
+			scene.add(key);
+			// 3) Холодный contre-jour сзади-слева — даёт объём
+			const fillCool = new THREE.DirectionalLight(0x8899ff, 0.4);
+			fillCool.position.set(-2, 2, -2);
+			scene.add(fillCool);
+			// Cyber rim сзади — атмосфера
+			const rim1 = new THREE.PointLight(0x00ff90, 1.8, 10);
+			rim1.position.set(-1.8, 1.6, -1.4);
+			scene.add(rim1);
+			const rim2 = new THREE.PointLight(0xff3380, 1.2, 10);
+			rim2.position.set(1.8, 1.0, -1.6);
+			scene.add(rim2);
+
+			// Sci-fi ground — простая сетка
+			const grid = new THREE.GridHelper(10, 20, 0x00ff90, 0x222629);
+			grid.position.y = 0;
+			grid.material.opacity = 0.35;
+			grid.material.transparent = true;
+			scene.add(grid);
+
+			const controls = new OrbitControls(camera, renderer.domElement);
+			controls.enablePan = false;
+			controls.minDistance = 1.4;
+			controls.maxDistance = 6;
+			controls.minPolarAngle = Math.PI * 0.15;
+			controls.maxPolarAngle = Math.PI * 0.6;
+			controls.target.set(0, 1.0, 0);
+			controls.enableDamping = true;
+			controls.dampingFactor = 0.06;
+			controls.autoRotate = true;
+			controls.autoRotateSpeed = 0.6;
+
+			// Два mixer'а — для wait-стейта и для dance. Переключаем visibility
+			// при play/pause (вместо паузы анимации).
+			let waitAvatar = null, danceAvatar = null;
+			let waitMixer = null, danceMixer = null;
+			let waitAction = null, danceAction = null;
+			const clock = new THREE.Clock();
+
+			function placeAtFloor(obj) {
+				const box = new THREE.Box3().setFromObject(obj);
+				const center = box.getCenter(new THREE.Vector3());
+				obj.position.x -= center.x;
+				obj.position.z -= center.z;
+				obj.position.y -= box.min.y;
+			}
+			function loadGLB(url) {
+				return new Promise((resolve, reject) => {
+					new GLTFLoader().load(url, resolve, undefined, reject);
+				});
+			}
+
+			(async () => {
+				try {
+					setProgress(10, 'loading wait pose...');
+					const waitGltf = await loadGLB('/3d/avatar2-wait.glb');
+					waitAvatar = waitGltf.scene;
+					placeAtFloor(waitAvatar);
+					scene.add(waitAvatar);
+					if (waitGltf.animations?.length) {
+						waitMixer = new THREE.AnimationMixer(waitAvatar);
+						waitAction = waitMixer.clipAction(waitGltf.animations[0]);
+						waitAction.play();
+					}
+
+					setProgress(50, 'loading dance...');
+					const danceGltf = await loadGLB('/3d/avatar2.glb');
+					danceAvatar = danceGltf.scene;
+					placeAtFloor(danceAvatar);
+					danceAvatar.visible = false; // скрыт до play
+					scene.add(danceAvatar);
+					if (danceGltf.animations?.length) {
+						danceMixer = new THREE.AnimationMixer(danceAvatar);
+						danceAction = danceMixer.clipAction(danceGltf.animations[0]);
+						// LoopPingPong — играет вперёд → назад → вперёд...
+						// Без рваного сброса в начало; визуально читается как
+						// бесшовный shuffle-цикл (вперёд-назад это органичное
+						// движение для танца).
+						danceAction.setLoop(THREE.LoopPingPong, Infinity);
+						danceAction.clampWhenFinished = false;
+						danceAction.play();
+						danceAction.paused = true;
+					}
+
+					setProgress(100, 'ready');
+					setTimeout(() => loader.classList.add('done'), 250);
+				} catch (e) {
+					console.error('load/parse error', e);
+					stageMsg.textContent = '> ERROR: ' + (e?.message || 'load failed');
+					errorEl.classList.add('show');
+				}
+			})();
+
+			window.addEventListener('resize', () => {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize(window.innerWidth, window.innerHeight);
+			});
+
+			function tick() {
+				requestAnimationFrame(tick);
+				const dt = clock.getDelta();
+				if (waitMixer && waitAvatar?.visible) waitMixer.update(dt);
+				if (danceMixer && danceAvatar?.visible) danceMixer.update(dt);
+				controls.update();
+				renderer.render(scene, camera);
+			}
+			tick();
+
+			// === Единственная play/pause кнопка — переключает wait↔dance + музыку ===
+			audioEl.src = '/audio/cyberpunk-shuffle.mp3';
+			let playing = false;
+			playBtn.addEventListener('click', () => {
+				if (playing) {
+					if (danceAction) danceAction.paused = true;
+					if (danceAvatar) danceAvatar.visible = false;
+					if (waitAvatar) waitAvatar.visible = true;
+					audioEl.pause();
+					playBtn.textContent = '♫ ▶ play';
+					controls.autoRotateSpeed = 0.6; // обычная скорость в idle
+				} else {
+					if (waitAvatar) waitAvatar.visible = false;
+					if (danceAvatar) danceAvatar.visible = true;
+					if (danceAction) danceAction.paused = false;
+					audioEl.play().catch((e) => console.warn('audio play blocked:', e));
+					playBtn.textContent = '♫ ❚❚ pause';
+					controls.autoRotateSpeed = 0.2; // медленнее во время танца, чтоб движения видно
+				}
+				playing = !playing;
+			});
+		</script>
+	</body>
+</html>
