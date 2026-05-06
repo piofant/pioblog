@@ -76,3 +76,14 @@ const finalOgTitle = ogTitle ?? title;
 <meta property="twitter:title" content={finalOgTitle} />
 <meta property="twitter:description" content={description} />
 {image && <meta property="twitter:image" content={new URL(image, Astro.url)} />}
+
+{/* GoatCounter — лёгкая privacy-first аналитика. Грузим только в проде,
+    чтоб локалка и preview-сборки не засоряли статистику. */}
+{import.meta.env.PROD && (
+	<script
+		is:inline
+		data-goatcounter="https://piofant.goatcounter.com/count"
+		async
+		src="//gc.zgo.at/count.js"
+	></script>
+)}
