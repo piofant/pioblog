@@ -9,8 +9,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <html lang="ru">
 	<head>
 		<BaseHead
-			title="3D-аватар"
-			description={`Цифровая 3D-личность — ${SITE_TITLE}`}
+			title="Личный Кабинет"
+			description={`Личный Кабинет — ${SITE_TITLE}`}
 			image="/avatar_pio.png"
 		/>
 		<style>
@@ -147,19 +147,31 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			.cp-error.show { display: flex; }
 
 			@media (max-width: 640px) {
+				/* На мобиле прячем хедер целиком — оставляем ТОЛЬКО play кнопку
+				   как floating сверху-справа. И back-link внизу-слева. */
 				.cp-hero {
-					top: 12px; left: 12px; right: 12px;
+					top: 12px; right: 12px;
+					left: auto;
 					max-width: none;
-					font-size: 11px;
-					padding: 8px 12px;
+					padding: 0;
+					background: none;
+					border: none;
+					backdrop-filter: none;
 				}
-				.cp-hero h1 { font-size: 12px; margin-bottom: 4px; }
-				.cp-hero p { margin: 2px 0; }
-				.cp-hero .specs { margin-top: 4px; font-size: 10px; }
-				.hero-play { font-size: 11px; padding: 6px 14px; margin: 6px 0 2px; }
-				.cp-loader .panel { min-width: 240px; padding: 20px 22px; font-size: 12px; }
-				.cp-audio { bottom: 12px; right: 12px; padding: 8px 16px; font-size: 13px; }
+				.cp-hero h1,
+				.cp-hero p,
+				.cp-hero .specs { display: none; }
+				.hero-play {
+					margin: 0;
+					font-size: 12px;
+					padding: 8px 18px;
+					background: rgba(0, 0, 0, 0.55);
+					backdrop-filter: blur(4px);
+				}
+				/* Нижнюю play-кнопку прячем — на мобиле управляем сверху */
+				.cp-audio { display: none; }
 				.cp-back { bottom: 12px; left: 12px; font-size: 11px; padding: 6px 10px; }
+				.cp-loader .panel { min-width: 240px; padding: 20px 22px; font-size: 12px; }
 			}
 		</style>
 	</head>
@@ -176,8 +188,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 		<header class="cp-hero">
 			<h1>&gt; Vova Lutsenko · v1</h1>
-			<p>Цифровая 3D-личность · хасл · фристайл</p>
-			<p><a href={`${base}/`}>← на сайт</a></p>
+			<p><a href={`${base}/`}>← кабинет</a></p>
 			<button class="hero-play" id="cp-play-hero" aria-label="play / pause">▶ play</button>
 		</header>
 
@@ -185,7 +196,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<button id="cp-play" aria-label="play / pause">▶ play</button>
 		</div>
 
-		<a class="cp-back" href={`${base}/`}>← back</a>
+		<a class="cp-back" href={`${base}/`}>← кабинет</a>
 
 		<div class="cp-error" id="cp-error">
 			<div>
@@ -233,13 +244,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			const scene = new THREE.Scene();
 			scene.background = new THREE.Color(0x0a0a0a);
 
-			// Camera: точно как у автора mein3d (FOV 45, [0, 1.5, 3.5])
-			const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-			camera.position.set(0, 1.5, 3.5);
-
-			// Mobile-aware antialias и pixelRatio: на узких экранах рендерим
-			// чуть проще, чтобы FPS на телефоне был ровным.
+			// Mobile-aware antialias, pixelRatio И камера: на узких экранах
+			// чуть отодвигаем камеру (4.4 vs 3.5) — иначе аватар обрезается
+			// бутом в 50% экрана из-за вертикального аспекта.
 			const isMobile = window.innerWidth < 640 || /Android|iPhone|iPad/i.test(navigator.userAgent);
+			const cameraZ = isMobile ? 4.4 : 3.5;
+
+			// Camera: те же FOV/высота что у автора mein3d, Z варьируем по платформе
+			const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+			camera.position.set(0, 1.5, cameraZ);
+
 			const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: true });
 			renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
 			renderer.setSize(window.innerWidth, window.innerHeight);
@@ -293,56 +307,60 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			controls.autoRotate = true;
 			controls.autoRotateSpeed = 0.6;
 
-			let mixer = null;
-			let danceAction = null;
+			// Два mixer'а — для wait-стейта и для dance. Переключаем visibility
+			// при play/pause (вместо паузы анимации).
+			let waitAvatar = null, danceAvatar = null;
+			let waitMixer = null, danceMixer = null;
+			let waitAction = null, danceAction = null;
 			const clock = new THREE.Clock();
 
-			setProgress(5, 'fetching model.glb...');
-			new GLTFLoader().load(
-				'/3d/avatar.glb',
-				(gltf) => {
-					try {
-						setProgress(90, 'parsing geometry...');
-						const avatar = gltf.scene;
-						// Центр + опускаем ноги на y=0
-						const box = new THREE.Box3().setFromObject(avatar);
-						const center = box.getCenter(new THREE.Vector3());
-						avatar.position.x -= center.x;
-						avatar.position.z -= center.z;
-						avatar.position.y -= box.min.y;
-						scene.add(avatar);
+			function placeAtFloor(obj) {
+				const box = new THREE.Box3().setFromObject(obj);
+				const center = box.getCenter(new THREE.Vector3());
+				obj.position.x -= center.x;
+				obj.position.z -= center.z;
+				obj.position.y -= box.min.y;
+			}
+			function loadGLB(url) {
+				return new Promise((resolve, reject) => {
+					new GLTFLoader().load(url, resolve, undefined, reject);
+				});
+			}
 
-						// Анимация — играем по кнопке, не сразу. Включаем mixer
-						// чтобы Three.js перерисовывал bind-pose, но action в pause.
-						if (gltf.animations && gltf.animations.length) {
-							mixer = new THREE.AnimationMixer(avatar);
-							danceAction = mixer.clipAction(gltf.animations[0]);
-							danceAction.play();
-							danceAction.paused = true;
-						}
+			(async () => {
+				try {
+					setProgress(10, 'loading wait pose...');
+					const waitGltf = await loadGLB('/3d/avatar-wait.glb');
+					waitAvatar = waitGltf.scene;
+					placeAtFloor(waitAvatar);
+					scene.add(waitAvatar);
+					if (waitGltf.animations?.length) {
+						waitMixer = new THREE.AnimationMixer(waitAvatar);
+						waitAction = waitMixer.clipAction(waitGltf.animations[0]);
+						waitAction.play();
+					}
 
-						setProgress(100, 'ready');
-						setTimeout(() => loader.classList.add('done'), 250);
-					} catch (e) {
-						console.error('parse error', e);
-						stageMsg.textContent = '> ERROR: ' + (e?.message || 'unknown');
+					setProgress(50, 'loading dance...');
+					const danceGltf = await loadGLB('/3d/avatar.glb');
+					danceAvatar = danceGltf.scene;
+					placeAtFloor(danceAvatar);
+					danceAvatar.visible = false; // скрыт до play
+					scene.add(danceAvatar);
+					if (danceGltf.animations?.length) {
+						danceMixer = new THREE.AnimationMixer(danceAvatar);
+						danceAction = danceMixer.clipAction(danceGltf.animations[0]);
+						danceAction.play();
+						danceAction.paused = true;
 					}
-				},
-				(xhr) => {
-					if (xhr.lengthComputable && xhr.total > 0) {
-						const p = 5 + (xhr.loaded / xhr.total) * 80;
-						setProgress(p, 'downloading... ' + (Math.round((xhr.loaded / 1024 / 1024) * 10) / 10) + 'MB');
-					} else {
-						// gzip/br compression: total часто = 0, считаем по факту
-						setProgress(50, 'downloading... ' + (Math.round((xhr.loaded / 1024 / 1024) * 10) / 10) + 'MB');
-					}
-				},
-				(err) => {
-					console.error('load error', err);
-					stageMsg.textContent = '> ERROR: ' + (err?.message || 'load failed');
+
+					setProgress(100, 'ready');
+					setTimeout(() => loader.classList.add('done'), 250);
+				} catch (e) {
+					console.error('load/parse error', e);
+					stageMsg.textContent = '> ERROR: ' + (e?.message || 'load failed');
 					errorEl.classList.add('show');
-				},
-			);
+				}
+			})();
 
 			window.addEventListener('resize', () => {
 				camera.aspect = window.innerWidth / window.innerHeight;
@@ -353,13 +371,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			function tick() {
 				requestAnimationFrame(tick);
 				const dt = clock.getDelta();
-				if (mixer) mixer.update(dt);
+				if (waitMixer && waitAvatar?.visible) waitMixer.update(dt);
+				if (danceMixer && danceAvatar?.visible) danceMixer.update(dt);
 				controls.update();
 				renderer.render(scene, camera);
 			}
 			tick();
 
-			// === Play button — стартует и танец, и музыку синхронно ===
+			// === Play button — переключает wait-pose ↔ dance + музыку ===
 			audioEl.src = '/audio/cyberpunk-shuffle.mp3';
 			const playBtnHero = document.getElementById('cp-play-hero');
 			let playing = false;
@@ -369,11 +388,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			}
 			function toggle() {
 				if (playing) {
+					// Pause: switch to wait pose, остановить музыку
 					if (danceAction) danceAction.paused = true;
+					if (danceAvatar) danceAvatar.visible = false;
+					if (waitAvatar) waitAvatar.visible = true;
 					audioEl.pause();
 					setBtnLabel('▶ play');
 					controls.autoRotate = true;
 				} else {
+					// Play: switch to dance pose, запустить музыку
+					if (waitAvatar) waitAvatar.visible = false;
+					if (danceAvatar) danceAvatar.visible = true;
 					if (danceAction) danceAction.paused = false;
 					audioEl.play().catch((e) => console.warn('audio play blocked:', e));
 					setBtnLabel('❚❚ pause');
