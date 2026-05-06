@@ -18,4 +18,5 @@ export const SERIES: Record<string, SeriesEntry> = {
 	'observer-travels': { name: 'Путешествия в режиме наблюдателя' },
 	'psaiko-monetization': { name: '#сторителл про монетизацию Псайко' },
 	'school-grade-10': { name: 'Моё первое полугодие 10 класса' },
+	'dbt-practice': { name: 'Практика навыков ДБТ' },
 };

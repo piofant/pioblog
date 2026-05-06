@@ -1,7 +1,7 @@
 ---
 title: 'Написал про сильное чувство любви на итоговом сочинении'
 pubDate: '2021-12-01'
-tags: ['школа', 'истории']
+tags: ['школа', 'истории', 'рефлексия']
 heroImage: '/img/og/gradients/final-russian-lang-school-essay.png'
 ---
 

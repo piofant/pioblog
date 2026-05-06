@@ -50,47 +50,65 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			.cursor { display: inline-block; animation: blink 1s step-end infinite; }
 			@keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
 
-			/* Variant A — две floating-кнопки в углах:
-			   ▶ play  (top-right)   ← кабинет (bottom-left).
-			   Идентично на desktop и mobile. */
+			/* Two corner buttons (left side):
+			   ▶ play (top-left, primary)   ← кабинет (bottom-left, secondary).
+			   Play визуально доминирует — это ключевое действие сцены. */
 			.cp-play-pill,
 			.cp-back {
 				position: fixed; z-index: 10;
 				font-family: monospace;
-				font-size: 13px;
-				padding: 10px 18px;
 				border-radius: 999px;
-				background: rgba(0, 0, 0, 0.6);
-				border: 1px solid rgba(0, 255, 144, 0.4);
-				color: #00ff90;
-				backdrop-filter: blur(4px);
 				cursor: pointer;
 				text-decoration: none;
-				transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+				transition: background 0.15s, color 0.15s, border-color 0.15s,
+				            transform 0.15s, box-shadow 0.25s;
 			}
-			.cp-play-pill:hover,
+			.cp-play-pill {
+				top: 18px; left: 18px;
+				min-width: 130px;
+				text-align: center;
+				font-size: 15px;
+				font-weight: 700;
+				letter-spacing: 0.05em;
+				padding: 13px 24px;
+				background: linear-gradient(180deg, #00ff90 0%, #00cc73 100%);
+				color: #001b10;
+				border: 1px solid #00ff90;
+				box-shadow:
+					0 0 24px rgba(0, 255, 144, 0.55),
+					0 0 4px rgba(0, 255, 144, 0.9) inset,
+					0 4px 16px rgba(0, 0, 0, 0.4);
+			}
+			.cp-play-pill:hover {
+				transform: translateY(-1px) scale(1.02);
+				box-shadow:
+					0 0 32px rgba(0, 255, 144, 0.75),
+					0 0 4px rgba(0, 255, 144, 1) inset,
+					0 6px 20px rgba(0, 0, 0, 0.45);
+			}
+			.cp-play-pill:active { transform: scale(0.97); }
+			@keyframes play-pulse {
+				0%, 100% { box-shadow: 0 0 24px rgba(0, 255, 144, 0.55), 0 0 4px rgba(0, 255, 144, 0.9) inset, 0 4px 16px rgba(0, 0, 0, 0.4); }
+				50%      { box-shadow: 0 0 36px rgba(0, 255, 144, 0.85), 0 0 4px rgba(0, 255, 144, 1) inset, 0 4px 16px rgba(0, 0, 0, 0.4); }
+			}
+			.cp-play-pill { animation: play-pulse 2.4s ease-in-out infinite; }
+			.cp-play-pill.is-playing { animation: none; }
+
+			.cp-back {
+				bottom: 18px; left: 18px;
+				font-size: 12px;
+				padding: 7px 13px;
+				background: rgba(0, 0, 0, 0.5);
+				border: 1px solid rgba(0, 255, 144, 0.3);
+				color: rgba(0, 255, 144, 0.8);
+				backdrop-filter: blur(4px);
+			}
 			.cp-back:hover {
-				background: #00ff90;
-				color: #000;
+				background: rgba(0, 0, 0, 0.7);
+				color: #00ff90;
 				border-color: #00ff90;
 			}
-			.cp-play-pill:active,
 			.cp-back:active { transform: scale(0.97); }
-
-			/* play — снизу-слева, кабинет — сверху-слева. Обе кнопки на одной
-			   стороне, не пересекаются с моделью на правой части сцены. */
-			.cp-play-pill {
-				bottom: 18px; left: 18px;
-				min-width: 110px;
-				text-align: center;
-				font-weight: 600;
-				letter-spacing: 0.04em;
-			}
-			.cp-back {
-				top: 18px; left: 18px;
-				font-size: 12px;
-				padding: 8px 14px;
-			}
 
 			.cp-error {
 				position: fixed; inset: 0; z-index: 60;
@@ -105,17 +123,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			.cp-error.show { display: flex; }
 
 			@media (max-width: 640px) {
-				/* На мобиле — те же 2 кнопки слева, чуть компактнее */
 				.cp-play-pill {
-					bottom: 12px; left: 12px;
-					font-size: 12px;
-					padding: 8px 16px;
-					min-width: 96px;
+					top: 12px; left: 12px;
+					font-size: 13px;
+					padding: 11px 20px;
+					min-width: 110px;
 				}
 				.cp-back {
-					top: 12px; left: 12px;
+					bottom: 12px; left: 12px;
 					font-size: 11px;
-					padding: 7px 12px;
+					padding: 6px 11px;
 				}
 				.cp-loader .panel { min-width: 240px; padding: 20px 22px; font-size: 12px; }
 			}
@@ -329,14 +346,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					if (waitAvatar) waitAvatar.visible = true;
 					audioEl.pause();
 					playBtn.textContent = '♫ ▶ play';
-					controls.autoRotateSpeed = 0.6; // обычная скорость в idle
+					playBtn.classList.remove('is-playing');
+					controls.autoRotateSpeed = 0.6;
 				} else {
 					if (waitAvatar) waitAvatar.visible = false;
 					if (danceAvatar) danceAvatar.visible = true;
 					if (danceAction) danceAction.paused = false;
 					audioEl.play().catch((e) => console.warn('audio play blocked:', e));
 					playBtn.textContent = '♫ ❚❚ pause';
-					controls.autoRotateSpeed = 0.2; // медленнее во время танца, чтоб движения видно
+					playBtn.classList.add('is-playing');
+					controls.autoRotateSpeed = 0.2;
 				}
 				playing = !playing;
 			});

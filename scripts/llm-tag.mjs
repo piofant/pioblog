@@ -150,7 +150,7 @@ async function callLLM(title, subtitle, body, attempt = 1) {
 				],
 				response_format: { type: 'json_object' },
 				temperature: 0,
-				max_tokens: 200,
+				max_tokens: 500,
 			}),
 		});
 	} catch (e) {
