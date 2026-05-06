@@ -198,13 +198,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			const audioEl = document.getElementById('cp-audio-el');
 
 			function setProgress(p, msg) {
+				p = Math.max(0, Math.min(100, p));
 				const filled = Math.round((p / 100) * 20);
 				bar.textContent = '█'.repeat(filled) + '░'.repeat(20 - filled);
 				pct.textContent = String(Math.round(p));
 				if (msg) stageMsg.textContent = '> ' + msg;
 			}
 
-			const root = document.getElementById('cp-stage-root');
+			const stageRoot = document.getElementById('cp-stage-root');
 			const scene = new THREE.Scene();
 			scene.background = null;
 
@@ -217,7 +218,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			renderer.outputColorSpace = THREE.SRGBColorSpace;
 			renderer.toneMapping = THREE.ACESFilmicToneMapping;
 			renderer.toneMappingExposure = 1.1;
-			root.appendChild(renderer.domElement);
+			stageRoot.appendChild(renderer.domElement);
 
 			// Освещение — мягкий fill + cyber-rim
 			const hemi = new THREE.HemisphereLight(0xb8d4ff, 0x101820, 0.45);
@@ -258,35 +259,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			new GLTFLoader().load(
 				'/3d/avatar.glb',
 				(gltf) => {
-					setProgress(85, 'parsing geometry...');
-					const root = gltf.scene;
-					// Центр и масштаб — высота персонажа ~1.8м, ставим ноги на y=0
-					const box = new THREE.Box3().setFromObject(root);
-					const size = box.getSize(new THREE.Vector3());
-					const center = box.getCenter(new THREE.Vector3());
-					root.position.x -= center.x;
-					root.position.z -= center.z;
-					root.position.y -= box.min.y;
-					scene.add(root);
+					try {
+						setProgress(90, 'parsing geometry...');
+						const avatar = gltf.scene;
+						// Центр + опускаем ноги на y=0
+						const box = new THREE.Box3().setFromObject(avatar);
+						const center = box.getCenter(new THREE.Vector3());
+						avatar.position.x -= center.x;
+						avatar.position.z -= center.z;
+						avatar.position.y -= box.min.y;
+						scene.add(avatar);
 
-					// Анимации (Avaturn модели обычно идут с idle/dance)
-					if (gltf.animations && gltf.animations.length) {
-						mixer = new THREE.AnimationMixer(root);
-						const action = mixer.clipAction(gltf.animations[0]);
-						action.play();
+						// Анимация (если есть в GLB)
+						if (gltf.animations && gltf.animations.length) {
+							mixer = new THREE.AnimationMixer(avatar);
+							mixer.clipAction(gltf.animations[0]).play();
+						}
+
+						setProgress(100, 'ready');
+						setTimeout(() => loader.classList.add('done'), 250);
+					} catch (e) {
+						console.error('parse error', e);
+						stageMsg.textContent = '> ERROR: ' + (e?.message || 'unknown');
 					}
-
-					setProgress(100, 'ready');
-					setTimeout(() => loader.classList.add('done'), 250);
 				},
 				(xhr) => {
-					if (xhr.lengthComputable) {
+					if (xhr.lengthComputable && xhr.total > 0) {
 						const p = 5 + (xhr.loaded / xhr.total) * 80;
-						setProgress(p, 'downloading model... ' + Math.round((xhr.loaded / 1024 / 1024) * 10) / 10 + 'MB');
+						setProgress(p, 'downloading... ' + (Math.round((xhr.loaded / 1024 / 1024) * 10) / 10) + 'MB');
+					} else {
+						// gzip/br compression: total часто = 0, считаем по факту
+						setProgress(50, 'downloading... ' + (Math.round((xhr.loaded / 1024 / 1024) * 10) / 10) + 'MB');
 					}
 				},
 				(err) => {
-					console.error(err);
+					console.error('load error', err);
+					stageMsg.textContent = '> ERROR: ' + (err?.message || 'load failed');
 					errorEl.classList.add('show');
 				},
 			);
