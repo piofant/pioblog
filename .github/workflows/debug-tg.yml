@@ -29,6 +29,10 @@ jobs:
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_SESSION_STRING: ${{ secrets.TG_SESSION_STRING }}
         run: cd scripts && node backfill-missing-tg.mjs
+      - name: Auto-tag posts without tags
+        # То же, что в sync-telegram.yml — иначе backfill-нутые посты приедут
+        # без тегов (sync workflow тегает только то, что сам же синкает).
+        run: cd scripts && node suggest-tags.mjs --all-missing --auto-apply
       - name: Commit if changed
         run: |
           git config user.name "tg-backfill-bot"

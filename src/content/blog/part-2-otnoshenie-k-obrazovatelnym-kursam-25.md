@@ -1,6 +1,7 @@
 ---
 title: 'part 2: Отношение к образовательным курсам.'
 pubDate: '2020-12-27'
+tags: ['танцы', 'рефлексия', 'контактная импровизация']
 tgMessageId: 25
 heroImage: '/img/og/gradients/part-2-otnoshenie-k-obrazovatelnym-kursam-25.png'
 series: 'school-grade-10'

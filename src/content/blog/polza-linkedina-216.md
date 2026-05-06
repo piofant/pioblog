@@ -1,6 +1,7 @@
 ---
 title: 'Польза линкедина'
 pubDate: '2024-10-21'
+tags: ['творчество', 'продакт', 'нетворкинг']
 tgMessageId: 216
 heroImage: '/img/posts/2024-10-21-polza-linkedina-216/photo_102@21-10-2024_12-27-49.jpg'
 series: 'linkedin-value'

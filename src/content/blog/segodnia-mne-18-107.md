@@ -1,6 +1,7 @@
 ---
 title: 'Сегодня мне 18.'
 pubDate: '2022-06-07'
+tags: ['психология', 'рефлексия', 'истории', 'творчество']
 tgMessageId: 107
 heroImage: '/img/og/gradients/segodnia-mne-18-107.png'
 
