@@ -25,7 +25,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import https from 'node:https';
 import { fileURLToPath } from 'node:url';
-import { fixBody as fixParagraphs } from './lib/markdown.mjs';
+import { fixBody as fixParagraphs, extractTitleAndKicker, dropDuplicateTitleFromBody } from './lib/markdown.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -262,36 +262,16 @@ async function processPost(msg, existing) {
 
 	const date = new Date(msg.date * 1000);
 	const pubDate = date.toISOString().slice(0, 10);
-	// Title — первая строка ПЛЕЙНОГО текста. Если она заканчивается на kicker
-	// `[часть N]` / `[N/M]` / `[анонс]` etc. — отрезаем его в subtitle.
-	// Это убирает мусор типа `[часть 1\n]` из title и даёт visual subtitle.
-	const plain = text || '';
-	const rawFirstLine = (plain.split('\n')[0] || '').slice(0, 200);
-	let title = rawFirstLine;
-	let subtitle = '';
-	const kickerMatch = rawFirstLine.match(/^(.*?)\s*\[([^\[\]]{1,40})\]\s*$/);
-	if (kickerMatch && kickerMatch[1].trim()) {
-		title = kickerMatch[1].trim();
-		// Чистим литеральные `\n` / `\r` / лишние пробелы — авторы иногда так
-		// маркируют незавершённую серию (`часть 1\n` — где N это placeholder).
-		subtitle = kickerMatch[2].replace(/\\[nrt]/g, '').replace(/\s+/g, ' ').trim();
-	}
+	// Title — первая строка ПЛЕЙНОГО текста. Логика kicker-extract +
+	// dedup-первого-параграфа вынесена в lib/markdown.mjs (см.
+	// extractTitleAndKicker / dropDuplicateTitleFromBody) чтобы её использовали
+	// все скрипты, генерящие посты из TG (sync, backfill).
+	const rawFirstLine = ((text || '').split('\n')[0] || '').slice(0, 200);
+	let { title, subtitle } = extractTitleAndKicker(rawFirstLine);
 	if (!title.trim()) title = `Запись ${msg.message_id}`;
 	title = title.slice(0, 120);
 
-	// Если первый параграф body дублирует title (с/без markdown-обрамления и
-	// kicker-скобок) — выкидываем его, чтоб title не повторялся в excerpt'e.
-	const cleanForCompare = (s) => s
-		.replace(/\*+/g, '')
-		.replace(/\\[nrt]/g, '')
-		.replace(/\[[^\[\]]{1,40}\]/g, '')
-		.replace(/\s+/g, ' ')
-		.trim()
-		.toLowerCase();
-	const firstBodyPara = (body.split(/\n{2,}/)[0] || '').trim();
-	if (firstBodyPara && cleanForCompare(firstBodyPara).startsWith(cleanForCompare(title).slice(0, 40))) {
-		body = body.replace(/^[\s\S]*?(\n{2,}|$)/, '').trimStart();
-	}
+	body = dropDuplicateTitleFromBody(body, title);
 
 	const fm = buildFrontmatter({
 		title,

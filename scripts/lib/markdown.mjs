@@ -78,3 +78,43 @@ export function unwrapBracketKickers(body) {
 export function fixBody(body) {
 	return paragraphize(splitMultilineEmphasis(body));
 }
+
+/* Title processing — общий для всех скриптов, генерящих посты из TG.
+   На входе: первая строка плейн-текста сообщения. На выходе:
+     { title, subtitle } где
+       - title очищен от литеральных `\n` / `\r` / `\t` (авторы иногда
+         ставят их прямо в текст как placeholder для "часть N");
+       - subtitle — содержимое kicker-скобок в конце строки `[часть 2]` /
+         `[анонс]` etc., если есть. Скобки убираются из title.
+   Используется sync-telegram.js и backfill-missing-tg.mjs — DRY чтоб новые
+   скрипты бэкфилла не теряли эту нормализацию. */
+export function extractTitleAndKicker(rawFirstLine) {
+	const cleanLiteralEscapes = (s) => s.replace(/\\[nrt]/g, '').replace(/\s+/g, ' ').trim();
+	let title = rawFirstLine || '';
+	let subtitle = '';
+	const m = title.match(/^(.*?)\s*\[([^\[\]]{1,40})\]\s*$/);
+	if (m && m[1].trim()) {
+		title = m[1].trim();
+		subtitle = cleanLiteralEscapes(m[2]);
+	}
+	title = cleanLiteralEscapes(title);
+	return { title, subtitle };
+}
+
+/* Если первый параграф body дублирует title (с/без markdown-обрамления и
+   kicker-скобок) — выкидываем его. Иначе title повторится в excerpt'e. */
+export function dropDuplicateTitleFromBody(body, title) {
+	const cleanForCompare = (s) => s
+		.replace(/\*+/g, '')
+		.replace(/\\[nrt]/g, '')
+		.replace(/\[[^\[\]]{1,40}\]/g, '')
+		.replace(/\s+/g, ' ')
+		.trim()
+		.toLowerCase();
+	const firstBodyPara = (body.split(/\n{2,}/)[0] || '').trim();
+	const titleKey = cleanForCompare(title).slice(0, 40);
+	if (firstBodyPara && titleKey && cleanForCompare(firstBodyPara).startsWith(titleKey)) {
+		return body.replace(/^[\s\S]*?(\n{2,}|$)/, '').trimStart();
+	}
+	return body;
+}

@@ -14,7 +14,7 @@ import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TelegramClient, Api } from 'telegram';
 import { StringSession } from 'telegram/sessions/index.js';
-import { fixBody } from './lib/markdown.mjs';
+import { fixBody, extractTitleAndKicker, dropDuplicateTitleFromBody } from './lib/markdown.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -127,12 +127,17 @@ let written = 0;
 for (const msg of candidates) {
 	const text = msg.message || '';
 	const entities = msg.entities || [];
-	const body = fixBody(entitiesToMarkdown(text, entities));
-	const firstLine = text.split('\n')[0].trim().slice(0, 120) || `tg-${msg.id}`;
-	const titleEscaped = firstLine.replace(/'/g, "''");
+	let body = fixBody(entitiesToMarkdown(text, entities));
+	const rawFirstLine = (text.split('\n')[0] || '').slice(0, 200);
+	let { title, subtitle } = extractTitleAndKicker(rawFirstLine);
+	if (!title.trim()) title = `tg-${msg.id}`;
+	title = title.slice(0, 120);
+	body = dropDuplicateTitleFromBody(body, title);
+	const titleEscaped = title.replace(/'/g, "''");
+	const subtitleEscaped = subtitle ? subtitle.replace(/'/g, "''") : '';
 
 	// Slug — slugified первой строки + tg id
-	const slug = `${slugifyTitle(firstLine)}-${msg.id}`;
+	const slug = `${slugifyTitle(title)}-${msg.id}`;
 	const file = join(BLOG_DIR, `${slug}.md`);
 	const date = new Date(msg.date * 1000).toISOString().slice(0, 10);
 
@@ -163,9 +168,12 @@ for (const msg of candidates) {
 	const fmLines = [
 		'---',
 		`title: '${titleEscaped}'`,
+	];
+	if (subtitleEscaped) fmLines.push(`subtitle: '${subtitleEscaped}'`);
+	fmLines.push(
 		`pubDate: '${date}'`,
 		`tgMessageId: ${msg.id}`,
-	];
+	);
 	if (heroImage) fmLines.push(`heroImage: '${heroImage}'`);
 	fmLines.push('---', '', body);
 	const content = fmLines.join('\n');

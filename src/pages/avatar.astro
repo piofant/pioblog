@@ -315,10 +315,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			tick();
 
 			// === Audio ===
-			// Fetch HEAD проверка — если файл есть, показываем плеер; если нет — скрываем.
+			// GitHub Pages отдаёт 200 на 404 (fallback на 404.html), поэтому HEAD
+			// недостаточно — проверяем content-type. Только audio/* активирует плеер.
 			const trackPath = '/audio/cyberpunk-shuffle.mp3';
 			fetch(trackPath, { method: 'HEAD' }).then((r) => {
 				if (!r.ok) return;
+				const ct = (r.headers.get('content-type') || '').toLowerCase();
+				if (!ct.startsWith('audio/')) return;
 				audioEl.src = trackPath;
 				audioCtl.hidden = false;
 				trackEl.textContent = '— Cyberpunk shuffle';
