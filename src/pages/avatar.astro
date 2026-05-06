@@ -82,6 +82,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				font-size: 11px;
 				opacity: 0.85;
 			}
+			.hero-play {
+				display: inline-block;
+				margin: 8px 0 4px;
+				background: rgba(0, 255, 144, 0.12);
+				border: 1px solid #00ff90;
+				color: #00ff90;
+				font: inherit; font-size: 12px;
+				padding: 5px 14px;
+				border-radius: 999px;
+				cursor: pointer;
+				transition: background 0.15s, color 0.15s, transform 0.15s;
+			}
+			.hero-play:hover { background: #00ff90; color: #000; }
+			.hero-play:active { transform: scale(0.97); }
 
 			/* Audio control (bottom-right, маленький pill) */
 			.cp-audio {
@@ -133,9 +147,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			.cp-error.show { display: flex; }
 
 			@media (max-width: 640px) {
-				.cp-hero { max-width: calc(100% - 32px); font-size: 11px; }
-				.cp-hero h1 { font-size: 13px; }
-				.cp-loader .panel { min-width: 260px; padding: 24px 28px; }
+				.cp-hero {
+					top: 12px; left: 12px; right: 12px;
+					max-width: none;
+					font-size: 11px;
+					padding: 8px 12px;
+				}
+				.cp-hero h1 { font-size: 12px; margin-bottom: 4px; }
+				.cp-hero p { margin: 2px 0; }
+				.cp-hero .specs { margin-top: 4px; font-size: 10px; }
+				.hero-play { font-size: 11px; padding: 6px 14px; margin: 6px 0 2px; }
+				.cp-loader .panel { min-width: 240px; padding: 20px 22px; font-size: 12px; }
+				.cp-audio { bottom: 12px; right: 12px; padding: 8px 16px; font-size: 13px; }
+				.cp-back { bottom: 12px; left: 12px; font-size: 11px; padding: 6px 10px; }
 			}
 		</style>
 	</head>
@@ -153,13 +177,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<header class="cp-hero">
 			<h1>&gt; Vova Lutsenko · v1</h1>
 			<p>Цифровая 3D-личность · хасл · фристайл</p>
-			<p><a href={`${base}/blog/`}>← в блог</a></p>
+			<p><a href={`${base}/`}>← на сайт</a></p>
+			<button class="hero-play" id="cp-play-hero" aria-label="play / pause">▶ play</button>
 			<div class="specs">three.js · gltf · avaturn.me</div>
 		</header>
 
 		<div class="cp-audio" id="cp-audio">
-			<button id="cp-play" aria-label="Запустить танец и музыку">▶ play</button>
-			<span class="track" id="cp-track">— Rat Boy & IBDY · Who's Ready for Tomorrow</span>
+			<button id="cp-play" aria-label="play / pause">▶ play</button>
 		</div>
 
 		<a class="cp-back" href={`${base}/`}>← back</a>
@@ -212,27 +236,40 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
 			camera.position.set(0, 1.5, 3.6);
 
-			const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			// Mobile-aware antialias и pixelRatio: на узких экранах рендерим
+			// чуть проще, чтобы FPS на телефоне был ровным.
+			const isMobile = window.innerWidth < 640 || /Android|iPhone|iPad/i.test(navigator.userAgent);
+			const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: true });
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			renderer.outputColorSpace = THREE.SRGBColorSpace;
 			renderer.toneMapping = THREE.ACESFilmicToneMapping;
-			renderer.toneMappingExposure = 1.45;
+			renderer.toneMappingExposure = 1.7;
 			stageRoot.appendChild(renderer.domElement);
 
-			// Освещение — поярче чтобы лицо/тело хорошо читались + cyber-rim сзади
-			const hemi = new THREE.HemisphereLight(0xcfe2ff, 0x202428, 0.95);
+			// Освещение: сильный front + ambient, лицо хорошо читается;
+			// сзади cyber-rim в зелёный/розовый — для атмосферы.
+			const hemi = new THREE.HemisphereLight(0xdfe9ff, 0x303338, 1.4);
 			scene.add(hemi);
-			const key = new THREE.DirectionalLight(0xffffff, 2.4);
-			key.position.set(2.5, 4, 4);
+			const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+			scene.add(ambient);
+			// Key spotlight спереди-сверху — направлен прямо на лицо
+			const key = new THREE.DirectionalLight(0xffffff, 2.8);
+			key.position.set(1.5, 3.2, 3.5);
 			scene.add(key);
-			const fill = new THREE.DirectionalLight(0xffffff, 1.0);
-			fill.position.set(-2, 2, 3);
-			scene.add(fill);
-			const rim1 = new THREE.PointLight(0x00ff90, 2.0, 10);
+			// Front fill — снимает контраст теней на лице/торсе
+			const frontFill = new THREE.DirectionalLight(0xffffff, 1.4);
+			frontFill.position.set(0, 1.6, 4);
+			scene.add(frontFill);
+			// Side fill слева, чуть прохладный
+			const sideFill = new THREE.DirectionalLight(0xeaf2ff, 1.0);
+			sideFill.position.set(-2.5, 2.2, 2);
+			scene.add(sideFill);
+			// Cyber rim сзади — атмосфера
+			const rim1 = new THREE.PointLight(0x00ff90, 1.8, 10);
 			rim1.position.set(-1.8, 1.6, -1.4);
 			scene.add(rim1);
-			const rim2 = new THREE.PointLight(0xff3380, 1.4, 10);
+			const rim2 = new THREE.PointLight(0xff3380, 1.2, 10);
 			rim2.position.set(1.8, 1.0, -1.6);
 			scene.add(rim2);
 
@@ -323,21 +360,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 			// === Play button — стартует и танец, и музыку синхронно ===
 			audioEl.src = '/audio/cyberpunk-shuffle.mp3';
+			const playBtnHero = document.getElementById('cp-play-hero');
 			let playing = false;
-			playBtn.addEventListener('click', () => {
+			function setBtnLabel(label) {
+				playBtn.textContent = label;
+				if (playBtnHero) playBtnHero.textContent = label;
+			}
+			function toggle() {
 				if (playing) {
 					if (danceAction) danceAction.paused = true;
 					audioEl.pause();
-					playBtn.textContent = '▶ play';
+					setBtnLabel('▶ play');
 					controls.autoRotate = true;
 				} else {
 					if (danceAction) danceAction.paused = false;
 					audioEl.play().catch((e) => console.warn('audio play blocked:', e));
-					playBtn.textContent = '❚❚ pause';
-					controls.autoRotate = false; // когда танцует — не крутим, чтоб видно было движения
+					setBtnLabel('❚❚ pause');
+					controls.autoRotate = false; // во время танца — не крутим, чтоб движения было видно
 				}
 				playing = !playing;
-			});
+			}
+			playBtn.addEventListener('click', toggle);
+			playBtnHero?.addEventListener('click', toggle);
 		</script>
 	</body>
 </html>
