@@ -389,11 +389,6 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 		font-size: 0.75rem;
 		letter-spacing: 0.03em;
 	}
-	.site-header nav .nav-dd-menu {
-		left: 0;
-		transform: none;
-		min-width: 180px;
-	}
 	/* keep search + theme on the right of brand row */
 	.search-btn, .theme-toggle { margin-left: 0; }
 }
@@ -467,6 +462,25 @@ main.feed    { max-width: var(--col-feed);   margin: 0 auto; padding: 2rem 1rem 
 	color: var(--text-dark);
 }
 .site-header nav .nav-dd-menu a.external:hover::after { color: var(--link); }
+
+/* Мобильный позиционирующий override — должен идти ПОСЛЕ base-правила
+   `.nav-dd-menu`, иначе теряется по source order и десктопное центрирование
+   (left:50% + translateX(-50%)) уносит дропдаун за левый край экрана. */
+@media (max-width: 760px) {
+	.site-header nav .nav-dd-menu {
+		left: 0;
+		right: auto;
+		transform: none;
+		min-width: 180px;
+		max-width: calc(100vw - 24px);
+	}
+	/* Второй дропдаун (творчество) ближе к правому краю — выравниваем по правому,
+	   чтобы не уезжал за правый край. */
+	.site-header nav .nav-dd:nth-of-type(2) .nav-dd-menu {
+		left: auto;
+		right: 0;
+	}
+}
 
 /* FOOTER */
 .site-footer {
