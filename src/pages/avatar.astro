@@ -242,11 +242,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			controls.autoRotate = true;
 			controls.autoRotateSpeed = 0.6;
 
-			// Два mixer'а — для wait-стейта и для dance. Переключаем visibility
-			// при play/pause (вместо паузы анимации).
-			let waitAvatar = null, danceAvatar = null;
-			let waitMixer = null, danceMixer = null;
-			let waitAction = null, danceAction = null;
+			// 3 стейта — wait (initial), dance (play), pause (после паузы).
+			// У каждого свой mixer + action, переключаем через .visible.
+			// pause-стейт — отдельная анимация, не возврат к wait, чтобы
+			// после танца была своя «отдыхающая» поза.
+			let waitAvatar = null, danceAvatar = null, pauseAvatar = null;
+			let waitMixer = null, danceMixer = null, pauseMixer = null;
+			let waitAction = null, danceAction = null, pauseAction = null;
 			const clock = new THREE.Clock();
 
 			function placeAtFloor(obj) {
@@ -275,23 +277,33 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 						waitAction.play();
 					}
 
-					setProgress(50, 'loading dance...');
+					setProgress(45, 'loading dance...');
 					const danceGltf = await loadGLB('/3d/avatar.glb');
 					danceAvatar = danceGltf.scene;
 					placeAtFloor(danceAvatar);
-					danceAvatar.visible = false; // скрыт до play
+					danceAvatar.visible = false;
 					scene.add(danceAvatar);
 					if (danceGltf.animations?.length) {
 						danceMixer = new THREE.AnimationMixer(danceAvatar);
 						danceAction = danceMixer.clipAction(danceGltf.animations[0]);
-						// LoopPingPong — играет вперёд → назад → вперёд...
-						// Без рваного сброса в начало; визуально читается как
-						// бесшовный shuffle-цикл (вперёд-назад это органичное
-						// движение для танца).
+						// LoopPingPong — играет вперёд → назад → вперёд... без
+						// рваного сброса. Для shuffle-танца органично читается.
 						danceAction.setLoop(THREE.LoopPingPong, Infinity);
 						danceAction.clampWhenFinished = false;
 						danceAction.play();
 						danceAction.paused = true;
+					}
+
+					setProgress(75, 'loading pause pose...');
+					const pauseGltf = await loadGLB('/3d/avatar-pause.glb');
+					pauseAvatar = pauseGltf.scene;
+					placeAtFloor(pauseAvatar);
+					pauseAvatar.visible = false; // показываем только после паузы из танца
+					scene.add(pauseAvatar);
+					if (pauseGltf.animations?.length) {
+						pauseMixer = new THREE.AnimationMixer(pauseAvatar);
+						pauseAction = pauseMixer.clipAction(pauseGltf.animations[0]);
+						pauseAction.play();
 					}
 
 					setProgress(100, 'ready');
@@ -314,31 +326,40 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				const dt = clock.getDelta();
 				if (waitMixer && waitAvatar?.visible) waitMixer.update(dt);
 				if (danceMixer && danceAvatar?.visible) danceMixer.update(dt);
+				if (pauseMixer && pauseAvatar?.visible) pauseMixer.update(dt);
 				controls.update();
 				renderer.render(scene, camera);
 			}
 			tick();
 
-			// === Единственная play/pause кнопка — переключает wait↔dance + музыку ===
+			// === Play/Pause: 3 стейта — initial(wait) → dance → pause → dance → ...
+			// Первый клик из initial: wait → dance.
+			// Каждый следующий клик: dance ↔ pause.
+			// Возврата к wait после первого play нет — wait это «ещё не запускали».
 			audioEl.src = '/audio/cyberpunk-shuffle.mp3';
-			let playing = false;
+			let dancing = false;
+			let everPlayed = false;
 			playBtn.addEventListener('click', () => {
-				if (playing) {
+				if (dancing) {
+					// Pause: dance → pause-pose
 					if (danceAction) danceAction.paused = true;
 					if (danceAvatar) danceAvatar.visible = false;
-					if (waitAvatar) waitAvatar.visible = true;
+					if (pauseAvatar) pauseAvatar.visible = true;
 					audioEl.pause();
 					playBtn.textContent = '♫ ▶ play';
-					controls.autoRotateSpeed = 0.6; // обычная скорость в idle
+					controls.autoRotateSpeed = 0.6;
 				} else {
+					// Play: hide wait OR pause → show dance
 					if (waitAvatar) waitAvatar.visible = false;
+					if (pauseAvatar) pauseAvatar.visible = false;
 					if (danceAvatar) danceAvatar.visible = true;
 					if (danceAction) danceAction.paused = false;
 					audioEl.play().catch((e) => console.warn('audio play blocked:', e));
 					playBtn.textContent = '♫ ❚❚ pause';
-					controls.autoRotateSpeed = 0.2; // медленнее во время танца, чтоб движения видно
+					controls.autoRotateSpeed = 0.2; // медленнее, чтоб танец читался
+					everPlayed = true;
 				}
-				playing = !playing;
+				dancing = !dancing;
 			});
 		</script>
 	</body>
