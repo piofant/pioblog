@@ -50,89 +50,45 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			.cursor { display: inline-block; animation: blink 1s step-end infinite; }
 			@keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
 
-			/* Hero overlay (top-left) */
-			.cp-hero {
-				position: fixed; top: 16px; left: 16px;
-				z-index: 10;
-				font-family: monospace;
-				font-size: 12px;
-				color: #aef;
-				background: rgba(0, 0, 0, 0.55);
-				border: 1px solid rgba(0, 255, 144, 0.35);
-				border-radius: 4px;
-				padding: 10px 14px;
-				max-width: 360px;
-				backdrop-filter: blur(4px);
-			}
-			.cp-hero h1 {
-				margin: 0 0 6px;
-				color: #fff;
-				font-size: 14px;
-				font-weight: 700;
-				letter-spacing: 0.05em;
-				text-transform: uppercase;
-				font-family: inherit;
-			}
-			.cp-hero p { margin: 4px 0; line-height: 1.4; }
-			.cp-hero a { color: #00ff90; text-decoration: none; border-bottom: 1px dashed transparent; }
-			.cp-hero a:hover { border-bottom-color: #00ff90; }
-			.cp-hero .specs {
-				margin-top: 6px;
-				color: #6f8;
-				font-size: 11px;
-				opacity: 0.85;
-			}
-			.hero-play {
-				display: inline-block;
-				margin: 8px 0 4px;
-				background: rgba(0, 255, 144, 0.12);
-				border: 1px solid #00ff90;
-				color: #00ff90;
-				font: inherit; font-size: 12px;
-				padding: 5px 14px;
-				border-radius: 999px;
-				cursor: pointer;
-				transition: background 0.15s, color 0.15s, transform 0.15s;
-			}
-			.hero-play:hover { background: #00ff90; color: #000; }
-			.hero-play:active { transform: scale(0.97); }
-
-			/* Audio control (bottom-right, маленький pill) */
-			.cp-audio {
-				position: fixed; bottom: 18px; right: 18px;
-				z-index: 10;
-				font-family: monospace;
-				font-size: 12px;
-				display: inline-flex; gap: 10px; align-items: center;
-				background: rgba(0, 0, 0, 0.6);
-				border: 1px solid rgba(0, 255, 144, 0.35);
-				border-radius: 999px;
-				padding: 8px 14px;
-				backdrop-filter: blur(4px);
-				color: #00ff90;
-			}
-			.cp-audio button {
-				background: transparent; border: 0;
-				font: inherit; color: inherit;
-				cursor: pointer; padding: 0;
-			}
-			.cp-audio button:hover { color: #fff; text-shadow: 0 0 8px #00ff90; }
-			.cp-audio .track { color: #aef; }
-
-			/* Back link (bottom-left) */
+			/* Variant A — две floating-кнопки в углах:
+			   ▶ play  (top-right)   ← кабинет (bottom-left).
+			   Идентично на desktop и mobile. */
+			.cp-play-pill,
 			.cp-back {
-				position: fixed; bottom: 18px; left: 18px;
-				z-index: 10;
+				position: fixed; z-index: 10;
 				font-family: monospace;
-				font-size: 11px;
-				color: #6f8;
+				font-size: 13px;
+				padding: 10px 18px;
+				border-radius: 999px;
+				background: rgba(0, 0, 0, 0.6);
+				border: 1px solid rgba(0, 255, 144, 0.4);
+				color: #00ff90;
+				backdrop-filter: blur(4px);
+				cursor: pointer;
 				text-decoration: none;
-				border: 1px solid rgba(0, 255, 144, 0.35);
-				border-radius: 4px;
-				padding: 6px 10px;
-				background: rgba(0, 0, 0, 0.55);
+				transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
 			}
-			.cp-back:hover { color: #fff; border-color: #00ff90; }
+			.cp-play-pill:hover,
+			.cp-back:hover {
+				background: #00ff90;
+				color: #000;
+				border-color: #00ff90;
+			}
+			.cp-play-pill:active,
+			.cp-back:active { transform: scale(0.97); }
+
+			.cp-play-pill {
+				top: 18px; right: 18px;
+				min-width: 100px;
+				text-align: center;
+				font-weight: 600;
+				letter-spacing: 0.04em;
+			}
+			.cp-back {
+				bottom: 18px; left: 18px;
+				font-size: 12px;
+				padding: 8px 14px;
+			}
 
 			.cp-error {
 				position: fixed; inset: 0; z-index: 60;
@@ -147,30 +103,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			.cp-error.show { display: flex; }
 
 			@media (max-width: 640px) {
-				/* На мобиле прячем хедер целиком — оставляем ТОЛЬКО play кнопку
-				   как floating сверху-справа. И back-link внизу-слева. */
-				.cp-hero {
+				/* На мобиле — те же 2 кнопки, чуть компактнее */
+				.cp-play-pill {
 					top: 12px; right: 12px;
-					left: auto;
-					max-width: none;
-					padding: 0;
-					background: none;
-					border: none;
-					backdrop-filter: none;
-				}
-				.cp-hero h1,
-				.cp-hero p,
-				.cp-hero .specs { display: none; }
-				.hero-play {
-					margin: 0;
 					font-size: 12px;
-					padding: 8px 18px;
-					background: rgba(0, 0, 0, 0.55);
-					backdrop-filter: blur(4px);
+					padding: 8px 16px;
+					min-width: 92px;
 				}
-				/* Нижнюю play-кнопку прячем — на мобиле управляем сверху */
-				.cp-audio { display: none; }
-				.cp-back { bottom: 12px; left: 12px; font-size: 11px; padding: 6px 10px; }
+				.cp-back {
+					bottom: 12px; left: 12px;
+					font-size: 11px;
+					padding: 7px 12px;
+				}
 				.cp-loader .panel { min-width: 240px; padding: 20px 22px; font-size: 12px; }
 			}
 		</style>
@@ -186,16 +130,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 		<div class="scene-stage" id="cp-stage-root"></div>
 
-		<header class="cp-hero">
-			<h1>&gt; Vova Lutsenko · v1</h1>
-			<p><a href={`${base}/`}>← кабинет</a></p>
-			<button class="hero-play" id="cp-play-hero" aria-label="play / pause">▶ play</button>
-		</header>
-
-		<div class="cp-audio" id="cp-audio">
-			<button id="cp-play" aria-label="play / pause">▶ play</button>
-		</div>
-
+		<button class="cp-play-pill" id="cp-play" aria-label="play / pause">▶ play</button>
 		<a class="cp-back" href={`${base}/`}>← кабинет</a>
 
 		<div class="cp-error" id="cp-error">
@@ -227,9 +162,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			const pct = document.getElementById('cp-pct');
 			const stageMsg = document.getElementById('cp-stage');
 			const errorEl = document.getElementById('cp-error');
-			const audioCtl = document.getElementById('cp-audio');
 			const playBtn = document.getElementById('cp-play');
-			const trackEl = document.getElementById('cp-track');
 			const audioEl = document.getElementById('cp-audio-el');
 
 			function setProgress(p, msg) {
@@ -378,36 +311,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			}
 			tick();
 
-			// === Play button — переключает wait-pose ↔ dance + музыку ===
+			// === Единственная play/pause кнопка — переключает wait↔dance + музыку ===
 			audioEl.src = '/audio/cyberpunk-shuffle.mp3';
-			const playBtnHero = document.getElementById('cp-play-hero');
 			let playing = false;
-			function setBtnLabel(label) {
-				playBtn.textContent = label;
-				if (playBtnHero) playBtnHero.textContent = label;
-			}
-			function toggle() {
+			playBtn.addEventListener('click', () => {
 				if (playing) {
-					// Pause: switch to wait pose, остановить музыку
 					if (danceAction) danceAction.paused = true;
 					if (danceAvatar) danceAvatar.visible = false;
 					if (waitAvatar) waitAvatar.visible = true;
 					audioEl.pause();
-					setBtnLabel('▶ play');
+					playBtn.textContent = '▶ play';
 					controls.autoRotate = true;
 				} else {
-					// Play: switch to dance pose, запустить музыку
 					if (waitAvatar) waitAvatar.visible = false;
 					if (danceAvatar) danceAvatar.visible = true;
 					if (danceAction) danceAction.paused = false;
 					audioEl.play().catch((e) => console.warn('audio play blocked:', e));
-					setBtnLabel('❚❚ pause');
-					controls.autoRotate = false; // во время танца — не крутим, чтоб движения было видно
+					playBtn.textContent = '❚❚ pause';
+					controls.autoRotate = false; // во время танца — не крутим
 				}
 				playing = !playing;
-			}
-			playBtn.addEventListener('click', toggle);
-			playBtnHero?.addEventListener('click', toggle);
+			});
 		</script>
 	</body>
 </html>
