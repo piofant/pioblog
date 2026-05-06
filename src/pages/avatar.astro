@@ -1,0 +1,331 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_TITLE } from '../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead
+			title="3D-аватар"
+			description={`Цифровая 3D-личность — ${SITE_TITLE}`}
+			image="/avatar_pio.png"
+		/>
+		<style>
+			* { box-sizing: border-box; }
+			html, body { margin: 0; padding: 0; height: 100%; background: #050608; color: #eaeaea; font-family: ui-monospace, 'SF Mono', Monaco, monospace; overflow: hidden; }
+			body { overscroll-behavior: none; }
+
+			.scene-stage {
+				position: fixed; inset: 0;
+				z-index: 0;
+				background: radial-gradient(ellipse at center, #0d1218 0%, #000 80%);
+			}
+			canvas { display: block; }
+
+			.cp-loader {
+				position: fixed; inset: 0; z-index: 50;
+				background: #050608;
+				display: flex; align-items: center; justify-content: center;
+				transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+			}
+			.cp-loader.done { opacity: 0; visibility: hidden; }
+			.cp-loader .panel {
+				font-family: monospace;
+				font-size: 13px;
+				color: #00ff90;
+				text-shadow: 0 0 8px #00ff90;
+				display: flex; flex-direction: column; align-items: flex-start;
+				padding: 32px 40px;
+				border: 1px solid #00ff90;
+				box-shadow: 0 0 12px rgba(0, 255, 144, 0.35);
+				background: rgba(0, 0, 0, 0.6);
+				min-width: 320px;
+			}
+			.cp-loader .panel > div { margin-bottom: 14px; }
+			.cp-loader .panel > div:last-child { margin-bottom: 0; }
+			.cp-loader .bar { font-variant-numeric: tabular-nums; }
+			.cursor { display: inline-block; animation: blink 1s step-end infinite; }
+			@keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
+			/* Hero overlay (top-left) */
+			.cp-hero {
+				position: fixed; top: 16px; left: 16px;
+				z-index: 10;
+				font-family: monospace;
+				font-size: 12px;
+				color: #aef;
+				background: rgba(0, 0, 0, 0.55);
+				border: 1px solid rgba(0, 255, 144, 0.35);
+				border-radius: 4px;
+				padding: 10px 14px;
+				max-width: 360px;
+				backdrop-filter: blur(4px);
+			}
+			.cp-hero h1 {
+				margin: 0 0 6px;
+				color: #fff;
+				font-size: 14px;
+				font-weight: 700;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+				font-family: inherit;
+			}
+			.cp-hero p { margin: 4px 0; line-height: 1.4; }
+			.cp-hero a { color: #00ff90; text-decoration: none; border-bottom: 1px dashed transparent; }
+			.cp-hero a:hover { border-bottom-color: #00ff90; }
+			.cp-hero .specs {
+				margin-top: 6px;
+				color: #6f8;
+				font-size: 11px;
+				opacity: 0.85;
+			}
+
+			/* Audio control (bottom-right, маленький pill) */
+			.cp-audio {
+				position: fixed; bottom: 18px; right: 18px;
+				z-index: 10;
+				font-family: monospace;
+				font-size: 12px;
+				display: inline-flex; gap: 10px; align-items: center;
+				background: rgba(0, 0, 0, 0.6);
+				border: 1px solid rgba(0, 255, 144, 0.35);
+				border-radius: 999px;
+				padding: 8px 14px;
+				backdrop-filter: blur(4px);
+				color: #00ff90;
+			}
+			.cp-audio button {
+				background: transparent; border: 0;
+				font: inherit; color: inherit;
+				cursor: pointer; padding: 0;
+			}
+			.cp-audio button:hover { color: #fff; text-shadow: 0 0 8px #00ff90; }
+			.cp-audio .track { color: #aef; }
+
+			/* Back link (bottom-left) */
+			.cp-back {
+				position: fixed; bottom: 18px; left: 18px;
+				z-index: 10;
+				font-family: monospace;
+				font-size: 11px;
+				color: #6f8;
+				text-decoration: none;
+				border: 1px solid rgba(0, 255, 144, 0.35);
+				border-radius: 4px;
+				padding: 6px 10px;
+				background: rgba(0, 0, 0, 0.55);
+			}
+			.cp-back:hover { color: #fff; border-color: #00ff90; }
+
+			.cp-error {
+				position: fixed; inset: 0; z-index: 60;
+				display: none; align-items: center; justify-content: center;
+				background: rgba(0, 0, 0, 0.85);
+				color: #ff5566;
+				font-family: monospace;
+				font-size: 14px;
+				text-align: center;
+				padding: 32px;
+			}
+			.cp-error.show { display: flex; }
+
+			@media (max-width: 640px) {
+				.cp-hero { max-width: calc(100% - 32px); font-size: 11px; }
+				.cp-hero h1 { font-size: 13px; }
+				.cp-loader .panel { min-width: 260px; padding: 24px 28px; }
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cp-loader" id="cp-loader">
+			<div class="panel">
+				<div>&gt; LOADING SCENE...</div>
+				<div class="bar">[<span id="cp-bar">░░░░░░░░░░░░░░░░░░░░</span>] <span id="cp-pct">0</span>%<span class="cursor">_</span></div>
+				<div id="cp-stage">&gt; init...</div>
+			</div>
+		</div>
+
+		<div class="scene-stage" id="cp-stage-root"></div>
+
+		<header class="cp-hero">
+			<h1>&gt; Vova Lutsenko · v1</h1>
+			<p>Моя цифровая 3D-личность. Танцую shuffle под трек из Cyberpunk 2077.</p>
+			<p><a href={`${base}/blog/`}>← в блог</a> · <a href={`${base}/`}>главная</a></p>
+			<div class="specs">three.js · gltf · avaturn.me · 4.8K триангуляций</div>
+		</header>
+
+		<div class="cp-audio" id="cp-audio" hidden>
+			<button id="cp-play" aria-label="Включить звук">▶ play</button>
+			<span class="track" id="cp-track">— track</span>
+		</div>
+
+		<a class="cp-back" href={`${base}/`}>← back</a>
+
+		<div class="cp-error" id="cp-error">
+			<div>
+				<div>&gt; ERROR: failed to load avatar.glb</div>
+				<div style="margin-top:12px;font-size:11px;opacity:0.7">проверь /3d/avatar.glb и refresh</div>
+			</div>
+		</div>
+
+		<audio id="cp-audio-el" loop preload="auto"></audio>
+
+		<script type="importmap" is:inline>
+			{
+				"imports": {
+					"three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+					"three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+				}
+			}
+		</script>
+
+		<script type="module" is:inline>
+			import * as THREE from 'three';
+			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+			const loader = document.getElementById('cp-loader');
+			const bar = document.getElementById('cp-bar');
+			const pct = document.getElementById('cp-pct');
+			const stageMsg = document.getElementById('cp-stage');
+			const errorEl = document.getElementById('cp-error');
+			const audioCtl = document.getElementById('cp-audio');
+			const playBtn = document.getElementById('cp-play');
+			const trackEl = document.getElementById('cp-track');
+			const audioEl = document.getElementById('cp-audio-el');
+
+			function setProgress(p, msg) {
+				const filled = Math.round((p / 100) * 20);
+				bar.textContent = '█'.repeat(filled) + '░'.repeat(20 - filled);
+				pct.textContent = String(Math.round(p));
+				if (msg) stageMsg.textContent = '> ' + msg;
+			}
+
+			const root = document.getElementById('cp-stage-root');
+			const scene = new THREE.Scene();
+			scene.background = null;
+
+			const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
+			camera.position.set(0, 1.5, 3.6);
+
+			const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.outputColorSpace = THREE.SRGBColorSpace;
+			renderer.toneMapping = THREE.ACESFilmicToneMapping;
+			renderer.toneMappingExposure = 1.1;
+			root.appendChild(renderer.domElement);
+
+			// Освещение — мягкий fill + cyber-rim
+			const hemi = new THREE.HemisphereLight(0xb8d4ff, 0x101820, 0.45);
+			scene.add(hemi);
+			const key = new THREE.DirectionalLight(0xffffff, 1.4);
+			key.position.set(2, 4, 3);
+			scene.add(key);
+			const rim1 = new THREE.PointLight(0x00ff90, 1.4, 8);
+			rim1.position.set(-1.8, 1.5, -1.2);
+			scene.add(rim1);
+			const rim2 = new THREE.PointLight(0xff3380, 1.0, 8);
+			rim2.position.set(1.8, 1.0, -1.5);
+			scene.add(rim2);
+
+			// Sci-fi ground — простая сетка
+			const grid = new THREE.GridHelper(10, 20, 0x00ff90, 0x222629);
+			grid.position.y = 0;
+			grid.material.opacity = 0.35;
+			grid.material.transparent = true;
+			scene.add(grid);
+
+			const controls = new OrbitControls(camera, renderer.domElement);
+			controls.enablePan = false;
+			controls.minDistance = 1.4;
+			controls.maxDistance = 6;
+			controls.minPolarAngle = Math.PI * 0.15;
+			controls.maxPolarAngle = Math.PI * 0.6;
+			controls.target.set(0, 1.0, 0);
+			controls.enableDamping = true;
+			controls.dampingFactor = 0.06;
+			controls.autoRotate = true;
+			controls.autoRotateSpeed = 0.6;
+
+			let mixer = null;
+			const clock = new THREE.Clock();
+
+			setProgress(5, 'fetching model.glb...');
+			new GLTFLoader().load(
+				'/3d/avatar.glb',
+				(gltf) => {
+					setProgress(85, 'parsing geometry...');
+					const root = gltf.scene;
+					// Центр и масштаб — высота персонажа ~1.8м, ставим ноги на y=0
+					const box = new THREE.Box3().setFromObject(root);
+					const size = box.getSize(new THREE.Vector3());
+					const center = box.getCenter(new THREE.Vector3());
+					root.position.x -= center.x;
+					root.position.z -= center.z;
+					root.position.y -= box.min.y;
+					scene.add(root);
+
+					// Анимации (Avaturn модели обычно идут с idle/dance)
+					if (gltf.animations && gltf.animations.length) {
+						mixer = new THREE.AnimationMixer(root);
+						const action = mixer.clipAction(gltf.animations[0]);
+						action.play();
+					}
+
+					setProgress(100, 'ready');
+					setTimeout(() => loader.classList.add('done'), 250);
+				},
+				(xhr) => {
+					if (xhr.lengthComputable) {
+						const p = 5 + (xhr.loaded / xhr.total) * 80;
+						setProgress(p, 'downloading model... ' + Math.round((xhr.loaded / 1024 / 1024) * 10) / 10 + 'MB');
+					}
+				},
+				(err) => {
+					console.error(err);
+					errorEl.classList.add('show');
+				},
+			);
+
+			window.addEventListener('resize', () => {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize(window.innerWidth, window.innerHeight);
+			});
+
+			function tick() {
+				requestAnimationFrame(tick);
+				const dt = clock.getDelta();
+				if (mixer) mixer.update(dt);
+				controls.update();
+				renderer.render(scene, camera);
+			}
+			tick();
+
+			// === Audio ===
+			// Fetch HEAD проверка — если файл есть, показываем плеер; если нет — скрываем.
+			const trackPath = '/audio/cyberpunk-shuffle.mp3';
+			fetch(trackPath, { method: 'HEAD' }).then((r) => {
+				if (!r.ok) return;
+				audioEl.src = trackPath;
+				audioCtl.hidden = false;
+				trackEl.textContent = '— Cyberpunk shuffle';
+				let playing = false;
+				playBtn.addEventListener('click', () => {
+					if (playing) {
+						audioEl.pause();
+						playBtn.textContent = '▶ play';
+					} else {
+						audioEl.play().catch(() => {});
+						playBtn.textContent = '❚❚ pause';
+					}
+					playing = !playing;
+				});
+			}).catch(() => {});
+		</script>
+	</body>
+</html>
