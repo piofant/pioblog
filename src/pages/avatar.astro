@@ -69,34 +69,32 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			/* PLAY — primary, заполненный, с glow */
 			.cp-play-pill {
 				top: 18px; left: 18px;
-				min-width: 130px;
+				min-width: 102px;
 				text-align: center;
-				font-size: 15px;
+				font-size: 13px;
 				font-weight: 700;
-				letter-spacing: 0.05em;
-				padding: 13px 24px;
+				letter-spacing: 0.04em;
+				padding: 9px 18px;
 				background: linear-gradient(180deg, #00ff90 0%, #00cc73 100%);
 				color: #001b10;
 				border: 1px solid #00ff90;
 				box-shadow:
-					0 0 24px rgba(0, 255, 144, 0.55),
-					0 0 4px rgba(0, 255, 144, 0.9) inset,
-					0 4px 16px rgba(0, 0, 0, 0.4);
+					0 0 10px rgba(0, 255, 144, 0.3),
+					0 2px 10px rgba(0, 0, 0, 0.35);
 			}
 			.cp-play-pill:hover {
-				transform: translateY(-1px) scale(1.02);
+				transform: translateY(-1px);
 				box-shadow:
-					0 0 32px rgba(0, 255, 144, 0.75),
-					0 0 4px rgba(0, 255, 144, 1) inset,
-					0 6px 20px rgba(0, 0, 0, 0.45);
+					0 0 16px rgba(0, 255, 144, 0.5),
+					0 4px 12px rgba(0, 0, 0, 0.4);
 			}
 			.cp-play-pill:active { transform: scale(0.97); }
-			/* Лёгкий пульс пока не нажали — привлекает внимание */
+			/* Лёгкий пульс пока не нажали — мягкий, не в глаза */
 			@keyframes play-pulse {
-				0%, 100% { box-shadow: 0 0 24px rgba(0, 255, 144, 0.55), 0 0 4px rgba(0, 255, 144, 0.9) inset, 0 4px 16px rgba(0, 0, 0, 0.4); }
-				50%      { box-shadow: 0 0 36px rgba(0, 255, 144, 0.85), 0 0 4px rgba(0, 255, 144, 1) inset, 0 4px 16px rgba(0, 0, 0, 0.4); }
+				0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 144, 0.28), 0 2px 10px rgba(0, 0, 0, 0.35); }
+				50%      { box-shadow: 0 0 16px rgba(0, 255, 144, 0.45), 0 2px 10px rgba(0, 0, 0, 0.35); }
 			}
-			.cp-play-pill { animation: play-pulse 2.4s ease-in-out infinite; }
+			.cp-play-pill { animation: play-pulse 3s ease-in-out infinite; }
 			.cp-play-pill.is-playing { animation: none; }
 
 			/* КАБИНЕТ — secondary, ghost-style */
