@@ -5,6 +5,8 @@ pubDate: '2026-05-03'
 tgMessageId: 434
 tags: ['психология', 'рефлексия']
 heroImage: '/img/tg/434/0.jpg'
+series: 'dbt-practice'
+seriesPart: 1
 ---
 
 [**что меня туда привело**]
